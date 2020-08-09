@@ -91,10 +91,6 @@
           <router-view></router-view>
         </v-container>
       </v-main>
-
-      <v-footer app>
-        <span>&copy; {{ new Date().getFullYear() }}</span>
-      </v-footer>
     </v-app>
   </v-app>
 </template>
