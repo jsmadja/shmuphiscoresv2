@@ -36,7 +36,7 @@
             </v-list-item-content>
           </v-list-item>
           <v-divider></v-divider>
-          <v-list-item link>
+          <v-list-item link to="/search-game">
             <v-list-item-action>
               <v-icon>mdi-magnify</v-icon>
             </v-list-item-action>
@@ -83,16 +83,12 @@
 
       <v-app-bar app clipped-left>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>Application</v-toolbar-title>
+        <v-toolbar-title>shmup.hiscores</v-toolbar-title>
       </v-app-bar>
 
       <v-main>
-        <v-container class="fill-height" fluid>
-          <v-row align="center" justify="center">
-            <v-col class="shrink">
-              Source
-            </v-col>
-          </v-row>
+        <v-container fluid>
+          <router-view></router-view>
         </v-container>
       </v-main>
 
