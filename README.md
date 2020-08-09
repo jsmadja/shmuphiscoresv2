@@ -32,3 +32,11 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Heroku configuration
+```
+heroku login
+heroku buildpacks:add heroku/nodejs -a shmuphiscoresv2
+heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static -a shmuphiscoresv2
+git push
+```
