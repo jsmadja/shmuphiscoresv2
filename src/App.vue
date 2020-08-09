@@ -5,10 +5,69 @@
         <v-list dense>
           <v-list-item link>
             <v-list-item-action>
-              <v-icon>mdi-view-dashboard</v-icon>
+              <v-icon>mdi-account</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title>Dashboard</v-list-item-title>
+              <v-list-item-title>My Profile</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-view-list</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>My Games</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-compass</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>My recommandations</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-target</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>My Kill List</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider></v-divider>
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-magnify</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Search Game</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-compare-horizontal</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Compare Scores</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider></v-divider>
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-view-grid-plus</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Add Game</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider></v-divider>
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-finance</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Statistics</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
           <v-list-item link>
