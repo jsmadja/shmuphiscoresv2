@@ -15,7 +15,9 @@
     </v-row>
     <v-layout row>
       <v-flex xs6 sm4 lg2 xl2 class="pa-2" v-for="n in 6" :key="n">
-        <v-skeleton-loader type="card"></v-skeleton-loader>
+        <router-link to="/game">
+          <v-skeleton-loader type="card"></v-skeleton-loader>
+        </router-link>
       </v-flex>
     </v-layout>
   </v-container>

@@ -3,12 +3,13 @@
     <v-layout>
       <h1>Mushihimesama Futari</h1>
     </v-layout>
-    <v-layout>
+    <!-- Ranking Menu -->
+    <v-layout class="d-none d-sm-flex">
       <v-navigation-drawer
         clipped
         fixed
         right
-        class="mt-15"
+        class="mt-16"
         permanent
         expand-on-hover
       >
@@ -20,20 +21,39 @@
           </v-list-item-content>
         </v-list-item>
         <v-divider></v-divider>
-        <v-list dense>
+        <v-list>
           <v-list-item>
-            <v-list-item-title>Version 1.5 - Original</v-list-item-title>
+            <v-list-item-title
+              class="ranking-name"
+              :class="{ selected: isActive('#v15original') }"
+              @click="
+                selectedRanking = '#v15original';
+                $vuetify.goTo('#v15original');
+              "
+            >
+              Version 1.5 - Original
+            </v-list-item-title>
           </v-list-item>
           <v-list-item>
-            <v-list-item-title>Version 1.5 - Maniac</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title>Version 1.5 - Ultra</v-list-item-title>
+            <v-list-item-title
+              class="ranking-name"
+              :class="{ selected: isActive('#v15maniac') }"
+              @click="
+                selectedRanking = '#v15maniac';
+                $vuetify.goTo('#v15maniac');
+              "
+              >Version 1.5 - Maniac</v-list-item-title
+            >
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
     </v-layout>
-    <v-layout row class="float-right ml-6 pr-16" style="max-width: 30%;">
+    <!-- Infos -->
+    <v-layout
+      row
+      class="float-right ml-6 pr-16 d-none d-sm-flex"
+      style="max-width: 30%;"
+    >
       <v-flex xs12>
         <v-img src="https://hiscores.shmup.com/covers/2.jpg" />
       </v-flex>
@@ -65,8 +85,9 @@
         <v-btn tile small>Edit</v-btn>
       </v-flex>
     </v-layout>
+    <!-- Rankings -->
     <v-layout row>
-      <v-flex xs12 class="mt-5">
+      <v-flex xs12 class="mt-5" id="v15original">
         <v-card>
           <v-card-title>
             Version 1.5 - Original
@@ -86,7 +107,7 @@
           ></v-data-table>
         </v-card>
       </v-flex>
-      <v-flex xs12 class="mt-5">
+      <v-flex xs12 class="mt-5" id="v15maniac">
         <v-card>
           <v-card-title>
             Version 1.5 - Maniac
@@ -116,6 +137,7 @@ export default {
   components: {},
   data() {
     return {
+      selectedRanking: "",
       search: "",
       headers: [
         { text: "Rank", value: "rank" },
@@ -787,6 +809,21 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    isActive(ranking) {
+      return this.selectedRanking === ranking;
+    }
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.ranking-name {
+  cursor: pointer;
+  &.selected {
+    border-left: solid 3px orange;
+    padding-left: 5px;
+  }
+}
+</style>
