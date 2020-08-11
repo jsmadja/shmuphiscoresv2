@@ -36,6 +36,14 @@
             </v-list-item-content>
           </v-list-item>
           <v-divider></v-divider>
+          <v-list-item link to="/players">
+            <v-list-item-action>
+              <v-icon>mdi-account-multiple</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>All Players</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
           <v-list-item link to="/search-game">
             <v-list-item-action>
               <v-icon>mdi-magnify</v-icon>
