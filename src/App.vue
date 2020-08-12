@@ -27,14 +27,14 @@
               <v-list-item-title>My recommendations</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item link>
+          <!-- v-list-item link>
             <v-list-item-action>
               <v-icon>mdi-target</v-icon>
             </v-list-item-action>
             <v-list-item-content>
               <v-list-item-title>My Kill List</v-list-item-title>
             </v-list-item-content>
-          </v-list-item>
+          </v-list-item -->
           <v-divider></v-divider>
           <v-list-item link to="/players">
             <v-list-item-action>
@@ -78,14 +78,14 @@
               <v-list-item-title>Statistics</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item link>
+          <!-- v-list-item link>
             <v-list-item-action>
               <v-icon>mdi-cog</v-icon>
             </v-list-item-action>
             <v-list-item-content>
               <v-list-item-title>Settings</v-list-item-title>
             </v-list-item-content>
-          </v-list-item>
+          </v-list-item -->
         </v-list>
       </v-navigation-drawer>
 
