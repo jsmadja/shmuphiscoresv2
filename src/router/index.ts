@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import SearchGame from "../views/SearchGame.vue";
 import Game from "../views/Game.vue";
 import MyGames from "../views/MyGames.vue";
+import MyProfile from "../views/MyProfile.vue";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes: Array<RouteConfig> = [
     path: "/my-games",
     name: "My Games",
     component: MyGames
+  },
+  {
+    path: "/my-profile",
+    name: "My Profile",
+    component: MyProfile
   },
   {
     path: "/about",

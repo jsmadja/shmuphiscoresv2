@@ -3,7 +3,7 @@
     <v-app id="inspire">
       <v-navigation-drawer v-model="drawer" app clipped>
         <v-list dense>
-          <v-list-item link>
+          <v-list-item link to="/my-profile">
             <v-list-item-action>
               <v-icon>mdi-account</v-icon>
             </v-list-item-action>
