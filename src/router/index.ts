@@ -8,6 +8,7 @@ import MyGames from "../views/MyGames.vue";
 import MyProfile from "../views/MyProfile.vue";
 import MyRecommendations from "../views/MyRecommendations.vue";
 import CompareScores from "../views/CompareScores.vue";
+import Statistics from "../views/Statistics.vue";
 
 Vue.use(VueRouter);
 
@@ -31,6 +32,11 @@ const routes: Array<RouteConfig> = [
     path: "/game",
     name: "Game",
     component: Game
+  },
+  {
+    path: "/statistics",
+    name: "Statistics",
+    component: Statistics
   },
   {
     path: "/my-games",
