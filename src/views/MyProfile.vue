@@ -1,8 +1,9 @@
 <template>
   <div>
     <h1>My Profile</h1>
+    <v-divider></v-divider>
 
-    <h2>Preferences</h2>
+    <h2 class="mt-10">Preferences</h2>
     <v-container>
       <v-row>
         <v-flex xs12>
@@ -11,14 +12,14 @@
       </v-row>
     </v-container>
 
-    <h2>My Arch Enemy</h2>
+    <h2 class="mt-10">My Arch Enemy</h2>
     <v-container>
       <v-row>
         <router-link to="/player/1">Mickey</router-link> <router-link to="/versus/1/2">Show 38 versus</router-link> (ratio: 5/33)
       </v-row>
     </v-container>
 
-    <h2>Share my medals on forums</h2>
+    <h2 class="mt-10">Share my medals on forums</h2>
     <v-container>
       <v-row>
         <v-flex xs4 class="grey lighten-5">
