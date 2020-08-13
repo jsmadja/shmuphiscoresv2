@@ -52,7 +52,7 @@
               <v-list-item-title>Search Game</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item link>
+          <v-list-item link to="/compare-scores">
             <v-list-item-action>
               <v-icon>mdi-compare-horizontal</v-icon>
             </v-list-item-action>
