@@ -37,6 +37,7 @@
           :headers="headers"
           :items="items"
           :search="search"
+          @click:row="handleClick"
         ></v-data-table>
       </v-col>
     </v-row>
@@ -68,6 +69,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    handleClick() {
+      this.$router.push('/game');
+    }
   }
 };
 </script>

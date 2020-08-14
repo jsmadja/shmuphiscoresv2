@@ -11,6 +11,7 @@ import CompareScores from "../views/CompareScores.vue";
 import Statistics from "../views/Statistics.vue";
 import Platforms from "../views/Platforms.vue";
 import Platform from "../views/Platform.vue";
+import Player from "../views/Player.vue";
 
 Vue.use(VueRouter);
 
@@ -73,6 +74,11 @@ const routes: Array<RouteConfig> = [
   {
     path: "/players",
     name: "All Players",component: () => import("../views/Players.vue")
+  },
+  {
+    path: "/player",
+    name: "Player",
+    component: Player
   }
 ];
 

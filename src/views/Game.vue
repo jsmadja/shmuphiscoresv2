@@ -106,6 +106,7 @@
                 :headers="headers"
                 :items="desserts"
                 :search="search"
+                @click:row="handleClick"
               ></v-data-table>
             </v-card>
           </v-col>
@@ -128,6 +129,7 @@
                 :headers="headers"
                 :items="desserts"
                 :search="search"
+                @click:row="handleClick"
               ></v-data-table>
             </v-card>
           </v-col>
@@ -819,6 +821,9 @@ export default {
   methods: {
     isActive(ranking) {
       return this.selectedRanking === ranking;
+    },
+    handleClick() {
+      this.$router.push('/player');
     }
   }
 };

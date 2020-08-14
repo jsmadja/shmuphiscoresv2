@@ -7,7 +7,7 @@
     </v-row>
     <v-row dense>
       <v-col v-for="(item, i) in items" :key="i" xs="12" sm="12" md="12" lg="6">
-        <v-card dark>
+        <v-card dark to="/game">
           <div class="d-flex justify-space-between">
             <div>
               <v-card-title class="headline" v-text="item.title"></v-card-title>

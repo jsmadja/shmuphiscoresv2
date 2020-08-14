@@ -7,14 +7,14 @@
     </v-row>
     <v-row dense>
       <v-col v-for="(item, i) in items" :key="i" cols="12" lg="6">
-        <v-card dark>
+        <v-card dark to="/game">
           <div class="d-flex flex-no-wrap justify-space-between">
             <div>
               <v-card-title class="headline" v-text="item.title"></v-card-title>
 
               <v-card-subtitle v-html="item.artist"></v-card-subtitle>
               <v-card-actions>
-                <v-btn text>ADD SCORE</v-btn>
+                <v-btn text to="/game">ADD SCORE</v-btn>
               </v-card-actions>
             </div>
 

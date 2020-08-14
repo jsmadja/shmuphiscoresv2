@@ -14,7 +14,7 @@
 
               <v-card-subtitle v-html="item.artist"></v-card-subtitle>
               <v-card-actions>
-                <v-btn text>RANKING</v-btn>
+                <v-btn text to="/game">RANKING</v-btn>
               </v-card-actions>
             </div>
 

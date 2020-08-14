@@ -15,7 +15,7 @@
         md="12"
         lg="6"
       >
-        <v-card dark>
+        <v-card dark to="/game">
           <div class="d-flex justify-space-between">
             <div>
               <v-card-title class="headline" v-text="card.title"></v-card-title>

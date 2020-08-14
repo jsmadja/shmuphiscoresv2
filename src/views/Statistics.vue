@@ -12,7 +12,11 @@
           Les joueurs ci-dessous sont en première place pour chacun de leurs
           jeux.
         </div>
-        <v-data-table :headers="headers" :items="items"></v-data-table>
+        <v-data-table
+          :headers="headers"
+          :items="items"
+          @click:row="handleClick"
+        ></v-data-table>
       </v-col>
       <v-col cols="12" lg="6">
         <v-card>
@@ -162,6 +166,11 @@ export default {
         ]
       }
     };
+  },
+  methods: {
+    handleClick() {
+      this.$router.push('/player');
+    }
   }
 };
 </script>
