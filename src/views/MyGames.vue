@@ -1,14 +1,29 @@
 <template>
   <div>
     <h1>My Games</h1>
-    <v-container fluid>
-      <v-row>
-        <v-col v-for="card in items" :key="card.title" xs="12" sm="4" lg="2" xl="2">
-          <v-card to="/game">
-            <v-img :src="card.cover" height="200px"> </v-img>
-            <v-card-actions>
-              <v-card-title v-text="card.title"></v-card-title>
-            </v-card-actions>
+    <v-container>
+      <v-row dense>
+        <v-col
+          v-for="card in items"
+          :key="card.title"
+          cols="12"
+          xs="12"
+          sm="12"
+          md="12"
+          lg="6"
+        >
+          <v-card dark>
+            <div class="d-flex justify-space-between">
+              <div>
+                <v-card-title
+                  class="headline"
+                  v-text="card.title"
+                ></v-card-title>
+              </div>
+              <v-avatar class="ma-3" size="125" tile>
+                <v-img :src="card.cover"></v-img>
+              </v-avatar>
+            </div>
           </v-card>
         </v-col>
       </v-row>
