@@ -114,6 +114,38 @@
       <v-main>
         <v-container fluid>
           <router-view></router-view>
+          <v-menu open-on-hover top offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                v-bind="attrs"
+                v-on="on"
+                fixed
+                absolute
+                dark
+                fab
+                bottom
+                right
+                color="#1972F5"
+                class="mr-5 mb-12"
+              >
+                <v-icon>mdi-plus</v-icon>
+              </v-btn>
+            </template>
+
+            <v-list>
+              <v-list-item
+                v-for="(item, index) in [
+                  'Mushihimesama Futari',
+                  'Gunhed',
+                  'Gate of Thunder'
+                ]"
+                :key="index"
+                style="cursor: pointer;"
+              >
+                <v-list-item-title>{{ item }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </v-container>
       </v-main>
     </v-app>
