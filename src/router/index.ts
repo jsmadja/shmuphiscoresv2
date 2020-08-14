@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
-import SearchGame from "../views/SearchGame.vue";
+import Games from "../views/Games.vue";
 import AddGame from "../views/AddGame.vue";
 import Game from "../views/Game.vue";
 import MyGames from "../views/MyGames.vue";
@@ -9,6 +9,8 @@ import MyProfile from "../views/MyProfile.vue";
 import MyRecommendations from "../views/MyRecommendations.vue";
 import CompareScores from "../views/CompareScores.vue";
 import Statistics from "../views/Statistics.vue";
+import Platforms from "../views/Platforms.vue";
+import Platform from "../views/Platform.vue";
 
 Vue.use(VueRouter);
 
@@ -19,9 +21,19 @@ const routes: Array<RouteConfig> = [
     component: Home
   },
   {
-    path: "/search-game",
-    name: "SearchGame",
-    component: SearchGame
+    path: "/games",
+    name: "Games",
+    component: Games
+  },
+  {
+    path: "/platforms",
+    name: "Platforms",
+    component: Platforms
+  },
+  {
+    path: "/platform",
+    name: "Platform",
+    component: Platform
   },
   {
     path: "/add-game",

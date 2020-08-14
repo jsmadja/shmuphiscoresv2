@@ -13,6 +13,7 @@
           hide-no-data
           hide-selected
           label="Player 1"
+          value="Anzymus"
           placeholder="Start typing to Search"
           outlined
         ></v-autocomplete>
@@ -20,6 +21,7 @@
       <v-col>
         <v-autocomplete
           :items="['Mickey']"
+          value="Mickey"
           color="white"
           hide-no-data
           hide-selected

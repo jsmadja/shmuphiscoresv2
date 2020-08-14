@@ -19,6 +19,7 @@
           <div class="d-flex justify-space-between">
             <div>
               <v-card-title class="headline" v-text="card.title"></v-card-title>
+              <v-card-subtitle>12 personal scores</v-card-subtitle>
             </div>
             <v-avatar class="ma-3" size="125" tile>
               <v-img :src="card.cover"></v-img>

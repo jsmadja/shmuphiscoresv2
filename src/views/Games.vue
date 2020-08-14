@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1>Search Game</h1>
+        <h1>Games</h1>
       </v-col>
     </v-row>
     <v-row>
@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: "SearchGame",
+  name: "Games",
   components: {}
 };
 </script>

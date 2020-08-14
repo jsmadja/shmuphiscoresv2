@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1>All Players</h1>
+        <h1>Players</h1>
       </v-col>
     </v-row>
     <!-- Rankings -->

@@ -11,6 +11,7 @@
               <v-list-item-title>Home</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
+          <v-divider></v-divider>
           <v-list-item link to="/my-profile">
             <v-list-item-action>
               <v-icon>mdi-account</v-icon>
@@ -32,7 +33,7 @@
               <v-icon>mdi-compass</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title>My recommendations</v-list-item-title>
+              <v-list-item-title>My Recommendations</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
           <!-- v-list-item link>
@@ -44,20 +45,28 @@
             </v-list-item-content>
           </v-list-item -->
           <v-divider></v-divider>
+          <v-list-item link to="/games">
+            <v-list-item-action>
+              <v-icon>mdi-gamepad-variant</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Games</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item link to="/platforms">
+            <v-list-item-action>
+              <v-icon>mdi-desktop-classic</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Platforms</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
           <v-list-item link to="/players">
             <v-list-item-action>
               <v-icon>mdi-account-multiple</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title>All Players</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item link to="/search-game">
-            <v-list-item-action>
-              <v-icon>mdi-magnify</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Search Game</v-list-item-title>
+              <v-list-item-title>Players</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
           <v-list-item link to="/compare-scores">
