@@ -3,9 +3,16 @@
     <h1>My Recommendations</h1>
     <v-container>
       <v-row dense>
-        <v-col v-for="(item, i) in items" :key="i" cols="6">
+        <v-col
+          v-for="(item, i) in items"
+          :key="i"
+          xs="12"
+          sm="12"
+          md="12"
+          lg="6"
+        >
           <v-card dark>
-            <div class="d-flex flex-no-wrap justify-space-between">
+            <div class="d-flex justify-space-between">
               <div>
                 <v-card-title
                   class="headline"
@@ -54,7 +61,8 @@ export default {
       {
         src: "http://hiscores.shmup.com/covers/7.jpg",
         title: "Teste une nouvelle difficulté",
-        artist: "Essaie la difficulté <b>ARRANGE A</b> de <b>Dodonpachi Daiffukatsu</b>."
+        artist:
+          "Essaie la difficulté <b>ARRANGE A</b> de <b>Dodonpachi Daiffukatsu</b>."
       },
       {
         src: "http://hiscores.shmup.com/covers/141.jpg",
