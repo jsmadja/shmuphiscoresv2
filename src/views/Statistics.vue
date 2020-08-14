@@ -6,7 +6,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col xs="12" sm="12" lg="6">
+      <v-col cols="12" xs="12" sm="12" lg="6">
         <h2>Joueurs invaincus</h2>
         <div>
           Les joueurs ci-dessous sont en première place pour chacun de leurs
@@ -14,7 +14,7 @@
         </div>
         <v-data-table :headers="headers" :items="items"></v-data-table>
       </v-col>
-      <v-col lg="6">
+      <v-col cols="12" lg="6">
         <v-card>
           <highcharts :options="chartOptions"></highcharts>
         </v-card>

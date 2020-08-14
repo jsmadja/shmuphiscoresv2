@@ -1,10 +1,12 @@
 <template>
-  <v-container no-gutters fluid>
-    <v-layout>
-      <h1>Mushihimesama Futari</h1>
-    </v-layout>
+  <v-container>
+    <v-row>
+      <v-col>
+        <h1>Mushihimesama Futari</h1>
+      </v-col>
+    </v-row>
     <!-- Ranking Menu -->
-    <v-layout class="d-none d-sm-flex">
+    <v-row class="d-none d-sm-flex">
       <v-navigation-drawer
         clipped
         fixed
@@ -42,92 +44,96 @@
                 selectedRanking = '#v15maniac';
                 $vuetify.goTo('#v15maniac');
               "
-              >Version 1.5 - Maniac</v-list-item-title
-            >
+              >Version 1.5 - Maniac
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
-    </v-layout>
+    </v-row>
     <!-- Infos -->
-    <v-layout
-      row
-      class="float-right ml-6 pr-16 d-none d-sm-flex"
-      style="max-width: 30%;"
-    >
-      <v-flex xs12>
-        <v-img src="https://hiscores.shmup.com/covers/2.jpg" />
-      </v-flex>
-      <v-flex xs12 class="mt-3">
-        <v-chip class="ma-2" color="green" text-color="white">
-          <v-avatar left class="green darken-4">
-            3
-          </v-avatar>
-          Platforms
-        </v-chip>
-        <v-chip class="ma-2" color="amber" text-color="white">
-          <v-avatar left class="amber darken-4">
-            4
-          </v-avatar>
-          Difficulties
-        </v-chip>
-        <v-chip class="ma-2" color="grey" text-color="white">
-          <v-avatar left class="grey darken-4">
-            4
-          </v-avatar>
-          Modes
-        </v-chip>
-      </v-flex>
-      <v-flex xs12 class="mt-3">
-        <v-btn tile small class="mr-1 mb-1">Read Forum</v-btn>
-        <v-btn tile small class="mr-1 mb-1">Ranking Picture</v-btn>
-        <v-btn tile small class="mr-1 mb-1">Import Scores</v-btn>
-        <v-btn tile small class="mr-1 mb-1">Create Event</v-btn>
-        <v-btn tile small>Edit</v-btn>
-      </v-flex>
-    </v-layout>
-    <!-- Rankings -->
-    <v-layout row>
-      <v-flex xs12 class="mt-5" id="v15original">
-        <v-card>
-          <v-card-title>
-            Version 1.5 - Original
-            <v-spacer></v-spacer>
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Search"
-              single-line
-              hide-details
-            ></v-text-field>
-          </v-card-title>
-          <v-data-table
-            :headers="headers"
-            :items="desserts"
-            :search="search"
-          ></v-data-table>
-        </v-card>
-      </v-flex>
-      <v-flex xs12 class="mt-5" id="v15maniac">
-        <v-card>
-          <v-card-title>
-            Version 1.5 - Maniac
-            <v-spacer></v-spacer>
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Search"
-              single-line
-              hide-details
-            ></v-text-field>
-          </v-card-title>
-          <v-data-table
-            :headers="headers"
-            :items="desserts"
-            :search="search"
-          ></v-data-table>
-        </v-card>
-      </v-flex>
-    </v-layout>
+    <v-row>
+      <v-col cols="12" sm="12" md="4" lg="2">
+        <v-row>
+          <v-col cols="12">
+            <v-img src="https://hiscores.shmup.com/covers/2.jpg" />
+          </v-col>
+          <v-col>
+            <v-chip class="ma-2" color="green" text-color="white">
+              <v-avatar left class="green darken-4">
+                3
+              </v-avatar>
+              Platforms
+            </v-chip>
+            <v-chip class="ma-2" color="amber" text-color="white">
+              <v-avatar left class="amber darken-4">
+                4
+              </v-avatar>
+              Difficulties
+            </v-chip>
+            <v-chip class="ma-2" color="grey" text-color="white">
+              <v-avatar left class="grey darken-4">
+                4
+              </v-avatar>
+              Modes
+            </v-chip>
+          </v-col>
+          <v-col>
+            <v-btn tile small class="mr-1 mb-1">Read Forum</v-btn>
+            <v-btn tile small class="mr-1 mb-1">Ranking Picture</v-btn>
+            <v-btn tile small class="mr-1 mb-1">Import Scores</v-btn>
+            <v-btn tile small class="mr-1 mb-1">Create Event</v-btn>
+            <v-btn tile small>Edit</v-btn>
+          </v-col>
+        </v-row>
+      </v-col>
+      <!-- Rankings -->
+      <v-col cols="12" sm="12" md="8" lg="10">
+        <v-row>
+          <v-col cols="12" id="v15original">
+            <v-card>
+              <v-card-title>
+                Version 1.5 - Original
+                <v-spacer></v-spacer>
+                <v-text-field
+                  v-model="search"
+                  append-icon="mdi-magnify"
+                  label="Search"
+                  single-line
+                  hide-details
+                ></v-text-field>
+              </v-card-title>
+              <v-data-table
+                :headers="headers"
+                :items="desserts"
+                :search="search"
+              ></v-data-table>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" id="v15maniac">
+            <v-card>
+              <v-card-title>
+                Version 1.5 - Maniac
+                <v-spacer></v-spacer>
+                <v-text-field
+                  v-model="search"
+                  append-icon="mdi-magnify"
+                  label="Search"
+                  single-line
+                  hide-details
+                ></v-text-field>
+              </v-card-title>
+              <v-data-table
+                :headers="headers"
+                :items="desserts"
+                :search="search"
+              ></v-data-table>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -821,6 +827,7 @@ export default {
 <style lang="scss" scoped>
 .ranking-name {
   cursor: pointer;
+
   &.selected {
     border-left: solid 3px orange;
     padding-left: 5px;

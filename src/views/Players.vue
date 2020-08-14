@@ -1,11 +1,13 @@
 <template>
-  <v-container no-gutters fluid>
-    <v-layout>
-      <h1>All Players</h1>
-    </v-layout>
+  <v-container>
+    <v-row>
+      <v-col>
+        <h1>All Players</h1>
+      </v-col>
+    </v-row>
     <!-- Rankings -->
-    <v-layout row>
-      <v-flex xs12 class="mt-5" id="v15original">
+    <v-row>
+      <v-col xs12 id="v15original">
         <v-card>
           <v-card-title>
             <v-text-field
@@ -22,8 +24,8 @@
             :search="search"
           ></v-data-table>
         </v-card>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

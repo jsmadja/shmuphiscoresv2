@@ -1,12 +1,12 @@
 <template>
   <v-container>
-    <v-layout>
-      <v-row>
+    <v-row>
+      <v-col>
         <h1>Compare Scores</h1>
-      </v-row>
-    </v-layout>
-    <v-layout>
-      <v-row>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
         <v-autocomplete
           :items="['Anzymus']"
           color="white"
@@ -16,6 +16,8 @@
           placeholder="Start typing to Search"
           outlined
         ></v-autocomplete>
+      </v-col>
+      <v-col>
         <v-autocomplete
           :items="['Mickey']"
           color="white"
@@ -25,19 +27,17 @@
           placeholder="Start typing to Search"
           outlined
         ></v-autocomplete>
-      </v-row>
-    </v-layout>
-    <v-layout>
-      <v-row>
-        <v-flex xs12>
-          <v-data-table
-            :headers="headers"
-            :items="items"
-            :search="search"
-          ></v-data-table>
-        </v-flex>
-      </v-row>
-    </v-layout>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col xs12>
+        <v-data-table
+          :headers="headers"
+          :items="items"
+          :search="search"
+        ></v-data-table>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
