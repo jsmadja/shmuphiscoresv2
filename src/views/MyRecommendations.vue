@@ -3,7 +3,7 @@
     <h1>My Recommendations</h1>
     <v-container>
       <v-row dense>
-        <v-col v-for="(item, i) in items" :key="i" cols="12">
+        <v-col v-for="(item, i) in items" :key="i" cols="6">
           <v-card dark>
             <div class="d-flex flex-no-wrap justify-space-between">
               <div>
