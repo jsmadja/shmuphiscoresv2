@@ -1,23 +1,20 @@
 <template>
   <v-container>
-    <v-layout>
+    <v-row>
       <v-col>
         <h1>Statistics</h1>
       </v-col>
-    </v-layout>
-    <v-layout>
-      <v-col cols="6">
+    </v-row>
+    <v-row>
+      <v-col xs="12" sm="12" lg="6">
         <h2>Joueurs invaincus</h2>
         <div>
           Les joueurs ci-dessous sont en première place pour chacun de leurs
           jeux.
         </div>
-        <v-data-table
-          :headers="headers"
-          :items="items"
-        ></v-data-table>
+        <v-data-table :headers="headers" :items="items"></v-data-table>
       </v-col>
-      <v-col cols="6">
+      <v-col lg="6">
         <v-card>
           <highcharts :options="chartOptions"></highcharts>
         </v-card>
@@ -25,7 +22,7 @@
           <highcharts :options="gamesByPlatforms"></highcharts>
         </v-card>
       </v-col>
-    </v-layout>
+    </v-row>
   </v-container>
 </template>
 
