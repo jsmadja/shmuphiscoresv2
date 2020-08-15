@@ -78,6 +78,7 @@
             </v-chip>
           </v-col>
           <v-col>
+            <v-btn tile small class="mr-1 mb-1" color="info" to="/add-score">Add Score</v-btn>
             <v-btn tile small class="mr-1 mb-1">Read Forum</v-btn>
             <v-btn tile small class="mr-1 mb-1">Ranking Picture</v-btn>
             <v-btn tile small class="mr-1 mb-1">Import Scores</v-btn>
@@ -823,7 +824,7 @@ export default {
       return this.selectedRanking === ranking;
     },
     handleClick() {
-      this.$router.push('/player');
+      this.$router.push("/player");
     }
   }
 };

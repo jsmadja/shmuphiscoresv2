@@ -16,8 +16,8 @@
         <h2>My Arch Enemy</h2>
       </v-col>
       <v-col>
-        <router-link to="/player/1">Mickey</router-link>
-        <router-link to="/versus/1/2">Show 38 versus</router-link>
+        <router-link to="/player">Mickey</router-link>
+        <router-link to="/compare-scores">Show 38 versus</router-link>
         (ratio: 5/33)
       </v-col>
       <v-col cols="12">

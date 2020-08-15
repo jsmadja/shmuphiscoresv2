@@ -14,7 +14,7 @@
 
               <v-card-subtitle v-html="item.artist"></v-card-subtitle>
               <v-card-actions>
-                <v-btn text to="/game">ADD SCORE</v-btn>
+                <v-btn text to="/add-score">ADD SCORE</v-btn>
               </v-card-actions>
             </div>
 

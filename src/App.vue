@@ -141,6 +141,7 @@
                 ]"
                 :key="index"
                 style="cursor: pointer;"
+                to="/add-score"
               >
                 <v-list-item-title>{{ item }}</v-list-item-title>
               </v-list-item>
