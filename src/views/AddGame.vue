@@ -126,13 +126,79 @@
         </v-form>
       </v-col>
       <v-col cols="12" md="6" lg="6">
-        <v-container>
-          <v-row>
-            <v-col>
-              TEMPLATE PREVIEW
-            </v-col>
-          </v-row>
-        </v-container>
+        <v-row>
+          <v-col class="pt-0">
+            <v-row>
+              <v-col>
+                <h1>Mushihimesama Futari</h1>
+              </v-col>
+            </v-row>
+            <!-- Infos -->
+            <v-row>
+              <v-col cols="12" sm="12" md="4" lg="4">
+                <v-row>
+                  <v-col cols="12">
+                    <v-img src="https://hiscores.shmup.com/covers/2.jpg" />
+                  </v-col>
+                  <v-col>
+                    <v-chip class="ma-2" color="green" text-color="white">
+                      <v-avatar left class="green darken-4">
+                        3
+                      </v-avatar>
+                      Platforms
+                    </v-chip>
+                    <v-chip class="ma-2" color="amber" text-color="white">
+                      <v-avatar left class="amber darken-4">
+                        4
+                      </v-avatar>
+                      Difficulties
+                    </v-chip>
+                    <v-chip class="ma-2" color="grey" text-color="white">
+                      <v-avatar left class="grey darken-4">
+                        4
+                      </v-avatar>
+                      Modes
+                    </v-chip>
+                  </v-col>
+                  <v-col>
+                    <v-btn tile small class="mr-1 mb-1">Read Forum</v-btn>
+                  </v-col>
+                </v-row>
+              </v-col>
+              <!-- Rankings -->
+              <v-col cols="12" sm="12" md="8" lg="8">
+                <v-row>
+                  <v-col cols="12" id="v15original">
+                    <v-card>
+                      <v-card-title>
+                        Version 1.5 - Original
+                      </v-card-title>
+                      <v-data-table
+                        :headers="headers"
+                        :items="desserts"
+                        hide-default-footer
+                      ></v-data-table>
+                    </v-card>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col cols="12" id="v15maniac">
+                    <v-card>
+                      <v-card-title>
+                        Version 1.5 - Maniac
+                      </v-card-title>
+                      <v-data-table
+                        :headers="headers"
+                        :items="desserts"
+                        hide-default-footer
+                      ></v-data-table>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
@@ -140,7 +206,7 @@
 
 <script>
 export default {
-  name: "SearchGame",
+  name: "AddGame",
   components: {},
   data() {
     return {
@@ -153,7 +219,42 @@ export default {
         difficulties: "",
         thread: "",
         platforms: []
-      }
+      },
+
+      selectedRanking: "",
+      search: "",
+      headers: [
+        { text: "Rank", value: "rank" },
+        { text: "Player", value: "playerName" },
+        { text: "Score", value: "value" },
+        { text: "Stage", value: "stageName" }
+      ],
+      desserts: [
+        {
+          id: 4,
+          value: 425027421,
+          playerName: "Rechiku",
+          playerId: 146,
+          rank: 1,
+          stageName: "ALL"
+        },
+        {
+          id: 5,
+          value: 375804585,
+          playerName: "kawaijb",
+          playerId: 12,
+          rank: 2,
+          stageName: "ALL"
+        },
+        {
+          id: 8894,
+          value: 351746382,
+          playerName: "Undef",
+          playerId: 150,
+          rank: 3,
+          stageName: "ALL"
+        }
+      ]
     };
   }
 };
