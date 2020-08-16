@@ -7,7 +7,7 @@
     </v-row>
     <v-row dense>
       <v-col v-for="(item, i) in items" :key="i" xs="12" sm="12" md="12" lg="4">
-        <v-card dark to="/platform">
+        <v-card to="/platform">
           <div class="d-flex justify-space-between">
             <div>
               <v-card-title class="headline" v-text="item"></v-card-title>
@@ -15,10 +15,8 @@
             </div>
             <v-avatar class="ma-3" size="125" tile>
               <v-img
-                      aspect-ratio="1"
-                :src="
-                  `https://shmup-companion.firebaseapp.com/img/platforms/${item}.png`
-                "
+                aspect-ratio="1"
+                :src="`https://shmup-companion.firebaseapp.com/img/platforms/${item}.png`"
               ></v-img>
             </v-avatar>
           </div>
@@ -91,9 +89,9 @@ export default {
       "X68000",
       "XBOX",
       "XONE",
-      "ZX SPECTRUM"
-    ]
-  })
+      "ZX SPECTRUM",
+    ],
+  }),
 };
 </script>
 

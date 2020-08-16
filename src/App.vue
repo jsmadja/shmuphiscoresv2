@@ -108,7 +108,11 @@
 
       <v-app-bar app clipped-left>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>shmup.hiscores</v-toolbar-title>
+        <v-toolbar-title
+          ><v-img
+            width="180"
+            src="http://shmup.com/wp-content/themes/shmup/images/shmup.png"
+        /></v-toolbar-title>
       </v-app-bar>
 
       <v-main>
@@ -125,7 +129,7 @@
                 fab
                 bottom
                 right
-                color="#1972F5"
+                color="orange"
                 class="mr-5 mb-12"
               >
                 <v-icon>mdi-plus</v-icon>
@@ -137,7 +141,7 @@
                 v-for="(item, index) in [
                   'Mushihimesama Futari',
                   'Gunhed',
-                  'Gate of Thunder'
+                  'Gate of Thunder',
                 ]"
                 :key="index"
                 style="cursor: pointer;"
@@ -149,6 +153,9 @@
           </v-menu>
         </v-container>
       </v-main>
+      <v-footer app>
+        <span>&copy; {{ new Date().getFullYear() }}</span>
+      </v-footer>
     </v-app>
   </v-app>
 </template>
@@ -162,11 +169,36 @@ export default Vue.extend({
   components: {},
 
   data: () => ({
-    drawer: null
+    drawer: null,
   }),
 
   created() {
-    this.$vuetify.theme.dark = true;
-  }
+    this.$vuetify.theme.dark = false;
+  },
 });
 </script>
+
+<style lang="scss">
+h1,
+h2,
+h3 {
+  font-family: "Raleway", sans;
+  font-size: 2em;
+  line-height: 1em;
+  font-weight: 400;
+}
+
+body,
+.v-card__title {
+  font-family: "Raleway", sans;
+  font-weight: 400;
+}
+.v-application .headline {
+  color: #ff781b;
+  font-family: "Raleway", sans;
+  font-weight: 400;
+}
+.v-main {
+  background: #f7f7f7;
+}
+</style>

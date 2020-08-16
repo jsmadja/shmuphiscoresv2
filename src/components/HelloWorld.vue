@@ -7,7 +7,7 @@
     </v-row>
     <v-row dense>
       <v-col v-for="(item, i) in items" :key="i" cols="12" lg="6">
-        <v-card dark to="/game">
+        <v-card to="/game">
           <div class="d-flex flex-no-wrap justify-space-between">
             <div>
               <v-card-title class="headline" v-text="item.title"></v-card-title>
@@ -32,7 +32,7 @@
     </v-row>
     <v-row dense>
       <v-col v-for="(item, i) in items" :key="i" cols="12" lg="6">
-        <v-card dark>
+        <v-card>
           <div class="d-flex flex-no-wrap justify-space-between">
             <div>
               <v-card-title class="headline" v-text="item.title"></v-card-title>
@@ -64,30 +64,30 @@ export default Vue.extend({
       {
         src: "http://hiscores.shmup.com/covers/385.jpg",
         title: "Gate of Thunder",
-        artist: "123.456 pts"
+        artist: "123.456 pts",
       },
       {
         src: "http://hiscores.shmup.com/covers/2.jpg",
         title: "Mushihimesama Futari",
         artist:
-          "123.456 pts - Mode <b>Version 1.5</b> Difficulté <b>Original</b>."
+          "123.456 pts - Mode <b>Version 1.5</b> Difficulté <b>Original</b>.",
       },
       {
         src: "http://hiscores.shmup.com/covers/192.jpg",
         title: "Gunhed",
-        artist: "123.456 pts - Mode <b>Takai 2 min</b>."
+        artist: "123.456 pts - Mode <b>Takai 2 min</b>.",
       },
       {
         src: "http://hiscores.shmup.com/covers/7.jpg",
         title: "Dodonpachi Daiffukatsu",
-        artist: "123.456 pts - Difficulté <b>ARRANGE A</b></b>."
+        artist: "123.456 pts - Difficulté <b>ARRANGE A</b></b>.",
       },
       {
         src: "http://hiscores.shmup.com/covers/141.jpg",
         title: "Sonic Wings Limited",
-        artist: "123.456 pts"
-      }
-    ]
-  })
+        artist: "123.456 pts",
+      },
+    ],
+  }),
 });
 </script>

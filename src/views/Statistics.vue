@@ -41,39 +41,39 @@ export default {
       headers: [
         { text: "Player", value: "player" },
         { text: "# Records", value: "records" },
-        { text: "Games", value: "games" }
+        { text: "Games", value: "games" },
       ],
       items: [
         {
           player: "yumi matsuzawa",
           records: "5",
-          games: "Caladrius Raiden IV"
-        }
+          games: "Caladrius Raiden IV",
+        },
       ],
       chartOptions: {
         chart: {
-          type: "area"
+          type: "area",
         },
         title: {
-          text: "Scores"
+          text: "Scores",
         },
         xAxis: {
           allowDecimals: false,
           labels: {
-            formatter: function() {
+            formatter: function () {
               return this.value; // clean, unformatted number for year
-            }
-          }
+            },
+          },
         },
         yAxis: {
           title: {
-            text: "Scores"
+            text: "Scores",
           },
           labels: {
-            formatter: function() {
+            formatter: function () {
               return this.value / 1000 + "k";
-            }
-          }
+            },
+          },
         },
         plotOptions: {
           area: {
@@ -84,48 +84,48 @@ export default {
               radius: 2,
               states: {
                 hover: {
-                  enabled: true
-                }
-              }
-            }
-          }
+                  enabled: true,
+                },
+              },
+            },
+          },
         },
         series: [
           {
             name: "Scores",
-            data: [6, 11, 32, 110, 235, 369, 400, 420]
-          }
-        ]
+            data: [6, 11, 32, 110, 235, 369, 400, 420],
+          },
+        ],
       },
       gamesByPlatforms: {
         chart: {
-          type: "pie"
+          type: "pie",
         },
         title: {
-          text: "Platforms"
+          text: "Platforms",
         },
         accessibility: {
           announceNewData: {
-            enabled: true
+            enabled: true,
           },
           point: {
-            valueSuffix: "%"
-          }
+            valueSuffix: "%",
+          },
         },
 
         plotOptions: {
           series: {
             dataLabels: {
               enabled: true,
-              format: "{point.name}: {point.y:.1f}%"
-            }
-          }
+              format: "{point.name}: {point.y:.1f}%",
+            },
+          },
         },
 
         tooltip: {
           headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
           pointFormat:
-            '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>',
         },
 
         series: [
@@ -135,43 +135,43 @@ export default {
             data: [
               {
                 name: "PS1",
-                y: 62.74
+                y: 62.74,
               },
               {
                 name: "PCB",
-                y: 10.57
+                y: 10.57,
               },
               {
                 name: "PS2",
-                y: 7.23
+                y: 7.23,
               },
               {
                 name: "PCE",
-                y: 5.58
+                y: 5.58,
               },
               {
                 name: "XBOX",
-                y: 4.02
+                y: 4.02,
               },
               {
                 name: "NES",
-                y: 1.92
+                y: 1.92,
               },
               {
                 name: "SNES",
-                y: 7.62
-              }
-            ]
-          }
-        ]
-      }
+                y: 7.62,
+              },
+            ],
+          },
+        ],
+      },
     };
   },
   methods: {
     handleClick() {
-      this.$router.push('/player');
-    }
-  }
+      this.$router.push("/player");
+    },
+  },
 };
 </script>
 

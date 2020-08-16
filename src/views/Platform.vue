@@ -7,7 +7,7 @@
     </v-row>
     <v-row dense>
       <v-col v-for="(item, i) in items" :key="i" xs="12" sm="12" md="12" lg="6">
-        <v-card dark to="/game">
+        <v-card to="/game">
           <div class="d-flex justify-space-between">
             <div>
               <v-card-title class="headline" v-text="item.title"></v-card-title>
@@ -31,14 +31,14 @@ export default {
     items: [
       {
         src: "http://hiscores.shmup.com/covers/385.jpg",
-        title: "Gate of Thunder"
+        title: "Gate of Thunder",
       },
       {
         src: "http://hiscores.shmup.com/covers/192.jpg",
-        title: "Gunhed"
-      }
-    ]
-  })
+        title: "Gunhed",
+      },
+    ],
+  }),
 };
 </script>
 

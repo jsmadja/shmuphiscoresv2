@@ -43,7 +43,7 @@ export default {
         { text: "2nd", value: "secondRankCount" },
         { text: "3rd", value: "thirdRankCount" },
         { text: "1CC", value: "oneccCount" },
-        { text: "Scores", value: "scoreCount" }
+        { text: "Scores", value: "scoreCount" },
       ],
       players: [
         {
@@ -52,7 +52,7 @@ export default {
           secondRankCount: 66,
           thirdRankCount: 66,
           oneccCount: 66,
-          scoreCount: 658
+          scoreCount: 658,
         },
         {
           playerName: "yace",
@@ -60,7 +60,7 @@ export default {
           secondRankCount: 13,
           thirdRankCount: 13,
           oneccCount: 13,
-          scoreCount: 129
+          scoreCount: 129,
         },
         {
           playerName: "-S.L-",
@@ -68,7 +68,7 @@ export default {
           secondRankCount: 67,
           thirdRankCount: 67,
           oneccCount: 67,
-          scoreCount: 670
+          scoreCount: 670,
         },
         {
           playerName: "YannHuitNeuf",
@@ -76,7 +76,7 @@ export default {
           secondRankCount: 97,
           thirdRankCount: 97,
           oneccCount: 97,
-          scoreCount: 965
+          scoreCount: 965,
         },
         {
           playerName: "niluge",
@@ -84,7 +84,7 @@ export default {
           secondRankCount: 82,
           thirdRankCount: 82,
           oneccCount: 82,
-          scoreCount: 815
+          scoreCount: 815,
         },
         {
           playerName: "tam",
@@ -92,7 +92,7 @@ export default {
           secondRankCount: 18,
           thirdRankCount: 18,
           oneccCount: 18,
-          scoreCount: 177
+          scoreCount: 177,
         },
         {
           playerName: "kawaijb",
@@ -100,7 +100,7 @@ export default {
           secondRankCount: 45,
           thirdRankCount: 45,
           oneccCount: 45,
-          scoreCount: 441
+          scoreCount: 441,
         },
         {
           playerName: "Aliquantic",
@@ -108,7 +108,7 @@ export default {
           secondRankCount: 68,
           thirdRankCount: 68,
           oneccCount: 68,
-          scoreCount: 674
+          scoreCount: 674,
         },
         {
           playerName: "Sezi",
@@ -116,7 +116,7 @@ export default {
           secondRankCount: 5,
           thirdRankCount: 5,
           oneccCount: 5,
-          scoreCount: 44
+          scoreCount: 44,
         },
         {
           playerName: "Zapbranisac",
@@ -124,16 +124,16 @@ export default {
           secondRankCount: 20,
           thirdRankCount: 20,
           oneccCount: 20,
-          scoreCount: 199
-        }
-      ]
+          scoreCount: 199,
+        },
+      ],
     };
   },
   methods: {
     handleClick() {
-      this.$router.push('/player');
-    }
-  }
+      this.$router.push("/player");
+    },
+  },
 };
 </script>
 

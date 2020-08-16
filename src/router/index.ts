@@ -20,78 +20,79 @@ const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
   },
   {
     path: "/games",
     name: "Games",
-    component: Games
+    component: Games,
   },
   {
     path: "/platforms",
     name: "Platforms",
-    component: Platforms
+    component: Platforms,
   },
   {
     path: "/platform",
     name: "Platform",
-    component: Platform
+    component: Platform,
   },
   {
     path: "/add-game",
     name: "AddGame",
-    component: AddGame
+    component: AddGame,
   },
   {
     path: "/add-score",
     name: "AddScore",
-    component: AddScore
+    component: AddScore,
   },
   {
     path: "/game",
     name: "Game",
-    component: Game
+    component: Game,
   },
   {
     path: "/statistics",
     name: "Statistics",
-    component: Statistics
+    component: Statistics,
   },
   {
     path: "/my-games",
     name: "My Games",
-    component: MyGames
+    component: MyGames,
   },
   {
     path: "/my-profile",
     name: "My Profile",
-    component: MyProfile
+    component: MyProfile,
   },
   {
     path: "/compare-scores",
     name: "CompareScores",
-    component: CompareScores
+    component: CompareScores,
   },
   {
     path: "/my-recommendations",
     name: "My Recommendations",
-    component: MyRecommendations
+    component: MyRecommendations,
   },
   {
     path: "/players",
-    name: "All Players",component: () => import("../views/Players.vue")
+    name: "All Players",
+    component: () => import("../views/Players.vue"),
   },
   {
     path: "/player",
     name: "Player",
-    component: Player
-  }
+    component: Player,
+  },
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 export default router;

@@ -78,11 +78,19 @@
             </v-chip>
           </v-col>
           <v-col>
-            <v-btn tile small class="mr-1 mb-1" color="info" to="/add-score">Add Score</v-btn>
-            <v-btn tile small class="mr-1 mb-1">Read Forum</v-btn>
-            <v-btn tile small class="mr-1 mb-1">Ranking Picture</v-btn>
-            <v-btn tile small class="mr-1 mb-1">Import Scores</v-btn>
-            <v-btn tile small class="mr-1 mb-1">Create Event</v-btn>
+            <v-btn
+              tile
+              small
+              class="mr-1 mb-2"
+              dark
+              color="orange"
+              to="/add-score"
+              >Add Score</v-btn
+            >
+            <v-btn tile small class="mr-1 mb-2">Read Forum</v-btn>
+            <v-btn tile small class="mr-1 mb-2">Ranking Picture</v-btn>
+            <v-btn tile small class="mr-1 mb-2">Import Scores</v-btn>
+            <v-btn tile small class="mr-1 mb-2">Create Event</v-btn>
             <v-btn tile small>Edit</v-btn>
           </v-col>
         </v-row>
@@ -153,7 +161,7 @@ export default {
         { text: "Player", value: "playerName" },
         { text: "Score", value: "value" },
         { text: "Stage", value: "stageName" },
-        { text: "Comment", value: "comment" }
+        { text: "Comment", value: "comment" },
       ],
       desserts: [
         {
@@ -164,7 +172,7 @@ export default {
           rank: 1,
           stageName: "ALL",
           comment: "All(Lx4) Reco Normal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 5,
@@ -174,7 +182,7 @@ export default {
           rank: 2,
           stageName: "ALL",
           comment: "Reco normal ALL (Lx2)",
-          onecc: true
+          onecc: true,
         },
         {
           id: 8894,
@@ -184,7 +192,7 @@ export default {
           rank: 3,
           stageName: "ALL",
           comment: "Reco Normale",
-          onecc: true
+          onecc: true,
         },
         {
           id: 6,
@@ -194,7 +202,7 @@ export default {
           rank: 4,
           stageName: "ALL",
           comment: "Reco Normal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 7,
@@ -204,7 +212,7 @@ export default {
           rank: 5,
           stageName: "5",
           comment: "Reco normal stage 5 Boss",
-          onecc: false
+          onecc: false,
         },
         {
           id: 8,
@@ -214,7 +222,7 @@ export default {
           rank: 6,
           stageName: "ALL",
           comment: "Palm normal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 9,
@@ -224,7 +232,7 @@ export default {
           rank: 7,
           stageName: "5",
           comment: "palm abnormal stage 5boss",
-          onecc: false
+          onecc: false,
         },
         {
           id: 10,
@@ -234,7 +242,7 @@ export default {
           rank: 8,
           stageName: "ALL",
           comment: "Reco normal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 11,
@@ -244,7 +252,7 @@ export default {
           rank: 9,
           stageName: "ALL",
           comment: "Reco Normal ALL(lx1)",
-          onecc: true
+          onecc: true,
         },
         {
           id: 14494,
@@ -254,7 +262,7 @@ export default {
           rank: 10,
           stageName: "ALL",
           comment: "",
-          onecc: true
+          onecc: true,
         },
         {
           id: 12,
@@ -264,7 +272,7 @@ export default {
           rank: 11,
           stageName: "ALL",
           comment: "Palm Abnormal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 4762,
@@ -274,7 +282,7 @@ export default {
           rank: 12,
           stageName: "ALL",
           comment: "Reco normal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 13,
@@ -284,7 +292,7 @@ export default {
           rank: 13,
           stageName: "ALL",
           comment: "Reco normal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 9139,
@@ -294,7 +302,7 @@ export default {
           rank: 14,
           stageName: "5 BOSS",
           comment: "",
-          onecc: false
+          onecc: false,
         },
         {
           id: 9012,
@@ -304,7 +312,7 @@ export default {
           rank: 15,
           stageName: "5 BOSS",
           comment: "Reco, normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 9901,
@@ -314,7 +322,7 @@ export default {
           rank: 16,
           stageName: "ALL",
           comment: "Reco normal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 15,
@@ -324,7 +332,7 @@ export default {
           rank: 17,
           stageName: "5",
           comment: "Reco Normal  Boss",
-          onecc: false
+          onecc: false,
         },
         {
           id: 16,
@@ -334,7 +342,7 @@ export default {
           rank: 18,
           stageName: "ALL",
           comment: "Reco normal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 17,
@@ -344,7 +352,7 @@ export default {
           rank: 19,
           stageName: "ALL",
           comment: "Palm Abnormal ALL (Lx2)",
-          onecc: true
+          onecc: true,
         },
         {
           id: 18,
@@ -354,7 +362,7 @@ export default {
           rank: 20,
           stageName: "ALL",
           comment: "Reco normal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 19,
@@ -364,7 +372,7 @@ export default {
           rank: 21,
           stageName: "5",
           comment: "Reco normal Boss",
-          onecc: false
+          onecc: false,
         },
         {
           id: 20,
@@ -374,7 +382,7 @@ export default {
           rank: 22,
           stageName: "5",
           comment: "Reco normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 21,
@@ -384,7 +392,7 @@ export default {
           rank: 23,
           stageName: "ALL",
           comment: "Reco normal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 22,
@@ -394,7 +402,7 @@ export default {
           rank: 24,
           stageName: "5",
           comment: "Reco Normal  stage 5 boss",
-          onecc: false
+          onecc: false,
         },
         {
           id: 5133,
@@ -404,7 +412,7 @@ export default {
           rank: 25,
           stageName: "ALL",
           comment: "Reco Normal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 23,
@@ -414,7 +422,7 @@ export default {
           rank: 26,
           stageName: "5",
           comment: "Reco normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 24,
@@ -424,7 +432,7 @@ export default {
           rank: 27,
           stageName: "5",
           comment: "palm abnormal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 8757,
@@ -434,7 +442,7 @@ export default {
           rank: 28,
           stageName: "5",
           comment: "Reco / Normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 25,
@@ -444,7 +452,7 @@ export default {
           rank: 29,
           stageName: "ALL",
           comment: "Reco Normal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 27,
@@ -454,7 +462,7 @@ export default {
           rank: 30,
           stageName: "5",
           comment: "Reco Normal Boss",
-          onecc: false
+          onecc: false,
         },
         {
           id: 28,
@@ -464,7 +472,7 @@ export default {
           rank: 31,
           stageName: "5",
           comment: "Palm abnormal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 29,
@@ -474,7 +482,7 @@ export default {
           rank: 32,
           stageName: "ALL",
           comment: "Palm Abnormal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 30,
@@ -484,7 +492,7 @@ export default {
           rank: 33,
           stageName: "5",
           comment: "palm normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 4785,
@@ -494,7 +502,7 @@ export default {
           rank: 34,
           stageName: "ALL",
           comment: "Palm abnormal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 31,
@@ -504,7 +512,7 @@ export default {
           rank: 35,
           stageName: "5",
           comment: "palm abnormal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 32,
@@ -514,7 +522,7 @@ export default {
           rank: 36,
           stageName: "5",
           comment: "Reco",
-          onecc: false
+          onecc: false,
         },
         {
           id: 8874,
@@ -524,7 +532,7 @@ export default {
           rank: 37,
           stageName: "5",
           comment: "Palm Abnormal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 33,
@@ -534,7 +542,7 @@ export default {
           rank: 38,
           stageName: "5",
           comment: "Palm abnormal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 15432,
@@ -544,7 +552,7 @@ export default {
           rank: 39,
           stageName: "5",
           comment: "",
-          onecc: false
+          onecc: false,
         },
         {
           id: 34,
@@ -554,7 +562,7 @@ export default {
           rank: 40,
           stageName: "4",
           comment: "reco normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 35,
@@ -564,7 +572,7 @@ export default {
           rank: 41,
           stageName: "4",
           comment: "Palm Abnormal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 36,
@@ -574,7 +582,7 @@ export default {
           rank: 42,
           stageName: "5",
           comment: "Reco Normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 13495,
@@ -584,7 +592,7 @@ export default {
           rank: 43,
           stageName: "ALL",
           comment: "Recco Abnormal",
-          onecc: true
+          onecc: true,
         },
         {
           id: 37,
@@ -594,7 +602,7 @@ export default {
           rank: 44,
           stageName: "5",
           comment: "Palm abnormal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 38,
@@ -604,7 +612,7 @@ export default {
           rank: 45,
           stageName: "4",
           comment: "Reco normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 39,
@@ -614,7 +622,7 @@ export default {
           rank: 46,
           stageName: "5",
           comment: "Palm Normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 40,
@@ -624,7 +632,7 @@ export default {
           rank: 47,
           stageName: "5",
           comment: "Palm Abnormal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 41,
@@ -634,7 +642,7 @@ export default {
           rank: 48,
           stageName: "5",
           comment: "Reco Normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 42,
@@ -644,7 +652,7 @@ export default {
           rank: 49,
           stageName: "4",
           comment: "normal Reco",
-          onecc: false
+          onecc: false,
         },
         {
           id: 43,
@@ -654,7 +662,7 @@ export default {
           rank: 50,
           stageName: "4",
           comment: "palm normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 15875,
@@ -664,7 +672,7 @@ export default {
           rank: 51,
           stageName: "4",
           comment: "Reco Normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 44,
@@ -674,7 +682,7 @@ export default {
           rank: 52,
           stageName: "4",
           comment: "Reco normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 45,
@@ -684,7 +692,7 @@ export default {
           rank: 53,
           stageName: "4",
           comment: "Palm  Boss",
-          onecc: false
+          onecc: false,
         },
         {
           id: 47,
@@ -694,7 +702,7 @@ export default {
           rank: 54,
           stageName: "3",
           comment: "Reco normal  Boss",
-          onecc: false
+          onecc: false,
         },
         {
           id: 48,
@@ -704,7 +712,7 @@ export default {
           rank: 55,
           stageName: "4",
           comment: "Palm  Boss",
-          onecc: false
+          onecc: false,
         },
         {
           id: 49,
@@ -714,7 +722,7 @@ export default {
           rank: 56,
           stageName: "4",
           comment: "Reco Normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 50,
@@ -724,7 +732,7 @@ export default {
           rank: 57,
           stageName: "3",
           comment: "Palm normal Boss",
-          onecc: false
+          onecc: false,
         },
         {
           id: 51,
@@ -734,7 +742,7 @@ export default {
           rank: 58,
           stageName: "4",
           comment: "Palm normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 52,
@@ -744,7 +752,7 @@ export default {
           rank: 59,
           stageName: "4",
           comment: "Recco normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 16665,
@@ -754,7 +762,7 @@ export default {
           rank: 60,
           stageName: "4",
           comment: "Palm Abnormal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 53,
@@ -764,7 +772,7 @@ export default {
           rank: 61,
           stageName: "4",
           comment: "Reco Normal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 54,
@@ -774,7 +782,7 @@ export default {
           rank: 62,
           stageName: "3",
           comment: "Reco normal  Boss",
-          onecc: false
+          onecc: false,
         },
         {
           id: 55,
@@ -784,7 +792,7 @@ export default {
           rank: 63,
           stageName: "4",
           comment: "palm abnormal",
-          onecc: false
+          onecc: false,
         },
         {
           id: 12137,
@@ -794,7 +802,7 @@ export default {
           rank: 64,
           stageName: "3 BOSS",
           comment: "",
-          onecc: false
+          onecc: false,
         },
         {
           id: 14098,
@@ -804,7 +812,7 @@ export default {
           rank: 65,
           stageName: "3",
           comment: "",
-          onecc: false
+          onecc: false,
         },
         {
           id: 3903,
@@ -814,9 +822,9 @@ export default {
           rank: 66,
           stageName: "2",
           comment: "reco\r\n",
-          onecc: false
-        }
-      ]
+          onecc: false,
+        },
+      ],
     };
   },
   methods: {
@@ -825,8 +833,8 @@ export default {
     },
     handleClick() {
       this.$router.push("/player");
-    }
-  }
+    },
+  },
 };
 </script>
 
