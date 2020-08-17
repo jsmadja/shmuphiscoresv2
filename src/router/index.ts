@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
-import Games from "../views/Games.vue";
+import Games from "../views/Games3.vue";
 import AddGame from "../views/AddGame.vue";
 import Game from "../views/Game.vue";
 import MyGames from "../views/MyGames.vue";
