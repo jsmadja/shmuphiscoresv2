@@ -7,36 +7,18 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <h2>Preferences</h2>
-      </v-col>
-      <v-col cols="12">
         <v-switch label="Show medals on shmup.com"></v-switch>
-      </v-col>
-      <v-col cols="12">
-        <h2>My Arch Enemy</h2>
-      </v-col>
-      <v-col>
-        <router-link to="/player">Mickey</router-link>
-        <router-link to="/compare-scores">Show 38 versus</router-link>
-        (ratio: 5/33)
-      </v-col>
-      <v-col cols="12">
-        <h2>HTML Integration</h2>
       </v-col>
       <v-col cols="12">
         <h3>Share my medals on forums</h3>
       </v-col>
-      <v-col>
-        <v-card light>
+      <v-col cols="6" xs="6" sm="4" md="3" lg="3">
+        <v-card light tile>
           <v-img src="https://hiscores.shmup.com/player/33489/medals.png" />
         </v-card>
       </v-col>
-      <v-col>
+      <v-col cols="12" xs="12" sm="8" md="9" lg="9">
         <v-card light>
-          <v-card-title>
-            Forum BBCode
-          </v-card-title>
-          <v-divider></v-divider>
           <v-card-text>
             <blockquote class="blockquote">
               [IMG]https://hiscores.shmup.com/player/33489/medals.png[/IMG]
@@ -46,7 +28,7 @@
       </v-col>
       <v-col cols="12"><h3>Share my last score on forums</h3></v-col>
       <v-col>
-        <v-card light>
+        <v-card light tile>
           <v-img
             position="top left"
             src="https://hiscores.shmup.com/player/1/signature.png"
@@ -55,13 +37,27 @@
       </v-col>
       <v-col>
         <v-card light>
-          <v-card-title>
-            Forum BBCode
-          </v-card-title>
-          <v-divider></v-divider>
           <v-card-text>
             <blockquote class="blockquote">
               [IMG]https://hiscores.shmup.com/player/1/signature.png[/IMG]
+            </blockquote>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12"><h3>Share my arch enemy</h3></v-col>
+      <v-col>
+        <v-card light tile>
+          <v-img
+            position="top left"
+            src="http://hiscores.shmup.com/player/1/versus.png"
+          />
+        </v-card>
+      </v-col>
+      <v-col>
+        <v-card light>
+          <v-card-text>
+            <blockquote class="blockquote">
+              [IMG]https://hiscores.shmup.com/player/1/versus.png[/IMG]
             </blockquote>
           </v-card-text>
         </v-card>
@@ -73,6 +69,6 @@
 <script>
 export default {
   name: "MyProfile",
-  components: {}
+  components: {},
 };
 </script>

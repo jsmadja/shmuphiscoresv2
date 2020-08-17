@@ -189,7 +189,7 @@ h1,
 h2,
 h3 {
   font-family: "Raleway", sans;
-  font-size: 2em;
+  //font-size: 2em;
   line-height: 1em;
   font-weight: 400;
 }
