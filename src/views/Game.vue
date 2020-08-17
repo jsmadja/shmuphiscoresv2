@@ -55,7 +55,9 @@
       <v-col cols="12" sm="12" md="4" lg="2">
         <v-row>
           <v-col cols="12">
-            <v-img src="https://hiscores.shmup.com/covers/2.jpg" />
+            <v-card tile
+              ><v-img src="https://hiscores.shmup.com/covers/2.jpg"
+            /></v-card>
           </v-col>
           <v-col>
             <v-chip class="ma-2" color="green" text-color="white">

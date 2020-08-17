@@ -116,9 +116,9 @@
       </v-app-bar>
 
       <v-main>
-        <v-container fluid>
+        <v-container fluid class="pb-8">
           <router-view></router-view>
-          <v-menu open-on-hover top offset-y>
+          <v-menu top left nudge-top="10" offset-y>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
                 v-bind="attrs"
@@ -130,13 +130,14 @@
                 bottom
                 right
                 color="orange"
-                class="mr-5 mb-12"
+                class="mr-1 mb-10 mb-sm-13 mb-md-13 mb-lg-13"
               >
                 <v-icon>mdi-plus</v-icon>
               </v-btn>
             </template>
 
-            <v-list>
+            <v-list flat dense>
+              <v-subheader>LAST SCORES</v-subheader>
               <v-list-item
                 v-for="(item, index) in [
                   'Mushihimesama Futari',
@@ -147,14 +148,19 @@
                 style="cursor: pointer;"
                 to="/add-score"
               >
+                <v-list-item-avatar tile>
+                  <v-img src="https://hiscores.shmup.com/covers/2.jpg"></v-img>
+                </v-list-item-avatar>
                 <v-list-item-title>{{ item }}</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
         </v-container>
       </v-main>
-      <v-footer app>
-        <span>&copy; {{ new Date().getFullYear() }}</span>
+      <v-footer app :absolute="false" padless>
+        <span style="text-align: center; width: 100%;"
+          >&copy; shmup-hiscores 2013-{{ new Date().getFullYear() }}</span
+        >
       </v-footer>
     </v-app>
   </v-app>
