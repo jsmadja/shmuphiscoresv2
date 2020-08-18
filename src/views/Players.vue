@@ -19,11 +19,15 @@
             ></v-text-field>
           </v-card-title>
           <v-data-table
-            :headers="headers"
+            :headers="computedHeaders"
             :items="players"
             :search="search"
+            :item-class="rowClasses"
+            dense
             @click:row="handleClick"
-          ></v-data-table>
+            mobile-breakpoint="0"
+          >
+          </v-data-table>
         </v-card>
       </v-col>
     </v-row>
@@ -34,15 +38,22 @@
 export default {
   name: "Players",
   components: {},
+  computed: {
+    computedHeaders() {
+      return this.headers.filter(
+        (h) => !h.hide || !this.$vuetify.breakpoint[h.hide]
+      );
+    },
+  },
   data() {
     return {
       search: "",
       headers: [
         { text: "Player", value: "playerName" },
-        { text: "1st", value: "firstRankCount" },
-        { text: "2nd", value: "secondRankCount" },
-        { text: "3rd", value: "thirdRankCount" },
-        { text: "1CC", value: "oneccCount" },
+        { text: "1st", value: "firstRankCount", hide: "smAndDown" },
+        { text: "2nd", value: "secondRankCount", hide: "smAndDown" },
+        { text: "3rd", value: "thirdRankCount", hide: "smAndDown" },
+        { text: "1CC", value: "oneccCount", hide: "smAndDown" },
         { text: "Scores", value: "scoreCount" },
       ],
       players: [
@@ -132,6 +143,11 @@ export default {
   methods: {
     handleClick() {
       this.$router.push("/player");
+    },
+    rowClasses(item) {
+      if (item.playerName === "anzymus") {
+        return "orange";
+      }
     },
   },
 };
