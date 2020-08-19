@@ -14,6 +14,9 @@ export default new Vuex.Store({
     setUser(state, user) {
       state.user = user;
     },
+    setPlatforms(state, platforms) {
+      state.platforms = platforms;
+    },
   },
   actions: {
     fetchUser(context) {

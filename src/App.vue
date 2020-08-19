@@ -194,7 +194,6 @@ export default Vue.extend({
   },
 
   created() {
-    this.$vuetify.theme.dark = false;
     this.$store.dispatch("fetchUser");
   },
 });
