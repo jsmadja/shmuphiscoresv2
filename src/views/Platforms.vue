@@ -6,7 +6,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col>
+      <v-col xs12>
         <v-card>
           <v-card-title>
             <v-text-field
@@ -17,24 +17,25 @@
               hide-details
             ></v-text-field>
           </v-card-title>
-        </v-card>
-      </v-col>
-    </v-row>
-    <v-row dense>
-      <v-col v-for="(item, i) in items" :key="i" xs="12" sm="12" md="12" lg="4">
-        <v-card to="/platform">
-          <div class="d-flex justify-space-between">
-            <div>
-              <v-card-title class="headline" v-text="item"></v-card-title>
-              <v-card-subtitle>9 games</v-card-subtitle>
-            </div>
-            <v-avatar class="ma-3" size="125" tile>
-              <v-img
-                aspect-ratio="1"
-                :src="`https://shmup-companion.firebaseapp.com/img/platforms/${item}.png`"
-              ></v-img>
-            </v-avatar>
-          </div>
+          <v-data-table
+            hide-default-footer
+            :headers="headers"
+            :items="platforms"
+            :search="search"
+            @click:row="handleClick"
+            mobile-breakpoint="0"
+            :footer-props="{
+              disableItemsPerPage: true,
+              itemsPerPageOptions: [-1],
+            }"
+          >
+            <template v-slot:item.title="{ item }">
+              {{ item.title }}
+            </template>
+            <template v-slot:item.games="{ item }">
+              <div class="text-end">{{ item.games }} games</div>
+            </template>
+          </v-data-table>
         </v-card>
       </v-col>
     </v-row>
@@ -42,71 +43,25 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "Platforms",
+  computed: {
+    ...mapGetters(["platforms"]),
+  },
+  created() {
+    this.$store.dispatch("fetchPlatforms");
+  },
   data: () => ({
-    items: [
-      "3DS",
-      "AMIGA",
-      "AMIGA 500",
-      "AMSTRAD CPC",
-      "ANDROID",
-      "ARCADE",
-      "ATARI ST",
-      "C64",
-      "DC",
-      "DS",
-      "FDS",
-      "FM TOWNS",
-      "GB",
-      "GBA",
-      "GC",
-      "GG",
-      "IOS",
-      "MAME",
-      "MD",
-      "MD MINI",
-      "MEGA CD",
-      "MS",
-      "MSX",
-      "N64",
-      "NES",
-      "NG",
-      "NGCD",
-      "NGPC",
-      "OUYA",
-      "PC",
-      "PC-88",
-      "PC-98",
-      "PCB",
-      "PCE",
-      "PCECD",
-      "PS1",
-      "PS2",
-      "PS3",
-      "PS4",
-      "PSN",
-      "PSP",
-      "SAT",
-      "SGX",
-      "SMS",
-      "SNES",
-      "SWITCH",
-      "TAITO G-NET",
-      "VC",
-      "VECTREX",
-      "VITA",
-      "WII",
-      "WIIU",
-      "WINDOWS PHONE",
-      "WONDERSWAN",
-      "X360",
-      "X68000",
-      "XBOX",
-      "XONE",
-      "ZX SPECTRUM",
-    ],
+    search: "",
+    headers: [{ value: "title" }, { value: "games" }],
   }),
+  methods: {
+    handleClick(row) {
+      this.$router.push(`/platform/${row.title}`);
+    },
+  },
 };
 </script>
 

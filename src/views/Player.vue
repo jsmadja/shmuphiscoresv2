@@ -34,7 +34,7 @@ export default {
         { text: "Rank", value: "rank" },
         { text: "1CC", value: "onecc" },
         { text: "Tier", value: "tier" },
-        { text: "Platform", value: "platform" }
+        { text: "Platform", value: "platform" },
       ],
       scores: [
         {
@@ -43,7 +43,7 @@ export default {
           stage: "3 BOSS",
           rank: "1st",
           tier: "Top",
-          platform: "PCB"
+          platform: "PCB",
         },
         {
           score: 858200,
@@ -52,7 +52,7 @@ export default {
           stage: "ALL",
           rank: "3rd",
           tier: "Top",
-          platform: "SNES"
+          platform: "SNES",
         },
         {
           score: 35130488,
@@ -61,7 +61,7 @@ export default {
           stage: "5",
           rank: "5th",
           tier: "Middle",
-          platform: "X360"
+          platform: "X360",
         },
         {
           score: 1013570,
@@ -70,16 +70,16 @@ export default {
           stage: "2-1",
           rank: "5th",
           tier: "Low",
-          platform: "MD"
-        }
-      ]
+          platform: "MD",
+        },
+      ],
     };
   },
   methods: {
     handleClick() {
-      this.$router.push('/game');
-    }
-  }
+      this.$router.push("/game");
+    },
+  },
 };
 </script>
 

@@ -89,7 +89,7 @@
                   'X68000',
                   'XBOX',
                   'XONE',
-                  'ZX SPECTRUM'
+                  'ZX SPECTRUM',
                 ]"
                 multiple
                 label="Platforms"
@@ -218,7 +218,7 @@ export default {
         modes: "",
         difficulties: "",
         thread: "",
-        platforms: []
+        platforms: [],
       },
 
       selectedRanking: "",
@@ -227,7 +227,7 @@ export default {
         { text: "Rank", value: "rank" },
         { text: "Player", value: "playerName" },
         { text: "Score", value: "value" },
-        { text: "Stage", value: "stageName" }
+        { text: "Stage", value: "stageName" },
       ],
       desserts: [
         {
@@ -236,7 +236,7 @@ export default {
           playerName: "Rechiku",
           playerId: 146,
           rank: 1,
-          stageName: "ALL"
+          stageName: "ALL",
         },
         {
           id: 5,
@@ -244,7 +244,7 @@ export default {
           playerName: "kawaijb",
           playerId: 12,
           rank: 2,
-          stageName: "ALL"
+          stageName: "ALL",
         },
         {
           id: 8894,
@@ -252,10 +252,10 @@ export default {
           playerName: "Undef",
           playerId: 150,
           rank: 3,
-          stageName: "ALL"
-        }
-      ]
+          stageName: "ALL",
+        },
+      ],
     };
-  }
+  },
 };
 </script>

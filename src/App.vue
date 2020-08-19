@@ -12,15 +12,21 @@
             </v-list-item-content>
           </v-list-item>
           <v-divider></v-divider>
-          <v-list-item link to="/my-profile">
+          <v-list-item
+            two-line
+            link
+            to="/my-profile"
+            v-if="user && user.authenticated"
+          >
             <v-list-item-action>
               <v-icon>mdi-account</v-icon>
             </v-list-item-action>
             <v-list-item-content>
               <v-list-item-title>My Profile</v-list-item-title>
+              <v-list-item-subtitle>{{ user.name }}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item link to="/my-games">
+          <v-list-item link to="/my-games" v-if="user && user.authenticated">
             <v-list-item-action>
               <v-icon>mdi-view-list</v-icon>
             </v-list-item-action>
@@ -28,7 +34,11 @@
               <v-list-item-title>My Games</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item link to="/my-recommendations">
+          <v-list-item
+            link
+            to="/my-recommendations"
+            v-if="user && user.authenticated"
+          >
             <v-list-item-action>
               <v-icon>mdi-compass</v-icon>
             </v-list-item-action>
@@ -78,7 +88,7 @@
             </v-list-item-content>
           </v-list-item>
           <v-divider></v-divider>
-          <v-list-item link to="/add-game">
+          <v-list-item link to="/add-game" v-if="user">
             <v-list-item-action>
               <v-icon>mdi-view-grid-plus</v-icon>
             </v-list-item-action>
@@ -168,6 +178,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { mapGetters } from "vuex";
 
 export default Vue.extend({
   name: "App",
@@ -178,33 +189,17 @@ export default Vue.extend({
     drawer: null,
   }),
 
+  computed: {
+    ...mapGetters(["user"]),
+  },
+
   created() {
     this.$vuetify.theme.dark = false;
+    this.$store.dispatch("fetchUser");
   },
 });
 </script>
 
 <style lang="scss">
-h1,
-h2,
-h3 {
-  font-family: "Raleway", sans;
-  //font-size: 2em;
-  line-height: 1em;
-  font-weight: 400;
-}
-
-body,
-.v-card__title {
-  font-family: "Raleway", sans;
-  font-weight: 400;
-}
-.v-application .headline {
-  color: #ff781b;
-  font-family: "Raleway", sans;
-  font-weight: 400;
-}
-.v-main {
-  background: #f7f7f7;
-}
+@import "custom.scss";
 </style>

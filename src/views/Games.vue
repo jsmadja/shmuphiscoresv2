@@ -28,6 +28,6 @@
 <script>
 export default {
   name: "Games",
-  components: {}
+  components: {},
 };
 </script>

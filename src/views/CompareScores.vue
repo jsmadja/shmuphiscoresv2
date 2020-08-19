@@ -56,7 +56,7 @@ export default {
         { text: "Difficulty", value: "difficulty" },
         { text: "Anzymus", value: "player1Rank" },
         { text: "Mickey", value: "player2Rank" },
-        { text: "Gap", value: "gap" }
+        { text: "Gap", value: "gap" },
       ],
       items: [
         {
@@ -65,16 +65,16 @@ export default {
           difficulty: "MVS",
           player1Rank: 5,
           player2Rank: 9,
-          gap: 151
-        }
-      ]
+          gap: 151,
+        },
+      ],
     };
   },
   methods: {
     handleClick() {
-      this.$router.push('/game');
-    }
-  }
+      this.$router.push("/game");
+    },
+  },
 };
 </script>
 

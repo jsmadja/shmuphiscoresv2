@@ -7,7 +7,7 @@
     </v-row>
     <!-- Rankings -->
     <v-row>
-      <v-col xs12 id="v15original">
+      <v-col xs12>
         <v-card>
           <v-card-title>
             <v-text-field

@@ -14,7 +14,10 @@
 
               <v-card-subtitle v-html="item.artist"></v-card-subtitle>
               <v-card-actions>
-                <v-btn text to="/add-score">ADD SCORE</v-btn>
+                <v-btn text to="/score/1/edit">
+                  <v-icon left>mdi-pencil</v-icon>
+                  EDIT</v-btn
+                >
               </v-card-actions>
             </div>
 
@@ -36,11 +39,7 @@
           <div class="d-flex flex-no-wrap justify-space-between">
             <div>
               <v-card-title class="headline" v-text="item.title"></v-card-title>
-
               <v-card-subtitle v-html="item.artist"></v-card-subtitle>
-              <v-card-actions>
-                <v-btn text>ADD SCORE</v-btn>
-              </v-card-actions>
             </div>
 
             <v-avatar class="ma-3" size="125" tile>
