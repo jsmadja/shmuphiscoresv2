@@ -1,10 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { PlatformWithGameCount } from "@/models/platforms";
+import { api } from "@/api";
 
 Vue.use(Vuex);
-
-const api = "https://shmuphiscoresv2-api.herokuapp.com";
 
 export default new Vuex.Store({
   state: {
