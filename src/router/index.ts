@@ -34,7 +34,7 @@ const routes: Array<RouteConfig> = [
     component: Platforms,
   },
   {
-    path: "/platform",
+    path: "/platform/:title",
     name: "Platform",
     component: Platform,
   },

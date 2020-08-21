@@ -14,5 +14,14 @@ module.exports = async ({ config }) => {
     include: path.resolve(__dirname, '../'),
   })
 
+  config.module.rules.push({
+    test: /\.tsx?$/,
+    loader: 'ts-loader',
+    exclude: /node_modules/,
+    options: {
+      appendTsSuffixTo: [/\.vue$/],
+    }
+  })
+
   return config
 }

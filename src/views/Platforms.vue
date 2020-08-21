@@ -1,68 +1,31 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col>
-        <h1>Platforms</h1>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col xs12>
-        <v-card>
-          <v-card-title>
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Search"
-              single-line
-              hide-details
-            ></v-text-field>
-          </v-card-title>
-          <v-data-table
-            hide-default-footer
-            :headers="headers"
-            :items="platforms"
-            :search="search"
-            @click:row="handleClick"
-            mobile-breakpoint="0"
-            :footer-props="{
-              disableItemsPerPage: true,
-              itemsPerPageOptions: [-1],
-            }"
-          >
-            <template v-slot:item.title="{ item }">
-              {{ item.title }}
-            </template>
-            <template v-slot:item.games="{ item }">
-              <div class="text-end">{{ item.games }} games</div>
-            </template>
-          </v-data-table>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <platforms-template
+    :platforms="platforms"
+    @selectPlatform="goToPlatformPage"
+  />
 </template>
 
-<script>
+<script lang="ts">
 import { mapGetters } from "vuex";
+import PlatformsTemplate from "@/components/templates/PlatformsTemplate.vue";
+import Vue from "vue";
+import { PlatformWithGameCount } from "@/models/platforms";
 
-export default {
+export default Vue.extend({
   name: "Platforms",
+  components: {
+    PlatformsTemplate,
+  },
   computed: {
     ...mapGetters(["platforms"]),
   },
   created() {
     this.$store.dispatch("fetchPlatforms");
   },
-  data: () => ({
-    search: "",
-    headers: [{ value: "title" }, { value: "games" }],
-  }),
   methods: {
-    handleClick(row) {
-      this.$router.push(`/platform/${row.title}`);
+    goToPlatformPage(platform: PlatformWithGameCount) {
+      this.$router.push(`/platform/${platform.title}`);
     },
   },
-};
+});
 </script>
-
-<style scoped></style>

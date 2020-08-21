@@ -1,6 +1,5 @@
 import React, { createElement } from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import './styles.css'
 
 import addons, { types } from '@storybook/addons'
 

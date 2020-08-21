@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import { PlatformWithGameCount } from "@/models/platforms";
 
 Vue.use(Vuex);
 
@@ -8,13 +9,13 @@ const api = "https://shmuphiscoresv2-api.herokuapp.com";
 export default new Vuex.Store({
   state: {
     user: null,
-    platforms: [],
+    platforms: [] as PlatformWithGameCount[],
   },
   mutations: {
     setUser(state, user) {
       state.user = user;
     },
-    setPlatforms(state, platforms) {
+    setPlatforms(state, platforms: PlatformWithGameCount[]) {
       state.platforms = platforms;
     },
   },
@@ -27,7 +28,9 @@ export default new Vuex.Store({
     fetchPlatforms(context) {
       fetch(`${api}/platforms`)
         .then((response) => response.json())
-        .then((platforms) => context.commit("setPlatforms", platforms));
+        .then((platforms: PlatformWithGameCount[]) =>
+          context.commit("setPlatforms", platforms)
+        );
     },
   },
   getters: {
