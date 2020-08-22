@@ -1,5 +1,9 @@
 <template>
-  <PlatformTemplate :games="games" @onSelectGame="goToGamePage" />
+  <PlatformTemplate
+    :platform-title="platformTitle"
+    :games="games"
+    @selectGame="goToGamePage"
+  />
 </template>
 
 <script lang="ts">
@@ -28,6 +32,7 @@ export default Vue.extend({
   },
   methods: {
     goToGamePage(game: Game) {
+      debugger;
       this.$router.push(`/game/${game.id}`);
     },
   },

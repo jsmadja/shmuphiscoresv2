@@ -54,7 +54,7 @@ const routes: Array<RouteConfig> = [
     component: EditScore,
   },
   {
-    path: "/game",
+    path: "/game/:id",
     name: "Game",
     component: Game,
   },
