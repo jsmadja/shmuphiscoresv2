@@ -2,6 +2,7 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import { makeDecorator } from '@storybook/addons'
+import formatNumber from "../../src/filters/formatNumber";
 
 // Utilities
 import deepmerge from 'deepmerge'
@@ -38,6 +39,7 @@ export default makeDecorator({
     return Vue.extend({
       vuetify,
       components: { WrappedComponent },
+      filters: { formatNumber },
       template: `
         <v-app>
           <v-container fluid>

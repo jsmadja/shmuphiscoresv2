@@ -40,3 +40,6 @@ heroku buildpacks:add heroku/nodejs -a shmuphiscoresv2
 heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static -a shmuphiscoresv2
 git push
 ```
+
+## Links
+- https://cdn.materialdesignicons.com/4.5.95/

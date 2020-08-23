@@ -20,16 +20,19 @@ export default new Vuex.Store({
   },
   actions: {
     fetchUser(context) {
-      fetch(`${api}/me`)
+      return fetch(`${api}/me`)
         .then((response) => response.json())
         .then((user) => context.commit("setUser", user));
     },
     fetchPlatforms(context) {
-      fetch(`${api}/platforms`)
+      return fetch(`${api}/platforms`)
         .then((response) => response.json())
         .then((platforms: PlatformWithGameCount[]) =>
           context.commit("setPlatforms", platforms)
         );
+    },
+    async createGame(context, game) {
+      return fetch(`${api}/games`, game);
     },
   },
   getters: {

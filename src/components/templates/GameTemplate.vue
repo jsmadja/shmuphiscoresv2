@@ -1,0 +1,189 @@
+<template>
+  <v-container>
+    <!-- Ranking Menu -->
+    <v-row v-if="!hideRankingMenu" class="d-none d-sm-flex">
+      <v-navigation-drawer
+        clipped
+        fixed
+        right
+        class="mt-14"
+        permanent
+        expand-on-hover
+      >
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              Rankings
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider></v-divider>
+        <v-list dense>
+          <v-list-item
+            v-for="(ranking, i) in rankings"
+            :key="`menu-ranking-${i}`"
+          >
+            <v-list-item-title
+              class="ranking-name"
+              :class="{ selected: isActive(`intersect-ranking-${i}`) }"
+              @click="$vuetify.goTo(`#ranking-${i}`)"
+            >
+              {{ ranking.mode.name
+              }}<span v-if="ranking.mode.name && ranking.difficulty.name"
+                >-</span
+              >
+              {{ ranking.difficulty.name }}
+            </v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+    </v-row>
+    <v-row>
+      <v-col>
+        <h1>{{ game.title }}</h1>
+      </v-col>
+    </v-row>
+    <!-- Infos -->
+    <v-row>
+      <v-col cols="12" sm="12" md="4" lg="2">
+        <v-row>
+          <v-col cols="12" sm="6" md="12">
+            <v-card tile><v-img :src="game.cover" /></v-card>
+          </v-col>
+          <v-col class="pa-1">
+            <v-chip class="ma-2" color="green" text-color="white">
+              <v-avatar left class="green darken-4">
+                {{ (game.platforms || []).length }}
+              </v-avatar>
+              Platforms
+            </v-chip>
+            <v-chip class="ma-2" color="amber" text-color="white">
+              <v-avatar left class="amber darken-4">
+                {{ (game.difficulties || []).length }}
+              </v-avatar>
+              Difficulties
+            </v-chip>
+            <v-chip class="ma-2" color="grey" text-color="white">
+              <v-avatar left class="grey darken-4">
+                {{ (game.modes || []).length }}
+              </v-avatar>
+              Modes
+            </v-chip>
+          </v-col>
+          <v-col>
+            <v-btn
+              tile
+              small
+              class="mr-1 mb-3 elevation-5"
+              dark
+              color="orange"
+              @click="$emit('addScore', { game })"
+            >
+              <v-icon left small>mdi-plus</v-icon>
+              Add Score
+            </v-btn>
+            <v-btn
+              tile
+              small
+              depressed
+              class="mr-1 mb-3"
+              target="_blank"
+              :href="game.thread"
+            >
+              <v-icon left small>mdi-eye</v-icon>
+              Read Topic
+            </v-btn>
+            <v-btn tile small depressed @click="$emit('configureGame', game)">
+              <v-icon left small>mdi-cog</v-icon>
+              Configure
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-col>
+      <!-- Rankings -->
+      <v-col cols="12" sm="11" md="8" lg="10">
+        <Ranking
+          :ranking="ranking"
+          v-for="(ranking, i) in rankings"
+          :key="`ranking-${i}`"
+          :id="`ranking-${i}`"
+        >
+          <div
+            v-intersect="{
+              handler: onIntersect,
+              options: {
+                threshold: [0, 0.5],
+              },
+            }"
+            :id="`intersect-ranking-${i}`"
+          />
+        </Ranking>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script lang="ts">
+import Vue from "vue";
+import Ranking from "../organisms/Ranking.vue";
+
+export default Vue.extend({
+  name: "Game",
+  props: ["game", "rankings", "currentPlayerId", "hideRankingMenu"],
+  components: { Ranking },
+  data() {
+    return {
+      isIntersecting: {},
+    };
+  },
+  computed: {
+    intersection: {
+      get: function (): any {
+        return this.isIntersecting;
+      },
+      set: function (isIntersecting: any) {
+        this.isIntersecting = isIntersecting;
+      },
+    },
+  },
+  methods: {
+    isActive(ranking: string) {
+      return this.isIntersecting[ranking];
+    },
+    handleClick() {
+      this.$router.push("/player");
+    },
+    onIntersect(entries: IntersectionObserverEntry[]) {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        const intersection = {} as any;
+        intersection[entry.target.id] = entry.isIntersecting;
+        this.intersection = intersection;
+      }
+    },
+  },
+});
+</script>
+
+<style lang="scss" scoped>
+.ranking-name {
+  cursor: pointer;
+
+  &.selected {
+    border-left: solid 3px orange;
+    padding-left: 5px;
+    color: orange;
+    font-weight: bold;
+    margin-left: -0.5rem;
+  }
+
+  &:hover {
+    color: orange;
+    font-weight: bold;
+  }
+}
+h3 {
+  color: orange;
+  font-weight: bold;
+}
+</style>
