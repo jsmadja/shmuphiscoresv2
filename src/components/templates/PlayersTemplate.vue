@@ -30,6 +30,30 @@
               <template v-slot:item.scores="{ item }">
                 {{ item.scores }} scores
               </template>
+              <template v-slot:item.firstRankCount="{ item }">
+                {{ item.firstRankCount }}
+                <v-icon color="amber accent-2">mdi-medal</v-icon>
+              </template>
+              <template v-slot:item.secondRankCount="{ item }">
+                {{ item.secondRankCount }}
+                <v-icon color="blue-grey lighten-4">mdi-medal</v-icon>
+              </template>
+              <template v-slot:item.thirdRankCount="{ item }">
+                {{ item.thirdRankCount }}
+                <v-icon color="brown lighten-1">mdi-medal</v-icon>
+              </template>
+              <template v-slot:item.oneCreditCount="{ item }">
+                {{ item.oneCreditCount }}
+                <v-chip
+                  class="pr-1 pl-1"
+                  dark
+                  x-small
+                  tile
+                  depressed
+                  color="orange"
+                  >1CC</v-chip
+                >
+              </template>
             </v-data-table>
           </v-card-text>
         </v-card>
@@ -49,10 +73,30 @@ export default Vue.extend({
       search: "",
       headers: [
         { text: "Player", value: "name" },
-        { text: "1st", value: "firstRankCount", hide: "smAndDown" },
-        { text: "2nd", value: "secondRankCount", hide: "smAndDown" },
-        { text: "3rd", value: "thirdRankCount", hide: "smAndDown" },
-        { text: "1CC", value: "oneCreditCount", hide: "smAndDown" },
+        {
+          text: "1st",
+          value: "firstRankCount",
+          hide: "smAndDown",
+          align: "right",
+        },
+        {
+          text: "2nd",
+          value: "secondRankCount",
+          hide: "smAndDown",
+          align: "right",
+        },
+        {
+          text: "3rd",
+          value: "thirdRankCount",
+          hide: "smAndDown",
+          align: "right",
+        },
+        {
+          text: "1CC",
+          value: "oneCreditCount",
+          hide: "smAndDown",
+          align: "right",
+        },
         { text: "Scores", value: "scores", align: "right" },
       ],
     };
