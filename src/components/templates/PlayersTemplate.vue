@@ -24,8 +24,12 @@
               :search="search"
               :item-class="rowClasses"
               mobile-breakpoint="0"
+              :dense="$vuetify.breakpoint.smAndDown"
               :loading="players.length === 0"
             >
+              <template v-slot:item.scores="{ item }">
+                {{ item.scores }} scores
+              </template>
             </v-data-table>
           </v-card-text>
         </v-card>

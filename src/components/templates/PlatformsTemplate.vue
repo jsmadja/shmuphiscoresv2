@@ -23,6 +23,7 @@
               :headers="headers"
               :items="platforms"
               :search="search"
+              :dense="$vuetify.breakpoint.smAndDown"
               @click:row="handleClick"
               mobile-breakpoint="0"
               :loading="platforms.length === 0"

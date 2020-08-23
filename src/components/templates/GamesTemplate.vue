@@ -77,6 +77,7 @@ export default Vue.extend({
         {
           text: "",
           value: "cover",
+          hide: "smAndDown",
         },
         {
           text: "Title",
@@ -90,16 +91,19 @@ export default Vue.extend({
           text: "Players",
           value: "players",
           align: "right",
+          hide: "smAndDown",
         },
         {
           text: "Scores",
           value: "scores",
           align: "right",
+          hide: "smAndDown",
         },
         {
           text: "1CC",
           value: "oneccs",
           align: "right",
+          hide: "smAndDown",
         },
       ],
     };
