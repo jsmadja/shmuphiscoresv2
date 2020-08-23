@@ -24,6 +24,7 @@
             :search="search"
             @click:row="handleClick"
             mobile-breakpoint="0"
+            :loading="platforms.length === 0"
             :footer-props="{
               disableItemsPerPage: true,
               itemsPerPageOptions: [-1],

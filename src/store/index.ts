@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import { PlatformWithGameCount } from "@/models/platforms";
 import { api } from "@/api";
+import { Player } from "@/models/player";
 
 Vue.use(Vuex);
 
@@ -9,6 +10,7 @@ export default new Vuex.Store({
   state: {
     user: null,
     platforms: [] as PlatformWithGameCount[],
+    players: [] as Player[],
   },
   mutations: {
     setUser(state, user) {
@@ -16,6 +18,9 @@ export default new Vuex.Store({
     },
     setPlatforms(state, platforms: PlatformWithGameCount[]) {
       state.platforms = platforms;
+    },
+    setPlayers(state, players: Player[]) {
+      state.players = players;
     },
   },
   actions: {
@@ -31,6 +36,11 @@ export default new Vuex.Store({
           context.commit("setPlatforms", platforms)
         );
     },
+    fetchPlayers(context) {
+      return fetch(`${api}/players`)
+        .then((response) => response.json())
+        .then((players) => context.commit("setPlayers", players));
+    },
     async createGame(context, game) {
       return fetch(`${api}/games`, game);
     },
@@ -41,6 +51,9 @@ export default new Vuex.Store({
     },
     platforms: (state) => {
       return state.platforms;
+    },
+    players: (state) => {
+      return state.players;
     },
   },
 });
