@@ -181,6 +181,20 @@ export default Vue.extend({
         platforms: form.platforms
           .flat()
           .map((platformName) => ({ id: Math.random(), name: platformName })),
+        difficulties:
+          form.difficulties.length === 0
+            ? []
+            : form.difficulties
+                .trim()
+                .split("\n")
+                .map((name) => ({ name })),
+        modes:
+          form.modes.length === 0
+            ? []
+            : form.modes
+                .trim()
+                .split("\n")
+                .map((name) => ({ name })),
       };
     },
     previewedRankings: function () {

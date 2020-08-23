@@ -91,7 +91,6 @@
             <v-menu offset-x open-on-hover nudge-right="5">
               <template v-slot:activator="{ on, attrs }">
                 <v-chip
-                  v-if="game.difficulties.length > 0"
                   class="ma-2"
                   color="amber"
                   text-color="white"
@@ -119,7 +118,6 @@
             <v-menu offset-x open-on-hover nudge-right="5">
               <template v-slot:activator="{ on, attrs }">
                 <v-chip
-                  v-if="game.modes.length > 0"
                   class="ma-2"
                   color="grey"
                   text-color="white"
