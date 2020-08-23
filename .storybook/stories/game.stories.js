@@ -3960,13 +3960,14 @@ export default {
 export const defaultGame = () => ({
     components: {GameTemplate},
     template: `
-        <GameTemplate current-player-id="1" :game="game" :rankings="rankings" @configureGame="onConfigureGame" @addScore="onAddScore" />`,
+        <GameTemplate current-player-id="1" :game="game" :rankings="rankings" @configureGame="onConfigureGame" @selectPlatform="onSelectPlatform" @addScore="onAddScore" />`,
     data: () => ({
         game,
         rankings,
     }),
     methods: {
         onAddScore: action('onAddScore'),
+        onSelectPlatform: action('onSelectPlatform'),
         onConfigureGame: action('onConfigureGame'),
     },
 });

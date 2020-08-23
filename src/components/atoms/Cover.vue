@@ -5,6 +5,7 @@
     :width="width"
     :max-height="max - height"
     :height="height"
+    :max="max"
   />
 </template>
 
@@ -13,7 +14,7 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "Cover",
-  props: ["url", "alt", "width", "max-height", "height"],
+  props: ["url", "alt", "width", "max-height", "height", "max"],
   methods: {
     coverUrl() {
       if (this.url && this.url.indexOf("/") === 0) {

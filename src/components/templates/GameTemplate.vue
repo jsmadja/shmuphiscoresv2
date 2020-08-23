@@ -60,24 +60,87 @@
             <v-card tile><Cover :url="game.cover" :alt="game.title" /></v-card>
           </v-col>
           <v-col class="pa-1">
-            <v-chip class="ma-2" color="green" text-color="white">
-              <v-avatar left class="green darken-4">
-                {{ (game.platforms || []).length }}
-              </v-avatar>
-              Platforms
-            </v-chip>
-            <v-chip class="ma-2" color="amber" text-color="white">
-              <v-avatar left class="amber darken-4">
-                {{ (game.difficulties || []).length }}
-              </v-avatar>
-              Difficulties
-            </v-chip>
-            <v-chip class="ma-2" color="grey" text-color="white">
-              <v-avatar left class="grey darken-4">
-                {{ (game.modes || []).length }}
-              </v-avatar>
-              Modes
-            </v-chip>
+            <v-menu offset-x open-on-hover nudge-right="5">
+              <template v-slot:activator="{ on, attrs }">
+                <v-chip
+                  class="ma-2"
+                  color="green"
+                  text-color="white"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  <v-avatar left class="green darken-4">
+                    {{ (game.platforms || []).length }}
+                  </v-avatar>
+                  Platforms
+                </v-chip>
+              </template>
+              <v-list color="green" dense>
+                <v-list-item
+                  v-for="(platform, index) in game.platforms"
+                  :key="index"
+                  @click="$emit('selectPlatform', platform)"
+                  dark
+                  color="green"
+                >
+                  <v-list-item-title>{{ platform.name }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+
+            <v-menu offset-x open-on-hover nudge-right="5">
+              <template v-slot:activator="{ on, attrs }">
+                <v-chip
+                  class="ma-2"
+                  color="amber"
+                  text-color="white"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  <v-avatar left class="amber darken-4">
+                    {{ (game.difficulties || []).length }}
+                  </v-avatar>
+                  Difficulties
+                </v-chip>
+              </template>
+              <v-list color="amber" dense>
+                <v-list-item
+                  v-for="(difficulty, index) in game.difficulties"
+                  :key="index"
+                  dark
+                  color="amber"
+                >
+                  <v-list-item-title>{{ difficulty.name }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+
+            <v-menu offset-x open-on-hover nudge-right="5">
+              <template v-slot:activator="{ on, attrs }">
+                <v-chip
+                  class="ma-2"
+                  color="grey"
+                  text-color="white"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  <v-avatar left class="grey darken-4">
+                    {{ (game.modes || []).length }}
+                  </v-avatar>
+                  Modes
+                </v-chip>
+              </template>
+              <v-list color="grey" dense>
+                <v-list-item
+                  v-for="(mode, index) in game.modes"
+                  :key="index"
+                  dark
+                  color="grey darken-4"
+                >
+                  <v-list-item-title>{{ mode.name }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
           </v-col>
           <v-col>
             <v-btn
@@ -159,9 +222,6 @@ export default Vue.extend({
   methods: {
     isActive(ranking: string) {
       return this.isIntersecting[ranking];
-    },
-    handleClick() {
-      this.$router.push("/player");
     },
     onIntersect(entries: IntersectionObserverEntry[]) {
       const entry = entries[0];

@@ -28,7 +28,7 @@ export default makeDecorator({
         dark,
         themes: {
           light: {
-            primary: "#FF781B",
+            primary: "#ff9800",
           },
         }
       },
