@@ -1,33 +1,32 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col>
-        <h1>Games</h1>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-text-field
-          placeholder="Darius, R-Type, ..."
-          hide-details
-          outlined
-          append-icon="mdi-magnify"
-        ></v-text-field>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="12" md="6" lg="4" class="pa-2" v-for="n in 6" :key="n">
-        <router-link to="/game">
-          <v-skeleton-loader type="card"></v-skeleton-loader>
-        </router-link>
-      </v-col>
-    </v-row>
-  </v-container>
+  <GamesTemplate
+    :games="games"
+    @selectGame="onSelectGame"
+    @selectPlatform="onSelectPlatform"
+  />
 </template>
 
 <script>
-export default {
-  name: "Games",
-  components: {},
-};
+import { mapGetters } from "vuex";
+import Vue from "vue";
+import GamesTemplate from "@/components/templates/GamesTemplate";
+
+export default Vue.extend({
+  title: "Games",
+  components: { GamesTemplate },
+  created() {
+    this.$store.dispatch("fetchGames");
+  },
+  computed: {
+    ...mapGetters(["games"]),
+  },
+  methods: {
+    onSelectGame(game) {
+      this.$router.push(`/game/${game.id}`);
+    },
+    onSelectPlatform(platform) {
+      this.$router.push(`/platform/${platform}`);
+    },
+  },
+});
 </script>

@@ -17,26 +17,28 @@
               hide-details
             ></v-text-field>
           </v-card-title>
-          <v-data-table
-            hide-default-footer
-            :headers="headers"
-            :items="platforms"
-            :search="search"
-            @click:row="handleClick"
-            mobile-breakpoint="0"
-            :loading="platforms.length === 0"
-            :footer-props="{
-              disableItemsPerPage: true,
-              itemsPerPageOptions: [-1],
-            }"
-          >
-            <template v-slot:item.title="{ item }">
-              {{ item.title }}
-            </template>
-            <template v-slot:item.games="{ item }">
-              <div class="text-end">{{ item.games }} games</div>
-            </template>
-          </v-data-table>
+          <v-card-text>
+            <v-data-table
+              hide-default-footer
+              :headers="headers"
+              :items="platforms"
+              :search="search"
+              @click:row="handleClick"
+              mobile-breakpoint="0"
+              :loading="platforms.length === 0"
+              :footer-props="{
+                disableItemsPerPage: true,
+                itemsPerPageOptions: [-1],
+              }"
+            >
+              <template v-slot:item.title="{ item }">
+                {{ item.title }}
+              </template>
+              <template v-slot:item.games="{ item }">
+                <div class="text-end">{{ item.games }} games</div>
+              </template>
+            </v-data-table>
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>

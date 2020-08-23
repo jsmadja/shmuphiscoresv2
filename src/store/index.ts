@@ -3,6 +3,8 @@ import Vuex from "vuex";
 import { PlatformWithGameCount } from "@/models/platforms";
 import { api } from "@/api";
 import { Player } from "@/models/player";
+import { Game } from "@/models/game";
+import { Ranking } from "@/models/ranking";
 
 Vue.use(Vuex);
 
@@ -11,6 +13,9 @@ export default new Vuex.Store({
     user: null,
     platforms: [] as PlatformWithGameCount[],
     players: [] as Player[],
+    games: [] as Game[],
+    game: null,
+    rankings: [] as Ranking[],
   },
   mutations: {
     setUser(state, user) {
@@ -21,6 +26,15 @@ export default new Vuex.Store({
     },
     setPlayers(state, players: Player[]) {
       state.players = players;
+    },
+    setGames(state, games: Game[]) {
+      state.games = games;
+    },
+    setRankings(state, rankings: Ranking[]) {
+      state.rankings = rankings;
+    },
+    setGame(state, game) {
+      state.game = game;
     },
   },
   actions: {
@@ -41,19 +55,31 @@ export default new Vuex.Store({
         .then((response) => response.json())
         .then((players) => context.commit("setPlayers", players));
     },
+    fetchGames(context) {
+      return fetch(`${api}/games`)
+        .then((response) => response.json())
+        .then((games) => context.commit("setGames", games));
+    },
+    fetchGame(context, id) {
+      return fetch(`${api}/games/${id}`)
+        .then((response) => response.json())
+        .then((game) => context.commit("setGame", game));
+    },
+    fetchRankings(context, id) {
+      return fetch(`${api}/games/${id}/rankings`)
+        .then((response) => response.json())
+        .then((game) => context.commit("setRankings", game));
+    },
     async createGame(context, game) {
       return fetch(`${api}/games`, game);
     },
   },
   getters: {
-    user: (state) => {
-      return state.user;
-    },
-    platforms: (state) => {
-      return state.platforms;
-    },
-    players: (state) => {
-      return state.players;
-    },
+    user: (state) => state.user,
+    platforms: (state) => state.platforms,
+    players: (state) => state.players,
+    games: (state) => state.games,
+    game: (state) => state.game,
+    rankings: (state) => state.rankings,
   },
 });

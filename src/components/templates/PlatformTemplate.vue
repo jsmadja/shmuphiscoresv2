@@ -15,7 +15,7 @@
         md="12"
         lg="6"
       >
-        <v-card @click="handleClick">
+        <v-card @click="handleClick(item)">
           <div class="d-flex justify-space-between">
             <div>
               <v-card-title class="headline" v-text="item.title"></v-card-title>

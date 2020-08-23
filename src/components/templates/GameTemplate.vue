@@ -27,12 +27,21 @@
               class="ranking-name"
               :class="{ selected: isActive(`intersect-ranking-${i}`) }"
               @click="$vuetify.goTo(`#ranking-${i}`)"
+              v-if="ranking"
             >
-              {{ ranking.mode.name
-              }}<span v-if="ranking.mode.name && ranking.difficulty.name"
+              <span v-if="ranking.mode">{{ ranking.mode.name }}</span>
+              <span
+                v-if="
+                  ranking.mode &&
+                  ranking.mode.name &&
+                  ranking.difficulty &&
+                  ranking.difficulty.name
+                "
                 >-</span
               >
-              {{ ranking.difficulty.name }}
+              <span v-if="ranking.difficulty">{{
+                ranking.difficulty.name
+              }}</span>
             </v-list-item-title>
           </v-list-item>
         </v-list>
@@ -48,7 +57,7 @@
       <v-col cols="12" sm="12" md="4" lg="2">
         <v-row>
           <v-col cols="12" sm="6" md="12">
-            <v-card tile><v-img :src="game.cover" /></v-card>
+            <v-card tile><Cover :url="game.cover" :alt="game.title" /></v-card>
           </v-col>
           <v-col class="pa-1">
             <v-chip class="ma-2" color="green" text-color="white">
@@ -126,11 +135,12 @@
 <script lang="ts">
 import Vue from "vue";
 import Ranking from "../organisms/Ranking.vue";
+import Cover from "../atoms/Cover.vue";
 
 export default Vue.extend({
   name: "Game",
   props: ["game", "rankings", "currentPlayerId", "hideRankingMenu"],
-  components: { Ranking },
+  components: { Ranking, Cover },
   data() {
     return {
       isIntersecting: {},

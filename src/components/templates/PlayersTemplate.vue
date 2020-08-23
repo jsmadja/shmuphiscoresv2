@@ -17,16 +17,17 @@
               hide-details
             ></v-text-field>
           </v-card-title>
-          <v-data-table
-            :headers="computedHeaders"
-            :items="players"
-            :search="search"
-            :item-class="rowClasses"
-            dense
-            mobile-breakpoint="0"
-            :loading="players.length === 0"
-          >
-          </v-data-table>
+          <v-card-text>
+            <v-data-table
+              :headers="computedHeaders"
+              :items="players"
+              :search="search"
+              :item-class="rowClasses"
+              mobile-breakpoint="0"
+              :loading="players.length === 0"
+            >
+            </v-data-table>
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>

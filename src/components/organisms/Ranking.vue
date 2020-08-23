@@ -4,10 +4,23 @@
       <v-col cols="12">
         <v-card>
           <v-card-title>
-            <h3>
-              {{ ranking.mode.name }}
-              <span v-if="ranking.mode.name && ranking.difficulty.name">-</span>
-              {{ ranking.difficulty.name }}
+            <h3 v-if="ranking">
+              <span v-if="ranking && ranking.mode">{{
+                ranking.mode.name
+              }}</span>
+              <span
+                v-if="
+                  ranking &&
+                  ranking.mode &&
+                  ranking.difficulty &&
+                  ranking.mode.name &&
+                  ranking.difficulty.name
+                "
+                >-</span
+              >
+              <span v-if="ranking && ranking.difficulty">{{
+                ranking.difficulty.name
+              }}</span>
             </h3>
             <v-spacer></v-spacer>
             <v-text-field
