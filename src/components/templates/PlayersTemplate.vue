@@ -49,7 +49,7 @@ export default Vue.extend({
         { text: "2nd", value: "secondRankCount", hide: "smAndDown" },
         { text: "3rd", value: "thirdRankCount", hide: "smAndDown" },
         { text: "1CC", value: "oneCreditCount", hide: "smAndDown" },
-        { text: "Scores", value: "scores" },
+        { text: "Scores", value: "scores", align: "right" },
       ],
     };
   },
