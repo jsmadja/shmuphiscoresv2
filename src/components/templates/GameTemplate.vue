@@ -60,7 +60,7 @@
             <v-card tile><Cover :url="game.cover" :alt="game.title" /></v-card>
           </v-col>
           <v-col class="pa-1">
-            <v-menu offset-x open-on-hover nudge-right="5">
+            <v-menu offset-x nudge-right="5">
               <template v-slot:activator="{ on, attrs }">
                 <v-chip
                   class="ma-2"

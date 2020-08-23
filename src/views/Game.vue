@@ -4,6 +4,7 @@
     :game="game"
     :rankings="rankings"
     :current-player-id="user.id"
+    @selectPlatform="onSelectPlatform"
   />
 </template>
 
@@ -22,7 +23,11 @@ export default Vue.extend({
     this.$store.dispatch("fetchGame", this.$route.params.id);
     this.$store.dispatch("fetchRankings", this.$route.params.id);
   },
-  methods: {},
+  methods: {
+    onSelectPlatform(platform) {
+      this.$router.push(`/platform/${platform.name}`);
+    },
+  },
 });
 </script>
 

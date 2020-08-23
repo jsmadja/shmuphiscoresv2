@@ -3,6 +3,7 @@
     :platform-title="platformTitle"
     :games="games"
     @selectGame="goToGamePage"
+    @selectPlatform="onSelectPlatform"
   />
 </template>
 
@@ -32,8 +33,13 @@ export default Vue.extend({
   },
   methods: {
     goToGamePage(game: Game) {
-      debugger;
       this.$router.push(`/game/${game.id}`);
+    },
+    onSelectPlatform(platform) {
+      this.$router.push({
+        name: "Platform",
+        params: { platformTitle: platform.name },
+      });
     },
   },
 });

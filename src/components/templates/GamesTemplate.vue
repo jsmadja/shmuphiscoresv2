@@ -39,20 +39,18 @@
                 {{ item.title }}
               </template>
               <template v-slot:item.platforms="{ item }">
-                <div>
-                  <v-btn
-                    @click="$emit('selectPlatform', i)"
-                    v-for="i in item.platforms"
-                    x-small
-                    dark
-                    depressed
-                    color="green"
-                    tile
-                    :key="i"
-                    class="mr-0 pl-1 pr-1"
-                    >{{ i }}</v-btn
-                  >
-                </div>
+                <v-btn
+                  @click="$emit('selectPlatform', i)"
+                  v-for="i in item.platforms"
+                  x-small
+                  dark
+                  depressed
+                  color="green"
+                  tile
+                  :key="i"
+                  class="mr-0 pl-1 pr-1"
+                  >{{ i }}</v-btn
+                >
               </template>
             </v-data-table>
           </v-card-text>

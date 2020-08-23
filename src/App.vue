@@ -114,12 +114,14 @@
           ><v-img
             width="180"
             src="http://shmup.com/wp-content/themes/shmup/images/shmup.png"
-        /></v-toolbar-title>
+          />
+        </v-toolbar-title>
+        <h1>.HISCORES</h1>
       </v-app-bar>
 
       <v-main>
         <v-container fluid class="pb-8">
-          <router-view></router-view>
+          <router-view :key="$route.fullPath"></router-view>
           <v-menu top left nudge-top="10" offset-y>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
