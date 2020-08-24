@@ -16,6 +16,9 @@ export default new Vuex.Store({
     games: [] as Game[],
     game: null,
     rankings: [] as Ranking[],
+    showToast: false,
+    toastMessage: "",
+    toastColor: "success",
   },
   mutations: {
     setUser(state, user) {
@@ -35,6 +38,11 @@ export default new Vuex.Store({
     },
     setGame(state, game) {
       state.game = game;
+    },
+    setToastMessage(state, opts) {
+      state.toastMessage = opts.message;
+      state.toastColor = opts.color;
+      state.showToast = true;
     },
   },
   actions: {
@@ -71,7 +79,28 @@ export default new Vuex.Store({
         .then((game) => context.commit("setRankings", game));
     },
     async createGame(context, game) {
-      return fetch(`${api}/games`, game);
+      return fetch(`${api}/games`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(game),
+      }).then((response) => {
+        if (response.ok) {
+          this.dispatch("showSuccessToast", `${game.title} has been submitted`);
+          return response.json();
+        } else {
+          this.dispatch("showErrorToast", response.status);
+          throw new Error("Error: " + response.status);
+        }
+      });
+    },
+    showSuccessToast(context, message) {
+      context.commit("setToastMessage", { message, color: "success" });
+    },
+    showErrorToast(context, message) {
+      context.commit("setToastMessage", { message, color: "red" });
     },
   },
   getters: {
@@ -81,5 +110,8 @@ export default new Vuex.Store({
     games: (state) => state.games,
     game: (state) => state.game,
     rankings: (state) => state.rankings,
+    showToast: (state) => state.showToast,
+    toastMessage: (state) => state.toastMessage,
+    toastColor: (state) => state.toastColor,
   },
 });

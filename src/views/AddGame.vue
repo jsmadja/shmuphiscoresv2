@@ -31,14 +31,9 @@ export default Vue.extend({
   },
   methods: {
     createGame(game) {
-      this.$store.dispatch("createGame", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(game),
-      });
+      this.$store
+        .dispatch("createGame", game)
+        .then((game) => this.$router.push(`/game/${game.id}/edit`));
     },
   },
 });

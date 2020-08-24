@@ -121,6 +121,15 @@
 
       <v-main>
         <v-container fluid class="pb-8">
+          <v-snackbar
+            timeout="2000"
+            top
+            right
+            :color="toastColor"
+            :value="showToast"
+          >
+            {{ toastMessage }}
+          </v-snackbar>
           <router-view :key="$route.fullPath"></router-view>
           <v-menu top left nudge-top="10" offset-y>
             <template v-slot:activator="{ on, attrs }">
@@ -184,7 +193,7 @@ export default Vue.extend({
   }),
 
   computed: {
-    ...mapGetters(["user"]),
+    ...mapGetters(["user", "showToast", "toastMessage", "toastColor"]),
   },
 
   created() {
