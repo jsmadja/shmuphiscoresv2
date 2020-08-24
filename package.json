@@ -23,7 +23,8 @@
     "vue-property-decorator": "^9.0.0",
     "vue-router": "^3.4.3",
     "vuetify": "^2.3.8",
-    "vuex": "^3.5.1"
+    "vuex": "^3.5.1",
+    "@sentry/browser": "5.21.4"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.6.3",
