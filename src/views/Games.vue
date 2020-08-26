@@ -1,9 +1,5 @@
 <template>
-  <GamesTemplate
-    :games="games"
-    @selectGame="onSelectGame"
-    @selectPlatform="onSelectPlatform"
-  />
+  <GamesTemplate :games="games" @selectGame="onSelectGame" />
 </template>
 
 <script>
@@ -23,9 +19,6 @@ export default Vue.extend({
   methods: {
     onSelectGame(game) {
       this.$router.push(`/game/${game.id}`);
-    },
-    onSelectPlatform(platform) {
-      this.$router.push(`/platform/${platform}`);
     },
   },
 });

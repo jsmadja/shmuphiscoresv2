@@ -35,23 +35,6 @@
                   height="50"
                 />
               </template>
-              <template v-slot:item.title="{ item }">
-                {{ item.title }}
-              </template>
-              <template v-slot:item.platforms="{ item }">
-                <v-btn
-                  @click="$emit('selectPlatform', i)"
-                  v-for="i in item.platforms"
-                  x-small
-                  dark
-                  depressed
-                  color="green"
-                  tile
-                  :key="i"
-                  class="mr-0 pl-1 pr-1"
-                  >{{ i }}</v-btn
-                >
-              </template>
             </v-data-table>
           </v-card-text>
         </v-card>
@@ -76,32 +59,11 @@ export default Vue.extend({
           text: "",
           value: "cover",
           hide: "smAndDown",
+          width: 100,
         },
         {
           text: "Title",
           value: "title",
-        },
-        {
-          text: "Platforms",
-          value: "platforms",
-        },
-        {
-          text: "Players",
-          value: "players",
-          align: "right",
-          hide: "smAndDown",
-        },
-        {
-          text: "Scores",
-          value: "scores",
-          align: "right",
-          hide: "smAndDown",
-        },
-        {
-          text: "1CC",
-          value: "oneccs",
-          align: "right",
-          hide: "smAndDown",
         },
       ],
     };
