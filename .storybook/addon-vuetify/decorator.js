@@ -2,6 +2,7 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import { makeDecorator } from '@storybook/addons'
+import VueClipboard from 'vue-clipboard2';
 import formatNumber from "../../src/filters/formatNumber";
 
 // Utilities
@@ -12,6 +13,7 @@ import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.min.css'
 import '../../src/custom.scss';
 
+Vue.use(VueClipboard);
 Vue.use(Vuetify)
 
 export default makeDecorator({

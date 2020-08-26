@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from "axios";
 import { PlatformWithGameCount } from "@/models/platforms";
 import { api } from "@/api";
 import { Player } from "@/models/player";
@@ -43,6 +44,7 @@ export default new Vuex.Store({
       state.toastMessage = opts.message;
       state.toastColor = opts.color;
       state.showToast = true;
+      setTimeout(() => (state.showToast = false), 2000);
     },
   },
   actions: {
@@ -95,6 +97,86 @@ export default new Vuex.Store({
           throw new Error("Error: " + response.status);
         }
       });
+    },
+    createMode(context, { game, mode }) {
+      return axios
+        .post(`${api}/games/${game.id}/modes`, mode)
+        .then((response) => {
+          this.dispatch(
+            "showSuccessToast",
+            `Mode ${mode.value} has been submitted`
+          );
+          this.commit("setGame", response.data);
+          return response;
+        })
+        .catch((error) => {
+          this.dispatch("showErrorToast", error);
+          throw new Error(error);
+        });
+    },
+    createDifficulty(context, { game, difficulty }) {
+      return axios
+        .post(`${api}/games/${game.id}/difficulties`, difficulty)
+        .then((response) => {
+          this.dispatch(
+            "showSuccessToast",
+            `Difficulty ${difficulty.value} has been submitted`
+          );
+          this.commit("setGame", response.data);
+          return response;
+        })
+        .catch((error) => {
+          this.dispatch("showErrorToast", error);
+          throw new Error(error);
+        });
+    },
+    createStage(context, { game, stage }) {
+      return axios
+        .post(`${api}/games/${game.id}/stages`, stage)
+        .then((response) => {
+          this.dispatch(
+            "showSuccessToast",
+            `Stage ${stage.value} has been submitted`
+          );
+          this.commit("setGame", response.data);
+          return response;
+        })
+        .catch((error) => {
+          this.dispatch("showErrorToast", error);
+          throw new Error(error);
+        });
+    },
+    createShip(context, { game, ship }) {
+      return axios
+        .post(`${api}/games/${game.id}/ships`, ship)
+        .then((response) => {
+          this.dispatch(
+            "showSuccessToast",
+            `Ship ${ship.value} has been submitted`
+          );
+          this.commit("setGame", response.data);
+          return response;
+        })
+        .catch((error) => {
+          this.dispatch("showErrorToast", error);
+          throw new Error(error);
+        });
+    },
+    createPlatforms(context, { game, platforms }) {
+      return axios
+        .post(`${api}/games/${game.id}/platforms`, platforms)
+        .then((response) => {
+          this.dispatch(
+            "showSuccessToast",
+            `Platforms ${platforms} has been submitted`
+          );
+          this.commit("setGame", response.data);
+          return response;
+        })
+        .catch((error) => {
+          this.dispatch("showErrorToast", error);
+          throw new Error(error);
+        });
     },
     showSuccessToast(context, message) {
       context.commit("setToastMessage", { message, color: "success" });

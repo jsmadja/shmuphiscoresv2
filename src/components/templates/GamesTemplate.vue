@@ -60,12 +60,12 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from "vue";
-import Cover from "../atoms/Cover";
+import Cover from "../atoms/Cover.vue";
 
 export default Vue.extend({
-  title: "Games",
+  name: "GamesTemplate",
   props: ["games"],
   components: { Cover },
   data() {
@@ -108,8 +108,8 @@ export default Vue.extend({
   },
   computed: {
     computedHeaders() {
-      return this.headers.filter(
-        (h) => !h.hide || !this.$vuetify.breakpoint[h.hide]
+      return (this as any).headers.filter(
+        (h) => !h.hide || !(this.$vuetify as any).breakpoint[h.hide]
       );
     },
   },
