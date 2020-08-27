@@ -97,7 +97,7 @@
             </v-list-item-content>
           </v-list-item>
           <v-divider></v-divider>
-          <v-list-item link to="/statistics" v-if="false">
+          <v-list-item link to="/statistics">
             <v-list-item-action>
               <v-icon>mdi-finance</v-icon>
             </v-list-item-action>
