@@ -20,6 +20,7 @@ export default new Vuex.Store({
     showToast: false,
     toastMessage: "",
     toastColor: "success",
+    lastScores: [],
   },
   mutations: {
     setUser(state, user) {
@@ -45,6 +46,9 @@ export default new Vuex.Store({
       state.toastColor = opts.color;
       state.showToast = true;
       setTimeout(() => (state.showToast = false), 2000);
+    },
+    setLastScores(state, scores) {
+      state.lastScores = scores;
     },
   },
   actions: {
@@ -79,6 +83,11 @@ export default new Vuex.Store({
       return fetch(`${api}/games/${id}/rankings`)
         .then((response) => response.json())
         .then((game) => context.commit("setRankings", game));
+    },
+    fetchLastScores(context) {
+      return fetch(`${api}/scores`)
+        .then((response) => response.json())
+        .then((scores) => context.commit("setLastScores", scores));
     },
     async createGame(context, game) {
       return fetch(`${api}/games`, {
@@ -195,5 +204,6 @@ export default new Vuex.Store({
     showToast: (state) => state.showToast,
     toastMessage: (state) => state.toastMessage,
     toastColor: (state) => state.toastColor,
+    lastScores: (state) => state.lastScores,
   },
 });

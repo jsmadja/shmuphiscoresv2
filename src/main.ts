@@ -6,6 +6,7 @@ import store from "./store";
 import vuetify from "./plugins/vuetify";
 import HighchartsVue from "highcharts-vue";
 import formatNumber from "./filters/formatNumber";
+import formatRank from "./filters/formatRank";
 import * as Sentry from "@sentry/browser";
 import { Vue as VueIntegration } from "@sentry/integrations";
 import VueClipboard from "vue-clipboard2";
@@ -29,6 +30,7 @@ new Vue({
   vuetify,
   filters: {
     formatNumber,
+    formatRank,
   },
   render: (h) => h(App),
 }).$mount("#app");
