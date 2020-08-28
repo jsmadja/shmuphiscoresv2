@@ -32,6 +32,11 @@ export const actions = {
       .then((response) => response.json())
       .then((games) => context.commit("setGames", games));
   },
+  fetchMyGames(context) {
+    return fetch(`${api}/me/games`)
+      .then((response) => response.json())
+      .then((games) => context.commit("setMyGames", games));
+  },
   fetchGame(context, id) {
     return fetch(`${api}/games/${id}`)
       .then((response) => response.json())
@@ -173,6 +178,7 @@ export default new Vuex.Store({
     user: null,
     platforms: [] as PlatformWithGameCount[],
     players: [] as Player[],
+    myGames: [] as Game[],
     games: [] as Game[],
     game: null,
     rankings: [] as Ranking[],
@@ -195,6 +201,9 @@ export default new Vuex.Store({
     },
     setGames(state, games: Game[]) {
       state.games = games;
+    },
+    setMyGames(state, games: Game[]) {
+      state.myGames = games;
     },
     setRankings(state, rankings: Ranking[]) {
       state.rankings = rankings;
@@ -224,6 +233,7 @@ export default new Vuex.Store({
     platforms: (state) => state.platforms,
     players: (state) => state.players,
     games: (state) => state.games,
+    myGames: (state) => state.myGames,
     game: (state) => state.game,
     rankings: (state) => state.rankings,
     showToast: (state) => state.showToast,

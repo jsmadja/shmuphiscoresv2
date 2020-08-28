@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1>Games</h1>
+        <h1>{{ title }}</h1>
       </v-col>
     </v-row>
     <v-row>
@@ -49,7 +49,7 @@ import Cover from "../atoms/Cover.vue";
 
 export default Vue.extend({
   name: "GamesTemplate",
-  props: ["games"],
+  props: ["title", "games"],
   components: { Cover },
   data() {
     return {

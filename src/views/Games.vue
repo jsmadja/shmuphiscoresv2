@@ -1,5 +1,5 @@
 <template>
-  <GamesTemplate :games="games" @selectGame="onSelectGame" />
+  <GamesTemplate title="Games" :games="games" @selectGame="onSelectGame" />
 </template>
 
 <script>
