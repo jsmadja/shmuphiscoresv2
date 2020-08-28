@@ -5,6 +5,7 @@
       :myLastScores="myLastScores"
       :lastScoresLoading="lastScoresLoading"
       :myLastScoresLoading="myLastScoresLoading"
+      @goToGame="(game) => goToGame(game)"
     />
   </div>
 </template>
@@ -20,19 +21,22 @@ export default Vue.extend({
     HomeTemplate,
   },
   data: () => ({
-    myLastScoresLoading: true,
+    myLastScoresLoading: false,
     lastScoresLoading: true,
   }),
   created() {
     this.$store
       .dispatch("fetchLastScores")
       .then(() => (this.lastScoresLoading = false));
-    this.$store
-      .dispatch("fetchMyLastScores")
-      .then(() => (this.myLastScoresLoading = false));
   },
   computed: {
     ...mapGetters(["lastScores", "myLastScores"]),
+  },
+  methods: {
+    goToGame(game) {
+      console.log(game);
+      this.$router.push(`/game/${game.id}`);
+    },
   },
 });
 </script>

@@ -131,43 +131,11 @@
             {{ toastMessage }}
           </v-snackbar>
           <router-view :key="$route.fullPath"></router-view>
-          <v-menu top left nudge-top="10" offset-y>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                v-bind="attrs"
-                v-on="on"
-                fixed
-                absolute
-                dark
-                fab
-                bottom
-                right
-                color="orange"
-                class="mr-1 mb-10 mb-sm-13 mb-md-13 mb-lg-13"
-              >
-                <v-icon>mdi-plus</v-icon>
-              </v-btn>
-            </template>
-
-            <v-list flat dense>
-              <v-subheader>LAST SCORES</v-subheader>
-              <v-list-item
-                v-for="(item, index) in [
-                  'Mushihimesama Futari',
-                  'Gunhed',
-                  'Gate of Thunder',
-                ]"
-                :key="index"
-                style="cursor: pointer;"
-                to="/add-score"
-              >
-                <v-list-item-avatar tile>
-                  <v-img src="https://hiscores.shmup.com/covers/2.jpg"></v-img>
-                </v-list-item-avatar>
-                <v-list-item-title>{{ item }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+          <floating-menu
+            :my-last-scores="myLastScores"
+            :recently-viewed-games="recentlyViewedGames"
+            @goToGame="goToGame"
+          />
         </v-container>
       </v-main>
       <v-footer app :absolute="false" padless>
@@ -182,22 +150,39 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapGetters } from "vuex";
+import FloatingMenu from "@/components/organisms/FloatingMenu.vue";
 
 export default Vue.extend({
   name: "App",
 
-  components: {},
+  components: {
+    FloatingMenu,
+  },
 
   data: () => ({
     drawer: null,
   }),
 
   computed: {
-    ...mapGetters(["user", "showToast", "toastMessage", "toastColor"]),
+    ...mapGetters([
+      "user",
+      "showToast",
+      "toastMessage",
+      "toastColor",
+      "myLastScores",
+      "recentlyViewedGames",
+    ]),
   },
 
   created() {
     this.$store.dispatch("fetchUser");
+    this.$store.dispatch("fetchMyLastScores");
+  },
+
+  methods: {
+    goToGame(game) {
+      this.$router.push(`/game/${game.id}`);
+    },
   },
 });
 </script>

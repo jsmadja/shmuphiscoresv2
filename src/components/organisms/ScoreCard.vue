@@ -1,5 +1,5 @@
 <template>
-  <v-card tile>
+  <v-card tile @click="$emit('goToGame', score.game)">
     <v-card-text>
       <v-row dense>
         <v-col cols="12" lg="3">

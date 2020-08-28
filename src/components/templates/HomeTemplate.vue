@@ -20,6 +20,7 @@
           :score="score"
           :show-player="false"
           :show-edit-button="true"
+          @goToGame="goToGame"
         />
       </v-col>
     </v-row>
@@ -53,6 +54,11 @@ export default Vue.extend({
     "lastScoresLoading",
     "myLastScoresLoading",
   ],
+  methods: {
+    goToGame(game) {
+      this.$emit("goToGame", game);
+    },
+  },
 });
 </script>
 <style lang="scss" scoped></style>

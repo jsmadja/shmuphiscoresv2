@@ -21,7 +21,9 @@ export default Vue.extend({
     ...mapGetters(["user", "game", "rankings"]),
   },
   created() {
-    this.$store.dispatch("fetchGame", this.$route.params.id);
+    this.$store
+      .dispatch("fetchGame", this.$route.params.id)
+      .then(() => this.$store.dispatch("addViewedGame", this.game));
     this.$store.dispatch("fetchRankings", this.$route.params.id);
   },
   methods: {

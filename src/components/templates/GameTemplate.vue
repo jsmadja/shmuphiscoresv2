@@ -58,6 +58,7 @@
           :game="game"
           @configureGame="$emit('configureGame', game)"
           @addScore="$emit('addScore', { game })"
+          :hide-go-to-game-button="true"
         />
       </v-col>
       <!-- Rankings -->
