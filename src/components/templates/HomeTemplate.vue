@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container>
     <v-row>
       <v-col>
         <h1>My last scores</h1>
@@ -21,6 +21,8 @@
           :show-player="false"
           :show-edit-button="true"
           @goToGame="goToGame"
+          @addScore="addScore"
+          @editScore="editScore"
         />
       </v-col>
     </v-row>
@@ -35,7 +37,12 @@
         <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
       </v-col>
       <v-col v-for="(score, i) in lastScores" :key="i" cols="12" sm="6" lg="6">
-        <score-card :score="score" :show-edit-button="false" />
+        <score-card
+          :score="score"
+          :show-edit-button="false"
+          @goToGame="goToGame"
+          @addScore="addScore"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -57,6 +64,12 @@ export default Vue.extend({
   methods: {
     goToGame(game) {
       this.$emit("goToGame", game);
+    },
+    addScore(score) {
+      this.$emit("addScore", score);
+    },
+    editScore(score) {
+      this.$emit("editScore", score);
     },
   },
 });

@@ -45,7 +45,7 @@ const routes: Array<RouteConfig> = [
     component: AddGame,
   },
   {
-    path: "/add-score",
+    path: "/game/:id/score",
     name: "AddScore",
     component: AddScore,
   },

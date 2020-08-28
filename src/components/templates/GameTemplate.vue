@@ -22,6 +22,7 @@
           <v-list-item
             v-for="(ranking, i) in rankings"
             :key="`menu-ranking-${i}`"
+            dense
           >
             <v-list-item-title
               class="ranking-name"
@@ -37,8 +38,9 @@
                   ranking.difficulty &&
                   ranking.difficulty.name
                 "
-                >-</span
               >
+                -
+              </span>
               <span v-if="ranking.difficulty">{{
                 ranking.difficulty.name
               }}</span>
@@ -63,8 +65,14 @@
       </v-col>
       <!-- Rankings -->
       <v-col cols="12" sm="11" md="8" lg="10">
+        <v-progress-linear
+          v-if="rankings.length <= 0"
+          indeterminate
+          color="orange"
+        ></v-progress-linear>
         <Ranking
           :ranking="ranking"
+          :current-player-id="currentPlayerId"
           v-for="(ranking, i) in rankings"
           :key="`ranking-${i}`"
           :id="`ranking-${i}`"

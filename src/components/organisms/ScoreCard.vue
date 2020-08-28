@@ -1,5 +1,5 @@
 <template>
-  <v-card tile @click="$emit('goToGame', score.game)">
+  <v-card tile>
     <v-card-text>
       <v-row dense>
         <v-col cols="12" lg="3">
@@ -13,7 +13,9 @@
         <v-col cols="12" lg="9" class="pl-2">
           <v-row dense>
             <v-col cols="12"
-              ><span class="title">{{ score.game.title }}</span></v-col
+              ><span class="title" @click="$emit('goToGame', score.game)">{{
+                score.game.title
+              }}</span></v-col
             >
             <v-col cols="12" lg="12">
               <span class="score">{{ score.value | formatNumber }} pts</span>
@@ -70,11 +72,24 @@
               </v-chip>
             </v-col>
             <v-col cols="12">
-              <v-btn x-small tile dark color="orange" class="pl-0 mr-1">
+              <v-btn
+                x-small
+                tile
+                dark
+                color="orange"
+                class="pl-0 mr-1"
+                @click="$emit('addScore', score)"
+              >
                 <v-icon left small class="ml-0 mr-0">mdi-plus</v-icon>
                 SCORE
               </v-btn>
-              <v-btn v-if="showEditButton" x-small tile depressed>
+              <v-btn
+                v-if="showEditButton"
+                x-small
+                tile
+                depressed
+                @click="$emit('editScore', score)"
+              >
                 <v-icon left small>mdi-pencil</v-icon>
                 EDIT
               </v-btn>
@@ -122,6 +137,7 @@ export default Vue.extend({
   white-space: nowrap;
   max-width: 100%;
   display: block;
+  cursor: pointer;
 }
 
 .score {

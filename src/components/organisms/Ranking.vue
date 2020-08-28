@@ -2,7 +2,7 @@
   <div>
     <v-row>
       <v-col cols="12">
-        <v-card>
+        <v-card tile>
           <v-card-title>
             <h3 v-if="ranking">
               <span v-if="ranking && ranking.mode">{{
@@ -16,8 +16,9 @@
                   ranking.mode.name &&
                   ranking.difficulty.name
                 "
-                >-</span
               >
+                -
+              </span>
               <span v-if="ranking && ranking.difficulty">{{
                 ranking.difficulty.name
               }}</span>
@@ -29,9 +30,8 @@
               label="Search"
               single-line
               hide-details
-              class="search-input"
+              class="search-input pr-3"
             ></v-text-field>
-            <v-spacer></v-spacer>
             <v-btn
               color="primary"
               dark
@@ -138,7 +138,6 @@ import { Score } from "@/models/score";
 export default Vue.extend({
   name: "Ranking",
   props: ["ranking", "currentPlayerId"],
-  components: {},
   data() {
     return {
       search: "",
@@ -184,5 +183,9 @@ export default Vue.extend({
 
 .photo-tooltip-class {
   background: none;
+}
+
+h3 {
+  font-weight: bold;
 }
 </style>

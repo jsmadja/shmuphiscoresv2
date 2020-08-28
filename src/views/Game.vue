@@ -6,6 +6,7 @@
     :current-player-id="user.id"
     @selectPlatform="onSelectPlatform"
     @configureGame="onConfigureGame"
+    @addScore="onAddScore"
   />
 </template>
 
@@ -32,6 +33,9 @@ export default Vue.extend({
     },
     onConfigureGame() {
       this.$router.push(`/game/${this.game.id}/edit`);
+    },
+    onAddScore() {
+      this.$router.push(`/game/${this.game.id}/score`);
     },
   },
 });

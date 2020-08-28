@@ -108,7 +108,12 @@
         </v-list>
       </v-navigation-drawer>
 
-      <v-app-bar app clipped-left>
+      <v-app-bar
+        app
+        clipped-left
+        class="v-chip--clickable"
+        @click="$router.push('/')"
+      >
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title
           ><v-img

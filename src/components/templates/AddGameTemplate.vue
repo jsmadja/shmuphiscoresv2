@@ -5,7 +5,7 @@
         <h1>Add Game</h1>
       </v-col>
     </v-row>
-    <v-row>
+    <v-row dense>
       <v-col cols="12" md="6" lg="5">
         <v-card class="pa-5" tile>
           <v-form ref="form" v-model="valid">

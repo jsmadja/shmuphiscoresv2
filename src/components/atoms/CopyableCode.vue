@@ -1,9 +1,9 @@
 <template>
-  <v-card>
+  <v-card @click="doCopy" flat>
     <v-card-text>
-      <h2 class="mb-5">Forum Code</h2>
-      <v-card flat class="copyable" @click="doCopy">
-        {{ code }}
+      <h2 class="mb-5" v-if="title">{{ title }}</h2>
+      <v-card flat class="copyable">
+        <pre>{{ code }}</pre>
       </v-card>
     </v-card-text>
   </v-card>
