@@ -59,7 +59,7 @@
         <game-informations
           :game="game"
           @configureGame="$emit('configureGame', game)"
-          @addScore="$emit('addScore', { game })"
+          @addScore="onAddScore"
           :hide-go-to-game-button="true"
         />
       </v-col>
@@ -76,6 +76,7 @@
           v-for="(ranking, i) in rankings"
           :key="`ranking-${i}`"
           :id="`ranking-${i}`"
+          @addScore="onAddScore"
         >
           <div
             v-intersect="{
@@ -127,6 +128,9 @@ export default Vue.extend({
         intersection[entry.target.id] = entry.isIntersecting;
         this.intersection = intersection;
       }
+    },
+    onAddScore(ranking) {
+      this.$emit("addScore", { ranking });
     },
   },
 });

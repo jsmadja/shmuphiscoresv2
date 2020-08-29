@@ -37,7 +37,7 @@
               dark
               small
               outlined
-              @click="$emit('addScore', { game, ranking })"
+              @click="$emit('addScore', ranking)"
             >
               <v-icon left>mdi-plus</v-icon>
               Add Score

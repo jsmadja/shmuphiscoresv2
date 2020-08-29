@@ -10,10 +10,14 @@
   />
 </template>
 
-<script>
-import GameTemplate from "@/components/templates/GameTemplate";
+<script lang="ts">
+import GameTemplate from "@/components/templates/GameTemplate.vue";
+import { Ranking } from "@/models/ranking";
 import Vue from "vue";
 import { mapGetters } from "vuex";
+
+const defaultSetting = (setting: Ranking, value) =>
+  setting[value] ? setting[value].id || "" : "";
 
 export default Vue.extend({
   name: "Game",
@@ -34,8 +38,14 @@ export default Vue.extend({
     onConfigureGame() {
       this.$router.push(`/game/${this.game.id}/edit`);
     },
-    onAddScore() {
-      this.$router.push(`/game/${this.game.id}/score`);
+    onAddScore({ ranking }) {
+      debugger;
+      this.$router.push(
+        `/game/${this.game.id}/score?mode=${defaultSetting(
+          ranking,
+          "mode"
+        )}&difficulty=${defaultSetting(ranking, "difficulty")}`
+      );
     },
   },
 });

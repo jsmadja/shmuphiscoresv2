@@ -78,6 +78,25 @@ export const actions = {
       }
     });
   },
+  async createScore(context, score) {
+    const form = new FormData();
+    Object.entries(score)
+      .filter((e) => !!e[1])
+      .forEach((e) => form.append(e[0], e[1] as any));
+    if (score.photo) form.append("photo", score.photo);
+    if (score.inp) form.append("inp", score.inp);
+    const config = { headers: { "content-type": "multipart/form-data" } };
+    return axios
+      .post(`${api}/me/scores`, form, config)
+      .then((response) => {
+        context.dispatch("showSuccessToast", `Score has been submitted`);
+        return response.data;
+      })
+      .catch((error) => {
+        context.dispatch("showErrorToast", error);
+        throw new Error(error);
+      });
+  },
   createMode(context, { game, mode }) {
     return axios
       .post(`${api}/games/${game.id}/modes`, mode)

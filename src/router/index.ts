@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
 import Games from "../views/Games.vue";
+import Players from "../views/Players.vue";
 import EditGame from "../views/EditGame.vue";
 import AddGame from "../views/AddGame.vue";
 import Game from "../views/Game.vue";
@@ -92,7 +93,7 @@ const routes: Array<RouteConfig> = [
   {
     path: "/players",
     name: "All Players",
-    component: () => import("../views/Players.vue"),
+    component: Players,
   },
   {
     path: "/player",
