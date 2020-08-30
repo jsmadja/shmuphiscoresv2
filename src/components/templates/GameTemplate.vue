@@ -1,7 +1,10 @@
 <template>
   <v-container>
     <!-- Ranking Menu -->
-    <v-row v-if="!hideRankingMenu" class="d-none d-sm-flex">
+    <v-row
+      v-if="!hideRankingMenu && rankings.length > 1"
+      class="d-none d-sm-flex"
+    >
       <v-navigation-drawer
         clipped
         fixed

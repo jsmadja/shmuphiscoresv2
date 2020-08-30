@@ -55,7 +55,10 @@ export const actions = {
   fetchMyLastScores(context) {
     return fetch(`${api}/me/scores`)
       .then((response) => response.json())
-      .then((scores) => context.commit("setMyLastScores", scores));
+      .then((scores) => {
+        context.commit("setMyLastScoresLoading", false);
+        context.commit("setMyLastScores", scores);
+      });
   },
   async createGame(context, game) {
     return fetch(`${api}/games`, {
@@ -206,6 +209,7 @@ export default new Vuex.Store({
     toastColor: "success",
     lastScores: [],
     myLastScores: [],
+    myLastScoresLoading: true,
     recentlyViewedGames: [] as Game[],
   },
   mutations: {
@@ -225,10 +229,13 @@ export default new Vuex.Store({
       state.myGames = games;
     },
     setRankings(state, rankings: Ranking[]) {
-      state.rankings = rankings;
+      state.rankings = _.orderBy(rankings, (ranking) => -ranking.scores.length);
     },
     setGame(state, game) {
       state.game = game;
+    },
+    setMyLastScoresLoading(state, myLastScoresLoading) {
+      state.myLastScoresLoading = myLastScoresLoading;
     },
     setToastMessage(state, opts) {
       state.toastMessage = opts.message;
@@ -261,5 +268,6 @@ export default new Vuex.Store({
     lastScores: (state) => state.lastScores,
     myLastScores: (state) => state.myLastScores,
     recentlyViewedGames: (state) => state.recentlyViewedGames,
+    myLastScoresLoading: (state) => state.myLastScoresLoading,
   },
 });

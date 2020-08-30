@@ -18,7 +18,14 @@
               }}</span></v-col
             >
             <v-col cols="12" lg="12">
-              <span class="score">{{ score.value | formatNumber }} pts</span>
+              <span
+                class="score"
+                v-if="score.mode && score.mode.scoreType === 'timer'"
+                >{{ score.value | formatTime }}</span
+              >
+              <span class="score" v-else
+                >{{ score.value | formatNumber }} pts</span
+              >
             </v-col>
             <v-col v-if="showPlayer">
               <span class="category">PLAYER</span>
@@ -49,9 +56,25 @@
               <span class="category-value">{{ score.stage.name }}</span>
             </v-col>
             <v-col cols="12">
-              <v-chip x-small outlined class="mr-1 pl-1 pr-1"
-                ><v-icon small>mdi-camera</v-icon></v-chip
+              <v-tooltip
+                v-if="score.photo"
+                top
+                content-class="photo-tooltip-class"
               >
+                <template v-slot:activator="{ on, attrs }">
+                  <v-chip
+                    x-small
+                    outlined
+                    class="mr-1 pl-1 pr-1"
+                    v-if="score.photo"
+                    v-bind="attrs"
+                    v-on="on"
+                    ><v-icon small>mdi-camera</v-icon></v-chip
+                  >
+                </template>
+                <v-img :src="score.photo" max-width="250" />
+              </v-tooltip>
+
               <v-chip
                 x-small
                 class="pl-1 pr-1"
@@ -59,6 +82,8 @@
                 tile
                 target="_blank"
                 color="red"
+                v-if="score.replay"
+                :href="score.replay"
               >
                 <v-icon x-small>mdi-play</v-icon>
               </v-chip>
@@ -67,12 +92,24 @@
                 x-small
                 :href="score.inp"
                 target="_blank"
+                v-if="score.inp"
               >
                 INP
               </v-chip>
+              <v-chip
+                class="ml-1 pl-2 pr-2"
+                v-if="score.onecc"
+                dark
+                x-small
+                tile
+                depressed
+                color="orange"
+                >1CC</v-chip
+              >
             </v-col>
             <v-col cols="12">
               <v-btn
+                v-if="showAddButton"
                 x-small
                 tile
                 dark
@@ -87,10 +124,10 @@
                 v-if="showEditButton"
                 x-small
                 tile
-                depressed
+                class="pl-0 mr-1"
                 @click="$emit('editScore', score)"
               >
-                <v-icon left small>mdi-pencil</v-icon>
+                <v-icon left small class="ml-0 mr-0">mdi-pencil</v-icon>
                 EDIT
               </v-btn>
               <span class="float-right">{{ since(score.createdAt) }}</span>
@@ -104,7 +141,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Cover from "@/components/atoms/Cover.vue";
+import Cover from "../atoms/Cover.vue";
 import moment from "moment";
 
 export default Vue.extend({
@@ -112,6 +149,10 @@ export default Vue.extend({
   components: { Cover },
   props: {
     score: Object,
+    showAddButton: {
+      type: Boolean,
+      default: true,
+    },
     showEditButton: {
       type: Boolean,
       default: true,

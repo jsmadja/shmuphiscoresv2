@@ -84,7 +84,7 @@ export default Vue.extend({
       this.$emit("copy");
     },
     goToGamePage() {
-      this.$emit("goToGameGame");
+      this.$emit("goToGamePage");
     },
     goToGameEdit() {
       this.$emit(`goToGameEdit`);

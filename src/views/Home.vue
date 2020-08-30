@@ -29,7 +29,6 @@ export default Vue.extend({
     HomeTemplate,
   },
   data: () => ({
-    myLastScoresLoading: false,
     lastScoresLoading: true,
   }),
   created() {
@@ -38,7 +37,7 @@ export default Vue.extend({
       .then(() => (this.lastScoresLoading = false));
   },
   computed: {
-    ...mapGetters(["lastScores", "myLastScores"]),
+    ...mapGetters(["lastScores", "myLastScores", "myLastScoresLoading"]),
   },
   methods: {
     goToGame(game) {

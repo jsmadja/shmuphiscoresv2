@@ -39,7 +39,8 @@
       <v-col v-for="(score, i) in lastScores" :key="i" cols="12" sm="6" lg="6">
         <score-card
           :score="score"
-          :show-edit-button="false"
+          :show-edit-button="score.player.id === user.id"
+          :show-add-button="score.player.id === user.id"
           @goToGame="goToGame"
           @addScore="addScore"
         />
@@ -51,6 +52,7 @@
 <script lang="ts">
 import Vue from "vue";
 import ScoreCard from "@/components/organisms/ScoreCard.vue";
+import { mapGetters } from "vuex";
 
 export default Vue.extend({
   name: "HomeTemplate",
@@ -61,6 +63,9 @@ export default Vue.extend({
     "lastScoresLoading",
     "myLastScoresLoading",
   ],
+  computed: {
+    ...mapGetters(["user"]),
+  },
   methods: {
     goToGame(game) {
       this.$emit("goToGame", game);

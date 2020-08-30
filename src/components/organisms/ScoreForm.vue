@@ -75,6 +75,8 @@
             :rules="scoreRules"
             placeholder="123456"
             :hide-details="hideDetails"
+            suffix="pts"
+            type="number"
           />
         </v-col>
         <v-col cols="12">

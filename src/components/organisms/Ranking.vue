@@ -31,6 +31,7 @@
               single-line
               hide-details
               class="search-input pr-3"
+              v-if="ranking.scores.length > 0"
             ></v-text-field>
             <v-btn
               color="primary"
@@ -43,7 +44,7 @@
               Add Score
             </v-btn>
           </v-card-title>
-          <v-card-text>
+          <v-card-text v-if="ranking.scores.length > 0">
             <v-data-table
               :headers="computedHeaders"
               :items="ranking.scores"
@@ -120,7 +121,14 @@
                     INP
                   </v-chip>
                 </div>
-                <span class="float-right">{{ item.value | formatNumber }}</span>
+                <span
+                  v-if="ranking.mode && ranking.mode.scoreType === 'timer'"
+                  class="float-right"
+                  >{{ item.value | formatTime }}</span
+                >
+                <span v-else class="float-right">{{
+                  item.value | formatNumber
+                }}</span>
               </template>
             </v-data-table>
           </v-card-text>

@@ -1,6 +1,6 @@
 import Vue from "vue";
 
-const formatRank = Vue.filter("formatRank", (index) => {
+export const formatRank = Vue.filter("formatRank", (index) => {
   const rank = index;
   const hundredRemainder = rank % 100;
   const tenRemainder = rank % 10;
@@ -18,5 +18,3 @@ const formatRank = Vue.filter("formatRank", (index) => {
       return `${rank}th`;
   }
 });
-
-export default formatRank;

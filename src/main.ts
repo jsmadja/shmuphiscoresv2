@@ -5,8 +5,7 @@ import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
 import HighchartsVue from "highcharts-vue";
-import formatNumber from "./filters/formatNumber";
-import formatRank from "./filters/formatRank";
+import { formatNumber, formatRank, formatTime } from "./filters/index";
 import * as Sentry from "@sentry/browser";
 import { Vue as VueIntegration } from "@sentry/integrations";
 import VueClipboard from "vue-clipboard2";
@@ -23,6 +22,8 @@ Vue.use(VueClipboard);
 Vue.use(HighchartsVue);
 
 Vue.filter("formatNumber", formatNumber);
+Vue.filter("formatRank", formatRank);
+Vue.filter("formatTime", formatTime);
 
 new Vue({
   router,
@@ -31,6 +32,7 @@ new Vue({
   filters: {
     formatNumber,
     formatRank,
+    formatTime,
   },
   render: (h) => h(App),
 }).$mount("#app");
