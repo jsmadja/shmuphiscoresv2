@@ -26,9 +26,10 @@ export default Vue.extend({
     };
   },
   beforeRouteEnter(to, from, next) {
+    const $store = (window as any).Store;
     Promise.all([
-      window.Store.dispatch("fetchScore", to.params.scoreId),
-      window.Store.dispatch("fetchGame", to.params.gameId),
+      $store.dispatch("fetchScore", to.params.scoreId),
+      $store.dispatch("fetchGame", to.params.gameId),
     ]).then(() => next());
   },
   computed: {

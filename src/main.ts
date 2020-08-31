@@ -25,7 +25,7 @@ Vue.filter("formatNumber", formatNumber);
 Vue.filter("formatRank", formatRank);
 Vue.filter("formatTime", formatTime);
 
-window.Store = store;
+(window as any).Store = store;
 
 new Vue({
   router,
