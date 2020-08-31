@@ -36,7 +36,9 @@
                 :ship="ship"
                 :stage="stage"
                 :platform="platform"
+                :score="score"
                 @createScore="onCreateScore"
+                @editScore="onEditScore"
               />
             </v-stepper-content>
             <v-stepper-content step="2">
@@ -79,6 +81,9 @@ export default Vue.extend({
   methods: {
     onCreateScore(score) {
       this.$emit("createScore", score);
+    },
+    onEditScore(score) {
+      this.$emit("editScore", score);
     },
     onCopy() {
       this.$emit("copy");

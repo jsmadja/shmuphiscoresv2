@@ -10,7 +10,7 @@ test("generate mandatory fields message", () => {
     },
   } as Score;
   expect(toForumCode(score))
-    .toBe(`Score : [b][color=#0000FF]99::[TODO:FORMATER] points[/color][/b]
+    .toBe(`Score : [b][color=#0000FF]99 points[/color][/b]
 Support : [b]NG[/b]
 Position : [b]1[/b]
 
@@ -49,7 +49,7 @@ test("generate all fields message", () => {
     replay: "https://youtube.com/12345",
   } as Score;
   expect(toForumCode(score)).toBe(`Mode : [b]ARCADE[/b]
-Score : [b][color=#0000FF]99::[TODO:FORMATER] points[/color][/b]
+Score : [b][color=#0000FF]99 points[/color][/b]
 Stage : [b][color=#BF4000]1-ALL[/color][/b]
 Difficulté : [b]EASY[/b]
 Vaisseau : [b]Type A[/b]

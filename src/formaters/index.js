@@ -10,3 +10,7 @@ export function formatTime(value) {
     _.padStart(time.getMilliseconds(), 2, "0")
   );
 }
+
+export function formatNumber(value) {
+  return value.toLocaleString("de");
+}

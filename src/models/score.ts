@@ -1,5 +1,6 @@
 import { Player } from "./player";
 import { Mode, Stage, Difficulty, Ship, Platform } from "@/models/ranking";
+import { formatTime, formatNumber } from "@/formaters";
 
 export interface Score {
   player: Player;
@@ -25,9 +26,11 @@ export function toForumCode(score: Score): string {
   if (score.mode != null) {
     message += `Mode : [b]${score.mode.name}[/b]\n`;
   }
-  message += `Score : [b][color=#0000FF]${score.value}::[TODO:FORMATER] ${
-    score.isTimeScore ? "" : "points"
-  }[/color][/b]\n`;
+  message += `Score : [b][color=#0000FF]${
+    score.mode && score.mode.scoreType === "timer"
+      ? formatTime(score.value)
+      : formatNumber(score.value)
+  } ${score.isTimeScore ? "" : "points"}[/color][/b]\n`;
 
   if (score.stage != null) {
     message += `Stage : [b][color=#BF4000]${score.stage.name}[/color][/b]\n`;

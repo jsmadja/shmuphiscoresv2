@@ -7,6 +7,7 @@
       :myLastScoresLoading="myLastScoresLoading"
       @goToGame="goToGame"
       @addScore="addScore"
+      @editScore="editScore"
     />
   </div>
 </template>
@@ -53,6 +54,9 @@ export default Vue.extend({
           score.ship
         )}&platform=${score.platform.id}`
       );
+    },
+    editScore(score) {
+      this.$router.push(`/game/${score.game.id}/scores/${score.id}/edit`);
     },
   },
 });

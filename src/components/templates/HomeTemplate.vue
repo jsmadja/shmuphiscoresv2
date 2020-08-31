@@ -43,6 +43,7 @@
           :show-add-button="score.player.id === user.id"
           @goToGame="goToGame"
           @addScore="addScore"
+          @editScore="editScore"
         />
       </v-col>
     </v-row>

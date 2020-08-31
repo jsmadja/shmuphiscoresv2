@@ -52,6 +52,11 @@ export const actions = {
       .then((response) => response.json())
       .then((scores) => context.commit("setLastScores", scores));
   },
+  fetchScore(context, id) {
+    return fetch(`${api}/scores/${id}`)
+      .then((response) => response.json())
+      .then((score) => context.commit("setScore", score));
+  },
   fetchMyLastScores(context) {
     return fetch(`${api}/me/scores`)
       .then((response) => response.json())
@@ -93,6 +98,25 @@ export const actions = {
       .post(`${api}/me/scores`, form, config)
       .then((response) => {
         context.dispatch("showSuccessToast", `Score has been submitted`);
+        return response.data;
+      })
+      .catch((error) => {
+        context.dispatch("showErrorToast", error);
+        throw new Error(error);
+      });
+  },
+  async editScore(context, score) {
+    const form = new FormData();
+    Object.entries(score)
+      .filter((e) => !!e[1])
+      .forEach((e) => form.append(e[0], e[1] as any));
+    if (score.photo) form.append("photo", score.photo);
+    if (score.inp) form.append("inp", score.inp);
+    const config = { headers: { "content-type": "multipart/form-data" } };
+    return axios
+      .post(`${api}/me/scores/${score.id}`, form, config)
+      .then((response) => {
+        context.dispatch("showSuccessToast", `Score has been updated`);
         return response.data;
       })
       .catch((error) => {
@@ -203,6 +227,7 @@ export default new Vuex.Store({
     myGames: [] as Game[],
     games: [] as Game[],
     game: null,
+    score: null,
     rankings: [] as Ranking[],
     showToast: false,
     toastMessage: "",
@@ -215,6 +240,9 @@ export default new Vuex.Store({
   mutations: {
     setUser(state, user) {
       state.user = user;
+    },
+    setScore(state, score) {
+      state.score = score;
     },
     setPlatforms(state, platforms: PlatformWithGameCount[]) {
       state.platforms = platforms;
@@ -269,5 +297,6 @@ export default new Vuex.Store({
     myLastScores: (state) => state.myLastScores,
     recentlyViewedGames: (state) => state.recentlyViewedGames,
     myLastScoresLoading: (state) => state.myLastScoresLoading,
+    score: (state) => state.score,
   },
 });

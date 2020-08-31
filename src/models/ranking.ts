@@ -1,6 +1,7 @@
 export interface Mode {
   id: number;
   name: string;
+  scoreType: string;
 }
 
 export interface Difficulty {
