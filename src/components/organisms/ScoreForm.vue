@@ -67,7 +67,32 @@
           />
         </v-col>
 
-        <v-col cols="12" lg="4" v-if="!isTimerMode()">
+        <v-col cols="12" xs="12" lg="4">
+          <v-file-input
+            label="Photo"
+            v-model="form.photo"
+            prepend-icon="mdi-camera"
+            outlined
+            class="mb-8"
+            :hide-details="!score || !score.photo"
+            :hint="
+              score
+                ? `Previous photo available at: ${score.photo} Upload a new one only if necessary.`
+                : ''
+            "
+            persistent-hint
+          ></v-file-input>
+        </v-col>
+
+        <v-col cols="12" lg="4" v-if="previewPhoto()" offset-lg="4">
+          <v-card tile class="ml-1 mb-3">
+            <v-card-text>
+              <v-img :src="previewPhoto()" />
+            </v-card-text>
+          </v-card>
+        </v-col>
+
+        <v-col cols="12" lg="4" offset-lg="4" v-if="!isTimerMode()">
           <v-text-field
             label="Score"
             v-model="form.value"
@@ -80,70 +105,51 @@
           />
         </v-col>
 
-        <v-col cols="12" lg="1" v-if="isTimerMode()">
-          <v-text-field
-            label="Minutes"
-            v-model="form.minutes"
-            :rules="notBlank"
-            outlined
-            placeholder="12"
-            :hide-details="hideDetails"
-            suffix="mn"
-            type="number"
-          />
-        </v-col>
-        <v-col cols="12" lg="1" v-if="isTimerMode()">
-          <v-text-field
-            label="Seconds"
-            v-model="form.seconds"
-            :rules="notBlank"
-            outlined
-            placeholder="34"
-            :hide-details="hideDetails"
-            suffix="s"
-            type="number"
-          />
-        </v-col>
-        <v-col cols="12" lg="2" v-if="isTimerMode()">
-          <v-text-field
-            label="Milliseconds"
-            v-model="form.milliseconds"
-            :rules="notBlank"
-            outlined
-            placeholder="56"
-            :hide-details="hideDetails"
-            suffix="ms"
-            type="number"
-          />
+        <v-col cols="12" lg="4" offset-lg="4" v-if="isTimerMode()">
+          <v-row>
+            <v-col cols="12" lg="4">
+              <v-text-field
+                label="Minutes"
+                v-model="form.minutes"
+                :rules="notBlank"
+                outlined
+                placeholder="12"
+                :hide-details="hideDetails"
+                suffix="mn"
+                type="number"
+              />
+            </v-col>
+            <v-col cols="12" lg="4">
+              <v-text-field
+                label="Seconds"
+                v-model="form.seconds"
+                :rules="notBlank"
+                outlined
+                placeholder="34"
+                :hide-details="hideDetails"
+                suffix="s"
+                type="number"
+              />
+            </v-col>
+            <v-col cols="12" lg="4">
+              <v-text-field
+                label="Milliseconds"
+                v-model="form.milliseconds"
+                :rules="notBlank"
+                outlined
+                placeholder="56"
+                :hide-details="hideDetails"
+                suffix="ms"
+                type="number"
+              />
+            </v-col>
+          </v-row>
         </v-col>
 
-        <v-col cols="12">
-          <v-textarea
-            label="Comment"
-            v-model="form.comment"
-            rows="3"
-            outlined
-            :hide-details="hideDetails"
-          />
-        </v-col>
-        <v-col cols="12" xs="12" lg="4">
-          <v-file-input
-            label="Photo"
-            v-model="form.photo"
-            prepend-icon="mdi-camera"
-            outlined
-            :hide-details="!score || !score.photo"
-            :hint="
-              score
-                ? `Previous photo available at: ${score.photo} Upload a new one only if necessary.`
-                : ''
-            "
-            persistent-hint
-          ></v-file-input>
-        </v-col>
-        <v-col cols="12" xs="12" lg="4">
+        <v-col cols="12" xs="12" lg="6">
           <v-file-input
             label="INP"
+            class="mb-8"
             v-model="form.inp"
             outlined
             :hide-details="!score || !score.inp"
@@ -155,7 +161,7 @@
             persistent-hint
           />
         </v-col>
-        <v-col cols="12" xs="12" lg="4">
+        <v-col cols="12" xs="12" lg="6">
           <v-text-field
             label="Replay URL"
             v-model="form.replay"
@@ -168,12 +174,14 @@
             :hide-details="hideDetails"
           />
         </v-col>
-        <v-col cols="12" lg="4" v-if="previewPhoto()">
-          <v-card tile class="ml-1">
-            <v-card-text>
-              <v-img :src="previewPhoto()" />
-            </v-card-text>
-          </v-card>
+        <v-col cols="12">
+          <v-textarea
+            label="Comment"
+            v-model="form.comment"
+            rows="3"
+            outlined
+            :hide-details="hideDetails"
+          />
         </v-col>
       </v-row>
     </v-form>

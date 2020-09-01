@@ -14,7 +14,7 @@
           @configureGame="goToGameEdit"
         />
       </v-col>
-      <v-col>
+      <v-col cols="12" lg="10">
         <v-stepper v-model="step">
           <v-stepper-header>
             <v-stepper-step :complete="step > 1" step="1"
