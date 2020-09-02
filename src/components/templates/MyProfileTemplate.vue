@@ -7,7 +7,12 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <v-switch label="Show medals on shmup.com"></v-switch>
+        <v-switch
+          v-model="user"
+          input-value="hideMedals"
+          false-value="true"
+          label="Show medals on shmup.com"
+        ></v-switch>
       </v-col>
       <v-col cols="12">
         <h3>Share my medals on forums</h3>
@@ -18,11 +23,13 @@
         </v-card>
       </v-col>
       <v-col cols="12" xs="12" sm="8" md="9" lg="9">
-        <copyable-code
-          title="Code"
-          :code="`[IMG]https://hiscores.shmup.com/player/${user.shmupUserId}/medals.png[/IMG]`"
-          @copy="$emit('copy')"
-        />
+        <v-card flat outlined>
+          <copyable-code
+            title="Code"
+            :code="`[IMG]https://hiscores.shmup.com/player/${user.shmupUserId}/medals.png[/IMG]`"
+            @copy="$emit('copy')"
+          />
+        </v-card>
       </v-col>
       <v-col cols="12"><h3>Share my last score on forums</h3></v-col>
       <v-col>
@@ -34,11 +41,13 @@
         </v-card>
       </v-col>
       <v-col>
-        <copyable-code
-          title="Code"
-          :code="`[IMG]https://hiscores.shmup.com/player/${user.id}/signature.png[/IMG]`"
-          @copy="$emit('copy')"
-        />
+        <v-card flat outlined>
+          <copyable-code
+            title="Code"
+            :code="`[IMG]https://hiscores.shmup.com/player/${user.id}/signature.png[/IMG]`"
+            @copy="$emit('copy')"
+          />
+        </v-card>
       </v-col>
       <v-col cols="12"><h3>Share my arch enemy</h3></v-col>
       <v-col>
@@ -50,11 +59,13 @@
         </v-card>
       </v-col>
       <v-col>
-        <copyable-code
-          title="Code"
-          :code="`[IMG]https://hiscores.shmup.com/player/${user.id}/versus.png[/IMG]`"
-          @copy="$emit('copy')"
-        />
+        <v-card flat outlined>
+          <copyable-code
+            title="Code"
+            :code="`[IMG]https://hiscores.shmup.com/player/${user.id}/versus.png[/IMG]`"
+            @copy="$emit('copy')"
+          />
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
@@ -72,3 +83,9 @@ export default Vue.extend({
   props: ["user"],
 });
 </script>
+
+<style lang="scss" scoped>
+h3 {
+  font-weight: bold;
+}
+</style>

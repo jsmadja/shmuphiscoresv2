@@ -22,7 +22,7 @@
               :headers="computedHeaders"
               :items="games"
               :search="search"
-              @click:row="(row) => $emit('selectGame', row)"
+              @click:row.self="(row) => $emit('selectGame', row)"
               mobile-breakpoint="0"
               :loading="games.length === 0"
             >
@@ -30,17 +30,19 @@
                 <Cover
                   :url="item.cover"
                   :alt="item.title"
-                  width="100"
-                  max-height="50"
-                  height="50"
+                  :contain="true"
+                  width="50"
                 />
               </template>
-              <template v-slot:item.title="{ item }">
+              <template
+                v-slot:item.title="{ item }"
+                @click="(row) => $emit('selectGame', row)"
+              >
                 {{ item.title }}
               </template>
               <template v-slot:item.platforms="{ item }">
                 <v-btn
-                  @click="() => onSelectPlatform(platform, $event)"
+                  @click="() => onSelectPlatform(platform)"
                   v-for="platform in item.platforms"
                   x-small
                   dark
@@ -76,6 +78,7 @@ export default Vue.extend({
           text: "",
           value: "cover",
           hide: "smAndDown",
+          width: 100,
         },
         {
           text: "Title",
@@ -97,10 +100,7 @@ export default Vue.extend({
     },
   },
   methods: {
-    onSelectPlatform(platform, $event) {
-      console.log($event);
-      $event.preventDefault();
-      $event.stopImmediatePropagation();
+    onSelectPlatform(platform) {
       this.$emit("selectPlatform", platform);
     },
   },

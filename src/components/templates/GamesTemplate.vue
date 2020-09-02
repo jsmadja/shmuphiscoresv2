@@ -30,9 +30,9 @@
                 <Cover
                   :url="item.cover"
                   :alt="item.title"
-                  width="100"
-                  max-height="50"
-                  height="50"
+                  width="50"
+                  :contain="true"
+                  class="ma-1"
                 />
               </template>
             </v-data-table>
