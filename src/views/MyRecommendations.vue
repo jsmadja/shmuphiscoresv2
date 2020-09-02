@@ -6,28 +6,73 @@
       </v-col>
     </v-row>
     <v-row dense>
-      <v-col v-for="(item, i) in items" :key="i" xs="12" sm="12" md="12" lg="6">
-        <v-card to="/game">
-          <div class="d-flex justify-space-between">
-            <div>
-              <v-card-title class="headline" v-text="item.title"></v-card-title>
-
-              <v-card-subtitle v-html="item.artist"></v-card-subtitle>
-            </div>
-            <v-avatar class="ma-3" size="125" tile>
-              <v-img :src="item.src"></v-img>
-            </v-avatar>
-          </div>
-        </v-card>
+      <v-col xs="12" sm="12" md="12" lg="6">
+        <recommendation-card
+          title="Try a new mode"
+          :content="`Try <b>${recommendations.unplayedMode.mode.name}</b> mode of <b>${recommendations.unplayedMode.game.title}</b>.`"
+          :game="recommendations.unplayedMode.game"
+        />
+      </v-col>
+      <v-col xs="12" sm="12" md="12" lg="6">
+        <recommendation-card
+          title="Try a new difficulty"
+          :content="`Try <b>${recommendations.unplayedDifficulty.difficulty.name}</b> difficulty of <b>${recommendations.unplayedDifficulty.game.title}</b>.`"
+          :game="recommendations.unplayedDifficulty.game"
+        />
+      </v-col>
+      <v-col xs="12" sm="12" md="12" lg="6">
+        <recommendation-card
+          title="Discover a new game"
+          :content="`Add a score on <b>${recommendations.unplayedGame.game.title}</b>.`"
+          :game="recommendations.unplayedGame.game"
+        />
+      </v-col>
+      <v-col xs="12" sm="12" md="12" lg="6">
+        <recommendation-card
+          title="Long time no see"
+          :content="`Remember, you've scored it, long time ago ... <b>${recommendations.oldestScoredGame.game.title}</b>.`"
+          :game="recommendations.oldestScoredGame.game"
+        />
+      </v-col>
+      <v-col xs="12" sm="12" md="12" lg="6">
+        <recommendation-card
+          title="Try again, do your best"
+          :content="`Keep going on <b>${recommendations.latestScoredGame.game.title}</b>.`"
+          :game="recommendations.latestScoredGame.game"
+        />
+      </v-col>
+      <v-col xs="12" sm="12" md="12" lg="6">
+        <recommendation-card
+          title="Just a couple more shots"
+          :content="`Keep going on <b>${recommendations.nearestScoredGame.game.title}</b>.`"
+          :game="recommendations.nearestScoredGame.game"
+        />
+      </v-col>
+      <v-col xs="12" sm="12" md="12" lg="6">
+        <recommendation-card
+          title="Learning curve is hight"
+          :content="`Keep going on <b>${recommendations.farestScoredGame.game.title}</b>.`"
+          :game="recommendations.farestScoredGame.game"
+        />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from "vue";
+import RecommendationCard from "@/components/molecules/RecommendationCard.vue";
+
+export default Vue.extend({
   name: "MyRecommendations",
+  components: { RecommendationCard },
+  mounted() {
+    fetch("http://localhost:8080/api/me/recommendations")
+      .then((response) => response.json())
+      .then((recommendations) => (this.recommendations = recommendations));
+  },
   data: () => ({
+    recommendations: [],
     items: [
       {
         src: "http://hiscores.shmup.com/covers/385.jpg",
@@ -41,25 +86,7 @@ export default {
         artist:
           "Prend la place de <b>Y'om</b> sur <b>Mushihimesama Futari</b> dans le mode <b>Version 1.5</b> et la difficulté <b>Original</b>.",
       },
-      {
-        src: "http://hiscores.shmup.com/covers/192.jpg",
-        title: "Teste un nouveau mode",
-        artist: "Essaie le mode <b>Takai 2 min</b> de <b>Gunhed</b>.",
-      },
-      {
-        src: "http://hiscores.shmup.com/covers/7.jpg",
-        title: "Teste une nouvelle difficulté",
-        artist:
-          "Essaie la difficulté <b>ARRANGE A</b> de <b>Dodonpachi Daiffukatsu</b>.",
-      },
-      {
-        src: "http://hiscores.shmup.com/covers/141.jpg",
-        title: "Découvre un nouveau jeu",
-        artist: "Fais un score sur <b>Sonic Wings Limited</b>.",
-      },
     ],
   }),
-};
+});
 </script>
-
-<style scoped></style>

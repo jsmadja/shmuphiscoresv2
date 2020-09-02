@@ -37,7 +37,7 @@
           <v-list-item
             link
             to="/my-recommendations"
-            v-if="false && user && user.authenticated"
+            v-if="user && user.authenticated"
           >
             <v-list-item-action>
               <v-icon>mdi-compass</v-icon>
