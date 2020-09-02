@@ -6,7 +6,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col col="12" lg="2">
+      <v-col col="12" sm="4" md="3" lg="2" class="hidden-xs-only">
         <game-informations
           :game="game"
           :hide-add-score-button="true"
@@ -14,7 +14,7 @@
           @configureGame="goToGameEdit"
         />
       </v-col>
-      <v-col cols="12" lg="10">
+      <v-col cols="12" xs="12" sm="8" md="9" lg="10">
         <v-stepper v-model="step">
           <v-stepper-header>
             <v-stepper-step :complete="step > 1" step="1"
