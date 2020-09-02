@@ -84,10 +84,10 @@
           ></v-file-input>
         </v-col>
 
-        <v-col cols="12" lg="4" v-if="previewPhoto()" offset-lg="4">
+        <v-col cols="12" lg="4" v-if="previewPhoto" offset-lg="4">
           <v-card tile class="ml-1 mb-3">
             <v-card-text>
-              <v-img :src="previewPhoto()" />
+              <v-img :src="previewPhoto" alt="Photo" />
             </v-card-text>
           </v-card>
         </v-col>
@@ -311,10 +311,13 @@ export default Vue.extend({
       }
       return false;
     },
-    previewPhoto() {
-      const scorePhoto = _.get(this.score, "photo");
-      return this.form.photo
-        ? URL.createObjectURL(this.form.photo)
+  },
+  computed: {
+    previewPhoto: function () {
+      const _this = this as any;
+      const scorePhoto = _.get(_this.score, "photo");
+      return _this.form.photo
+        ? URL.createObjectURL(_this.form.photo)
         : scorePhoto;
     },
   },
