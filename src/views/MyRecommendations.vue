@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <my-recommendations-template
-      :my-recommendations="myRecommendations"
-      @goToGame="goToGame"
-    />
-  </div>
+  <my-recommendations-template
+    :my-recommendations="myRecommendations"
+    :myRecommendationsLoading="myRecommendationsLoading"
+    @goToGame="goToGame"
+  />
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import RecommendationCard from "@/components/molecules/RecommendationCard.vue";
 import { Game } from "@/models/game";
 import { mapGetters } from "vuex";
 import MyRecommendationsTemplate from "@/components/templates/MyRecommendationsTemplate.vue";
@@ -21,7 +19,7 @@ export default Vue.extend({
     this.$store.dispatch("fetchMyRecommendations");
   },
   computed: {
-    ...mapGetters(["myRecommendations"]),
+    ...mapGetters(["myRecommendations", "myRecommendationsLoading"]),
   },
   methods: {
     goToGame(game: Game) {

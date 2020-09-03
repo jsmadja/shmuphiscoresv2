@@ -3,6 +3,7 @@
     :players="players"
     :versus="versus"
     :currentUserId="user.id"
+    :loading="loading"
     @selectPlayer1="onSelectPlayer1"
     @selectPlayer2="onSelectPlayer2"
     @goToGame="onGoToGame"
@@ -19,7 +20,8 @@ export default Vue.extend({
   name: "CompareScores.vue",
   components: { CompareScoresTemplate },
   created() {
-    this.$store.dispatch("fetchPlayers");
+    this.loading = true;
+    this.$store.dispatch("fetchPlayers").then(() => (this.loading = false));
   },
   mounted() {
     this.player1 = this.user.id;
@@ -29,7 +31,11 @@ export default Vue.extend({
       player1: null,
       player2: null,
       versus: [],
+      loading: true,
     };
+  },
+  beforeRouteEnter(from, to, next) {
+    (window as any).Store.dispatch("fetchUser").then(() => next());
   },
   computed: {
     ...mapGetters(["players", "user"]),

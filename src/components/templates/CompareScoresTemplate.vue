@@ -50,6 +50,7 @@
                   :sort-by="['scoreGap']"
                   :sort-desc="[true]"
                   @click:row="(row) => $emit('goToGame', row)"
+                  :loading="loading"
                 >
                   <template v-slot:item.score1.rank="{ item }">
                     <span
@@ -93,7 +94,7 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "CompareScoresTemplate",
-  props: ["players", "versus", "currentUserId"],
+  props: ["players", "versus", "currentUserId", "loading"],
   data() {
     return {
       selectedPlayer1: null,

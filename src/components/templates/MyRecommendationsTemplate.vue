@@ -6,10 +6,9 @@
       </v-col>
     </v-row>
     <v-row dense>
-      <v-col xs="12" sm="12" md="12" lg="6" v-if="!myRecommendations">
+      <v-col xs="12" sm="12" md="12" lg="6" v-if="myRecommendationsLoading">
         <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
       </v-col>
-
       <v-col xs="12" sm="12" md="12" lg="6">
         <recommendation-card
           @goToGame="goToGame"
@@ -78,7 +77,7 @@ import { Game } from "@/models/game";
 export default Vue.extend({
   name: "MyRecommendationsTemplate",
   components: { RecommendationCard },
-  props: ["myRecommendations"],
+  props: ["myRecommendations", "myRecommendationsLoading"],
   methods: {
     goToGame(game: Game) {
       this.$emit("goToGame", game);

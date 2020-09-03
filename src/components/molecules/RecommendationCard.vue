@@ -37,7 +37,7 @@ export default Vue.extend({
 </script>
 <style lang="scss" scoped>
 .title {
-  font-size: 1.8rem !important;
+  font-size: 1.7rem !important;
   line-height: 1.9rem;
   text-overflow: ellipsis;
   overflow: hidden;
