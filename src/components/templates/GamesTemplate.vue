@@ -22,6 +22,7 @@
               :headers="computedHeaders"
               :items="games"
               :search="search"
+              :dense="$vuetify.breakpoint.smAndDown"
               @click:row="(row) => $emit('selectGame', row)"
               mobile-breakpoint="0"
               :loading="games.length === 0"
