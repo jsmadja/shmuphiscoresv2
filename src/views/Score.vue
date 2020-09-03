@@ -37,6 +37,7 @@
 import moment from "moment";
 import Vue from "vue";
 import { api } from "@/api";
+import { Score } from "@/models/score";
 
 export default Vue.extend({
   components: {},
@@ -57,10 +58,12 @@ export default Vue.extend({
   },
   computed: {
     labels: function () {
-      return this.history.map((score) => moment(score.createdAt).format("L"));
+      return this.history.map((score: Score) =>
+        moment(score.createdAt).format("L")
+      );
     },
     value: function () {
-      return this.history.map((score) => score.value);
+      return this.history.map((score: Score) => score.value);
     },
   },
   methods: {

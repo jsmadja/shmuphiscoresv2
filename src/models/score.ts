@@ -3,6 +3,7 @@ import { Mode, Stage, Difficulty, Ship, Platform } from "@/models/ranking";
 import { formatTime, formatNumber } from "@/formaters";
 
 export interface Score {
+  createdAt: Date;
   player: Player;
   id: number;
   photo?: string;
