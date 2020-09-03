@@ -1,81 +1,58 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col>
-        <h1>Compare Scores</h1>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-autocomplete
-          :items="['Anzymus']"
-          color="white"
-          hide-no-data
-          hide-selected
-          label="Player 1"
-          value="Anzymus"
-          placeholder="Start typing to Search"
-          outlined
-        ></v-autocomplete>
-      </v-col>
-      <v-col>
-        <v-autocomplete
-          :items="['Mickey']"
-          value="Mickey"
-          color="white"
-          hide-no-data
-          hide-selected
-          label="Player 2"
-          placeholder="Start typing to Search"
-          outlined
-        ></v-autocomplete>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col xs12>
-        <v-data-table
-          :headers="headers"
-          :items="items"
-          :search="search"
-          @click:row="handleClick"
-        ></v-data-table>
-      </v-col>
-    </v-row>
-  </v-container>
+  <compare-scores-template
+    :players="players"
+    :versus="versus"
+    :currentUserId="user.id"
+    @selectPlayer1="onSelectPlayer1"
+    @selectPlayer2="onSelectPlayer2"
+    @goToGame="onGoToGame"
+  />
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from "vue";
+import { mapGetters } from "vuex";
+import CompareScoresTemplate from "@/components/templates/CompareScoresTemplate.vue";
+import { api } from "@/api";
+
+export default Vue.extend({
   name: "CompareScores.vue",
+  components: { CompareScoresTemplate },
+  created() {
+    this.$store.dispatch("fetchPlayers");
+  },
+  mounted() {
+    this.player1 = this.user.id;
+  },
   data() {
     return {
-      search: "",
-      headers: [
-        { text: "Game", value: "game" },
-        { text: "Mode", value: "mode" },
-        { text: "Difficulty", value: "difficulty" },
-        { text: "Anzymus", value: "player1Rank" },
-        { text: "Mickey", value: "player2Rank" },
-        { text: "Gap", value: "gap" },
-      ],
-      items: [
-        {
-          game: "Aero Fighters 3 / Sonic Wings 3",
-          mode: "Version 1.5",
-          difficulty: "MVS",
-          player1Rank: 5,
-          player2Rank: 9,
-          gap: 151,
-        },
-      ],
+      player1: null,
+      player2: null,
+      versus: [],
     };
   },
+  computed: {
+    ...mapGetters(["players", "user"]),
+  },
   methods: {
-    handleClick() {
-      this.$router.push("/game");
+    onGoToGame(row) {
+      this.$router.push(`/game/${row.game.id}`);
+    },
+    onSelectPlayer1(player) {
+      this.player1 = player;
+      this.fetchVersus();
+    },
+    onSelectPlayer2(player) {
+      this.player2 = player;
+      this.fetchVersus();
+    },
+    fetchVersus() {
+      if (this.player1 && this.player2) {
+        fetch(`${api}/players/${this.player1}/versus/${this.player2}`)
+          .then((response) => response.json())
+          .then((versus) => (this.versus = versus.comparisons));
+      }
     },
   },
-};
+});
 </script>
-
-<style scoped></style>
