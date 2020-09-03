@@ -10,9 +10,9 @@
         <v-card>
           <v-card-text>
             <v-row>
-              <v-col cols="12">
+              <v-col cols="12" v-if="false">
                 <v-switch
-                  v-model="user"
+                  v-model="user.hideMedals"
                   input-value="hideMedals"
                   false-value="true"
                   label="Show medals on shmup.com"
