@@ -13,7 +13,7 @@
         color="orange"
         class="mr-1 mb-10 mb-sm-13 mb-md-13 mb-lg-13"
       >
-        <v-icon>mdi-plus</v-icon>
+        <v-icon>mdi-history</v-icon>
       </v-btn>
     </template>
 
