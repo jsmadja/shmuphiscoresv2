@@ -15,6 +15,13 @@ export const actions = {
       .then((response) => response.json())
       .then((user) => context.commit("setUser", user));
   },
+  fetchMyRecommendations(context) {
+    return fetch(`${api}/me/recommendations`)
+      .then((response) => response.json())
+      .then((recommendations) =>
+        context.commit("setMyRecommendations", recommendations)
+      );
+  },
   fetchPlatforms(context) {
     return fetch(`${api}/platforms`)
       .then((response) => response.json())
@@ -236,10 +243,14 @@ export default new Vuex.Store({
     myLastScores: [],
     myLastScoresLoading: true,
     recentlyViewedGames: [] as Game[],
+    myRecommendations: null,
   },
   mutations: {
     setUser(state, user) {
       state.user = user;
+    },
+    setMyRecommendations(state, recommendations) {
+      state.myRecommendations = recommendations;
     },
     setScore(state, score) {
       state.score = score;
@@ -297,6 +308,7 @@ export default new Vuex.Store({
     myLastScores: (state) => state.myLastScores,
     recentlyViewedGames: (state) => state.recentlyViewedGames,
     myLastScoresLoading: (state) => state.myLastScoresLoading,
+    myRecommendations: (state) => state.myRecommendations,
     score: (state) => state.score,
   },
 });
