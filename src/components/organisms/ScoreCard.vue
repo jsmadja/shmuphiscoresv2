@@ -4,10 +4,11 @@
       <v-row dense>
         <v-col cols="12" lg="3">
           <Cover
+            @click="$emit('goToGame', score.game)"
             :url="score.game.cover"
             height="177"
             :contain="false"
-            class="elevation-5"
+            class="elevation-5 clickable"
           />
         </v-col>
         <v-col cols="12" lg="9" class="pl-2">
@@ -188,7 +189,7 @@ export default Vue.extend({
 
 .title {
   font-size: 1.8rem !important;
-  line-height: 1.9rem;
+  line-height: 2rem;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

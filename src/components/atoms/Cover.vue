@@ -7,6 +7,7 @@
     :height="height"
     :max="max"
     :contain="contain"
+    @click="() => $emit('click')"
   />
 </template>
 
