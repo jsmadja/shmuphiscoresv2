@@ -5,6 +5,7 @@
     :rankings="rankings"
     :current-player-id="user.id"
     @selectPlatform="onSelectPlatform"
+    @goToPlayer="goToPlayer"
     @configureGame="onConfigureGame"
     @addScore="onAddScore"
   />
@@ -34,6 +35,9 @@ export default Vue.extend({
   methods: {
     onSelectPlatform(platform) {
       this.$router.push(`/platform/${platform.name}`);
+    },
+    goToPlayer(player) {
+      this.$router.push(`/player/${player.id}`);
     },
     onConfigureGame() {
       this.$router.push(`/game/${this.game.id}/edit`);

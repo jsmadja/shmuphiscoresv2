@@ -6,6 +6,8 @@
       :lastScoresLoading="lastScoresLoading"
       :myLastScoresLoading="myLastScoresLoading"
       @goToGame="goToGame"
+      @goToPlatform="goToPlatform"
+      @goToPlayer="goToPlayer"
       @addScore="addScore"
       @editScore="editScore"
     />
@@ -43,6 +45,12 @@ export default Vue.extend({
   methods: {
     goToGame(game) {
       this.$router.push(`/game/${game.id}`);
+    },
+    goToPlatform(platformName) {
+      this.$router.push(`/platform/${platformName}`);
+    },
+    goToPlayer(player) {
+      this.$router.push(`/player/${player.id}`);
     },
     addScore(score) {
       this.$router.push(

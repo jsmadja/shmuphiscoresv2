@@ -29,7 +29,11 @@
             </v-col>
             <v-col v-if="showPlayer">
               <span class="category">PLAYER</span>
-              <span class="category-value">{{ score.player.name }}</span>
+              <span
+                class="category-value clickable"
+                @click="$emit('goToPlayer', score.player)"
+                >{{ score.player.name }}</span
+              >
             </v-col>
             <v-col>
               <span class="category">RANK</span>
@@ -37,7 +41,11 @@
             </v-col>
             <v-col>
               <span class="category">PLATFORM</span>
-              <span class="category-value">{{ score.platform.name }}</span>
+              <span
+                class="category-value clickable"
+                @click="$emit('goToPlatform', score.platform.name)"
+                >{{ score.platform.name }}</span
+              >
             </v-col>
             <v-col v-if="score.difficulty">
               <span class="category">DIFFICULTY</span>
@@ -170,6 +178,14 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss" scoped>
+@import "../../custom.scss";
+.clickable {
+  cursor: pointer;
+  &:hover {
+    color: $primary;
+  }
+}
+
 .title {
   font-size: 1.8rem !important;
   line-height: 1.9rem;

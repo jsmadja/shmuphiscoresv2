@@ -80,6 +80,7 @@
           :key="`ranking-${i}`"
           :id="`ranking-${i}`"
           @addScore="onAddScore"
+          @goToPlayer="goToPlayer"
         >
           <div
             v-intersect="{
@@ -134,6 +135,9 @@ export default Vue.extend({
     },
     onAddScore(ranking) {
       this.$emit("addScore", { ranking });
+    },
+    goToPlayer(player) {
+      this.$emit("goToPlayer", player);
     },
   },
 });

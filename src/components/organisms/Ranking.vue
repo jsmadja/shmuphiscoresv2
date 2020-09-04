@@ -77,6 +77,14 @@
                   >{{ item.comment }}</span
                 >
               </template>
+              <template v-slot:item.player.name="{ item }">
+                <span @click="() => $emit('goToPlayer', item.player)">{{
+                  item.player.name
+                }}</span>
+              </template>
+              <template v-slot:item.rank="{ item }">
+                {{ item.rank | formatRank }}
+              </template>
               <template v-slot:expanded-item="{ headers, item }">
                 <td :colspan="headers.length">{{ item.comment }}</td>
               </template>

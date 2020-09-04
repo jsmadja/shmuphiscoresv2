@@ -23,6 +23,7 @@
           @goToGame="goToGame"
           @addScore="addScore"
           @editScore="editScore"
+          @goToPlatform="goToPlatform"
         />
       </v-col>
     </v-row>
@@ -44,6 +45,8 @@
           @goToGame="goToGame"
           @addScore="addScore"
           @editScore="editScore"
+          @goToPlayer="goToPlayer"
+          @goToPlatform="goToPlatform"
         />
       </v-col>
     </v-row>
@@ -68,8 +71,14 @@ export default Vue.extend({
     ...mapGetters(["user"]),
   },
   methods: {
+    goToPlayer(player) {
+      this.$emit("goToPlayer", player);
+    },
     goToGame(game) {
       this.$emit("goToGame", game);
+    },
+    goToPlatform(platformName) {
+      this.$emit("goToPlatform", platformName);
     },
     addScore(score) {
       this.$emit("addScore", score);
