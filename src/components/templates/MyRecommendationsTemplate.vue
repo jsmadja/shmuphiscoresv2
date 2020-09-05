@@ -7,19 +7,18 @@
     </v-row>
     <v-row dense>
       <template v-if="myRecommendationsLoading">
-        <v-col :key="index" v-for="index in 7" xs="12" sm="12" md="12" lg="6">
+        <v-col
+          :key="index"
+          v-for="index in 7"
+          cols="12"
+          xs="12"
+          sm="6"
+          md="6"
+          lg="6"
+        >
           <v-skeleton-loader type="card"></v-skeleton-loader>
         </v-col>
       </template>
-      <v-col xs="12" sm="12" md="12" lg="6" v-if="myRecommendationsLoading">
-        <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
-      </v-col>
-      <v-col xs="12" sm="12" md="12" lg="6" v-if="myRecommendationsLoading">
-        <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
-      </v-col>
-      <v-col xs="12" sm="12" md="12" lg="6" v-if="myRecommendationsLoading">
-        <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
-      </v-col>
       <v-col xs="12" sm="12" md="12" lg="6">
         <recommendation-card
           @goToGame="goToGame"
@@ -89,7 +88,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import RecommendationCard from "@/components/molecules/RecommendationCard.vue";
+import RecommendationCard from "../molecules/RecommendationCard.vue";
 import { Game } from "@/models/game";
 
 export default Vue.extend({

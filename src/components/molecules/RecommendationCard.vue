@@ -27,7 +27,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import Cover from "@/components/atoms/Cover.vue";
+import Cover from "../atoms/Cover.vue";
 
 export default Vue.extend({
   name: "RecommendationCard",
