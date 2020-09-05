@@ -26,7 +26,7 @@ export default Vue.extend({
   }),
   methods: {
     goToGame(game: Game) {
-      this.$router.push(`/game/${game.id}`);
+      this.$router.push(`/games/${game.id}`);
     },
   },
 });

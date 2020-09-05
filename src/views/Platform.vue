@@ -33,7 +33,7 @@ export default Vue.extend({
   },
   methods: {
     goToGamePage(game: Game) {
-      this.$router.push(`/game/${game.id}`);
+      this.$router.push(`/games/${game.id}`);
     },
     onSelectPlatform(platform) {
       this.$router.push({

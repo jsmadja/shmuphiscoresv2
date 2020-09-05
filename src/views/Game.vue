@@ -40,12 +40,12 @@ export default Vue.extend({
       this.$router.push(`/players/${player.id}`);
     },
     onConfigureGame() {
-      this.$router.push(`/game/${this.game.id}/edit`);
+      this.$router.push(`/games/${this.game.id}/edit`);
     },
     onAddScore({ ranking }) {
       debugger;
       this.$router.push(
-        `/game/${this.game.id}/score?mode=${defaultSetting(
+        `/games/${this.game.id}/score?mode=${defaultSetting(
           ranking,
           "mode"
         )}&difficulty=${defaultSetting(ranking, "difficulty")}`

@@ -54,10 +54,10 @@ export default Vue.extend({
       this.step = 3;
     },
     onGoToGamePage() {
-      this.$router.push(`/game/${this.game.id}`);
+      this.$router.push(`/games/${this.game.id}`);
     },
     onGoToGameEdit() {
-      this.$router.push(`/game/${this.game.id}/edit`);
+      this.$router.push(`/games/${this.game.id}/edit`);
     },
     onCreateScore(score) {
       this.$store

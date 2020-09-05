@@ -18,7 +18,7 @@ export default Vue.extend({
   },
   methods: {
     onSelectGame(game) {
-      this.$router.push(`/game/${game.id}`);
+      this.$router.push(`/games/${game.id}`);
     },
   },
 });

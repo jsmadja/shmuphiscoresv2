@@ -34,7 +34,7 @@ export default Vue.extend({
     createGame(game) {
       this.$store
         .dispatch("createGame", game)
-        .then((game) => this.$router.push(`/game/${game.id}/edit`));
+        .then((game) => this.$router.push(`/games/${game.id}/edit`));
     },
   },
 });

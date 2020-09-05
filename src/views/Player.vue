@@ -131,7 +131,7 @@ export default Vue.extend({
   },
   methods: {
     goToGame(row) {
-      this.$router.push(`/game/${row.game.id}`);
+      this.$router.push(`/games/${row.game.id}`);
     },
     goToPlatform(row) {
       this.$router.push(`/platform/${row.platform.name}`);

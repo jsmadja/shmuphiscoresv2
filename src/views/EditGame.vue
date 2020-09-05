@@ -42,7 +42,7 @@ export default Vue.extend({
       this.$store.dispatch("showSuccessToast", "Copied!");
     },
     onGoToGamePage() {
-      this.$router.push(`/game/${this.game.id}`);
+      this.$router.push(`/games/${this.game.id}`);
     },
     onCreateMode(mode) {
       this.$store.dispatch("createMode", { game: this.game, mode });

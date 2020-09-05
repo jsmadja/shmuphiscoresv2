@@ -42,7 +42,7 @@ export default Vue.extend({
   },
   methods: {
     onGoToGame(row) {
-      this.$router.push(`/game/${row.game.id}`);
+      this.$router.push(`/games/${row.game.id}`);
     },
     onSelectPlayer1(player) {
       this.player1 = player;

@@ -47,17 +47,22 @@ const routes: Array<RouteConfig> = [
     component: AddGame,
   },
   {
-    path: "/game/:id/score",
+    path: "/game/:id/new_score",
     name: "AddScore",
     component: AddScore,
   },
   {
-    path: "/game/:gameId/scores/:scoreId/edit",
+    path: "/games/:id/score",
+    name: "AddScore",
+    component: AddScore,
+  },
+  {
+    path: "/games/:gameId/scores/:scoreId/edit",
     name: "EditScore",
     component: EditScore,
   },
   {
-    path: "/game/:id",
+    path: "/games/:id",
     name: "Game",
     component: Game,
   },
@@ -67,7 +72,7 @@ const routes: Array<RouteConfig> = [
     component: Score,
   },
   {
-    path: "/game/:id/edit",
+    path: "/games/:id/edit",
     name: "EditGame",
     component: EditGame,
   },

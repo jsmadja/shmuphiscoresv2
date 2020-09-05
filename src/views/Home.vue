@@ -44,7 +44,7 @@ export default Vue.extend({
   },
   methods: {
     goToGame(game) {
-      this.$router.push(`/game/${game.id}`);
+      this.$router.push(`/games/${game.id}`);
     },
     goToPlatform(platformName) {
       this.$router.push(`/platform/${platformName}`);
@@ -54,7 +54,7 @@ export default Vue.extend({
     },
     addScore(score) {
       this.$router.push(
-        `/game/${score.game.id}/score?mode=${defaultSetting(
+        `/games/${score.game.id}/score?mode=${defaultSetting(
           score.mode
         )}&difficulty=${defaultSetting(
           score.difficulty
@@ -64,7 +64,7 @@ export default Vue.extend({
       );
     },
     editScore(score) {
-      this.$router.push(`/game/${score.game.id}/scores/${score.id}/edit`);
+      this.$router.push(`/games/${score.game.id}/scores/${score.id}/edit`);
     },
   },
 });
