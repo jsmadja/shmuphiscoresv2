@@ -50,7 +50,7 @@ export default Vue.extend({
       this.$router.push(`/platform/${platformName}`);
     },
     goToPlayer(player) {
-      this.$router.push(`/player/${player.id}`);
+      this.$router.push(`/players/${player.id}`);
     },
     addScore(score) {
       this.$router.push(

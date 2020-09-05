@@ -24,7 +24,7 @@
               <v-col cols="6" xs="6" sm="4" md="3" lg="3">
                 <v-card light tile>
                   <v-img
-                    src="https://hiscores.shmup.com/player/33489/medals.png"
+                    :src="`https://hiscores.shmup.com/player/${user.shmupUserId}/medals.png`"
                   />
                 </v-card>
               </v-col>
@@ -42,7 +42,7 @@
                 <v-card light tile>
                   <v-img
                     position="top left"
-                    src="https://hiscores.shmup.com/player/1/signature.png"
+                    :src="`https://hiscores.shmup.com/player/${user.id}/signature.png`"
                   />
                 </v-card>
               </v-col>
@@ -60,7 +60,7 @@
                 <v-card light tile>
                   <v-img
                     position="top left"
-                    src="http://hiscores.shmup.com/player/1/versus.png"
+                    :src="`http://hiscores.shmup.com/player/${user.id}/versus.png`"
                   />
                 </v-card>
               </v-col>

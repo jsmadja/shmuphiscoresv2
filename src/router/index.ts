@@ -102,7 +102,7 @@ const routes: Array<RouteConfig> = [
     component: Players,
   },
   {
-    path: "/player/:id",
+    path: "/players/:id",
     name: "Player",
     component: Player,
   },

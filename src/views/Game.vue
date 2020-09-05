@@ -37,7 +37,7 @@ export default Vue.extend({
       this.$router.push(`/platform/${platform.name}`);
     },
     goToPlayer(player) {
-      this.$router.push(`/player/${player.id}`);
+      this.$router.push(`/players/${player.id}`);
     },
     onConfigureGame() {
       this.$router.push(`/game/${this.game.id}/edit`);
