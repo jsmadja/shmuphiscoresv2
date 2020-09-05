@@ -62,8 +62,11 @@
         <game-informations
           :game="game"
           @configureGame="$emit('configureGame', game)"
+          @selectPlatform="(platform) => $emit('selectPlatform', platform)"
           @addScore="onAddScore"
           :hide-go-to-game-button="true"
+          :hide-add-score-button="!user.authenticated"
+          :hide-configure-button="!user.administrator"
         />
       </v-col>
       <!-- Rankings -->
@@ -75,8 +78,9 @@
         ></v-progress-linear>
         <Ranking
           :ranking="ranking"
-          :current-player-id="currentPlayerId"
+          :current-player-id="user.id"
           v-for="(ranking, i) in rankings"
+          :hide-add-score-button="!user.authenticated"
           :key="`ranking-${i}`"
           :id="`ranking-${i}`"
           @addScore="onAddScore"
@@ -104,7 +108,7 @@ import GameInformations from "../organisms/GameInformations.vue";
 
 export default Vue.extend({
   name: "Game",
-  props: ["game", "rankings", "currentPlayerId", "hideRankingMenu"],
+  props: ["game", "rankings", "hideRankingMenu", "user"],
   components: { Ranking, GameInformations },
   data() {
     return {

@@ -1,5 +1,9 @@
 <template>
-  <PlayersTemplate :players="players" :current-player-id="user && user.id" />
+  <PlayersTemplate
+    :players="players"
+    :current-player-id="user.id"
+    @goToPlayer="goToPlayer"
+  />
 </template>
 
 <script>
@@ -16,6 +20,11 @@ export default Vue.extend({
   created() {
     this.$store.dispatch("fetchPlayers");
     this.$store.dispatch("fetchUser");
+  },
+  methods: {
+    goToPlayer: function (player) {
+      this.$router.push(`/players/${player.id}`);
+    },
   },
 });
 </script>

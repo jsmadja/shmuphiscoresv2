@@ -38,6 +38,7 @@
               dark
               small
               outlined
+              v-if="!hideAddScoreButton"
               @click="$emit('addScore', ranking)"
             >
               <v-icon left>mdi-plus</v-icon>
@@ -153,7 +154,7 @@ import { Score } from "@/models/score";
 
 export default Vue.extend({
   name: "Ranking",
-  props: ["ranking", "currentPlayerId"],
+  props: ["ranking", "currentPlayerId", "hideAddScoreButton"],
   data() {
     return {
       search: "",

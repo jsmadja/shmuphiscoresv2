@@ -26,6 +26,7 @@
               mobile-breakpoint="0"
               :dense="$vuetify.breakpoint.smAndDown"
               :loading="players.length === 0"
+              @click:row="(item) => $emit('goToPlayer', item)"
             >
             </v-data-table>
           </v-card-text>

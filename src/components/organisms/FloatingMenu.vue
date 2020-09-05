@@ -42,7 +42,7 @@
           myLastScores.length > 0
         "
       ></v-divider>
-      <v-subheader>LAST SCORES</v-subheader>
+      <v-subheader v-if="myLastScores.length > 0">LAST SCORES</v-subheader>
       <v-list-item
         v-for="score in myLastScores"
         :key="`score-${score.id}`"

@@ -3,7 +3,7 @@
     v-if="game"
     :game="game"
     :rankings="rankings"
-    :current-player-id="user.id"
+    :user="user"
     @selectPlatform="onSelectPlatform"
     @goToPlayer="goToPlayer"
     @configureGame="onConfigureGame"
