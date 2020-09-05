@@ -89,7 +89,7 @@ const platformNames = {
   Vectrex: "Smith Engineering Vectrex",
   VITA: "Sony Playstation Vita",
   WII: "Nintendo Wii",
-  WIIU: "Nintendi Wii U",
+  WIIU: "Nintendo Wii U",
   WONDERSWAN: "Bandai WonderSwan",
   X360: "Microsoft Xbox 360",
   X68000: "Sharp X68000",
