@@ -46,6 +46,7 @@ const routes: Array<RouteConfig> = [
     name: "AddGame",
     component: AddGame,
   },
+  // for backward compatibility with shmup.com
   {
     path: "/game/:id/new_score",
     name: "AddScore",
@@ -60,6 +61,12 @@ const routes: Array<RouteConfig> = [
     path: "/games/:gameId/scores/:scoreId/edit",
     name: "EditScore",
     component: EditScore,
+  },
+  // for backward compatibility with shmup.com
+  {
+    path: "/game/:id",
+    name: "Game",
+    component: Game,
   },
   {
     path: "/games/:id",
@@ -108,6 +115,12 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/players/:id",
+    name: "Player",
+    component: Player,
+  },
+  // for backward compatibility with shmup.com
+  {
+    path: "/player/:id",
     name: "Player",
     component: Player,
   },
