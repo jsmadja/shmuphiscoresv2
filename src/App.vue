@@ -118,7 +118,7 @@
         <v-toolbar-title
           ><v-img
             width="180"
-            src="http://shmup.com/wp-content/themes/shmup/images/shmup.png"
+            src="https://shmup.com/wp-content/themes/shmup/images/shmup.png"
           />
         </v-toolbar-title>
         <h1>.HISCORES</h1>
