@@ -9,18 +9,21 @@
 <script lang="ts">
 import Vue from "vue";
 import { Game } from "@/models/game";
-import { mapGetters } from "vuex";
 import MyRecommendationsTemplate from "@/components/templates/MyRecommendationsTemplate.vue";
+import { getMyRecommendations } from "@/repository";
 
 export default Vue.extend({
   name: "MyRecommendations",
   components: { MyRecommendationsTemplate },
-  created() {
-    this.$store.dispatch("fetchMyRecommendations");
+  async mounted() {
+    this.myRecommendationsLoading = true;
+    this.myRecommendations = await getMyRecommendations();
+    this.myRecommendationsLoading = false;
   },
-  computed: {
-    ...mapGetters(["myRecommendations", "myRecommendationsLoading"]),
-  },
+  data: () => ({
+    myRecommendationsLoading: true,
+    myRecommendations: {},
+  }),
   methods: {
     goToGame(game: Game) {
       this.$router.push(`/game/${game.id}`);

@@ -5,3 +5,7 @@ export async function getScoresByPlayer(playerId: string) {
     response.json()
   );
 }
+
+export async function getMyRecommendations() {
+  return fetch(`${api}/me/recommendations`).then((response) => response.json());
+}

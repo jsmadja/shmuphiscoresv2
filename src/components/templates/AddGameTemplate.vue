@@ -104,6 +104,7 @@
             :game="previewedGame"
             :hideRankingMenu="true"
             :rankings="previewedRankings"
+            :user="user"
           />
         </v-card>
       </v-col>
@@ -119,7 +120,7 @@ import _ from "lodash";
 export default Vue.extend({
   name: "AddGame",
   components: { GameTemplate },
-  props: ["platforms"],
+  props: ["platforms", "user"],
   data() {
     return {
       valid: false,

@@ -54,9 +54,11 @@ export default Vue.extend({
     },
     fetchVersus() {
       if (this.player1 && this.player2) {
+        this.loading = true;
         fetch(`${api}/players/${this.player1}/versus/${this.player2}`)
           .then((response) => response.json())
-          .then((versus) => (this.versus = versus.comparisons));
+          .then((versus) => (this.versus = versus.comparisons))
+          .then(() => (this.loading = false));
       }
     },
   },

@@ -1,6 +1,7 @@
 <template>
   <AddGameTemplate
     :platforms="platformsSortedByGamesDesc"
+    :user="user"
     @createGame="createGame"
   />
 </template>
@@ -21,7 +22,7 @@ export default Vue.extend({
     this.$store.dispatch("fetchPlatforms");
   },
   computed: {
-    ...mapGetters(["platforms"]),
+    ...mapGetters(["platforms", "user"]),
     platformsSortedByGamesDesc: function () {
       return _(this.platforms)
         .orderBy(["games"], ["desc"])

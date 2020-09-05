@@ -15,14 +15,6 @@ export const actions = {
       .then((response) => response.json())
       .then((user) => context.commit("setUser", user));
   },
-  fetchMyRecommendations(context) {
-    return fetch(`${api}/me/recommendations`)
-      .then((response) => response.json())
-      .then((recommendations) => {
-        context.commit("setMyRecommendationsLoading", false);
-        context.commit("setMyRecommendations", recommendations);
-      });
-  },
   fetchPlatforms(context) {
     return fetch(`${api}/platforms`)
       .then((response) => response.json())
@@ -244,15 +236,10 @@ export default new Vuex.Store({
     myLastScores: [],
     myLastScoresLoading: true,
     recentlyViewedGames: [] as Game[],
-    myRecommendations: null,
-    myRecommendationsLoading: true,
   },
   mutations: {
     setUser(state, user) {
       state.user = user;
-    },
-    setMyRecommendations(state, recommendations) {
-      state.myRecommendations = recommendations;
     },
     setScore(state, score) {
       state.score = score;
@@ -277,9 +264,6 @@ export default new Vuex.Store({
     },
     setMyLastScoresLoading(state, myLastScoresLoading) {
       state.myLastScoresLoading = myLastScoresLoading;
-    },
-    setMyRecommendationsLoading(state, myRecommendationsLoading) {
-      state.myRecommendationsLoading = myRecommendationsLoading;
     },
     setToastMessage(state, opts) {
       state.toastMessage = opts.message;
@@ -313,8 +297,6 @@ export default new Vuex.Store({
     myLastScores: (state) => state.myLastScores,
     recentlyViewedGames: (state) => state.recentlyViewedGames,
     myLastScoresLoading: (state) => state.myLastScoresLoading,
-    myRecommendations: (state) => state.myRecommendations,
-    myRecommendationsLoading: (state) => state.myRecommendationsLoading,
     score: (state) => state.score,
   },
 });
