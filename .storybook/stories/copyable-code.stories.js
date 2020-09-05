@@ -7,7 +7,16 @@ export default {
 export const copy = () => ({
     components: {CopyableCode},
     template: `
-        <copyable-code title="Forum Code" code="[b]Value[/b]" @copy="onCopy" />`,
+        <copyable-code title="Forum Code" code="[b]Value[/b] [b]Value[/b] [b]Value[/b] [b]Value[/b] [b]Value[/b] [b]Value[/b] " @copy="onCopy" />`,
+    methods: {
+        onCopy: action('copy'),
+    },
+});
+
+export const longText = () => ({
+    components: {CopyableCode},
+    template: `
+        <copyable-code title="Forum Code" code="[b]Value[/b][b]Value[/b][b]Value[/b][b]Value[/b][b]Value[/b][b]Value[/b] " @copy="onCopy" />`,
     methods: {
         onCopy: action('copy'),
     },

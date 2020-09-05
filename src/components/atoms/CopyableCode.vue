@@ -28,4 +28,8 @@ export default Vue.extend({
 .copyable {
   cursor: pointer;
 }
+
+pre {
+  white-space: normal;
+}
 </style>
