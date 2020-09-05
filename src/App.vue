@@ -143,11 +143,6 @@
           />
         </v-container>
       </v-main>
-      <v-footer app :absolute="false" padless>
-        <span style="text-align: center; width: 100%;"
-          >&copy; shmup-hiscores 2013-{{ new Date().getFullYear() }}</span
-        >
-      </v-footer>
     </v-app>
   </v-app>
 </template>
