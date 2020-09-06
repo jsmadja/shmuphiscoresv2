@@ -1,79 +1,77 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import axios from "axios";
 import { PlatformWithGameCount } from "@/models/platforms";
-import { api } from "@/api";
 import { Player } from "@/models/player";
 import { Game } from "@/models/game";
 import { Ranking } from "@/models/ranking";
 import _ from "lodash";
+import {
+  createDifficulty,
+  createGame,
+  createMode,
+  createPlatforms,
+  createScore,
+  createShip,
+  createStage,
+  editScore,
+  fetchGame,
+  fetchGames,
+  fetchLastScores,
+  fetchMyGames,
+  fetchMyLastScores,
+  fetchPlatforms,
+  fetchPlayers,
+  fetchRankings,
+  fetchScore,
+  fetchUser,
+} from "@/repository";
+
 Vue.use(Vuex);
 
 export const actions = {
   fetchUser(context) {
-    return fetch(`${api}/me`)
-      .then((response) => response.json())
-      .then((user) => context.commit("setUser", user));
+    return fetchUser().then((user) => context.commit("setUser", user));
   },
   fetchPlatforms(context) {
-    return fetch(`${api}/platforms`)
-      .then((response) => response.json())
-      .then((platforms: PlatformWithGameCount[]) =>
-        context.commit("setPlatforms", platforms)
-      );
+    return fetchPlatforms().then((platforms: PlatformWithGameCount[]) =>
+      context.commit("setPlatforms", platforms)
+    );
   },
   fetchPlayers(context) {
-    return fetch(`${api}/players`)
-      .then((response) => response.json())
-      .then((players) => context.commit("setPlayers", players));
+    return fetchPlayers().then((players) =>
+      context.commit("setPlayers", players)
+    );
   },
   fetchGames(context) {
-    return fetch(`${api}/games`)
-      .then((response) => response.json())
-      .then((games) => context.commit("setGames", games));
+    return fetchGames().then((games) => context.commit("setGames", games));
   },
   fetchMyGames(context) {
-    return fetch(`${api}/me/games`)
-      .then((response) => response.json())
-      .then((games) => context.commit("setMyGames", games));
+    return fetchMyGames().then((games) => context.commit("setMyGames", games));
   },
   fetchGame(context, id) {
-    return fetch(`${api}/games/${id}`)
-      .then((response) => response.json())
-      .then((game) => context.commit("setGame", game));
+    return fetchGame(id).then((game) => context.commit("setGame", game));
   },
   fetchRankings(context, id) {
-    return fetch(`${api}/games/${id}/rankings`)
-      .then((response) => response.json())
-      .then((game) => context.commit("setRankings", game));
+    return fetchRankings(id).then((game) =>
+      context.commit("setRankings", game)
+    );
   },
   fetchLastScores(context) {
-    return fetch(`${api}/scores`)
-      .then((response) => response.json())
-      .then((scores) => context.commit("setLastScores", scores));
+    return fetchLastScores().then((scores) =>
+      context.commit("setLastScores", scores)
+    );
   },
   fetchScore(context, id) {
-    return fetch(`${api}/scores/${id}`)
-      .then((response) => response.json())
-      .then((score) => context.commit("setScore", score));
+    return fetchScore(id).then((score) => context.commit("setScore", score));
   },
   fetchMyLastScores(context) {
-    return fetch(`${api}/me/scores`)
-      .then((response) => response.json())
-      .then((scores) => {
-        context.commit("setMyLastScoresLoading", false);
-        context.commit("setMyLastScores", scores);
-      });
+    return fetchMyLastScores().then((scores) => {
+      context.commit("setMyLastScoresLoading", false);
+      context.commit("setMyLastScores", scores);
+    });
   },
   async createGame(context, game) {
-    return fetch(`${api}/games`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(game),
-    }).then((response) => {
+    return createGame(game).then((response) => {
       if (response.ok) {
         context.dispatch(
           "showSuccessToast",
@@ -87,15 +85,7 @@ export const actions = {
     });
   },
   async createScore(context, score) {
-    const form = new FormData();
-    Object.entries(score)
-      .filter((e) => !!e[1])
-      .forEach((e) => form.append(e[0], e[1] as any));
-    if (score.photo) form.append("photo", score.photo);
-    if (score.inp) form.append("inp", score.inp);
-    const config = { headers: { "content-type": "multipart/form-data" } };
-    return axios
-      .post(`${api}/me/scores`, form, config)
+    createScore(score)
       .then((response) => {
         context.dispatch("showSuccessToast", `Score has been submitted`);
         return response.data;
@@ -106,15 +96,7 @@ export const actions = {
       });
   },
   async editScore(context, score) {
-    const form = new FormData();
-    Object.entries(score)
-      .filter((e) => !!e[1])
-      .forEach((e) => form.append(e[0], e[1] as any));
-    if (score.photo) form.append("photo", score.photo);
-    if (score.inp) form.append("inp", score.inp);
-    const config = { headers: { "content-type": "multipart/form-data" } };
-    return axios
-      .post(`${api}/me/scores/${score.id}`, form, config)
+    editScore(score)
       .then((response) => {
         context.dispatch("showSuccessToast", `Score has been updated`);
         return response.data;
@@ -124,9 +106,8 @@ export const actions = {
         throw new Error(error);
       });
   },
-  createMode(context, { game, mode }) {
-    return axios
-      .post(`${api}/games/${game.id}/modes`, mode)
+  async createMode(context, { game, mode }) {
+    return createMode({ game, mode })
       .then((response) => {
         context.dispatch(
           "showSuccessToast",
@@ -140,9 +121,8 @@ export const actions = {
         throw new Error(error);
       });
   },
-  createDifficulty(context, { game, difficulty }) {
-    return axios
-      .post(`${api}/games/${game.id}/difficulties`, difficulty)
+  async createDifficulty(context, { game, difficulty }) {
+    return createDifficulty({ game, difficulty })
       .then((response) => {
         context.dispatch(
           "showSuccessToast",
@@ -157,8 +137,7 @@ export const actions = {
       });
   },
   createStage(context, { game, stage }) {
-    return axios
-      .post(`${api}/games/${game.id}/stages`, stage)
+    return createStage({ game, stage })
       .then((response) => {
         context.dispatch(
           "showSuccessToast",
@@ -173,8 +152,7 @@ export const actions = {
       });
   },
   createShip(context, { game, ship }) {
-    return axios
-      .post(`${api}/games/${game.id}/ships`, ship)
+    return createShip({ game, ship })
       .then((response) => {
         context.dispatch(
           "showSuccessToast",
@@ -189,8 +167,7 @@ export const actions = {
       });
   },
   createPlatforms(context, { game, platforms }) {
-    return axios
-      .post(`${api}/games/${game.id}/platforms`, platforms)
+    return createPlatforms({ game, platforms })
       .then((response) => {
         context.dispatch(
           "showSuccessToast",

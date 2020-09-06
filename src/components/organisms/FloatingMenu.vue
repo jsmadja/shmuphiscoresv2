@@ -29,7 +29,7 @@
       <v-list-item
         v-for="game in recentlyViewedGames"
         :key="`game-${game.id}`"
-        style="cursor: pointer;"
+        style="cursor: pointer"
         @click="$emit('goToGame', game)"
       >
         <v-list-item-avatar tile>
@@ -51,7 +51,7 @@
       <v-list-item
         v-for="score in myLastScores"
         :key="`score-${score.id}`"
-        style="cursor: pointer;"
+        style="cursor: pointer"
         @click="$emit('goToGame', score.game)"
       >
         <v-list-item-avatar tile>
