@@ -3,7 +3,7 @@ import { Mode, Stage, Difficulty, Ship, Platform } from "@/models/ranking";
 import { formatTime, formatNumber } from "../formaters";
 
 export interface Score {
-  createdAt: Date;
+  createdAt?: Date;
   player: Player;
   id: number;
   photo?: string;
@@ -19,6 +19,7 @@ export interface Score {
   replay?: string;
   ship?: Ship;
   platform: Platform;
+  oneCC: boolean;
 }
 
 export function toForumCode(score: Score): string {

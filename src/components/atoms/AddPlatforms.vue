@@ -18,8 +18,8 @@
         text
         color="primary"
         @click="addPlatforms"
-        >Add</v-btn
-      >
+        >Add
+      </v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -27,23 +27,24 @@
 <script lang="ts">
 import Vue from "vue";
 import _ from "lodash";
+import { Prop, Provide } from "vue-property-decorator";
+import { Platform } from "@/models/ranking";
+import Component from "vue-class-component";
 
-export default Vue.extend({
-  name: "AddPlatforms",
-  props: ["usedPlatforms", "platforms"],
-  data: () => ({
-    selectedPlatforms: [],
-  }),
-  computed: {
-    availablePlatforms: function () {
-      return _.difference(this.platforms, this.usedPlatforms);
-    },
-  },
-  methods: {
-    addPlatforms: function () {
-      this.$emit("add", (this as any).selectedPlatforms);
-      (this as any).selectedPlatforms = [];
-    },
-  },
-});
+@Component
+export default class AddPlatforms extends Vue {
+  @Prop() usedPlatforms!: Platform[];
+  @Prop() platforms!: Platform[];
+
+  @Provide() selectedPlatforms = [];
+
+  get availablePlatforms(): Platform[] {
+    return _.difference(this.platforms, this.usedPlatforms);
+  }
+
+  addPlatforms(): void {
+    this.$emit("add", this.selectedPlatforms);
+    this.selectedPlatforms = [];
+  }
+}
 </script>

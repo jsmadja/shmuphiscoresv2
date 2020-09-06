@@ -8,11 +8,11 @@
     <v-row dense>
       <v-col cols="12" md="6" lg="5">
         <v-card class="pa-5" tile>
-          <v-form ref="form" v-model="valid">
+          <v-form ref="formRef" v-model="valid">
             <v-row>
               <v-col>
                 <v-text-field
-                  v-model="form.title"
+                  v-model="formModel.title"
                   label="Title"
                   placeholder="Gunhed"
                   :rules="titleRules"
@@ -20,7 +20,7 @@
                   outlined
                 ></v-text-field>
                 <v-text-field
-                  v-model="form.cover"
+                  v-model="formModel.cover"
                   label="Hosted Game Cover"
                   hint="Absolute image link to the game cover"
                   placeholder="https://images.fr.shopping.rakuten.com/photo/185488530.jpg"
@@ -29,7 +29,7 @@
                   outlined
                 ></v-text-field>
                 <v-text-field
-                  v-model="form.thread"
+                  v-model="formModel.thread"
                   label="Shmup Forum Thread link"
                   placeholder="http://forum.shmup.com/viewtopic.php?t=13851"
                   hint="Absolute link to the shmup.com game thread"
@@ -38,7 +38,7 @@
                   outlined
                 ></v-text-field>
                 <v-select
-                  v-model="form.platforms"
+                  v-model="formModel.platforms"
                   outlined
                   :items="platforms"
                   :rules="platformsRules"
@@ -47,7 +47,7 @@
                   required
                 ></v-select>
                 <v-textarea
-                  v-model="form.difficulties"
+                  v-model="formModel.difficulties"
                   name="difficulties"
                   label="Difficulty Levels"
                   :placeholder="difficultyLevelsPlaceholder"
@@ -56,7 +56,7 @@
                   hint="Only one difficulty per line"
                 ></v-textarea>
                 <v-textarea
-                  v-model="form.modes"
+                  v-model="formModel.modes"
                   name="modes"
                   label="Modes"
                   :placeholder="modesPlaceholder"
@@ -65,16 +65,16 @@
                   hint="Only one mode per line"
                 ></v-textarea>
                 <v-textarea
-                  v-model="form.stages"
+                  v-model="formModel.stages"
                   name="stages"
                   label="Stages"
                   :placeholder="stagesPlaceholder"
                   outlined
                   rows="7"
-                  hint="Only on stage per line, use a prefix for multiloop games: 1-1, 1-2, ..., 1-ALL, 2-1, 2-2 ..., 2-ALL"
+                  hint="Only on stage per line, use a prefix for multiloop games: 1-1, 1-2, ..., 1-ALL, 2-1, ..., 2-ALL"
                 ></v-textarea>
                 <v-textarea
-                  v-model="form.ships"
+                  v-model="formModel.ships"
                   name="ships"
                   label="Ships"
                   :placeholder="shipsPlaceholder"
@@ -115,149 +115,104 @@
 <script lang="ts">
 import Vue from "vue";
 import GameTemplate from "./GameTemplate.vue";
-import _ from "lodash";
+import Component from "vue-class-component";
+import { generateRankings, Platform, Ranking } from "@/models/ranking";
+import { Prop, Provide, Ref } from "vue-property-decorator";
+import { User } from "@/models/user";
+import { Game } from "@/models/game";
 
-export default Vue.extend({
-  name: "AddGame",
+@Component({
   components: { GameTemplate },
-  props: ["platforms", "user"],
-  data() {
+})
+export default class AddGame extends Vue {
+  @Prop() platforms!: Platform[];
+  @Prop() user!: User[];
+
+  @Provide() valid = false;
+  @Provide() difficultyLevelsPlaceholder = `Easy\nNormal\nHard`;
+  @Provide() modesPlaceholder = `Arcade\nOriginal\nCaravan`;
+  @Provide() stagesPlaceholder = `1\n2\n3\n4\n5\nALL`;
+  @Provide() shipsPlaceholder = `Type A\nType B\nType C`;
+  @Provide() formModel = {
+    title: "",
+    cover: "",
+    ships: "",
+    stages: "",
+    modes: "",
+    difficulties: "",
+    thread: "http://forum.shmup.com/viewtopic.php?t=",
+    platforms: [],
+  };
+  @Provide() titleRules = [
+    (v: string): string | boolean => {
+      return (v && v.trim().length > 0) || "Title is required";
+    },
+  ];
+  @Provide() platformsRules = [
+    (v: string[]): string | boolean =>
+      (v && v.length > 0) || "At least one platform is required",
+  ];
+  @Provide() coverRules = [
+    (v: string): string | boolean =>
+      (v && v.startsWith("http")) ||
+      "Absolute image link should start with http",
+  ];
+  @Provide() threadRules = [
+    (v: string): string | boolean =>
+      (v && v.startsWith("http://forum.shmup.com/viewtopic.php?t=")) ||
+      "Shmup Forum Thread link should start with http://forum.shmup.com/viewtopic.php?t=",
+  ];
+
+  @Ref("formRef") readonly formElement;
+
+  validate(): void {
+    this.formElement.validate();
+    const game = JSON.parse(JSON.stringify(this.formModel));
+    game.difficulties = game.difficulties.split("\n");
+    game.ships = game.ships.split("\n");
+    game.modes = game.modes.split("\n");
+    game.stages = game.stages.split("\n");
+    this.$emit("createGame", game);
+  }
+  reset(): void {
+    this.formElement.reset();
+  }
+  get previewedGame(): Game {
     return {
-      valid: false,
-      difficultyLevelsPlaceholder: `Easy\nNormal\nHard`,
-      modesPlaceholder: `Arcade\nOriginal\nCaravan`,
-      stagesPlaceholder: `1\n2\n3\n4\n5\nALL`,
-      shipsPlaceholder: `Type A\nType B\nType C`,
-      form: {
-        title: "",
-        cover: "",
-        ships: "",
-        stages: "",
-        modes: "",
-        difficulties: "",
-        thread: "http://forum.shmup.com/viewtopic.php?t=",
-        platforms: [],
-      },
-      titleRules: [
-        (v: string) => (v && v.trim().length > 0) || "Title is required",
-      ],
-      platformsRules: [
-        (v: string[]) =>
-          (v && v.length > 0) || "At least one platform is required",
-      ],
-      coverRules: [
-        (v: string) =>
-          (v && v.startsWith("http")) ||
-          "Absolute image link should start with http",
-      ],
-      threadRules: [
-        (v: string) =>
-          (v && v.startsWith("http://forum.shmup.com/viewtopic.php?t=")) ||
-          "Shmup Forum Thread link should start with http://forum.shmup.com/viewtopic.php?t=",
-      ],
+      id: 0,
+      ships: [],
+      stages: [],
+      thread: "",
+      title: this.formModel.title || "Game Name",
+      cover:
+        this.formModel.cover ||
+        "https://firstfreerockford.org/wp-content/uploads/2018/08/placeholder-book-cover-default.png",
+      platforms: this.formModel.platforms
+        .flat()
+        .map((platformName) => ({ id: Math.random(), name: platformName })),
+      difficulties:
+        this.formModel.difficulties.length === 0
+          ? []
+          : this.formModel.difficulties
+              .trim()
+              .split("\n")
+              .map((name) => ({ id: 0, name })),
+      modes:
+        this.formModel.modes.length === 0
+          ? []
+          : this.formModel.modes
+              .trim()
+              .split("\n")
+              .map((name) => ({ id: 0, name })),
     };
-  },
-  methods: {
-    validate() {
-      (this.$refs.form as any).validate();
-      const game = JSON.parse(JSON.stringify((this as any).form));
-      game.difficulties = game.difficulties.split("\n");
-      game.ships = game.ships.split("\n");
-      game.modes = game.modes.split("\n");
-      game.stages = game.stages.split("\n");
-      this.$emit("createGame", game);
-    },
-    reset() {
-      (this.$refs.form as any).reset();
-    },
-  },
-  computed: {
-    previewedGame: function () {
-      const form: any = this.form;
-      return {
-        title: form.title || "Game Name",
-        cover:
-          form.cover ||
-          "https://firstfreerockford.org/wp-content/uploads/2018/08/placeholder-book-cover-default.png",
-        platforms: form.platforms
-          .flat()
-          .map((platformName) => ({ id: Math.random(), name: platformName })),
-        difficulties:
-          form.difficulties.length === 0
-            ? []
-            : form.difficulties
-                .trim()
-                .split("\n")
-                .map((name) => ({ name })),
-        modes:
-          form.modes.length === 0
-            ? []
-            : form.modes
-                .trim()
-                .split("\n")
-                .map((name) => ({ name })),
-      };
-    },
-    previewedRankings: function () {
-      function cartesianProductOf(x?, y?) {
-        return _.reduce(
-          arguments,
-          function (a, b) {
-            return _.flatten(
-              _.map(a, function (x) {
-                return _.map(b, function (y) {
-                  return x.concat([y]);
-                });
-              }),
-              true
-            );
-          },
-          [[]]
-        );
-      }
+  }
 
-      const form = (this as any).form;
-      const difficulties = form.difficulties.split("\n") || [];
-      const modes = form.modes.split("\n") || [];
-      const stages = form.stages.split("\n") || [];
-      const ships = form.ships.split("\n") || [];
-
-      return cartesianProductOf(difficulties, modes).map((params) => {
-        return {
-          mode: params[1]
-            ? {
-                id: Math.random(),
-                name: params[1],
-              }
-            : {},
-          difficulty: {
-            id: Math.random(),
-            name: params[0],
-          },
-          scores: [1, 2, 3].map((rank) => {
-            const stage = _.sample(stages);
-            return {
-              rank: rank,
-              player: { id: Math.random(), name: "player" + rank },
-              value: (4 - rank) * 100000,
-              stage: stage,
-              ship: { id: 0, name: _.sample(ships) },
-              comment: "With " + _.sample(ships) + " ship",
-              oneCC: stage === "ALL",
-              inp: _.sample(["http://", null]),
-              replay: _.sample([
-                "https://www.youtube.com/watch?v=AxzNFPLstwQ",
-                null,
-              ]),
-              photo: _.sample([
-                "https://hiscores.shmup.com/photos/1562457741219-0004.png",
-                null,
-              ]),
-            };
-          }),
-        };
-      });
-    },
-  },
-});
+  get previewedRankings(): Ranking[] {
+    const difficulties = this.formModel.difficulties.split("\n") || [];
+    const modes = this.formModel.modes.split("\n") || [];
+    const stages = this.formModel.stages.split("\n") || [];
+    const ships = this.formModel.ships.split("\n") || [];
+    return generateRankings(difficulties, modes, stages, ships);
+  }
+}
 </script>
