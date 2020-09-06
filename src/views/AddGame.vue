@@ -1,5 +1,5 @@
 <template>
-  <AddGameTemplate
+  <add-game-template
     :platforms="platformsSortedByGamesDesc"
     :user="user"
     @createGame="createGame"

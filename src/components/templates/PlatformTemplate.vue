@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1>{{ platformTitle }}</h1>
+        <h1>{{ platformName }}</h1>
       </v-col>
     </v-row>
     <v-row>
@@ -27,7 +27,7 @@
               :loading="games.length === 0"
             >
               <template v-slot:item.cover="{ item }">
-                <Cover
+                <cover
                   :url="item.cover"
                   :alt="item.title"
                   :contain="true"
@@ -65,6 +65,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Cover from "../atoms/Cover.vue";
+import { platformNames } from "../../models/platforms.ts";
 
 export default Vue.extend({
   name: "PlatformTemplate",
@@ -97,6 +98,9 @@ export default Vue.extend({
       return (this as any).headers.filter(
         (h) => !h.hide || !(this.$vuetify as any).breakpoint[h.hide]
       );
+    },
+    platformName() {
+      return platformNames.get(this.platformTitle);
     },
   },
   methods: {

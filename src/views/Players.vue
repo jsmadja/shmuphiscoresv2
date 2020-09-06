@@ -1,5 +1,5 @@
 <template>
-  <PlayersTemplate
+  <players-template
     :players="players"
     :current-player-id="user.id"
     @goToPlayer="goToPlayer"

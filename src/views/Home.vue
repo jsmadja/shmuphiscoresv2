@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <home-template
-      :lastScores="lastScores"
-      :myLastScores="myLastScores"
-      :lastScoresLoading="lastScoresLoading"
-      :myLastScoresLoading="myLastScoresLoading"
-      @goToGame="goToGame"
-      @goToPlatform="goToPlatform"
-      @goToPlayer="goToPlayer"
-      @addScore="addScore"
-      @editScore="editScore"
-    />
-  </div>
+  <home-template
+    :lastScores="lastScores"
+    :myLastScores="myLastScores"
+    :lastScoresLoading="lastScoresLoading"
+    :myLastScoresLoading="myLastScoresLoading"
+    @goToGame="goToGame"
+    @goToPlatform="goToPlatform"
+    @goToPlayer="goToPlayer"
+    @addScore="addScore"
+    @editScore="editScore"
+  />
 </template>
 
 <script lang="ts">

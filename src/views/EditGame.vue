@@ -1,5 +1,5 @@
 <template>
-  <EditGameTemplate
+  <edit-game-template
     :game="game"
     :platforms="platformNames"
     @copyForumCode="onCopyForumCode"

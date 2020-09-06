@@ -1,5 +1,5 @@
 <template>
-  <GameTemplate
+  <game-template
     v-if="game"
     :game="game"
     :rankings="rankings"

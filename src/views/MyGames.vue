@@ -1,5 +1,9 @@
 <template>
-  <GamesTemplate title="My Games" :games="myGames" @selectGame="onSelectGame" />
+  <games-template
+    title="My Games"
+    :games="myGames"
+    @selectGame="onSelectGame"
+  />
 </template>
 
 <script>

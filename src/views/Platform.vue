@@ -1,5 +1,5 @@
 <template>
-  <PlatformTemplate
+  <platform-template
     :platform-title="platformTitle"
     :games="games"
     @selectGame="goToGamePage"

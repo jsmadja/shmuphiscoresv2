@@ -6,7 +6,7 @@ export default {
 };
 export const withGames = () => ({
     components: {PlatformTemplate},
-    template: `<PlatformTemplate platform-title="PCB" :games="games" @selectPlatform="onSelectPlatform" @selectGame="onSelectGame"/>`,
+    template: `<platform-template platform-title="MD" :games="games" @selectPlatform="onSelectPlatform" @selectGame="onSelectGame"/>`,
     data: () => ({
         games: [
             {
