@@ -6,9 +6,10 @@ export default {
 };
 export const createGame = () => ({
     components: {AddGameTemplate},
-    template: `<AddGameTemplate :platforms="platforms" @createGame="onCreateGame"/>`,
+    template: `<AddGameTemplate :platforms="platforms" :user="user" @createGame="onCreateGame"/>`,
     data: () => ({
-        platforms: ["NG", "PCB", "SNES"]
+        platforms: ["NG", "PCB", "SNES"],
+        user: {},
     }),
     methods: {
         onCreateGame: action('onCreateGame'),
