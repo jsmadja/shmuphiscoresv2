@@ -55,7 +55,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import ScoreCard from "@/components/organisms/ScoreCard.vue";
+import ScoreCard from "../organisms/ScoreCard.vue";
 import { mapGetters } from "vuex";
 
 export default Vue.extend({
@@ -66,10 +66,8 @@ export default Vue.extend({
     "lastScores",
     "lastScoresLoading",
     "myLastScoresLoading",
+    "user",
   ],
-  computed: {
-    ...mapGetters(["user"]),
-  },
   methods: {
     goToPlayer(player) {
       this.$emit("goToPlayer", player);

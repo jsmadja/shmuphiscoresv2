@@ -65,7 +65,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Cover from "../atoms/Cover.vue";
-import { platformNames } from "../../models/platforms.ts";
+import { platformNames } from "../../models/platforms";
 
 export default Vue.extend({
   name: "PlatformTemplate",

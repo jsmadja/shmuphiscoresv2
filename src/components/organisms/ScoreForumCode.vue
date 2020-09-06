@@ -8,9 +8,9 @@
 </template>
 
 <script lang="ts">
-import CopyableCode from "@/components/atoms/CopyableCode.vue";
+import CopyableCode from "../atoms/CopyableCode.vue";
 import Vue from "vue";
-import { toForumCode } from "@/models/score";
+import { toForumCode } from "../../models/score";
 
 export default Vue.extend({
   components: {

@@ -1,5 +1,5 @@
 import {action} from '@storybook/addon-actions';
-import ScoreForm from "../../src/components/organisms/ScoreForm";
+import ScoreForm from "../../../src/components/organisms/ScoreForm.vue";
 
 export default {
     title: "Organism/ScoreForm",

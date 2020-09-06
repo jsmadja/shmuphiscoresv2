@@ -17,11 +17,15 @@
       <v-col>
         <v-row>
           <v-col cols="12">
-            <copyable-code
-              title="Forum Code"
-              :code="forumCode"
-              @copy="onForumCodeCopy"
-            />
+            <v-card outlined>
+              <v-card-text>
+                <copyable-code
+                  title="Forum Code"
+                  :code="forumCode"
+                  @copy="onForumCodeCopy"
+                />
+              </v-card-text>
+            </v-card>
           </v-col>
           <v-col cols="12">
             <add-platforms

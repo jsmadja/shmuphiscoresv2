@@ -18,6 +18,11 @@
     </template>
 
     <v-list flat dense>
+      <v-subheader
+        v-if="recentlyViewedGames.length === 0 && myLastScores.length === 0"
+      >
+        NO HISTORY
+      </v-subheader>
       <v-subheader v-if="recentlyViewedGames && recentlyViewedGames.length > 0"
         >RECENTLY VIEWED</v-subheader
       >
@@ -62,7 +67,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Cover from "@/components/atoms/Cover.vue";
+import Cover from "../atoms/Cover.vue";
 
 export default Vue.extend({
   name: "FloatingMenu",

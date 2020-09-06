@@ -12,6 +12,7 @@
               outlined
               required
               :rules="notEmptyRules"
+              hide-details="auto"
             ></v-text-field
           ></v-col>
           <v-col
@@ -23,6 +24,7 @@
               item-text="name"
               item-value="id"
               :label="`After ${settingName}`"
+              hide-details="auto"
             ></v-select
           ></v-col>
         </v-row>

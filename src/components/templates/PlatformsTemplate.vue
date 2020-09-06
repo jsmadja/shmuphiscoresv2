@@ -47,10 +47,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import {
-  platformNames,
-  PlatformWithGameCount,
-} from "../../models/platforms.ts";
+import { platformNames, PlatformWithGameCount } from "../../models/platforms";
 
 export default Vue.extend({
   name: "PlatformsTemplate",
@@ -73,7 +70,7 @@ export default Vue.extend({
     },
     computedHeaders() {
       return (this as any).headers.filter(
-        (h: any) => !h.hide || !this.$vuetify.breakpoint[h.hide]
+        (h: any) => !h.hide || !(this as any).$vuetify.breakpoint[h.hide]
       );
     },
   },

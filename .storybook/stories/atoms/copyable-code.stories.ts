@@ -1,5 +1,5 @@
 import {action} from '@storybook/addon-actions';
-import CopyableCode from "../../src/components/atoms/CopyableCode";
+import CopyableCode from "../../../src/components/atoms/CopyableCode.vue";
 
 export default {
     title: "Atom/CopyableCode",

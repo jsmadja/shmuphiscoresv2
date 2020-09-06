@@ -1,0 +1,5454 @@
+[
+  {
+    "mode": {
+      "id": 1,
+      "name": "Version 1.5",
+      "scoreType": ""
+    },
+    "difficulty": {
+      "id": 4,
+      "name": "Original"
+    },
+    "scores": [
+      {
+        "rank": 1,
+        "value": 425027421,
+        "player": {
+          "id": 146,
+          "name": "Rechiku"
+        },
+        "photo": "http://www.hostingpics.net/viewer.php?id=813400futari15Original351746382.jpg",
+        "inp": "http",
+        "replay": "http://www.youtube.com/watch?v=cFnEqP_UP_A&feature=youtu.be",
+        "stage": "ALL",
+        "id": 4,
+        "comment": "All(Lx4) Reco Normal",
+        "oneCC": true
+      },
+      {
+        "rank": 2,
+        "value": 375804585,
+        "player": {
+          "id": 12,
+          "name": "kawaijb"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 5,
+        "comment": "Reco normal ALL (Lx2)",
+        "oneCC": true
+      },
+      {
+        "rank": 3,
+        "value": 351746382,
+        "player": {
+          "id": 150,
+          "name": "Undef"
+        },
+        "photo": "http://www.hostingpics.net/viewer.php?id=813400futari15Original351746382.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 8894,
+        "comment": "Reco Normale",
+        "oneCC": true
+      },
+      {
+        "rank": 4,
+        "value": 326813672,
+        "player": {
+          "id": 354,
+          "name": "HUU"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 6,
+        "comment": "Reco Normal",
+        "oneCC": true
+      },
+      {
+        "rank": 5,
+        "value": 277218745,
+        "player": {
+          "id": 14,
+          "name": "Aliquantic"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 7,
+        "comment": "Reco normal stage 5 Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 6,
+        "value": 276836578,
+        "player": {
+          "id": 161,
+          "name": "KAB"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 8,
+        "comment": "Palm normal",
+        "oneCC": true
+      },
+      {
+        "rank": 7,
+        "value": 275250788,
+        "player": {
+          "id": 16,
+          "name": "Sezi"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 9,
+        "comment": "palm abnormal stage 5boss",
+        "oneCC": false
+      },
+      {
+        "rank": 8,
+        "value": 257262671,
+        "player": {
+          "id": 284,
+          "name": "neo90"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 10,
+        "comment": "Reco normal",
+        "oneCC": true
+      },
+      {
+        "rank": 9,
+        "value": 241314692,
+        "player": {
+          "id": 171,
+          "name": "Y'om"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 11,
+        "comment": "Reco Normal ALL(lx1)",
+        "oneCC": true
+      },
+      {
+        "rank": 10,
+        "value": 241163346,
+        "player": {
+          "id": 1,
+          "name": "anzymus"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1528479280588-20180608193220756x1008.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 14494,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 11,
+        "value": 231207990,
+        "player": {
+          "id": 586,
+          "name": "E.T.E"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 12,
+        "comment": "Palm Abnormal",
+        "oneCC": true
+      },
+      {
+        "rank": 12,
+        "value": 230076101,
+        "player": {
+          "id": 21,
+          "name": "Zapbranisac"
+        },
+        "photo": "http://2drealfighter.free.fr/Scores/WP_20140103_014.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 4762,
+        "comment": "Reco normal",
+        "oneCC": true
+      },
+      {
+        "rank": 13,
+        "value": 226914045,
+        "player": {
+          "id": 157,
+          "name": "back"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 13,
+        "comment": "Reco normal",
+        "oneCC": true
+      },
+      {
+        "rank": 14,
+        "value": 224546201,
+        "player": {
+          "id": 67,
+          "name": "otaku"
+        },
+        "photo": "http://i1270.photobucket.com/albums/jj601/hotake06/1D5D4D7C-CBFC-4D0C-AACE-85C2FDC6A82F_zpskfyoc8rt.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "5 BOSS",
+        "id": 9139,
+        "comment": "",
+        "oneCC": false
+      },
+      {
+        "rank": 15,
+        "value": 219068718,
+        "player": {
+          "id": 125,
+          "name": "danmaker"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "5 BOSS",
+        "id": 9012,
+        "comment": "Reco, normal",
+        "oneCC": false
+      },
+      {
+        "rank": 16,
+        "value": 218461085,
+        "player": {
+          "id": 781,
+          "name": "thetricker24"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1439678593018-tmp243320150816004323636771770.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 9901,
+        "comment": "Reco normal",
+        "oneCC": true
+      },
+      {
+        "rank": 17,
+        "value": 217488950,
+        "player": {
+          "id": 22,
+          "name": "buddy"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 15,
+        "comment": "Reco Normal  Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 18,
+        "value": 209028910,
+        "player": {
+          "id": 23,
+          "name": "skateinmars"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 16,
+        "comment": "Reco normal",
+        "oneCC": true
+      },
+      {
+        "rank": 19,
+        "value": 208408686,
+        "player": {
+          "id": 24,
+          "name": "Vincere"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 17,
+        "comment": "Palm Abnormal ALL (Lx2)",
+        "oneCC": true
+      },
+      {
+        "rank": 20,
+        "value": 205172869,
+        "player": {
+          "id": 25,
+          "name": "David333"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 18,
+        "comment": "Reco normal",
+        "oneCC": true
+      },
+      {
+        "rank": 21,
+        "value": 195175742,
+        "player": {
+          "id": 26,
+          "name": "Squidhead"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 19,
+        "comment": "Reco normal Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 22,
+        "value": 191145742,
+        "player": {
+          "id": 27,
+          "name": "MLeJazz"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 20,
+        "comment": "Reco normal",
+        "oneCC": false
+      },
+      {
+        "rank": 23,
+        "value": 187898361,
+        "player": {
+          "id": 28,
+          "name": "Erhune"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 21,
+        "comment": "Reco normal",
+        "oneCC": true
+      },
+      {
+        "rank": 24,
+        "value": 186838385,
+        "player": {
+          "id": 29,
+          "name": "FEB"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 22,
+        "comment": "Reco Normal  stage 5 boss",
+        "oneCC": false
+      },
+      {
+        "rank": 25,
+        "value": 185248619,
+        "player": {
+          "id": 269,
+          "name": "Yami9999"
+        },
+        "photo": "http://i1073.photobucket.com/albums/w392/Yami9999/Mushihimesama%20Futari/MushihimesamaFutari_zps41160b87.png",
+        "inp": null,
+        "replay": "http://www.youtube.com/watch?v=cFnEqP_UP_A&feature=youtu.be",
+        "stage": "ALL",
+        "id": 5133,
+        "comment": "Reco Normal",
+        "oneCC": true
+      },
+      {
+        "rank": 26,
+        "value": 180705508,
+        "player": {
+          "id": 30,
+          "name": "Shadow gallery"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 23,
+        "comment": "Reco normal",
+        "oneCC": false
+      },
+      {
+        "rank": 27,
+        "value": 176806114,
+        "player": {
+          "id": 31,
+          "name": "Radegou"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 24,
+        "comment": "palm abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 28,
+        "value": 171004726,
+        "player": {
+          "id": 52,
+          "name": "Shardik"
+        },
+        "photo": "http://i39.servimg.com/u/f39/17/78/08/48/img_2032.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "5",
+        "id": 8757,
+        "comment": "Reco / Normal",
+        "oneCC": false
+      },
+      {
+        "rank": 29,
+        "value": 166949057,
+        "player": {
+          "id": 32,
+          "name": "Gatts"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 25,
+        "comment": "Reco Normal",
+        "oneCC": true
+      },
+      {
+        "rank": 30,
+        "value": 162532434,
+        "player": {
+          "id": 33,
+          "name": "Vanal"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 27,
+        "comment": "Reco Normal Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 31,
+        "value": 159861095,
+        "player": {
+          "id": 34,
+          "name": "Colas"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 28,
+        "comment": "Palm abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 32,
+        "value": 145344959,
+        "player": {
+          "id": 35,
+          "name": "Dan"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 29,
+        "comment": "Palm Abnormal",
+        "oneCC": true
+      },
+      {
+        "rank": 33,
+        "value": 137252757,
+        "player": {
+          "id": 36,
+          "name": "GYO"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 30,
+        "comment": "palm normal",
+        "oneCC": false
+      },
+      {
+        "rank": 34,
+        "value": 134832851,
+        "player": {
+          "id": 141,
+          "name": "Lyv"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 4785,
+        "comment": "Palm abnormal",
+        "oneCC": true
+      },
+      {
+        "rank": 35,
+        "value": 127733870,
+        "player": {
+          "id": 37,
+          "name": "Gabranth"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 31,
+        "comment": "palm abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 36,
+        "value": 124236290,
+        "player": {
+          "id": 38,
+          "name": "Dias Paddle"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 32,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 37,
+        "value": 123493539,
+        "player": {
+          "id": 728,
+          "name": "Aldherrian"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "5",
+        "id": 8874,
+        "comment": "Palm Abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 38,
+        "value": 117715931,
+        "player": {
+          "id": 39,
+          "name": "Vince2"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 33,
+        "comment": "Palm abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 39,
+        "value": 117458292,
+        "player": {
+          "id": 1649,
+          "name": "GameOver"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1553118009188-IMG06292Fotor.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "5",
+        "id": 15432,
+        "comment": "",
+        "oneCC": false
+      },
+      {
+        "rank": 40,
+        "value": 112531595,
+        "player": {
+          "id": 40,
+          "name": "Fairyliar"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 34,
+        "comment": "reco normal",
+        "oneCC": false
+      },
+      {
+        "rank": 41,
+        "value": 110302226,
+        "player": {
+          "id": 41,
+          "name": "Agalnarok"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 35,
+        "comment": "Palm Abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 42,
+        "value": 109548225,
+        "player": {
+          "id": 42,
+          "name": "Mickey"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 36,
+        "comment": "Reco Normal",
+        "oneCC": false
+      },
+      {
+        "rank": 43,
+        "value": 101516851,
+        "player": {
+          "id": 1462,
+          "name": "mutmut02"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1490003634991-MushiFutari1.5OriginalRecoAbnormal.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 13495,
+        "comment": "Recco Abnormal",
+        "oneCC": true
+      },
+      {
+        "rank": 44,
+        "value": 99730296,
+        "player": {
+          "id": 163,
+          "name": "coven"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 37,
+        "comment": "Palm abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 45,
+        "value": 94315348,
+        "player": {
+          "id": 44,
+          "name": "dodonpasim"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 38,
+        "comment": "Reco normal",
+        "oneCC": false
+      },
+      {
+        "rank": 46,
+        "value": 94159914,
+        "player": {
+          "id": 45,
+          "name": "snkpowa"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 39,
+        "comment": "Palm Normal",
+        "oneCC": false
+      },
+      {
+        "rank": 47,
+        "value": 92606069,
+        "player": {
+          "id": 46,
+          "name": "ixi"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 40,
+        "comment": "Palm Abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 48,
+        "value": 89396631,
+        "player": {
+          "id": 47,
+          "name": "ALFARABI"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 41,
+        "comment": "Reco Normal",
+        "oneCC": false
+      },
+      {
+        "rank": 49,
+        "value": 82608434,
+        "player": {
+          "id": 48,
+          "name": "Bestio"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 42,
+        "comment": "normal Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 50,
+        "value": 80410775,
+        "player": {
+          "id": 49,
+          "name": "Kibo"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 43,
+        "comment": "palm normal",
+        "oneCC": false
+      },
+      {
+        "rank": 51,
+        "value": 79961270,
+        "player": {
+          "id": 236,
+          "name": "Crashdown"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1568571742168-IMG20190915175818.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "4",
+        "id": 15875,
+        "comment": "Reco Normal",
+        "oneCC": false
+      },
+      {
+        "rank": 52,
+        "value": 77708224,
+        "player": {
+          "id": 50,
+          "name": "Sulf'"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 44,
+        "comment": "Reco normal",
+        "oneCC": false
+      },
+      {
+        "rank": 53,
+        "value": 74909634,
+        "player": {
+          "id": 51,
+          "name": "Prométherion"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 45,
+        "comment": "Palm  Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 54,
+        "value": 73272481,
+        "player": {
+          "id": 53,
+          "name": "Jehuda"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 47,
+        "comment": "Reco normal  Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 55,
+        "value": 71190653,
+        "player": {
+          "id": 6,
+          "name": "yace"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 48,
+        "comment": "Palm  Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 56,
+        "value": 67483163,
+        "player": {
+          "id": 54,
+          "name": "BAD"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 49,
+        "comment": "Reco Normal",
+        "oneCC": false
+      },
+      {
+        "rank": 57,
+        "value": 66968182,
+        "player": {
+          "id": 55,
+          "name": "Arsene"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 50,
+        "comment": "Palm normal Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 58,
+        "value": 64347047,
+        "player": {
+          "id": 56,
+          "name": "Johnny_Crypt"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 51,
+        "comment": "Palm normal",
+        "oneCC": false
+      },
+      {
+        "rank": 59,
+        "value": 64134632,
+        "player": {
+          "id": 57,
+          "name": "Akaimakai"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 52,
+        "comment": "Recco normal",
+        "oneCC": false
+      },
+      {
+        "rank": 60,
+        "value": 58048852,
+        "player": {
+          "id": 58,
+          "name": "Drunkenietzschigo"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 53,
+        "comment": "Reco Normal",
+        "oneCC": false
+      },
+      {
+        "rank": 61,
+        "value": 55153250,
+        "player": {
+          "id": 94,
+          "name": "Lone Rider"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 54,
+        "comment": "Reco normal  Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 62,
+        "value": 49692952,
+        "player": {
+          "id": 60,
+          "name": "GaMeS"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 55,
+        "comment": "palm abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 63,
+        "value": 43069442,
+        "player": {
+          "id": 169,
+          "name": "Alptraum"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "3 BOSS",
+        "id": 12137,
+        "comment": "",
+        "oneCC": false
+      },
+      {
+        "rank": 64,
+        "value": 40954650,
+        "player": {
+          "id": 1520,
+          "name": "Prickly Angler"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "4",
+        "id": 16044,
+        "comment": "Palm Normal",
+        "oneCC": false
+      },
+      {
+        "rank": 65,
+        "value": 16397006,
+        "player": {
+          "id": 1571,
+          "name": "rentonl"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "3",
+        "id": 14098,
+        "comment": "",
+        "oneCC": false
+      },
+      {
+        "rank": 66,
+        "value": 14622560,
+        "player": {
+          "id": 468,
+          "name": "banjo"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "2",
+        "id": 3903,
+        "comment": "reco\r\n",
+        "oneCC": false
+      }
+    ]
+  },
+  {
+    "mode": {
+      "id": 1,
+      "name": "Version 1.5",
+      "scoreType": ""
+    },
+    "difficulty": {
+      "id": 5,
+      "name": "Maniac"
+    },
+    "scores": [
+      {
+        "rank": 1,
+        "value": 625432647,
+        "player": {
+          "id": 7,
+          "name": "-S.L-"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "http://www.youtube.com/watch?v=h_ECY5P6qy8",
+        "stage": "ALL",
+        "id": 56,
+        "comment": "normal Reco (Lx0)",
+        "oneCC": true
+      },
+      {
+        "rank": 2,
+        "value": 565548909,
+        "player": {
+          "id": 62,
+          "name": "FAB"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 57,
+        "comment": "Reco normal",
+        "oneCC": false
+      },
+      {
+        "rank": 3,
+        "value": 545638948,
+        "player": {
+          "id": 161,
+          "name": "KAB"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 58,
+        "comment": "palm normal",
+        "oneCC": false
+      },
+      {
+        "rank": 4,
+        "value": 478034693,
+        "player": {
+          "id": 63,
+          "name": "BOS"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 59,
+        "comment": "(Lx1) Reco Normal",
+        "oneCC": true
+      },
+      {
+        "rank": 5,
+        "value": 369785618,
+        "player": {
+          "id": 1683,
+          "name": "VioletHatPurple"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "https://www.youtube.com/watch?v=e9w3D6GvIgw",
+        "stage": "ALL",
+        "id": 14672,
+        "comment": "Reco (Normal), Lx0, Bx0 - Done on 3 janvier, 2016",
+        "oneCC": true
+      },
+      {
+        "rank": 6,
+        "value": 368754839,
+        "player": {
+          "id": 157,
+          "name": "back"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 60,
+        "comment": "Reco normal",
+        "oneCC": false
+      },
+      {
+        "rank": 7,
+        "value": 352112197,
+        "player": {
+          "id": 64,
+          "name": "ProMeTheus"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 61,
+        "comment": "Reco Normal Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 8,
+        "value": 331045778,
+        "player": {
+          "id": 781,
+          "name": "thetricker24"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1439153407727-tmp27456201508092031221476234654.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "5 BOSS",
+        "id": 9799,
+        "comment": "",
+        "oneCC": false
+      },
+      {
+        "rank": 9,
+        "value": 328089671,
+        "player": {
+          "id": 137,
+          "name": "Trizeal"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "http://youtu.be/cnzkDp71gOo",
+        "stage": "ALL",
+        "id": 4947,
+        "comment": "Reco Normal",
+        "oneCC": true
+      },
+      {
+        "rank": 10,
+        "value": 305988500,
+        "player": {
+          "id": 16,
+          "name": "Sezi"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 62,
+        "comment": "palm abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 11,
+        "value": 302018933,
+        "player": {
+          "id": 284,
+          "name": "neo90"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 63,
+        "comment": "palm abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 12,
+        "value": 225126527,
+        "player": {
+          "id": 22,
+          "name": "buddy"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 64,
+        "comment": "Normal Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 13,
+        "value": 211809785,
+        "player": {
+          "id": 374,
+          "name": "The vagrant"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 65,
+        "comment": "palm normal",
+        "oneCC": false
+      },
+      {
+        "rank": 14,
+        "value": 189288068,
+        "player": {
+          "id": 27,
+          "name": "MLeJazz"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 66,
+        "comment": "Reco normal",
+        "oneCC": false
+      },
+      {
+        "rank": 15,
+        "value": 168155095,
+        "player": {
+          "id": 67,
+          "name": "otaku"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 67,
+        "comment": "reco normal",
+        "oneCC": false
+      },
+      {
+        "rank": 16,
+        "value": 141918549,
+        "player": {
+          "id": 21,
+          "name": "Zapbranisac"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 68,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 17,
+        "value": 135993904,
+        "player": {
+          "id": 68,
+          "name": "MoonZ"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 69,
+        "comment": "Palm Abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 18,
+        "value": 132944265,
+        "player": {
+          "id": 69,
+          "name": "Brx"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 70,
+        "comment": "reco normal",
+        "oneCC": false
+      },
+      {
+        "rank": 19,
+        "value": 121364123,
+        "player": {
+          "id": 70,
+          "name": "Blheudz"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 71,
+        "comment": "Reco Normal Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 20,
+        "value": 117669207,
+        "player": {
+          "id": 52,
+          "name": "Shardik"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1454601780392-20160204170010.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "4",
+        "id": 11924,
+        "comment": "Reco / Normal",
+        "oneCC": false
+      },
+      {
+        "rank": 21,
+        "value": 113450480,
+        "player": {
+          "id": 42,
+          "name": "Mickey"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 72,
+        "comment": "Palm Abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 22,
+        "value": 110700231,
+        "player": {
+          "id": 44,
+          "name": "dodonpasim"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 73,
+        "comment": "Palm Abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 23,
+        "value": 98806192,
+        "player": {
+          "id": 71,
+          "name": "Kitano"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 74,
+        "comment": "Reco Normal",
+        "oneCC": false
+      },
+      {
+        "rank": 24,
+        "value": 95069149,
+        "player": {
+          "id": 33,
+          "name": "Vanal"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 75,
+        "comment": "Reco Normal Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 25,
+        "value": 84852124,
+        "player": {
+          "id": 72,
+          "name": "Membrax"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 76,
+        "comment": "Palm Abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 26,
+        "value": 83852129,
+        "player": {
+          "id": 32,
+          "name": "Gatts"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 77,
+        "comment": "Reco Normal Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 27,
+        "value": 38196634,
+        "player": {
+          "id": 73,
+          "name": "Bobusan"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 78,
+        "comment": "Reco Normal",
+        "oneCC": false
+      },
+      {
+        "rank": 28,
+        "value": 36688600,
+        "player": {
+          "id": 1,
+          "name": "anzymus"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1528639931851-20180610160817756x1008.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "2 BOSS",
+        "id": 14498,
+        "comment": "",
+        "oneCC": false
+      },
+      {
+        "rank": 29,
+        "value": 26091215,
+        "player": {
+          "id": 330,
+          "name": "Malaghen"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "3",
+        "id": 4758,
+        "comment": "",
+        "oneCC": false
+      },
+      {
+        "rank": 30,
+        "value": 10225914,
+        "player": {
+          "id": 468,
+          "name": "banjo"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "2",
+        "id": 4513,
+        "comment": "reco",
+        "oneCC": false
+      }
+    ]
+  },
+  {
+    "mode": {
+      "id": 1,
+      "name": "Version 1.5",
+      "scoreType": ""
+    },
+    "difficulty": {
+      "id": 6,
+      "name": "God"
+    },
+    "scores": []
+  },
+  {
+    "mode": {
+      "id": 1,
+      "name": "Version 1.5",
+      "scoreType": ""
+    },
+    "difficulty": {
+      "id": 7,
+      "name": "Ultra"
+    },
+    "scores": [
+      {
+        "rank": 1,
+        "value": 3999999999,
+        "player": {
+          "id": 74,
+          "name": "GUS"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 79,
+        "comment": "Palm abnormal Boss 2",
+        "oneCC": false
+      },
+      {
+        "rank": 2,
+        "value": 276022014,
+        "player": {
+          "id": 157,
+          "name": "back"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "2",
+        "id": 80,
+        "comment": "Palm abnormal Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 3,
+        "value": 100480424,
+        "player": {
+          "id": 161,
+          "name": "KAB"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 81,
+        "comment": "Palm Abnormal",
+        "oneCC": false
+      },
+      {
+        "rank": 4,
+        "value": 1355698,
+        "player": {
+          "id": 468,
+          "name": "banjo"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "1 BOSS",
+        "id": 4514,
+        "comment": "reco normal",
+        "oneCC": false
+      }
+    ]
+  },
+  {
+    "mode": {
+      "id": 2,
+      "name": "Black Label",
+      "scoreType": ""
+    },
+    "difficulty": {
+      "id": 4,
+      "name": "Original"
+    },
+    "scores": [
+      {
+        "rank": 1,
+        "value": 1770580017,
+        "player": {
+          "id": 76,
+          "name": "Palgork"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 9191,
+        "comment": "Reco, Lx2.",
+        "oneCC": true
+      },
+      {
+        "rank": 2,
+        "value": 1546834183,
+        "player": {
+          "id": 151,
+          "name": "Knuckels"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1471462209928-MushihimesamaFutariBLOriginal15B.png",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 12932,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 3,
+        "value": 738368699,
+        "player": {
+          "id": 16,
+          "name": "Sezi"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 83,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 4,
+        "value": 695415600,
+        "player": {
+          "id": 354,
+          "name": "HUU"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 84,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 5,
+        "value": 689429395,
+        "player": {
+          "id": 146,
+          "name": "Rechiku"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 85,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 6,
+        "value": 681794984,
+        "player": {
+          "id": 970,
+          "name": "xingothx"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1526496935298-IMG2181.JPG",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 14445,
+        "comment": "Doucement mais sûrement, je vise la troisième place... pour le moment. ;)",
+        "oneCC": true
+      },
+      {
+        "rank": 7,
+        "value": 670292094,
+        "player": {
+          "id": 78,
+          "name": "YuShin"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 86,
+        "comment": "Reco  All (Lx3 Bx3)",
+        "oneCC": true
+      },
+      {
+        "rank": 8,
+        "value": 662827176,
+        "player": {
+          "id": 859,
+          "name": "hWU"
+        },
+        "photo": "http://www.hostingpics.net/viewer.php?id=765018mushi660M.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 8887,
+        "comment": "recco",
+        "oneCC": true
+      },
+      {
+        "rank": 9,
+        "value": 655989134,
+        "player": {
+          "id": 157,
+          "name": "back"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 87,
+        "comment": "Reco  All (lx3)",
+        "oneCC": true
+      },
+      {
+        "rank": 10,
+        "value": 654592823,
+        "player": {
+          "id": 171,
+          "name": "Y'om"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 88,
+        "comment": "Reco  ALL (Lx1)",
+        "oneCC": true
+      },
+      {
+        "rank": 11,
+        "value": 627555230,
+        "player": {
+          "id": 313,
+          "name": "raisonnable"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 89,
+        "comment": "ALL, Reco, (Lx2)",
+        "oneCC": true
+      },
+      {
+        "rank": 12,
+        "value": 605142142,
+        "player": {
+          "id": 82,
+          "name": "TUG"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 91,
+        "comment": "Reco (Lx0)",
+        "oneCC": true
+      },
+      {
+        "rank": 13,
+        "value": 588074428,
+        "player": {
+          "id": 1363,
+          "name": "MrFox"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1542190538349-IMG2374.JPG",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 14969,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 14,
+        "value": 583227488,
+        "player": {
+          "id": 24,
+          "name": "Vincere"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 92,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 15,
+        "value": 576735620,
+        "player": {
+          "id": 113,
+          "name": "wasspat"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1516468396678-IMG0134.JPG",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 14217,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 16,
+        "value": 576102409,
+        "player": {
+          "id": 21,
+          "name": "Zapbranisac"
+        },
+        "photo": "http://2drealfighter.free.fr/Scores/WP_20140814_011.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 7343,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 17,
+        "value": 546329241,
+        "player": {
+          "id": 83,
+          "name": "radiant silvergun"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 93,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 18,
+        "value": 540231496,
+        "player": {
+          "id": 44,
+          "name": "dodonpasim"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 94,
+        "comment": "Reco  Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 19,
+        "value": 533926926,
+        "player": {
+          "id": 1557,
+          "name": "Deez"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1505683749284-MFBL533M.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "5 BOSS",
+        "id": 13931,
+        "comment": "",
+        "oneCC": false
+      },
+      {
+        "rank": 20,
+        "value": 525485279,
+        "player": {
+          "id": 55,
+          "name": "Arsene"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 95,
+        "comment": "Reco  Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 21,
+        "value": 525451934,
+        "player": {
+          "id": 292,
+          "name": "DamDam"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "https://www.youtube.com/watch?v=hnbfSz1MRKY",
+        "stage": "ALL",
+        "id": 8876,
+        "comment": "Premier bon run pour moi, maintenant il faut que j'essaie de bosser quelques trucs dont les fameuses lanternes !",
+        "oneCC": true
+      },
+      {
+        "rank": 22,
+        "value": 512371660,
+        "player": {
+          "id": 84,
+          "name": "tenebres"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 96,
+        "comment": "Palm normal",
+        "oneCC": true
+      },
+      {
+        "rank": 23,
+        "value": 505851030,
+        "player": {
+          "id": 85,
+          "name": "Nesquick"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 97,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 24,
+        "value": 505370969,
+        "player": {
+          "id": 837,
+          "name": "Hérulam"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1467560181452-20160703173324.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 12782,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 25,
+        "value": 503957637,
+        "player": {
+          "id": 274,
+          "name": "sensuixel"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 6947,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 26,
+        "value": 503162098,
+        "player": {
+          "id": 30,
+          "name": "Shadow gallery"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 98,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 27,
+        "value": 490257923,
+        "player": {
+          "id": 86,
+          "name": "imalipusram"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 99,
+        "comment": "Reco (Lx0)",
+        "oneCC": true
+      },
+      {
+        "rank": 28,
+        "value": 484249314,
+        "player": {
+          "id": 1287,
+          "name": "Misterfabulous"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1529065686194-IMG0635.JPG",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 14507,
+        "comment": "Bonjour,\r\n\r\nMerci de m'ajouter au ranking.\r\n\r\nCordialement",
+        "oneCC": true
+      },
+      {
+        "rank": 29,
+        "value": 482775771,
+        "player": {
+          "id": 87,
+          "name": "aru"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 100,
+        "comment": "reco  ALL (lx1)",
+        "oneCC": true
+      },
+      {
+        "rank": 30,
+        "value": 470409146,
+        "player": {
+          "id": 88,
+          "name": "Lole"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 101,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 31,
+        "value": 460266957,
+        "player": {
+          "id": 89,
+          "name": "Nwardésir"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 102,
+        "comment": "Reco  Stage 5 Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 32,
+        "value": 451678118,
+        "player": {
+          "id": 6,
+          "name": "yace"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 103,
+        "comment": "Reco  ALL (lx2)",
+        "oneCC": true
+      },
+      {
+        "rank": 33,
+        "value": 444421099,
+        "player": {
+          "id": 23,
+          "name": "skateinmars"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 104,
+        "comment": "Reco  All (Lx1)",
+        "oneCC": true
+      },
+      {
+        "rank": 34,
+        "value": 439147735,
+        "player": {
+          "id": 104,
+          "name": "Olisan"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1458066445373-image.jpeg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 12183,
+        "comment": "Enfin un run correct!\r\nNo miss jusqu'au stage 5. J'ai juste raté la vie cachée (ça c'est le mauvais point) mais sinon pas mal.",
+        "oneCC": true
+      },
+      {
+        "rank": 35,
+        "value": 433335197,
+        "player": {
+          "id": 90,
+          "name": "RYU"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 105,
+        "comment": "RECO",
+        "oneCC": true
+      },
+      {
+        "rank": 36,
+        "value": 425005553,
+        "player": {
+          "id": 42,
+          "name": "Mickey"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 106,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 37,
+        "value": 420852691,
+        "player": {
+          "id": 728,
+          "name": "Aldherrian"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 8860,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 38,
+        "value": 419970522,
+        "player": {
+          "id": 91,
+          "name": "Akva"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 107,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 39,
+        "value": 417230804,
+        "player": {
+          "id": 92,
+          "name": "Septa"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 108,
+        "comment": "palm",
+        "oneCC": true
+      },
+      {
+        "rank": 40,
+        "value": 417161288,
+        "player": {
+          "id": 26,
+          "name": "Squidhead"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 109,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 41,
+        "value": 414465160,
+        "player": {
+          "id": 120,
+          "name": "baboulinet"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 110,
+        "comment": "reco  Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 42,
+        "value": 411723504,
+        "player": {
+          "id": 94,
+          "name": "Lone Rider"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 111,
+        "comment": "Reco  Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 43,
+        "value": 403606043,
+        "player": {
+          "id": 95,
+          "name": "Koosan"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 112,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 44,
+        "value": 394621836,
+        "player": {
+          "id": 96,
+          "name": "Sparda"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 113,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 45,
+        "value": 392952383,
+        "player": {
+          "id": 479,
+          "name": "Parpaing"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 12690,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 46,
+        "value": 383946321,
+        "player": {
+          "id": 97,
+          "name": "Gaeos"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 114,
+        "comment": "Reco  Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 47,
+        "value": 377228199,
+        "player": {
+          "id": 35,
+          "name": "Dan"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 115,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 48,
+        "value": 371522109,
+        "player": {
+          "id": 98,
+          "name": "Talz"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 116,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 49,
+        "value": 369043799,
+        "player": {
+          "id": 1065,
+          "name": "Pioulu"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1485241405506-1CCCopie.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 13312,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 50,
+        "value": 367557179,
+        "player": {
+          "id": 32,
+          "name": "Gatts"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 117,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 51,
+        "value": 360525911,
+        "player": {
+          "id": 242,
+          "name": "Shû Shirakawa"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 118,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 52,
+        "value": 359950898,
+        "player": {
+          "id": 820,
+          "name": "volaju"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1466103031856-futaribl.jpg",
+        "inp": "http://hiscores.shmup.com/inp/1466103031857-futaribl.inp",
+        "replay": "https://www.youtube.com/watch?v=zOd4tCckBtM&feature=youtu.be",
+        "stage": "ALL",
+        "id": 12716,
+        "comment": "Reco       (groovyMame 0.170)",
+        "oneCC": true
+      },
+      {
+        "rank": 53,
+        "value": 358352340,
+        "player": {
+          "id": 100,
+          "name": "Amiral_Popov"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 119,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 54,
+        "value": 356389823,
+        "player": {
+          "id": 307,
+          "name": "-SGN-"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 15703,
+        "comment": "C'est sur une PCB \"Another version\"",
+        "oneCC": true
+      },
+      {
+        "rank": 55,
+        "value": 352364535,
+        "player": {
+          "id": 269,
+          "name": "Yami9999"
+        },
+        "photo": "http://i1073.photobucket.com/albums/w392/Yami9999/Mushihimesama%20Futari/14MushihimesamaFutariBlackLabelOriginal_zps2c795957.png",
+        "inp": null,
+        "replay": "http://www.youtube.com/watch?v=LyrOWvThIpA&feature=youtu.be",
+        "stage": "ALL",
+        "id": 5217,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 56,
+        "value": 343377279,
+        "player": {
+          "id": 33,
+          "name": "Vanal"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 120,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 57,
+        "value": 340125556,
+        "player": {
+          "id": 39,
+          "name": "Vince2"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 121,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 58,
+        "value": 333801090,
+        "player": {
+          "id": 101,
+          "name": "Gojirien"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 122,
+        "comment": "Reco  stage 5 boss",
+        "oneCC": false
+      },
+      {
+        "rank": 59,
+        "value": 331773843,
+        "player": {
+          "id": 102,
+          "name": "bogardan"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 124,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 60,
+        "value": 331280888,
+        "player": {
+          "id": 586,
+          "name": "E.T.E"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 125,
+        "comment": "Reco Normal",
+        "oneCC": true
+      },
+      {
+        "rank": 61,
+        "value": 330225341,
+        "player": {
+          "id": 34,
+          "name": "Colas"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 126,
+        "comment": "PALM",
+        "oneCC": true
+      },
+      {
+        "rank": 62,
+        "value": 329994643,
+        "player": {
+          "id": 45,
+          "name": "snkpowa"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 127,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 63,
+        "value": 324234540,
+        "player": {
+          "id": 103,
+          "name": "kakusai"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 128,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 64,
+        "value": 313762199,
+        "player": {
+          "id": 47,
+          "name": "ALFARABI"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 131,
+        "comment": "Reco normal",
+        "oneCC": true
+      },
+      {
+        "rank": 65,
+        "value": 310008605,
+        "player": {
+          "id": 58,
+          "name": "Drunkenietzschigo"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 132,
+        "comment": "Reco  Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 66,
+        "value": 306467846,
+        "player": {
+          "id": 50,
+          "name": "Sulf'"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 133,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 67,
+        "value": 297182604,
+        "player": {
+          "id": 1520,
+          "name": "Prickly Angler"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "5 BOSS",
+        "id": 16045,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 68,
+        "value": 292814578,
+        "player": {
+          "id": 46,
+          "name": "ixi"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 134,
+        "comment": "Reco  Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 69,
+        "value": 292628602,
+        "player": {
+          "id": 38,
+          "name": "Dias Paddle"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 135,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 70,
+        "value": 280029582,
+        "player": {
+          "id": 106,
+          "name": "JIM659"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 136,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 71,
+        "value": 273173842,
+        "player": {
+          "id": 116,
+          "name": "Doudinou"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 137,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 72,
+        "value": 272902453,
+        "player": {
+          "id": 29,
+          "name": "FEB"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 138,
+        "comment": "Reco Normal",
+        "oneCC": false
+      },
+      {
+        "rank": 73,
+        "value": 232052920,
+        "player": {
+          "id": 1,
+          "name": "anzymus"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1535228700744-20180825222028756x1008.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 14685,
+        "comment": "Pour fêter ma NAC en tate + mon xbox360tojamma je vous propose ce modeste 1cc.",
+        "oneCC": true
+      }
+    ]
+  },
+  {
+    "mode": {
+      "id": 2,
+      "name": "Black Label",
+      "scoreType": ""
+    },
+    "difficulty": {
+      "id": 5,
+      "name": "Maniac"
+    },
+    "scores": [
+      {
+        "rank": 1,
+        "value": 897686702,
+        "player": {
+          "id": 7,
+          "name": "-S.L-"
+        },
+        "photo": "http://imagizer.imageshack.us/v2/800x600q90/908/Baof7Y.jpg",
+        "inp": null,
+        "replay": "https://www.youtube.com/watch?v=R4Y_v0QFaKQ",
+        "stage": "ALL",
+        "id": 9214,
+        "comment": "Palm",
+        "oneCC": true
+      },
+      {
+        "rank": 2,
+        "value": 879975010,
+        "player": {
+          "id": 84,
+          "name": "tenebres"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 139,
+        "comment": "Palm normal",
+        "oneCC": true
+      },
+      {
+        "rank": 3,
+        "value": 832246217,
+        "player": {
+          "id": 108,
+          "name": "Sephyross"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 140,
+        "comment": "Reco  All (lx3,bx3)",
+        "oneCC": true
+      },
+      {
+        "rank": 4,
+        "value": 606115690,
+        "player": {
+          "id": 109,
+          "name": "ZUU"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 141,
+        "comment": "Reco  stage 5 Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 5,
+        "value": 577982970,
+        "player": {
+          "id": 64,
+          "name": "ProMeTheus"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 142,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 6,
+        "value": 528250621,
+        "player": {
+          "id": 313,
+          "name": "raisonnable"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 143,
+        "comment": "Reco  (Lx2)",
+        "oneCC": true
+      },
+      {
+        "rank": 7,
+        "value": 520538685,
+        "player": {
+          "id": 157,
+          "name": "back"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 144,
+        "comment": "Reco normal",
+        "oneCC": true
+      },
+      {
+        "rank": 8,
+        "value": 520042295,
+        "player": {
+          "id": 354,
+          "name": "HUU"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 145,
+        "comment": "Reco  (Lx1)",
+        "oneCC": true
+      },
+      {
+        "rank": 9,
+        "value": 519426510,
+        "player": {
+          "id": 16,
+          "name": "Sezi"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 146,
+        "comment": "sboss5",
+        "oneCC": false
+      },
+      {
+        "rank": 10,
+        "value": 497617624,
+        "player": {
+          "id": 82,
+          "name": "TUG"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 147,
+        "comment": "Reco  stage 5 (boss)",
+        "oneCC": false
+      },
+      {
+        "rank": 11,
+        "value": 485214343,
+        "player": {
+          "id": 113,
+          "name": "wasspat"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1491242885689-IMG0469.JPG",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 13536,
+        "comment": "je me suis remis et c'est quand meme excellent ce mode maniac, je vais essayer de passer les 500 M.",
+        "oneCC": true
+      },
+      {
+        "rank": 12,
+        "value": 443827539,
+        "player": {
+          "id": 24,
+          "name": "Vincere"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 148,
+        "comment": "Palm  stage 5 (boss)",
+        "oneCC": false
+      },
+      {
+        "rank": 13,
+        "value": 426579780,
+        "player": {
+          "id": 171,
+          "name": "Y'om"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 149,
+        "comment": "Reco  stage 5 (boss)",
+        "oneCC": false
+      },
+      {
+        "rank": 14,
+        "value": 375215090,
+        "player": {
+          "id": 34,
+          "name": "Colas"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 150,
+        "comment": "PALM",
+        "oneCC": false
+      },
+      {
+        "rank": 15,
+        "value": 356225581,
+        "player": {
+          "id": 44,
+          "name": "dodonpasim"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 151,
+        "comment": "Reco  stage 5 (boss)",
+        "oneCC": false
+      },
+      {
+        "rank": 16,
+        "value": 330884961,
+        "player": {
+          "id": 111,
+          "name": "chepaki"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 152,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 17,
+        "value": 330735502,
+        "player": {
+          "id": 30,
+          "name": "Shadow gallery"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 153,
+        "comment": "Reco  stage 5 (boss)",
+        "oneCC": false
+      },
+      {
+        "rank": 18,
+        "value": 330392131,
+        "player": {
+          "id": 87,
+          "name": "aru"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 154,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 19,
+        "value": 316211620,
+        "player": {
+          "id": 112,
+          "name": "Gagarine"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 155,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 20,
+        "value": 303770050,
+        "player": {
+          "id": 269,
+          "name": "Yami9999"
+        },
+        "photo": "http://i1073.photobucket.com/albums/w392/Yami9999/Mushihimesama%20Futari/14MushihimesamaFutariBlackLabelManiac_zps34292251.png",
+        "inp": null,
+        "replay": "http://www.youtube.com/watch?v=MBLuWFglG2U&feature=youtu.be",
+        "stage": "ALL",
+        "id": 156,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 21,
+        "value": 297965066,
+        "player": {
+          "id": 768,
+          "name": "endoKarb"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1466475985988-TAEPNMn1.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 12732,
+        "comment": "Palm, first credit clear",
+        "oneCC": true
+      },
+      {
+        "rank": 22,
+        "value": 265794378,
+        "player": {
+          "id": 32,
+          "name": "Gatts"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 157,
+        "comment": "Reco  stage 5 (boss)",
+        "oneCC": false
+      },
+      {
+        "rank": 23,
+        "value": 239408110,
+        "player": {
+          "id": 70,
+          "name": "Blheudz"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 158,
+        "comment": "palm",
+        "oneCC": false
+      },
+      {
+        "rank": 24,
+        "value": 229856540,
+        "player": {
+          "id": 98,
+          "name": "Talz"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 160,
+        "comment": "Reco  Boss 5",
+        "oneCC": false
+      },
+      {
+        "rank": 25,
+        "value": 212573890,
+        "player": {
+          "id": 114,
+          "name": "Guigui"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 161,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 26,
+        "value": 207947382,
+        "player": {
+          "id": 89,
+          "name": "Nwardésir"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 162,
+        "comment": "Reco  Stage 3 Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 27,
+        "value": 207853270,
+        "player": {
+          "id": 88,
+          "name": "Lole"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 163,
+        "comment": "Palm",
+        "oneCC": false
+      },
+      {
+        "rank": 28,
+        "value": 199783128,
+        "player": {
+          "id": 76,
+          "name": "Palgork"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 164,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 29,
+        "value": 196134216,
+        "player": {
+          "id": 42,
+          "name": "Mickey"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 165,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 30,
+        "value": 174061072,
+        "player": {
+          "id": 115,
+          "name": "MAOHI98"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 166,
+        "comment": "palm  S3boss",
+        "oneCC": false
+      },
+      {
+        "rank": 31,
+        "value": 173742710,
+        "player": {
+          "id": 728,
+          "name": "Aldherrian"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "3 BOSS",
+        "id": 8930,
+        "comment": "",
+        "oneCC": false
+      },
+      {
+        "rank": 32,
+        "value": 159132233,
+        "player": {
+          "id": 47,
+          "name": "ALFARABI"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 167,
+        "comment": "Reco  Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 33,
+        "value": 154109770,
+        "player": {
+          "id": 116,
+          "name": "Doudinou"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 168,
+        "comment": "reco",
+        "oneCC": false
+      },
+      {
+        "rank": 34,
+        "value": 115396824,
+        "player": {
+          "id": 163,
+          "name": "coven"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 169,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 35,
+        "value": 105993195,
+        "player": {
+          "id": 117,
+          "name": "RafoCdBS"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 170,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 36,
+        "value": 96284019,
+        "player": {
+          "id": 58,
+          "name": "Drunkenietzschigo"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 171,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 37,
+        "value": 65231883,
+        "player": {
+          "id": 39,
+          "name": "Vince2"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 172,
+        "comment": "reco",
+        "oneCC": false
+      }
+    ]
+  },
+  {
+    "mode": {
+      "id": 2,
+      "name": "Black Label",
+      "scoreType": ""
+    },
+    "difficulty": {
+      "id": 6,
+      "name": "God"
+    },
+    "scores": [
+      {
+        "rank": 1,
+        "value": 4026504257,
+        "player": {
+          "id": 112,
+          "name": "Gagarine"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "5",
+        "id": 9236,
+        "comment": "",
+        "oneCC": false
+      },
+      {
+        "rank": 2,
+        "value": 3331880693,
+        "player": {
+          "id": 157,
+          "name": "back"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 174,
+        "comment": "Reco  stage 5 Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 3,
+        "value": 2975065292,
+        "player": {
+          "id": 64,
+          "name": "ProMeTheus"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 175,
+        "comment": "Reco  stage 5 Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 4,
+        "value": 2918918657,
+        "player": {
+          "id": 1683,
+          "name": "VioletHatPurple"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1534815786417-u26pGod161231215047.png",
+        "inp": "",
+        "replay": "https://www.youtube.com/watch?v=_JZuabOvQgA",
+        "stage": "ALL",
+        "id": 14650,
+        "comment": "Reco, Lx0, Bx2 - Done on 31 décembre, 2016",
+        "oneCC": true
+      },
+      {
+        "rank": 5,
+        "value": 2774627749,
+        "player": {
+          "id": 208,
+          "name": "A-M"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 176,
+        "comment": "Reco  stage 5 Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 6,
+        "value": 2546657956,
+        "player": {
+          "id": 160,
+          "name": "khaaos"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "5 BOSS",
+        "id": 14506,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 7,
+        "value": 2399917207,
+        "player": {
+          "id": 111,
+          "name": "chepaki"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 13010,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 8,
+        "value": 2019186476,
+        "player": {
+          "id": 354,
+          "name": "HUU"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 177,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 9,
+        "value": 1818315370,
+        "player": {
+          "id": 7,
+          "name": "-S.L-"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1540841465450-IMG7337.JPG",
+        "inp": null,
+        "replay": "",
+        "stage": "4",
+        "id": 14927,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 10,
+        "value": 1361299752,
+        "player": {
+          "id": 313,
+          "name": "raisonnable"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 178,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 11,
+        "value": 1286155611,
+        "player": {
+          "id": 82,
+          "name": "TUG"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 179,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 12,
+        "value": 1161554385,
+        "player": {
+          "id": 87,
+          "name": "aru"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 181,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 13,
+        "value": 1151584273,
+        "player": {
+          "id": 16,
+          "name": "Sezi"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 182,
+        "comment": "reco",
+        "oneCC": false
+      },
+      {
+        "rank": 14,
+        "value": 1125159705,
+        "player": {
+          "id": 113,
+          "name": "wasspat"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "5",
+        "id": 13858,
+        "comment": "comment il est top ce mode !!! le maniac fait quand même fadasse après",
+        "oneCC": false
+      },
+      {
+        "rank": 15,
+        "value": 1043404065,
+        "player": {
+          "id": 116,
+          "name": "Doudinou"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 183,
+        "comment": "reco",
+        "oneCC": false
+      },
+      {
+        "rank": 16,
+        "value": 615201421,
+        "player": {
+          "id": 781,
+          "name": "thetricker24"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1439908697157-tmp2857320150818163744511038604.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "4 BOSS",
+        "id": 9944,
+        "comment": "",
+        "oneCC": false
+      },
+      {
+        "rank": 17,
+        "value": 597004400,
+        "player": {
+          "id": 34,
+          "name": "Colas"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 184,
+        "comment": "RECO",
+        "oneCC": false
+      },
+      {
+        "rank": 18,
+        "value": 496284775,
+        "player": {
+          "id": 115,
+          "name": "MAOHI98"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 185,
+        "comment": "reco",
+        "oneCC": false
+      },
+      {
+        "rank": 19,
+        "value": 448756871,
+        "player": {
+          "id": 30,
+          "name": "Shadow gallery"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 186,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 20,
+        "value": 365461582,
+        "player": {
+          "id": 89,
+          "name": "Nwardésir"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "3",
+        "id": 187,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 21,
+        "value": 347978007,
+        "player": {
+          "id": 728,
+          "name": "Aldherrian"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1521972225824-IMG20180325115914.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "3",
+        "id": 14314,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 22,
+        "value": 232012875,
+        "player": {
+          "id": 117,
+          "name": "RafoCdBS"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "2",
+        "id": 189,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 23,
+        "value": 101771105,
+        "player": {
+          "id": 42,
+          "name": "Mickey"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "2",
+        "id": 190,
+        "comment": "Reco",
+        "oneCC": false
+      }
+    ]
+  },
+  {
+    "mode": {
+      "id": 2,
+      "name": "Black Label",
+      "scoreType": ""
+    },
+    "difficulty": {
+      "id": 7,
+      "name": "Ultra"
+    },
+    "scores": []
+  },
+  {
+    "mode": {
+      "id": 3,
+      "name": "Version arrange",
+      "scoreType": ""
+    },
+    "difficulty": {
+      "id": 4,
+      "name": "Original"
+    },
+    "scores": [
+      {
+        "rank": 1,
+        "value": 4332366849,
+        "player": {
+          "id": 55,
+          "name": "Arsene"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 191,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 2,
+        "value": 4077291007,
+        "player": {
+          "id": 354,
+          "name": "HUU"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 192,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 3,
+        "value": 3793724731,
+        "player": {
+          "id": 97,
+          "name": "Gaeos"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 193,
+        "comment": "palm",
+        "oneCC": true
+      },
+      {
+        "rank": 4,
+        "value": 3624286531,
+        "player": {
+          "id": 119,
+          "name": "Adol"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 194,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 5,
+        "value": 3353740029,
+        "player": {
+          "id": 16,
+          "name": "Sezi"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 195,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 6,
+        "value": 2848702925,
+        "player": {
+          "id": 101,
+          "name": "Gojirien"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 196,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 7,
+        "value": 2830568560,
+        "player": {
+          "id": 120,
+          "name": "baboulinet"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 197,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 8,
+        "value": 2730198759,
+        "player": {
+          "id": 125,
+          "name": "danmaker"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 5275,
+        "comment": "Reco, no miss",
+        "oneCC": true
+      },
+      {
+        "rank": 9,
+        "value": 2723638416,
+        "player": {
+          "id": 98,
+          "name": "Talz"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 198,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 10,
+        "value": 2659170594,
+        "player": {
+          "id": 121,
+          "name": "ange_dechu_lucifer"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 199,
+        "comment": "Palm",
+        "oneCC": true
+      },
+      {
+        "rank": 11,
+        "value": 2540778783,
+        "player": {
+          "id": 53,
+          "name": "Jehuda"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 200,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 12,
+        "value": 2532508080,
+        "player": {
+          "id": 42,
+          "name": "Mickey"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 201,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 13,
+        "value": 2461310673,
+        "player": {
+          "id": 122,
+          "name": "Gwenroc"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 202,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 14,
+        "value": 2432744408,
+        "player": {
+          "id": 123,
+          "name": "DJL"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 203,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 15,
+        "value": 2377291968,
+        "player": {
+          "id": 35,
+          "name": "Dan"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 204,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 16,
+        "value": 2329524545,
+        "player": {
+          "id": 124,
+          "name": "Eiffel-type"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 205,
+        "comment": "Palm",
+        "oneCC": true
+      },
+      {
+        "rank": 17,
+        "value": 2303961355,
+        "player": {
+          "id": 148,
+          "name": "überwenig"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 4008,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 18,
+        "value": 2257015462,
+        "player": {
+          "id": 8,
+          "name": "YannHuitNeuf"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 8745,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 19,
+        "value": 2251447579,
+        "player": {
+          "id": 68,
+          "name": "MoonZ"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 206,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 20,
+        "value": 2100838650,
+        "player": {
+          "id": 163,
+          "name": "coven"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 208,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 21,
+        "value": 2089495470,
+        "player": {
+          "id": 58,
+          "name": "Drunkenietzschigo"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 209,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 22,
+        "value": 1974704491,
+        "player": {
+          "id": 126,
+          "name": "TSUCHINOKO"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 210,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 23,
+        "value": 1947423472,
+        "player": {
+          "id": 728,
+          "name": "Aldherrian"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 8865,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 24,
+        "value": 1590869074,
+        "player": {
+          "id": 626,
+          "name": "meijin champi"
+        },
+        "photo": "http://www.hostingpics.net/viewer.php?id=553153highscoremushi.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 5337,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 25,
+        "value": 1494735372,
+        "player": {
+          "id": 791,
+          "name": "ElBlaireau"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1537371549083-20180918224507.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 14811,
+        "comment": "Paramètres par défaut du mode sur 360.",
+        "oneCC": true
+      },
+      {
+        "rank": 26,
+        "value": 1387399092,
+        "player": {
+          "id": 116,
+          "name": "Doudinou"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 212,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 27,
+        "value": 1303911006,
+        "player": {
+          "id": 57,
+          "name": "Akaimakai"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 213,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 28,
+        "value": 1241027973,
+        "player": {
+          "id": 23,
+          "name": "skateinmars"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 214,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 29,
+        "value": 1207233353,
+        "player": {
+          "id": 102,
+          "name": "bogardan"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 215,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 30,
+        "value": 1193947472,
+        "player": {
+          "id": 1649,
+          "name": "GameOver"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1567286914039-IMG2193.JPG",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 15834,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 31,
+        "value": 1177899219,
+        "player": {
+          "id": 222,
+          "name": "LMN4096"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1449169208890-IMG3653.JPG",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 11601,
+        "comment": "Ha la vache sa faisait longtemps que je n'étais pulsant train de shmuper :)\r\n\r\nsa fait quand même un nouveau 1cc :D",
+        "oneCC": true
+      },
+      {
+        "rank": 32,
+        "value": 1153773611,
+        "player": {
+          "id": 26,
+          "name": "Squidhead"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 216,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 33,
+        "value": 1150585659,
+        "player": {
+          "id": 128,
+          "name": "ted77"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 217,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 34,
+        "value": 1084211147,
+        "player": {
+          "id": 39,
+          "name": "Vince2"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 218,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 35,
+        "value": 1078565699,
+        "player": {
+          "id": 1462,
+          "name": "mutmut02"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1537181237898-MushiFutari360OriginalBlackLabelPalm.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 14803,
+        "comment": "Palm",
+        "oneCC": true
+      },
+      {
+        "rank": 36,
+        "value": 1004819032,
+        "player": {
+          "id": 129,
+          "name": "Raad"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 219,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 37,
+        "value": 962302641,
+        "player": {
+          "id": 56,
+          "name": "Johnny_Crypt"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 220,
+        "comment": "Palm",
+        "oneCC": true
+      },
+      {
+        "rank": 38,
+        "value": 896610766,
+        "player": {
+          "id": 94,
+          "name": "Lone Rider"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 221,
+        "comment": "Reco normal.",
+        "oneCC": true
+      },
+      {
+        "rank": 39,
+        "value": 878036444,
+        "player": {
+          "id": 468,
+          "name": "banjo"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 4515,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 40,
+        "value": 853457521,
+        "player": {
+          "id": 903,
+          "name": "IBARAKURO"
+        },
+        "photo": "",
+        "inp": "",
+        "replay": "",
+        "stage": "ALL",
+        "id": 11820,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 41,
+        "value": 830784702,
+        "player": {
+          "id": 1,
+          "name": "anzymus"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 14533,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 42,
+        "value": 806557861,
+        "player": {
+          "id": 169,
+          "name": "Alptraum"
+        },
+        "photo": "",
+        "inp": "",
+        "replay": "",
+        "stage": "ALL",
+        "id": 6349,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 43,
+        "value": 774092405,
+        "player": {
+          "id": 448,
+          "name": "Patouf"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 10126,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 44,
+        "value": 760481133,
+        "player": {
+          "id": 837,
+          "name": "Hérulam"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 11951,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 45,
+        "value": 699876273,
+        "player": {
+          "id": 130,
+          "name": "Zombie"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 222,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 46,
+        "value": 694518149,
+        "player": {
+          "id": 112,
+          "name": "Gagarine"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 12844,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 47,
+        "value": 646705372,
+        "player": {
+          "id": 49,
+          "name": "Kibo"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 223,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 48,
+        "value": 618660410,
+        "player": {
+          "id": 131,
+          "name": "Iro"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 224,
+        "comment": "Palm",
+        "oneCC": true
+      },
+      {
+        "rank": 49,
+        "value": 425410555,
+        "player": {
+          "id": 44,
+          "name": "dodonpasim"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 226,
+        "comment": "Palm",
+        "oneCC": true
+      },
+      {
+        "rank": 50,
+        "value": 0,
+        "player": {
+          "id": 577,
+          "name": "RahXephon"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "3",
+        "id": 6935,
+        "comment": "pas le bon jeux",
+        "oneCC": false
+      }
+    ]
+  },
+  {
+    "mode": {
+      "id": 3,
+      "name": "Version arrange",
+      "scoreType": ""
+    },
+    "difficulty": {
+      "id": 5,
+      "name": "Maniac"
+    },
+    "scores": [
+      {
+        "rank": 1,
+        "value": 4452813888,
+        "player": {
+          "id": 354,
+          "name": "HUU"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 227,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 2,
+        "value": 3467811743,
+        "player": {
+          "id": 119,
+          "name": "Adol"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 228,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 3,
+        "value": 3279163998,
+        "player": {
+          "id": 70,
+          "name": "Blheudz"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 229,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 4,
+        "value": 3116849269,
+        "player": {
+          "id": 132,
+          "name": "daiisuki"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 230,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 5,
+        "value": 2875973727,
+        "player": {
+          "id": 133,
+          "name": "hulk24"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 231,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 6,
+        "value": 2814776983,
+        "player": {
+          "id": 16,
+          "name": "Sezi"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 232,
+        "comment": "reco",
+        "oneCC": false
+      },
+      {
+        "rank": 7,
+        "value": 2528390658,
+        "player": {
+          "id": 42,
+          "name": "Mickey"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 233,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 8,
+        "value": 2370493478,
+        "player": {
+          "id": 35,
+          "name": "Dan"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 234,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 9,
+        "value": 2336734258,
+        "player": {
+          "id": 954,
+          "name": "RaDyUm"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "https://www.youtube.com/watch?v=kqh0jEtrlF4",
+        "stage": "ALL",
+        "id": 10254,
+        "comment": "Qanba Q4",
+        "oneCC": true
+      },
+      {
+        "rank": 10,
+        "value": 1944284158,
+        "player": {
+          "id": 89,
+          "name": "Nwardésir"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 235,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 11,
+        "value": 1879697778,
+        "player": {
+          "id": 68,
+          "name": "MoonZ"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 236,
+        "comment": "Reco Boss 5",
+        "oneCC": false
+      },
+      {
+        "rank": 12,
+        "value": 1730520862,
+        "player": {
+          "id": 134,
+          "name": "Mortipoil"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 237,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 13,
+        "value": 1686338469,
+        "player": {
+          "id": 120,
+          "name": "baboulinet"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 238,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 14,
+        "value": 1624508759,
+        "player": {
+          "id": 58,
+          "name": "Drunkenietzschigo"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 239,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 15,
+        "value": 1603946254,
+        "player": {
+          "id": 8,
+          "name": "YannHuitNeuf"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 8746,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 16,
+        "value": 1588770891,
+        "player": {
+          "id": 148,
+          "name": "überwenig"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 3591,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 17,
+        "value": 1349584333,
+        "player": {
+          "id": 940,
+          "name": "lecorbak"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "http://www.dailymotion.com/video/x2n7gpt_mushihimesama-futari-1-5-arrange-maniac-1-349-584-333-points_videogames",
+        "stage": "ALL",
+        "id": 9198,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 18,
+        "value": 1286305810,
+        "player": {
+          "id": 122,
+          "name": "Gwenroc"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 240,
+        "comment": "Reco Stage 5 boss",
+        "oneCC": false
+      },
+      {
+        "rank": 19,
+        "value": 1231386908,
+        "player": {
+          "id": 116,
+          "name": "Doudinou"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 241,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 20,
+        "value": 1226435058,
+        "player": {
+          "id": 124,
+          "name": "Eiffel-type"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 242,
+        "comment": "Palm Stage 5 boss",
+        "oneCC": false
+      },
+      {
+        "rank": 21,
+        "value": 1184607518,
+        "player": {
+          "id": 33,
+          "name": "Vanal"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 243,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 22,
+        "value": 1168410331,
+        "player": {
+          "id": 626,
+          "name": "meijin champi"
+        },
+        "photo": "http://www.hostingpics.net/viewer.php?id=224961mushihimemaniachighscore.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 5342,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 23,
+        "value": 1098742758,
+        "player": {
+          "id": 1675,
+          "name": "DDDP"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1533871888238-IMG9681.JPG",
+        "inp": null,
+        "replay": "",
+        "stage": "5 BOSS",
+        "id": 14631,
+        "comment": "",
+        "oneCC": false
+      },
+      {
+        "rank": 24,
+        "value": 1090472666,
+        "player": {
+          "id": 837,
+          "name": "Hérulam"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 11965,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 25,
+        "value": 1024721442,
+        "player": {
+          "id": 222,
+          "name": "LMN4096"
+        },
+        "photo": "http://hiscores.shmup.com/photos/1449423684386-IMG3677.JPG",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 11617,
+        "comment": "Yes! :D",
+        "oneCC": true
+      },
+      {
+        "rank": 26,
+        "value": 1001642831,
+        "player": {
+          "id": 23,
+          "name": "skateinmars"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 244,
+        "comment": "ALL (Lx3) – Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 27,
+        "value": 864512451,
+        "player": {
+          "id": 112,
+          "name": "Gagarine"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 12845,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 28,
+        "value": 764621305,
+        "player": {
+          "id": 448,
+          "name": "Patouf"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 14937,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 29,
+        "value": 741312960,
+        "player": {
+          "id": 130,
+          "name": "Zombie"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 245,
+        "comment": "Palm",
+        "oneCC": true
+      },
+      {
+        "rank": 30,
+        "value": 673831434,
+        "player": {
+          "id": 44,
+          "name": "dodonpasim"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 246,
+        "comment": "Reco Stage 5 boss",
+        "oneCC": false
+      },
+      {
+        "rank": 31,
+        "value": 568360191,
+        "player": {
+          "id": 39,
+          "name": "Vince2"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 247,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 32,
+        "value": 525903133,
+        "player": {
+          "id": 903,
+          "name": "IBARAKURO"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 11821,
+        "comment": "",
+        "oneCC": true
+      },
+      {
+        "rank": 33,
+        "value": 305573663,
+        "player": {
+          "id": 468,
+          "name": "banjo"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "4",
+        "id": 4516,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 34,
+        "value": 251284317,
+        "player": {
+          "id": 169,
+          "name": "Alptraum"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 6350,
+        "comment": "Reco",
+        "oneCC": true
+      }
+    ]
+  },
+  {
+    "mode": {
+      "id": 3,
+      "name": "Version arrange",
+      "scoreType": ""
+    },
+    "difficulty": {
+      "id": 6,
+      "name": "God"
+    },
+    "scores": []
+  },
+  {
+    "mode": {
+      "id": 3,
+      "name": "Version arrange",
+      "scoreType": ""
+    },
+    "difficulty": {
+      "id": 7,
+      "name": "Ultra"
+    },
+    "scores": [
+      {
+        "rank": 1,
+        "value": 4247511068,
+        "player": {
+          "id": 135,
+          "name": "Tawhiri"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 248,
+        "comment": "palm",
+        "oneCC": true
+      },
+      {
+        "rank": 2,
+        "value": 3406568447,
+        "player": {
+          "id": 157,
+          "name": "back"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 249,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 3,
+        "value": 3338399810,
+        "player": {
+          "id": 97,
+          "name": "Gaeos"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 250,
+        "comment": "Reco Stage 5 Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 4,
+        "value": 3310043916,
+        "player": {
+          "id": 354,
+          "name": "HUU"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 251,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 5,
+        "value": 2810018884,
+        "player": {
+          "id": 125,
+          "name": "danmaker"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "5 BOSS",
+        "id": 5261,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 6,
+        "value": 2781151522,
+        "player": {
+          "id": 940,
+          "name": "lecorbak"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "http://www.dailymotion.com/video/x2n7mt6_mushihimesama-futari-1-5-arrange-ultra-2-781-151-522-points_videogames",
+        "stage": "True Last Boss",
+        "id": 9199,
+        "comment": "Reco Stage 5 TLB",
+        "oneCC": false
+      },
+      {
+        "rank": 7,
+        "value": 2724582094,
+        "player": {
+          "id": 120,
+          "name": "baboulinet"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 252,
+        "comment": "reco",
+        "oneCC": true
+      },
+      {
+        "rank": 8,
+        "value": 2630921004,
+        "player": {
+          "id": 16,
+          "name": "Sezi"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 253,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 9,
+        "value": 2477788041,
+        "player": {
+          "id": 148,
+          "name": "überwenig"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 5715,
+        "comment": "... quelques dizaines de millions de points, c'est toujours bon à prendre, faute de mieux ^^",
+        "oneCC": true
+      },
+      {
+        "rank": 10,
+        "value": 2310745647,
+        "player": {
+          "id": 35,
+          "name": "Dan"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 254,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 11,
+        "value": 2166656760,
+        "player": {
+          "id": 58,
+          "name": "Drunkenietzschigo"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 255,
+        "comment": "Palm Stage 5 TLB",
+        "oneCC": false
+      },
+      {
+        "rank": 12,
+        "value": 2025943656,
+        "player": {
+          "id": 70,
+          "name": "Blheudz"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 256,
+        "comment": "Palm",
+        "oneCC": true
+      },
+      {
+        "rank": 13,
+        "value": 1968267841,
+        "player": {
+          "id": 626,
+          "name": "meijin champi"
+        },
+        "photo": "http://www.hostingpics.net/viewer.php?id=477184mushiultraall2.jpg",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 5348,
+        "comment": "mon premier bon 1cc et premier TLB",
+        "oneCC": true
+      },
+      {
+        "rank": 14,
+        "value": 1964335719,
+        "player": {
+          "id": 121,
+          "name": "ange_dechu_lucifer"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 257,
+        "comment": "Palm Stage 5 Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 15,
+        "value": 1885596409,
+        "player": {
+          "id": 954,
+          "name": "RaDyUm"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "https://www.youtube.com/watch?v=DP1uIQPg_qc",
+        "stage": "True Last Boss",
+        "id": 10765,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 16,
+        "value": 1829585772,
+        "player": {
+          "id": 39,
+          "name": "Vince2"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 258,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 17,
+        "value": 1790851491,
+        "player": {
+          "id": 98,
+          "name": "Talz"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 259,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 18,
+        "value": 1788675579,
+        "player": {
+          "id": 42,
+          "name": "Mickey"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 260,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 19,
+        "value": 1700616816,
+        "player": {
+          "id": 116,
+          "name": "Doudinou"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 261,
+        "comment": "reco Stage 5 Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 20,
+        "value": 1418060468,
+        "player": {
+          "id": 21,
+          "name": "Zapbranisac"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 262,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 21,
+        "value": 1408346281,
+        "player": {
+          "id": 36,
+          "name": "GYO"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 263,
+        "comment": "Palm",
+        "oneCC": false
+      },
+      {
+        "rank": 22,
+        "value": 1397674774,
+        "player": {
+          "id": 137,
+          "name": "Trizeal"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "ALL",
+        "id": 264,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 23,
+        "value": 1301387398,
+        "player": {
+          "id": 791,
+          "name": "ElBlaireau"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "True Last Boss",
+        "id": 12765,
+        "comment": "",
+        "oneCC": false
+      },
+      {
+        "rank": 24,
+        "value": 1165963790,
+        "player": {
+          "id": 23,
+          "name": "skateinmars"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 265,
+        "comment": "Stage 5 Boss 2 – Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 25,
+        "value": 1120407987,
+        "player": {
+          "id": 130,
+          "name": "Zombie"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 266,
+        "comment": "Palm Stage 5 Boss 2 – Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 26,
+        "value": 864964168,
+        "player": {
+          "id": 122,
+          "name": "Gwenroc"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 267,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 27,
+        "value": 784228429,
+        "player": {
+          "id": 138,
+          "name": "PeeWeeK"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 268,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 28,
+        "value": 750418625,
+        "player": {
+          "id": 44,
+          "name": "dodonpasim"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "5",
+        "id": 269,
+        "comment": "reco",
+        "oneCC": false
+      },
+      {
+        "rank": 29,
+        "value": 670834705,
+        "player": {
+          "id": 169,
+          "name": "Alptraum"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "ALL",
+        "id": 6351,
+        "comment": "Reco",
+        "oneCC": true
+      },
+      {
+        "rank": 30,
+        "value": 625074893,
+        "player": {
+          "id": 468,
+          "name": "banjo"
+        },
+        "photo": "",
+        "inp": null,
+        "replay": "",
+        "stage": "5",
+        "id": 4517,
+        "comment": "Reco",
+        "oneCC": false
+      },
+      {
+        "rank": 31,
+        "value": 547951094,
+        "player": {
+          "id": 33,
+          "name": "Vanal"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 270,
+        "comment": "Reco Stage 4 Boss",
+        "oneCC": false
+      },
+      {
+        "rank": 32,
+        "value": 357315193,
+        "player": {
+          "id": 134,
+          "name": "Mortipoil"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": null,
+        "stage": "4",
+        "id": 271,
+        "comment": "reco Stage 4 Boss",
+        "oneCC": false
+      }
+    ]
+  },
+  {
+    "mode": {
+      "id": 1048,
+      "name": "Version 1.01",
+      "scoreType": null
+    },
+    "difficulty": {
+      "id": 4,
+      "name": "Original"
+    },
+    "scores": [
+      {
+        "rank": 1,
+        "value": 9401427,
+        "player": {
+          "id": 1,
+          "name": "anzymus"
+        },
+        "photo": null,
+        "inp": null,
+        "replay": "",
+        "stage": "2 BOSS",
+        "id": 14686,
+        "comment": "",
+        "oneCC": false
+      }
+    ]
+  },
+  {
+    "mode": {
+      "id": 1048,
+      "name": "Version 1.01",
+      "scoreType": null
+    },
+    "difficulty": {
+      "id": 5,
+      "name": "Maniac"
+    },
+    "scores": []
+  },
+  {
+    "mode": {
+      "id": 1048,
+      "name": "Version 1.01",
+      "scoreType": null
+    },
+    "difficulty": {
+      "id": 6,
+      "name": "God"
+    },
+    "scores": []
+  },
+  {
+    "mode": {
+      "id": 1048,
+      "name": "Version 1.01",
+      "scoreType": null
+    },
+    "difficulty": {
+      "id": 7,
+      "name": "Ultra"
+    },
+    "scores": []
+  }
+]

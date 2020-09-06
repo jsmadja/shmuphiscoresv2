@@ -55,11 +55,11 @@
 </template>
 
 <script lang="ts">
-import GameInformations from "@/components/organisms/GameInformations.vue";
+import GameInformations from "../organisms/GameInformations.vue";
 import Vue from "vue";
-import ScoreForm from "@/components/organisms/ScoreForm.vue";
-import ScoreForumCode from "@/components/organisms/ScoreForumCode.vue";
-import PostScoreToForum from "@/components/molecules/PostScoreToForum.vue";
+import ScoreForm from "../organisms/ScoreForm.vue";
+import ScoreForumCode from "../organisms/ScoreForumCode.vue";
+import PostScoreToForum from "../molecules/PostScoreToForum.vue";
 
 export default Vue.extend({
   components: {
