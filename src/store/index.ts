@@ -33,7 +33,7 @@ export const actions = {
     return fetchUser().then((user) => context.commit("setUser", user));
   },
   fetchPlatforms(context) {
-    return fetchPlatforms().then((platforms: PlatformWithGameCount[]) =>
+    return fetchPlatforms().then((platforms) =>
       context.commit("setPlatforms", platforms)
     );
   },

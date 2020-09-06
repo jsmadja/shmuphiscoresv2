@@ -1,59 +1,66 @@
 import { api } from "@/api";
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
+import {PlatformWithGameCount} from "@/models/platforms";
+import { Game } from './models/game';
+import {Ranking} from "@/models/ranking";
+import {Score} from "@/models/score";
+import {Player} from "@/models/player";
+import {User} from "@/models/user";
+import {Recommendations} from "@/models/recommendations";
 
-export async function getScoresByPlayer(playerId: string) {
+export async function getScoresByPlayer(playerId: string): Promise<Score[]> {
   return fetch(`${api}/players/${playerId}/scores`).then((response) =>
     response.json()
   );
 }
 
-export async function getMyRecommendations() {
+export async function getMyRecommendations(): Promise<Recommendations> {
   return fetch(`${api}/me/recommendations`).then((response) => response.json());
 }
 
-export async function fetchUser() {
+export async function fetchUser(): Promise<User> {
   return fetch(`${api}/me`).then((response) => response.json());
 }
 
-export async function fetchPlatforms() {
+export async function fetchPlatforms(): Promise<PlatformWithGameCount> {
   return fetch(`${api}/platforms`).then((response) => response.json());
 }
 
-export async function fetchPlayers() {
+export async function fetchPlayers(): Promise<Player[]> {
   return fetch(`${api}/players`).then((response) => response.json());
 }
 
-export async function fetchGames() {
+export async function fetchGames(): Promise<Game[]> {
   return fetch(`${api}/games`).then((response) => response.json());
 }
 
-export async function fetchMyGames() {
+export async function fetchMyGames(): Promise<Game[]> {
   return fetch(`${api}/me/games`).then((response) => response.json());
 }
 
-export async function fetchGame(id) {
+export async function fetchGame(id): Promise<Game> {
   return fetch(`${api}/games/${id}`).then((response) => response.json());
 }
 
-export async function fetchRankings(id) {
+export async function fetchRankings(id): Promise<Ranking[]> {
   return fetch(`${api}/games/${id}/rankings`).then((response) =>
     response.json()
   );
 }
 
-export async function fetchLastScores() {
+export async function fetchLastScores(): Promise<Score[]> {
   return fetch(`${api}/scores`).then((response) => response.json());
 }
 
-export async function fetchScore(id) {
+export async function fetchScore(id): Promise<Score> {
   return fetch(`${api}/scores/${id}`).then((response) => response.json());
 }
 
-export async function fetchMyLastScores() {
+export async function fetchMyLastScores(): Promise<Score[]> {
   return fetch(`${api}/me/scores`).then((response) => response.json());
 }
 
-export async function createGame(game) {
+export async function createGame(game): Promise<Response> {
   return fetch(`${api}/games`, {
     method: "POST",
     headers: {
@@ -64,7 +71,7 @@ export async function createGame(game) {
   });
 }
 
-export async function createScore(score) {
+export async function createScore(score): Promise<AxiosResponse> {
   const form = new FormData();
   Object.entries(score)
     .filter((e) => !!e[1])
@@ -76,7 +83,7 @@ export async function createScore(score) {
   });
 }
 
-export async function editScore(score) {
+export async function editScore(score): Promise<AxiosResponse> {
   const form = new FormData();
   Object.entries(score)
     .filter((e) => !!e[1])
@@ -88,22 +95,22 @@ export async function editScore(score) {
   });
 }
 
-export async function createMode({ game, mode }) {
+export async function createMode({ game, mode }): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/modes`, mode);
 }
 
-export async function createDifficulty({ game, difficulty }) {
+export async function createDifficulty({ game, difficulty }): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/difficulties`, difficulty);
 }
 
-export async function createStage({ game, stage }) {
+export async function createStage({ game, stage }): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/stages`, stage);
 }
 
-export async function createShip({ game, ship }) {
+export async function createShip({ game, ship }): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/ships`, ship);
 }
 
-export async function createPlatforms({ game, platforms }) {
+export async function createPlatforms({ game, platforms }): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/platforms`, platforms);
 }

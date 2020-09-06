@@ -11,6 +11,7 @@
 import { getScoresByPlayer } from "@/repository";
 import Vue from "vue";
 import PlayerTemplate from "@/components/templates/PlayerTemplate.vue";
+import { Score } from "@/models/score";
 
 export default Vue.extend({
   name: "Player",
@@ -23,7 +24,7 @@ export default Vue.extend({
   data() {
     return {
       loading: true,
-      scores: [],
+      scores: [] as Score[],
     };
   },
   methods: {
