@@ -4,7 +4,6 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
-import HighchartsVue from "highcharts-vue";
 import {
   formatNumber,
   formatRank,
@@ -24,7 +23,6 @@ Sentry.init({
 Vue.config.productionTip = false;
 
 Vue.use(VueClipboard);
-Vue.use(HighchartsVue);
 
 Vue.filter("formatNumber", formatNumber);
 Vue.filter("formatRank", formatRank);

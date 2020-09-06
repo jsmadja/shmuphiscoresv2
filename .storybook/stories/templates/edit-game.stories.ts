@@ -4,7 +4,7 @@ import game from "../data/game.json";
 import platforms from "../data/platforms.json";
 
 export default {
-    title: "Template/EditGameTemplate",
+    title: "Template/EditGame",
 };
 export const defaultGame = () => ({
     components: {EditGameTemplate},

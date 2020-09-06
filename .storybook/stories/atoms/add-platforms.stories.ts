@@ -2,7 +2,7 @@ import {action} from '@storybook/addon-actions';
 import AddPlatforms from "../../../src/components/atoms/AddPlatforms.vue";
 
 export default {
-    title: "Atom/AddPlatforms",
+    title: "Atom/AddPlatformsForm",
 };
 export const addPlatform = () => ({
     components: {AddPlatforms},

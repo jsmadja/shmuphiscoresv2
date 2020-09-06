@@ -20,7 +20,10 @@ export const defaultGame = () => ({
     data: () => ({
         game,
         rankings,
-        user: {},
+        user: {
+            authenticated: true,
+            administrator: true,
+        },
     }),
     methods: {
         onAddScore: action('onAddScore'),
