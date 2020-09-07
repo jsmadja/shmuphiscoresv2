@@ -1,7 +1,7 @@
 import {action} from "@storybook/addon-actions";
 import FloatingMenu from "../../../src/components/organisms/FloatingMenu.vue";
-import myLastScores from "../data/my-last-scores.json";
-import games from "../data/games.json";
+import myLastScores from "../data/my-last-scores";
+import games from "../data/games";
 
 export default {
     title: "Organism/FloatingMenu",

@@ -1,6 +1,6 @@
 import {action} from '@storybook/addon-actions';
 import MyProfileTemplate from "../../../src/components/templates/MyProfileTemplate.vue";
-import superadmin from "../data/user.superadmin.json";
+import superadmin from "../data/user.superadmin";
 
 export default {
     title: "Template/MyProfile",

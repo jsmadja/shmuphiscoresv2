@@ -1,8 +1,8 @@
 import {action} from '@storybook/addon-actions';
 import AddScoreTemplate from "../../../src/components/templates/AddScoreTemplate.vue";
-import game from "../data/game.json";
-import score from "../data/score.json";
-import timerGame from "../data/game.timer.json";
+import game from "../data/game";
+import score from "../data/score";
+import timerGame from "../data/game.timer";
 
 const methods = {
     createScore: action('createScore'),

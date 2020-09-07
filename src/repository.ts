@@ -1,12 +1,11 @@
 import { api } from "@/api";
-import axios, {AxiosResponse} from "axios";
-import {PlatformWithGameCount} from "@/models/platforms";
-import { Game } from './models/game';
-import {Ranking} from "@/models/ranking";
-import {Score} from "@/models/score";
-import {Player} from "@/models/player";
-import {User} from "@/models/user";
-import {Recommendations} from "@/models/recommendations";
+import axios, { AxiosResponse } from "axios";
+import { PlatformWithGameCount } from "@/models/platforms";
+import { Game } from "./models/game";
+import { Ranking } from "@/models/ranking";
+import { Score } from "@/models/score";
+import { Player } from "@/models/player";
+import { Recommendations } from "@/models/recommendations";
 
 export async function getScoresByPlayer(playerId: string): Promise<Score[]> {
   return fetch(`${api}/players/${playerId}/scores`).then((response) =>
@@ -18,7 +17,7 @@ export async function getMyRecommendations(): Promise<Recommendations> {
   return fetch(`${api}/me/recommendations`).then((response) => response.json());
 }
 
-export async function fetchUser(): Promise<User> {
+export async function fetchUser(): Promise<Player> {
   return fetch(`${api}/me`).then((response) => response.json());
 }
 
@@ -99,7 +98,10 @@ export async function createMode({ game, mode }): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/modes`, mode);
 }
 
-export async function createDifficulty({ game, difficulty }): Promise<AxiosResponse> {
+export async function createDifficulty({
+  game,
+  difficulty,
+}): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/difficulties`, difficulty);
 }
 
@@ -111,6 +113,9 @@ export async function createShip({ game, ship }): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/ships`, ship);
 }
 
-export async function createPlatforms({ game, platforms }): Promise<AxiosResponse> {
+export async function createPlatforms({
+  game,
+  platforms,
+}): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/platforms`, platforms);
 }

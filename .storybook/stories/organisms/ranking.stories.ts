@@ -1,6 +1,6 @@
 import {action} from "@storybook/addon-actions";
 import Ranking from "../../../src/components/organisms/Ranking.vue";
-import rankings from "../data/rankings.json";
+import rankings from "../data/rankings";
 
 const ranking = rankings[0];
 

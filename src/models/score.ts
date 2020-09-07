@@ -1,25 +1,35 @@
 import { Player } from "./player";
 import { Mode, Stage, Difficulty, Ship, Platform } from "@/models/ranking";
 import { formatTime, formatNumber } from "../formaters";
+import { Game } from "@/models/game";
 
 export interface Score {
-  createdAt?: Date;
+  createdAt?: string;
   player: Player;
   id: number;
-  photo?: string;
+  photo?: string | null;
   value: number;
-  inp?: string;
+  inp?: string | null;
   mode?: Mode;
   difficulty?: Difficulty;
   isTimeScore?: boolean;
-  stage?: Stage;
+  stage?: Stage | null | undefined;
   rank: number;
-  progression?: number;
+  progression?: number | null;
   comment?: string;
-  replay?: string;
-  ship?: Ship;
-  platform: Platform;
-  oneCC: boolean;
+  replay?: string | null;
+  ship?: Ship | null;
+  platform?: Platform;
+  game?: Game;
+  oneCC?: boolean;
+  onecc?: boolean;
+  "1CC"?: boolean;
+  gapWithPreviousScore?: number | null;
+  timeScore?: boolean;
+  gameTitle?: string;
+  stageName?: string;
+  vip?: boolean;
+  createdSinceInFrench?: string;
 }
 
 export function toForumCode(score: Score): string {
@@ -45,7 +55,9 @@ export function toForumCode(score: Score): string {
   if (score.ship != null) {
     message += `Vaisseau : [b]${score.ship.name}[/b]\n`;
   }
-  message += `Support : [b]${score.platform.name}[/b]\n`;
+  if (score.platform) {
+    message += `Support : [b]${score.platform.name}[/b]\n`;
+  }
   message += `Position : [b]${score.rank}${
     score.progression != null && score.progression > 0
       ? ` (+${score.progression})`

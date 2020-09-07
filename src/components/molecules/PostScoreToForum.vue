@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { getPostThreadUrl } from "../../models/game";
+import { getPostThreadUrl } from "@/models/game";
 
 export default Vue.extend({
   props: ["game"],

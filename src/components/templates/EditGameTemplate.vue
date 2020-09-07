@@ -74,10 +74,19 @@ import GameSettingForm from "../atoms/GameSettingForm.vue";
 import AddPlatforms from "../atoms/AddPlatforms.vue";
 import CopyableCode from "../atoms/CopyableCode.vue";
 import GameInformations from "../organisms/GameInformations.vue";
+import { Game } from "@/models/game";
+import { Platform } from "@/models/ranking";
 
 export default Vue.extend({
   name: "Game",
-  props: ["game", "platforms"],
+  props: {
+    game: {
+      type: Object,
+    },
+    platforms: {
+      type: Array,
+    },
+  },
   components: {
     GameSettingForm,
     AddPlatforms,
@@ -86,13 +95,10 @@ export default Vue.extend({
   },
   computed: {
     forumCode: function () {
-      return `[url=http://hiscores.shmup.com/game/${
-        (this as any).game.id
-      }/new_score]
+      const game = this.game as Game;
+      return `[url=http://hiscores.shmup.com/game/${game.id}/new_score]
       [b][color=#0080FF][size=150]POSTER AUTOMATIQUEMENT VOTRE SCORE[/size][/color][/b]
-      [/url][img]http://hiscores.shmup.com/game/${
-        (this as any).game.id
-      }/ranking.png[/img]`;
+      [/url][img]http://hiscores.shmup.com/game/${game.id}/ranking.png[/img]`;
     },
   },
   methods: {

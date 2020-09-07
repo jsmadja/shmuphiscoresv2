@@ -1,4 +1,6 @@
-[
+import {Game} from "../../../src/models/game";
+
+export default [
   {
     "cover": "/covers/92.jpg",
     "id": 92,
@@ -2989,4 +2991,4 @@
     "id": 601,
     "title": "ZeroRanger"
   }
-]
+] as Game[];

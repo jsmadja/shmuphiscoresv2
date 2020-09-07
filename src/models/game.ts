@@ -2,6 +2,7 @@ import { Difficulty, Mode, Platform, Ship, Stage } from "@/models/ranking";
 
 export interface Game {
   id: number;
+  createdAt?: string;
   title: string;
   cover: string;
   thread: string;

@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import PlatformsTemplate from "../../../src/components/templates/PlatformsTemplate.vue";
-import platforms from "../data/platforms.json";
+import platforms from "../data/platforms";
 
 export default {
     title: "Template/Platforms",

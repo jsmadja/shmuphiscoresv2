@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-form ref="form" v-model="valid">
+    <v-form ref="formRef" v-model="valid">
       <v-row dense>
         <v-col cols="12" lg="4">
           <v-select
@@ -199,10 +199,47 @@
 <script lang="ts">
 import Vue from "vue";
 import _ from "lodash";
+import { Game } from "@/models/game";
+import { PropValidator } from "vue/types/options";
+import { InputValidationRules } from "vuetify";
+
+interface ScoreForm {
+  id: string | null;
+  mode: number | null;
+  stage: number | null;
+  ship: number | null;
+  platform: number | null;
+  difficulty: number | null;
+  replay: string | null;
+  comment: string | null;
+  milliseconds: string | null;
+  seconds: string | null;
+  minutes: string | null;
+  value: number | null;
+  photo: File | null;
+  inp: File | null;
+}
 
 export default Vue.extend({
-  props: ["game", "score", "mode", "difficulty", "ship", "stage", "platform"],
-  data() {
+  props: {
+    game: { type: Object } as PropValidator<Game>,
+    score: Object,
+    mode: Object,
+    difficulty: Object,
+    ship: Object,
+    stage: Object,
+    platform: Object,
+  },
+  data(): {
+    loading: boolean;
+    valid: boolean;
+    hideDetails: boolean;
+    form: ScoreForm;
+    notBlank: InputValidationRules;
+    notEmpty: InputValidationRules;
+    replayRules: InputValidationRules;
+    settingRules: (string) => InputValidationRules;
+  } {
     return {
       loading: false,
       valid: false,
@@ -250,51 +287,49 @@ export default Vue.extend({
     };
   },
   mounted() {
-    const _this = this as any;
-    const form = _this.form;
-    form.id = _.get(_this, "score.id");
-    form.value = _.get(_this, "score.value");
-    form.minutes = _.get(_this, "score.minutes");
-    form.seconds = _.get(_this, "score.seconds");
-    form.milliseconds = _.get(_this, "score.milliseconds");
-    form.comment = _.get(_this, "score.comment");
-    form.replay = _.get(_this, "score.replay");
+    const form = this.form;
+    form.id = _.get(this, "score.id");
+    form.value = _.get(this, "score.value");
+    form.minutes = _.get(this, "score.minutes");
+    form.seconds = _.get(this, "score.seconds");
+    form.milliseconds = _.get(this, "score.milliseconds");
+    form.comment = _.get(this, "score.comment");
+    form.replay = _.get(this, "score.replay");
     form.mode =
-      _this.mode ||
-      _.get(_this, "score.mode.id") ||
+      this.mode ||
+      _.get(this, "score.mode.id") ||
       this.defaultSettingValue("modes");
     form.difficulty =
-      _this.difficulty ||
-      _.get(_this, "score.difficulty.id") ||
+      this.difficulty ||
+      _.get(this, "score.difficulty.id") ||
       this.defaultSettingValue("difficulties");
     form.platform =
-      _this.platform ||
-      _.get(_this, "score.platform.id") ||
+      this.platform ||
+      _.get(this, "score.platform.id") ||
       this.defaultSettingValue("platforms");
     form.ship =
-      _this.ship ||
-      _.get(_this, "score.ship.id") ||
+      this.ship ||
+      _.get(this, "score.ship.id") ||
       this.defaultSettingValue("ships");
     form.stage =
-      _this.stage ||
-      _.get(_this, "score.stage.id") ||
+      this.stage ||
+      _.get(this, "score.stage.id") ||
       this.defaultSettingValue("stages");
   },
   methods: {
-    defaultSettingValue(setting) {
+    defaultSettingValue(setting): number | null {
       return this.game[setting].length === 1 ? this.game[setting][0].id : null;
     },
     validate() {
-      const form = this.$refs.form as any;
+      const form = this.$refs.formRef as any;
       form.validate();
-      const _this = this as any;
       if (this.isTimerMode()) {
-        _this.form.value = null;
+        this.form.value = null;
       }
-      const score = JSON.parse(JSON.stringify(_this.form));
-      score.photo = _this.form.photo;
-      score.inp = _this.form.inp;
-      score.game = _this.game.id;
+      const score = JSON.parse(JSON.stringify(this.form));
+      score.photo = this.form.photo;
+      score.inp = this.form.inp;
+      score.game = this.game.id;
       if (score.id) {
         this.$emit("editScore", score);
       } else {
@@ -313,11 +348,10 @@ export default Vue.extend({
     },
   },
   computed: {
-    previewPhoto: function () {
-      const _this = this as any;
-      const scorePhoto = _.get(_this.score, "photo");
-      return _this.form.photo
-        ? URL.createObjectURL(_this.form.photo)
+    previewPhoto: function (): string {
+      const scorePhoto = _.get(this.score, "photo");
+      return this.form.photo
+        ? URL.createObjectURL(this.form.photo)
         : scorePhoto;
     },
   },

@@ -1,5 +1,5 @@
 import ScoreTemplate from "../../../src/components/templates/ScoreTemplate.vue";
-import history from "../data/score.history.json";
+import history from "../data/score.history";
 
 export default {
     title: "Template/Score",

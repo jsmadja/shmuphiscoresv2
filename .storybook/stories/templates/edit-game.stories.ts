@@ -1,7 +1,7 @@
 import EditGameTemplate from "../../../src/components/templates/EditGameTemplate.vue";
 import {action} from "@storybook/addon-actions";
-import game from "../data/game.json";
-import platforms from "../data/platforms.json";
+import game from "../data/game";
+import platforms from "../data/platforms";
 
 export default {
     title: "Template/EditGame",

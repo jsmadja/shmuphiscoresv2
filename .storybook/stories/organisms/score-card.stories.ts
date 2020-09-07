@@ -1,7 +1,7 @@
 import {action} from "@storybook/addon-actions";
 import ScoreCard from "../../../src/components/organisms/ScoreCard.vue";
-import timerScore from "../data/last-score.timer.json";
-import lastScores from "../data/last-scores.json";
+import timerScore from "../data/last-score.timer";
+import lastScores from "../data/last-scores";
 
 export default {
     title: "Organism/ScoreCard",

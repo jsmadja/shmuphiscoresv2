@@ -1,5 +1,5 @@
 import PlayersTemplate from "../../../src/components/templates/PlayersTemplate.vue";
-import players from "../data/players.json";
+import players from "../data/players";
 
 export default {
     title: "Template/Players",

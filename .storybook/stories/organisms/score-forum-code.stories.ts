@@ -1,6 +1,6 @@
 import {action} from '@storybook/addon-actions';
 import ScoreForumCode from "../../../src/components/organisms/ScoreForumCode.vue";
-import score from "../data/score.json";
+import score from "../data/score";
 
 export default {
     title: "Organism/ScoreForumCode",

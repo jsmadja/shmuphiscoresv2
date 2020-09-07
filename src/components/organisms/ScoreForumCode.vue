@@ -10,7 +10,7 @@
 <script lang="ts">
 import CopyableCode from "../atoms/CopyableCode.vue";
 import Vue from "vue";
-import { toForumCode } from "../../models/score";
+import { toForumCode } from "@/models/score";
 
 export default Vue.extend({
   components: {
@@ -19,8 +19,7 @@ export default Vue.extend({
   props: ["score"],
   computed: {
     code: function () {
-      const _this = this as any;
-      return _this.score ? toForumCode(_this.score) : "";
+      return this.score ? toForumCode(this.score) : "";
     },
   },
   methods: {

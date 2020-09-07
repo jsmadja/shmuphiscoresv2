@@ -151,18 +151,26 @@
 <script lang="ts">
 import Vue from "vue";
 import { Score } from "@/models/score";
+import { DataTableHeader } from "vuetify";
+
+interface DataTableHeader2 extends DataTableHeader {
+  hide?: string;
+}
 
 export default Vue.extend({
   name: "Ranking",
   props: ["ranking", "currentPlayerId", "hideAddScoreButton"],
-  data() {
+  data(): {
+    headers: DataTableHeader2[];
+    search: string;
+  } {
     return {
       search: "",
       headers: [
-        { text: "Rank", value: "rank", align: "right" },
+        { text: "Rank", value: "rank", align: "end" },
         { text: "Player", value: "player.name" },
-        { text: "Score", value: "value", align: "right" },
-        { text: "Stage", value: "stage", align: "right", hide: "smAndDown" },
+        { text: "Score", value: "value", align: "end" },
+        { text: "Stage", value: "stage", align: "end", hide: "smAndDown" },
         {
           text: "Comment",
           value: "comment",
@@ -174,9 +182,9 @@ export default Vue.extend({
     };
   },
   computed: {
-    computedHeaders() {
-      return (this as any).headers.filter(
-        (h: any) => !h.hide || !this.$vuetify.breakpoint[h.hide]
+    computedHeaders(): DataTableHeader2[] {
+      return this.headers.filter(
+        (h) => !h.hide || !this.$vuetify.breakpoint[h.hide]
       );
     },
   },

@@ -1,4 +1,6 @@
-[
+import {Player} from "../../../src/models/player";
+
+export default [
   {
     "id": 1079,
     "name": " force42195"
@@ -14291,4 +14293,4 @@
     "id": 3382,
     "name": "µdots"
   }
-]
+] as Player[];

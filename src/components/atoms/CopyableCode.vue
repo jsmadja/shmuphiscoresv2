@@ -17,7 +17,7 @@ export default Vue.extend({
   props: ["title", "code"],
   methods: {
     doCopy: function () {
-      this.$copyText((this as any).code);
+      this.$copyText(this.code);
       this.$emit("copy");
     },
   },

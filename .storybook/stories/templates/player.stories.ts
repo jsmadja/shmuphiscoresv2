@@ -1,6 +1,6 @@
 import PlayerTemplate from "../../../src/components/templates/PlayerTemplate.vue";
 import {action} from "@storybook/addon-actions";
-import scores from "../data/my-last-scores.json";
+import scores from "../data/my-last-scores";
 
 const methods = {
   goToGame: action('goToGame'),

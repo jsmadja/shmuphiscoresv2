@@ -1,4 +1,6 @@
-{
+import {Score} from "../../../src/models/score";
+
+export default {
   "id": 7778,
   "createdAt": "2014-10-27T11:45:19.000+00:00",
   "stage": {
@@ -27,4 +29,4 @@
     "name": "PCB"
   },
   "value": 123456
-}
+} as Score;

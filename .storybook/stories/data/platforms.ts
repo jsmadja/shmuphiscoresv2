@@ -1,4 +1,6 @@
-[
+import {PlatformWithGameCount} from "../../../src/models/platforms";
+
+export default [
   {
     "title": "3DS",
     "games": 5
@@ -231,4 +233,4 @@
     "title": "ZX SPECTRUM",
     "games": 6
   }
-]
+] as PlatformWithGameCount[];

@@ -1,4 +1,6 @@
-{
+import { Game } from "../../../src/models/game";
+
+export default {
   "id": 2,
   "createdAt": "2013-11-29T19:12:15.000+00:00",
   "thread": "http://forum.shmup.com/viewtopic.php?f=20&t=17554",
@@ -157,4 +159,4 @@
       "sortOrder": 3100
     }
   ]
-}
+} as Game;

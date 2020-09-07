@@ -1,8 +1,8 @@
 import { action } from '@storybook/addon-actions';
 import HomeTemplate from "../../../src/components/templates/HomeTemplate.vue";
-import superadmin from "../data/user.superadmin.json";
-import lastScores from "../data/last-scores.json";
-import myLastScores from "../data/my-last-scores.json";
+import superadmin from "../data/user.superadmin";
+import lastScores from "../data/last-scores";
+import myLastScores from "../data/my-last-scores";
 
 export default {
     title: "Template/Home",

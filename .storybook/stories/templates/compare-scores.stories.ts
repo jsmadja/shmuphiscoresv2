@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import CompareScoresTemplate from "../../../src/components/templates/CompareScoresTemplate.vue";
-import players from "../data/players.json";
-import versus from "../data/versus.json";
+import players from "../data/players";
+import versus from "../data/versus";
 
 export default {
     title: "Template/CompareScores",

@@ -1,4 +1,6 @@
-{
+import {Versus} from "../../../src/models/versus";
+
+export default {
   "player1": {
     "id": 1,
     "createdAt": "2013-11-29T19:13:32.000+00:00",
@@ -21323,4 +21325,4 @@
       "wonByPlayer1": false
     }
   ]
-}
+} as Versus;

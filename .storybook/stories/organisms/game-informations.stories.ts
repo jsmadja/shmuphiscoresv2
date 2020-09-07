@@ -1,7 +1,7 @@
 import {action} from "@storybook/addon-actions";
 import GameInformations from "../../../src/components/organisms/GameInformations.vue";
 import {boolean, withKnobs} from '@storybook/addon-knobs';
-import game from "../data/game.json";
+import game from "../data/game";
 
 export default {
     title: "Organism/GameInformations",

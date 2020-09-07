@@ -1,4 +1,6 @@
-[
+import {Score} from "../../../src/models/score";
+
+export default [
   {
     "id": 16723,
     "createdAt": "2020-08-16T22:20:58.000+00:00",
@@ -1194,4 +1196,4 @@
     "vip": true,
     "createdSinceInFrench": "il y a 1 jour"
   }
-]
+] as Score[];

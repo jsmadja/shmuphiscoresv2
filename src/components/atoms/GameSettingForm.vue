@@ -59,8 +59,8 @@ export default Vue.extend({
     validate() {
       (this.$refs.form as any).validate();
       this.$emit("create", {
-        value: (this as any).value,
-        afterValue: (this as any).afterValue,
+        value: this.value,
+        afterValue: this.afterValue,
       });
     },
   },

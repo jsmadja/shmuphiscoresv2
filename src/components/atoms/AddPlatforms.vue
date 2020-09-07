@@ -27,24 +27,26 @@
 <script lang="ts">
 import Vue from "vue";
 import _ from "lodash";
-import { Prop, Provide } from "vue-property-decorator";
 import { Platform } from "@/models/ranking";
-import Component from "vue-class-component";
 
-@Component
-export default class AddPlatforms extends Vue {
-  @Prop() usedPlatforms!: Platform[];
-  @Prop() platforms!: Platform[];
-
-  @Provide() selectedPlatforms = [];
-
-  get availablePlatforms(): Platform[] {
-    return _.difference(this.platforms, this.usedPlatforms);
-  }
-
-  addPlatforms(): void {
-    this.$emit("add", this.selectedPlatforms);
-    this.selectedPlatforms = [];
-  }
-}
+export default Vue.extend({
+  name: "AddPlatforms",
+  props: ["usedPlatforms", "platforms"],
+  data: function () {
+    return {
+      selectedPlatforms: [],
+    };
+  },
+  computed: {
+    availablePlatforms: function (): Platform[] {
+      return _.difference(this.platforms, this.usedPlatforms);
+    },
+  },
+  methods: {
+    addPlatforms(): void {
+      this.$emit("add", this.selectedPlatforms);
+      this.selectedPlatforms = [];
+    },
+  },
+});
 </script>

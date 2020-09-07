@@ -1,4 +1,6 @@
-[
+import {Ranking} from "../../../src/models/ranking";
+
+export default [
   {
     "mode": {
       "id": 1,
@@ -5451,4 +5453,4 @@
     },
     "scores": []
   }
-]
+] as Ranking[];

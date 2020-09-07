@@ -1,4 +1,6 @@
-{
+import {Score} from "../../../src/models/score";
+
+export default {
   "game": {
     "cover": "https://hiscores.shmup.com/covers/2.jpg"
   },
@@ -34,4 +36,4 @@
   "platform": {
     "name": "PCE"
   }
-}
+} as Score;

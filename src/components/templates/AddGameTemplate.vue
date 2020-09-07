@@ -118,7 +118,7 @@ import GameTemplate from "./GameTemplate.vue";
 import Component from "vue-class-component";
 import { generateRankings, Platform, Ranking } from "@/models/ranking";
 import { Prop, Provide, Ref } from "vue-property-decorator";
-import { User } from "@/models/user";
+import { Player } from "@/models/player";
 import { Game } from "@/models/game";
 
 @Component({
@@ -126,7 +126,7 @@ import { Game } from "@/models/game";
 })
 export default class AddGame extends Vue {
   @Prop() platforms!: Platform[];
-  @Prop() user!: User[];
+  @Prop() user!: Player;
 
   @Provide() valid = false;
   @Provide() difficultyLevelsPlaceholder = `Easy\nNormal\nHard`;

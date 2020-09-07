@@ -5,12 +5,16 @@ import { Player } from "@/models/player";
 export interface Mode {
   id: number;
   name: string;
-  scoreType?: string;
+  scoreType?: string | null;
+  createdAt?: string;
+  sortOrder?: number;
 }
 
 export interface Difficulty {
   id: number;
   name: string;
+  createdAt?: string;
+  sortOrder?: number;
 }
 
 export interface Ship {
@@ -21,11 +25,14 @@ export interface Ship {
 export interface Platform {
   id: number;
   name: string;
+  createdAt?: string;
 }
 
 export interface Stage {
   id: number;
   name: string;
+  createdAt?: string;
+  sortOrder?: number;
 }
 
 export interface Ranking {
