@@ -7,26 +7,29 @@
     </v-row>
     <v-row>
       <v-col>
+        <shmup-table :headers="headers" :items="history">
+          <template v-slot:item.createdAt="{ item }">
+            {{ formatDate(item.createdAt) }}
+          </template>
+          <template v-slot:item.gapWithPreviousScore="{ item }">
+            <span v-if="item.gapWithPreviousScore > 0"
+              >+{{ item.gapWithPreviousScore }}%</span
+            >
+          </template>
+        </shmup-table>
         <v-card tile>
-          <v-data-table :headers="headers" :items="history">
-            <template v-slot:item.createdAt="{ item }">
-              {{ formatDate(item.createdAt) }}
-            </template>
-            <template v-slot:item.gapWithPreviousScore="{ item }">
-              <span v-if="item.gapWithPreviousScore > 0"
-                >+{{ item.gapWithPreviousScore }}%</span
-              >
-            </template>
-          </v-data-table>
-          <v-sparkline
-            auto-draw
-            :labels="labels"
-            :value="value"
-            color="orange"
-            line-width="0.5"
-            padding="16"
-            label-size="3"
-          ></v-sparkline>
+          <v-card-title>Graphical Evolution</v-card-title>
+          <v-card-text>
+            <v-sparkline
+              auto-draw
+              :labels="labels"
+              :value="value"
+              color="orange"
+              line-width="0.5"
+              padding="16"
+              label-size="3"
+            ></v-sparkline>
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -37,16 +40,17 @@
 import moment from "moment";
 import Vue from "vue";
 import { Score } from "@/models/score";
+import ShmupTable from "@/components/molecules/ShmupTable.vue";
 
 export default Vue.extend({
-  components: {},
+  components: { ShmupTable },
   props: ["history"],
   data: () => ({
     headers: [
       { text: "Date", value: "createdAt" },
-      { text: "Stage", value: "stage.name", align: "right" },
-      { text: "Score", value: "value", align: "right" },
-      { text: "Score Gap", value: "gapWithPreviousScore", align: "right" },
+      { text: "Stage", value: "stage.name", align: "end" },
+      { text: "Score", value: "value", align: "end" },
+      { text: "Score Gap", value: "gapWithPreviousScore", align: "end" },
       { text: "Comment", value: "comment" },
     ],
   }),

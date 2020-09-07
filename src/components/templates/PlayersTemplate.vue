@@ -7,30 +7,12 @@
     </v-row>
     <v-row>
       <v-col xs12>
-        <v-card>
-          <v-card-title>
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Search"
-              single-line
-              hide-details
-            ></v-text-field>
-          </v-card-title>
-          <v-card-text>
-            <v-data-table
-              :headers="computedHeaders"
-              :items="players"
-              :search="search"
-              :item-class="rowClasses"
-              mobile-breakpoint="0"
-              :dense="$vuetify.breakpoint.smAndDown"
-              :loading="players.length === 0"
-              @click:row="(item) => $emit('goToPlayer', item)"
-            >
-            </v-data-table>
-          </v-card-text>
-        </v-card>
+        <shmup-table
+          :headers="headers"
+          :item-class="rowClasses"
+          :items="players"
+          @click:row="(item) => $emit('goToPlayer', item)"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -38,22 +20,16 @@
 
 <script>
 import Vue from "vue";
+import ShmupTable from "@/components/molecules/ShmupTable";
 
 export default Vue.extend({
   name: "PlayersTemplate",
+  components: { ShmupTable },
   props: ["players", "currentPlayerId"],
   data() {
     return {
-      search: "",
       headers: [{ text: "Player", value: "name" }],
     };
-  },
-  computed: {
-    computedHeaders() {
-      return this.headers.filter(
-        (h) => !h.hide || !this.$vuetify.breakpoint[h.hide]
-      );
-    },
   },
   methods: {
     rowClasses(item) {
