@@ -18,7 +18,9 @@
         :mobile-breakpoint="disableMobileBreakpoint ? 0 : undefined"
         :dense="$vuetify.breakpoint.smAndDown"
         :loading="loading"
-        @click:row="(item) => $emit('click:row', item)"
+        :sort-by="sortBy"
+        :sort-desc="sortDesc"
+        @click:row.self="(item) => $emit('click:row', item)"
       >
         <template
           v-for="(_, scopedSlotName) in $scopedSlots"
@@ -42,6 +44,8 @@ export default Vue.extend({
     "headers",
     "loading",
     "disableMobileBreakpoint",
+    "sortBy",
+    "sortDesc",
   ],
   data() {
     return {

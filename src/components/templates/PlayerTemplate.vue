@@ -7,79 +7,47 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <v-card>
-          <v-card-title>
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Search"
-              single-line
-              hide-details
-            ></v-text-field>
-          </v-card-title>
-          <v-card-text>
-            <v-data-table
-              :headers="computedHeaders"
-              :items="scores"
-              :search="search"
-              @click:row.self="goToGame"
-              :loading="loading"
-              :sort-by="['rank']"
-              :sort-desc="[false]"
-              :dense="$vuetify.breakpoint.smAndDown"
-              mobile-breakpoint="0"
-            >
-              <template v-slot:item.game.cover="{ item }">
-                <cover
-                  :url="item.game.cover"
-                  :alt="item.game.title"
-                  width="50"
-                  :contain="true"
-                  class="ma-1"
-                />
-              </template>
-              <template v-slot:item.game.title="{ item }">
-                <span class="game-title">{{ item.game.title }}</span>
-              </template>
-              <template v-slot:item.platform.name="{ item }">
-                <v-btn
-                  x-small
-                  dark
-                  depressed
-                  color="green"
-                  tile
-                  class="pl-1 pr-1"
-                  @click="() => goToPlatform(item)"
-                  >{{ item.platform ? item.platform.name : "" }}</v-btn
-                >
-              </template>
-              <template v-slot:item.rank="{ item }">
-                {{ item.rank | formatRank }}
-              </template>
-              <template v-slot:item.createdAt="{ item }">
-                {{ item.createdAt | formatDateFromNow }}
-              </template>
-              <template v-slot:item.value="{ item }">
-                <span v-if="item.mode && item.mode.scoreType === 'timer'">{{
-                  item.value | formatTime
-                }}</span>
-                <span v-else>{{ item.value | formatNumber }}</span>
-              </template>
-              <template v-slot:item.onecc="{ item }">
-                <v-chip
-                  class="ml-1 pl-2 pr-2"
-                  v-if="item.onecc"
-                  dark
-                  x-small
-                  tile
-                  depressed
-                  color="orange"
-                  >1CC</v-chip
-                >
-              </template>
-            </v-data-table>
-          </v-card-text>
-        </v-card>
+        <shmup-table
+          :items="scores"
+          :headers="headers"
+          @click:row="goToGame"
+          :sort-by="['rank']"
+          :sort-desc="[false]"
+        >
+          <template v-slot:item.game.cover="{ item }">
+            <cover
+              :url="item.game.cover"
+              :alt="item.game.title"
+              width="50"
+              :contain="true"
+              class="ma-1"
+            />
+          </template>
+          <template v-slot:item.game.title="{ item }">
+            <span class="game-title">{{ item.game.title }}</span>
+          </template>
+          <template v-slot:item.platform.name="{ item }">
+            <platform-button
+              :name="item.platform ? item.platform.name : ''"
+              @click="() => goToPlatform(item)"
+            />
+          </template>
+          <template v-slot:item.rank="{ item }">
+            {{ item.rank | formatRank }}
+          </template>
+          <template v-slot:item.createdAt="{ item }">
+            {{ item.createdAt | formatDateFromNow }}
+          </template>
+          <template v-slot:item.value="{ item }">
+            <span v-if="item.mode && item.mode.scoreType === 'timer'">{{
+              item.value | formatTime
+            }}</span>
+            <span v-else>{{ item.value | formatNumber }}</span>
+          </template>
+          <template v-slot:item.onecc="{ item }">
+            <one-c-c-chip v-if="item.onecc" />
+          </template>
+        </shmup-table>
       </v-col>
     </v-row>
   </v-container>
@@ -88,10 +56,13 @@
 <script lang="ts">
 import Vue from "vue";
 import Cover from "../atoms/Cover.vue";
+import ShmupTable from "@/components/molecules/ShmupTable.vue";
+import OneCCChip from "@/components/atoms/OneCCChip.vue";
+import PlatformButton from "@/components/atoms/PlatformButton.vue";
 
 export default Vue.extend({
   name: "PlayerTemplate",
-  components: { Cover },
+  components: { Cover, ShmupTable, OneCCChip, PlatformButton },
   props: ["loading", "scores"],
   data() {
     return {
