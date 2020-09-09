@@ -43,7 +43,6 @@ export default Vue.extend({
       this.$router.push(`/games/${this.game.id}/edit`);
     },
     onAddScore({ ranking }) {
-      debugger;
       this.$router.push(
         `/games/${this.game.id}/score?mode=${defaultSetting(
           ranking,

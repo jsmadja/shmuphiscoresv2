@@ -31,7 +31,6 @@
               single-line
               hide-details
               class="search-input pr-3"
-              v-if="ranking.scores.length > 0"
             ></v-text-field>
             <v-btn
               color="primary"
@@ -39,6 +38,7 @@
               small
               outlined
               v-if="!hideAddScoreButton"
+              :block="$vuetify.breakpoint.smAndDown"
               @click="$emit('addScore', ranking)"
             >
               <v-icon left>mdi-plus</v-icon>
