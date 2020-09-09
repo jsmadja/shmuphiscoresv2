@@ -7,38 +7,23 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-card>
-          <v-card-title>
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Search"
-              single-line
-              hide-details
-            ></v-text-field>
-          </v-card-title>
-          <v-card-text>
-            <v-data-table
-              :headers="computedHeaders"
-              :items="games"
-              :search="search"
-              :dense="$vuetify.breakpoint.smAndDown"
-              @click:row="(row) => $emit('selectGame', row)"
-              mobile-breakpoint="0"
-              :loading="games.length === 0"
-            >
-              <template v-slot:item.cover="{ item }">
-                <Cover
-                  :url="item.cover"
-                  :alt="item.title"
-                  width="50"
-                  :contain="true"
-                  class="ma-1"
-                />
-              </template>
-            </v-data-table>
-          </v-card-text>
-        </v-card>
+        <shmup-table
+          :headers="headers"
+          :items="games"
+          :disable-mobile-breakpoint="true"
+          @click:row="(row) => $emit('selectGame', row)"
+          :loading="games.length === 0"
+        >
+          <template v-slot:item.cover="{ item }">
+            <Cover
+              :url="item.cover"
+              :alt="item.title"
+              width="50"
+              :contain="true"
+              class="ma-1"
+            />
+          </template>
+        </shmup-table>
       </v-col>
     </v-row>
   </v-container>
@@ -47,14 +32,14 @@
 <script lang="ts">
 import Vue from "vue";
 import Cover from "../atoms/Cover.vue";
+import ShmupTable from "@/components/molecules/ShmupTable.vue";
 
 export default Vue.extend({
   name: "GamesTemplate",
   props: ["title", "games"],
-  components: { Cover },
+  components: { Cover, ShmupTable },
   data() {
     return {
-      search: "",
       headers: [
         {
           text: "",
@@ -68,13 +53,6 @@ export default Vue.extend({
         },
       ],
     };
-  },
-  computed: {
-    computedHeaders() {
-      return (this as any).headers.filter(
-        (h) => !h.hide || !(this.$vuetify as any).breakpoint[h.hide]
-      );
-    },
   },
 });
 </script>

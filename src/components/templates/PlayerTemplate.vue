@@ -66,7 +66,6 @@ export default Vue.extend({
   props: ["loading", "scores"],
   data() {
     return {
-      search: "",
       headers: [
         { text: "", value: "game.cover", hide: "smAndDown" },
         { text: "Game", value: "game.title" },
@@ -85,14 +84,6 @@ export default Vue.extend({
         { text: "Date", value: "createdAt", hide: "smAndDown" },
       ],
     };
-  },
-  computed: {
-    computedHeaders() {
-      const _any = this as any;
-      return _any.headers.filter(
-        (h: any) => !h.hide || !(this as any).$vuetify.breakpoint[h.hide]
-      );
-    },
   },
   methods: {
     goToGame(row) {

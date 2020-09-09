@@ -56,7 +56,6 @@
 <script lang="ts">
 import Vue from "vue";
 import ScoreCard from "../organisms/ScoreCard.vue";
-import { mapGetters } from "vuex";
 
 export default Vue.extend({
   name: "HomeTemplate",

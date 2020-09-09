@@ -7,7 +7,7 @@ export default {
 };
 export const withGames = () => ({
     components: {GamesTemplate},
-    template: `<games-template :games="games" @selectGame="onSelectGame" />`,
+    template: `<games-template title="Games" :games="games" @selectGame="onSelectGame" />`,
     data: () => ({ games }),
     methods: {
         onSelectGame: action('onSelectGame'),

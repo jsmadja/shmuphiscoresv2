@@ -9,7 +9,6 @@
 import { mapGetters } from "vuex";
 import PlatformsTemplate from "@/components/templates/PlatformsTemplate.vue";
 import Vue from "vue";
-import { PlatformWithGameCount } from "@/models/platforms";
 
 export default Vue.extend({
   name: "Platforms",
@@ -23,8 +22,8 @@ export default Vue.extend({
     this.$store.dispatch("fetchPlatforms");
   },
   methods: {
-    goToPlatformPage(platform: PlatformWithGameCount) {
-      this.$router.push(`/platform/${platform.title}`);
+    goToPlatformPage(platform) {
+      this.$router.push(`/platform/${platform.code}`);
     },
   },
 });

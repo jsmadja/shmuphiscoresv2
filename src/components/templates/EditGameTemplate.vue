@@ -75,7 +75,6 @@ import AddPlatforms from "../atoms/AddPlatforms.vue";
 import CopyableCode from "../atoms/CopyableCode.vue";
 import GameInformations from "../organisms/GameInformations.vue";
 import { Game } from "@/models/game";
-import { Platform } from "@/models/ranking";
 
 export default Vue.extend({
   name: "Game",

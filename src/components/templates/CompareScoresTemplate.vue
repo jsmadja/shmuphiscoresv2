@@ -43,10 +43,9 @@
             </v-row>
             <v-row>
               <v-col xs12>
-                <v-data-table
+                <shmup-table
                   :headers="headers"
                   :items="versus"
-                  :search="search"
                   :sort-by="['scoreGap']"
                   :sort-desc="[true]"
                   @click:row="(row) => $emit('goToGame', row)"
@@ -79,7 +78,7 @@
                       >{{ item.scoreGap }}%</span
                     >
                   </template>
-                </v-data-table>
+                </shmup-table>
               </v-col>
             </v-row>
           </v-card-text>
@@ -91,15 +90,16 @@
 
 <script lang="ts">
 import Vue from "vue";
+import ShmupTable from "@/components/molecules/ShmupTable.vue";
 
 export default Vue.extend({
   name: "CompareScoresTemplate",
   props: ["players", "versus", "currentUserId", "loading"],
+  components: { ShmupTable },
   data() {
     return {
       selectedPlayer1: null,
       selectedPlayer2: null,
-      search: "",
       headers: [
         { text: "Game", value: "game.title" },
         { text: "Mode", value: "mode.name" },

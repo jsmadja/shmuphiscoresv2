@@ -19,69 +19,23 @@
           <v-skeleton-loader type="card"></v-skeleton-loader>
         </v-col>
       </template>
-      <v-col xs="12" sm="12" md="12" lg="6">
-        <recommendation-card
-          @goToGame="goToGame"
-          title="Try a new mode"
-          v-if="myRecommendations.unplayedMode"
-          :content="`Play <b>${myRecommendations.unplayedMode.mode.name}</b> mode of <b>${myRecommendations.unplayedMode.game.title}</b>.`"
-          :game="myRecommendations.unplayedMode.game"
-        />
-      </v-col>
-      <v-col xs="12" sm="12" md="12" lg="6">
-        <recommendation-card
-          @goToGame="goToGame"
-          title="Try a new difficulty"
-          v-if="myRecommendations.unplayedDifficulty"
-          :content="`Play <b>${myRecommendations.unplayedDifficulty.difficulty.name}</b> difficulty of <b>${myRecommendations.unplayedDifficulty.game.title}</b>.`"
-          :game="myRecommendations.unplayedDifficulty.game"
-        />
-      </v-col>
-      <v-col xs="12" sm="12" md="12" lg="6">
-        <recommendation-card
-          @goToGame="goToGame"
-          title="Discover a new game"
-          v-if="myRecommendations.unplayedGame"
-          :content="`Add your first score on <b>${myRecommendations.unplayedGame.game.title}</b>.`"
-          :game="myRecommendations.unplayedGame.game"
-        />
-      </v-col>
-      <v-col xs="12" sm="12" md="12" lg="6">
-        <recommendation-card
-          @goToGame="goToGame"
-          title="Long time no see"
-          v-if="myRecommendations.oldestScoredGame"
-          :content="`Remember, you've scored it, long time ago ... <b>${myRecommendations.oldestScoredGame.game.title}</b>.`"
-          :game="myRecommendations.oldestScoredGame.game"
-        />
-      </v-col>
-      <v-col xs="12" sm="12" md="12" lg="6">
-        <recommendation-card
-          @goToGame="goToGame"
-          title="Try again, do your best"
-          v-if="myRecommendations.latestScoredGame"
-          :content="`Keep going on <b>${myRecommendations.latestScoredGame.game.title}</b>.`"
-          :game="myRecommendations.latestScoredGame.game"
-        />
-      </v-col>
-      <v-col xs="12" sm="12" md="12" lg="6">
-        <recommendation-card
-          @goToGame="goToGame"
-          title="Just a couple more shots"
-          v-if="myRecommendations.nearestScoredGame"
-          :content="`The next place is at hand, play <b>${myRecommendations.nearestScoredGame.game.title}</b>.`"
-          :game="myRecommendations.nearestScoredGame.game"
-        />
-      </v-col>
-      <v-col xs="12" sm="12" md="12" lg="6">
-        <recommendation-card
-          @goToGame="goToGame"
-          title="Learning curve is high"
-          v-if="myRecommendations.farestScoredGame"
-          :content="`You're far far from the next place, play <b>${myRecommendations.farestScoredGame.game.title}</b>.`"
-          :game="myRecommendations.farestScoredGame.game"
-        />
-      </v-col>
+      <template v-for="(recommendation, i) in recommendations">
+        <v-col
+          xs="12"
+          sm="12"
+          md="12"
+          lg="6"
+          :key="i"
+          v-if="recommendation.target"
+        >
+          <recommendation-card
+            @goToGame="goToGame"
+            :title="recommendation.title"
+            :content="recommendation.content"
+            :game="recommendation.target['game']"
+          />
+        </v-col>
+      </template>
     </v-row>
   </v-container>
 </template>
@@ -98,6 +52,47 @@ export default Vue.extend({
   methods: {
     goToGame(game: Game) {
       this.$emit("goToGame", game);
+    },
+  },
+  computed: {
+    recommendations: function () {
+      return [
+        {
+          title: "Try a new mode",
+          target: this.myRecommendations.unplayedMode,
+          content: `Play <b>${this.myRecommendations.unplayedMode.mode.name}</b> mode of <b>${this.myRecommendations.unplayedMode.game.title}</b>.`,
+        },
+        {
+          title: "Try a new difficulty",
+          target: this.myRecommendations.unplayedDifficulty,
+          content: `Play <b>${this.myRecommendations.unplayedDifficulty.difficulty.name}</b> difficulty of <b>${this.myRecommendations.unplayedDifficulty.game.title}</b>.`,
+        },
+        {
+          title: "Discover a new game",
+          target: this.myRecommendations.unplayedGame,
+          content: `Add your first score on <b>${this.myRecommendations.unplayedGame.game.title}</b>.`,
+        },
+        {
+          title: "Long time no see",
+          target: this.myRecommendations.oldestScoredGame,
+          content: `Remember, you've scored it, long time ago ... <b>${this.myRecommendations.oldestScoredGame.game.title}</b>.`,
+        },
+        {
+          title: "Try again, do your best",
+          target: this.myRecommendations.latestScoredGame,
+          content: `Keep going on <b>${this.myRecommendations.latestScoredGame.game.title}</b>.`,
+        },
+        {
+          title: "Just a couple more shots",
+          target: this.myRecommendations.nearestScoredGame,
+          content: `The next place is at hand, play <b>${this.myRecommendations.nearestScoredGame.game.title}</b>.`,
+        },
+        {
+          title: "Learning curve is high",
+          target: this.myRecommendations.farestScoredGame,
+          content: `You're far far from the next place, play <b>${this.myRecommendations.farestScoredGame.game.title}</b>.`,
+        },
+      ];
     },
   },
 });

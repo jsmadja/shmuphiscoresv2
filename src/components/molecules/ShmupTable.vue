@@ -20,6 +20,8 @@
         :loading="loading"
         :sort-by="sortBy"
         :sort-desc="sortDesc"
+        :hide-default-footer="hideDefaultFooter"
+        :footer-props="footerProps"
         @click:row.self="(item) => $emit('click:row', item)"
       >
         <template
@@ -46,6 +48,8 @@ export default Vue.extend({
     "disableMobileBreakpoint",
     "sortBy",
     "sortDesc",
+    "hide-default-footer",
+    "footer-props",
   ],
   data() {
     return {
