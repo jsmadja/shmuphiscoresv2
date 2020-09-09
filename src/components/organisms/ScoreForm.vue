@@ -1,6 +1,21 @@
 <template>
   <div>
     <v-form ref="formRef" v-model="valid">
+      <v-row v-if="previousScore && !previousScoreLoaded">
+        <v-col cols="12" lg="4">
+          <v-btn
+            small
+            depressed
+            dark
+            color="primary"
+            outlined
+            @click="() => $emit('loadPreviousScore')"
+          >
+            <v-icon left>mdi-reload</v-icon>
+            Load previous score settings</v-btn
+          >
+        </v-col>
+      </v-row>
       <v-row dense>
         <v-col cols="12" lg="4">
           <v-select
@@ -202,6 +217,7 @@ import _ from "lodash";
 import { Game } from "@/models/game";
 import { PropValidator } from "vue/types/options";
 import { InputValidationRules } from "vuetify";
+import { Score } from "@/models/score";
 
 interface ScoreForm {
   id: string | null;
@@ -223,12 +239,13 @@ interface ScoreForm {
 export default Vue.extend({
   props: {
     game: { type: Object } as PropValidator<Game>,
-    score: Object,
-    mode: Object,
-    difficulty: Object,
-    ship: Object,
-    stage: Object,
-    platform: Object,
+    score: { type: Object } as PropValidator<Score>,
+    previousScore: { type: Object } as PropValidator<Score>,
+    mode: { type: Number } as PropValidator<number>,
+    difficulty: { type: Number } as PropValidator<number>,
+    ship: { type: Number } as PropValidator<number>,
+    stage: { type: Number } as PropValidator<number>,
+    platform: { type: Number } as PropValidator<number>,
   },
   data(): {
     loading: boolean;
@@ -239,8 +256,10 @@ export default Vue.extend({
     notEmpty: InputValidationRules;
     replayRules: InputValidationRules;
     settingRules: (string) => InputValidationRules;
+    previousScoreLoaded: boolean;
   } {
     return {
+      previousScoreLoaded: false,
       loading: false,
       valid: false,
       hideDetails: false,
@@ -286,32 +305,46 @@ export default Vue.extend({
       },
     };
   },
+  updated() {
+    if (
+      this.score != null &&
+      this.previousScore != null &&
+      this.score.id === this.previousScore.id &&
+      !this.previousScoreLoaded
+    ) {
+      this.previousScoreLoaded = true;
+      this.form.mode = _.get(this, "score.mode.id");
+      this.form.difficulty = _.get(this, "score.difficulty.id");
+      this.form.platform = _.get(this, "score.platform.id");
+      this.form.ship = _.get(this, "score.ship.id");
+      this.form.stage = _.get(this, "score.stage.id");
+    }
+  },
   mounted() {
-    const form = this.form;
-    form.id = _.get(this, "score.id");
-    form.value = _.get(this, "score.value");
-    form.minutes = _.get(this, "score.minutes");
-    form.seconds = _.get(this, "score.seconds");
-    form.milliseconds = _.get(this, "score.milliseconds");
-    form.comment = _.get(this, "score.comment");
-    form.replay = _.get(this, "score.replay");
-    form.mode =
+    this.form.id = _.get(this, "score.id");
+    this.form.value = _.get(this, "score.value");
+    this.form.minutes = _.get(this, "score.minutes");
+    this.form.seconds = _.get(this, "score.seconds");
+    this.form.milliseconds = _.get(this, "score.milliseconds");
+    this.form.comment = _.get(this, "score.comment");
+    this.form.replay = _.get(this, "score.replay");
+    this.form.mode =
       this.mode ||
       _.get(this, "score.mode.id") ||
       this.defaultSettingValue("modes");
-    form.difficulty =
+    this.form.difficulty =
       this.difficulty ||
       _.get(this, "score.difficulty.id") ||
       this.defaultSettingValue("difficulties");
-    form.platform =
+    this.form.platform =
       this.platform ||
       _.get(this, "score.platform.id") ||
       this.defaultSettingValue("platforms");
-    form.ship =
+    this.form.ship =
       this.ship ||
       _.get(this, "score.ship.id") ||
       this.defaultSettingValue("ships");
-    form.stage =
+    this.form.stage =
       this.stage ||
       _.get(this, "score.stage.id") ||
       this.defaultSettingValue("stages");
@@ -348,7 +381,7 @@ export default Vue.extend({
     },
   },
   computed: {
-    previewPhoto: function (): string {
+    previewPhoto: function (): string | null | undefined {
       const scorePhoto = _.get(this.score, "photo");
       return this.form.photo
         ? URL.createObjectURL(this.form.photo)

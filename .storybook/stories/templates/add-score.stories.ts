@@ -10,6 +10,7 @@ const methods = {
     copy: action('copy'),
     goToGamePage: action('goToGamePage'),
     goToGameEdit: action('goToGameEdit'),
+    loadPreviousScore: action('loadPreviousScore'),
 };
 
 export default {
@@ -71,6 +72,21 @@ export const withReferenceScore = () => ({
                           @copy="copy"
                           @goToGamePage="goToGamePage"
                           @goToGameEdit="goToGameEdit" />`,
+    data: () => ({ game, score }),
+    methods,
+});
+
+export const withPreviousScore = () => ({
+    components: {AddScoreTemplate},
+    template: `
+      <add-score-template :game="game"
+                          :previousScore="score"
+                          @createScore="createScore"
+                          @editScore="editScore"
+                          @copy="copy"
+                          @goToGamePage="goToGamePage"
+                          @goToGameEdit="goToGameEdit"
+                          @loadPreviousScore="loadPreviousScore" />`,
     data: () => ({ game, score }),
     methods,
 });

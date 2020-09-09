@@ -37,8 +37,10 @@
                 :stage="stage"
                 :platform="platform"
                 :score="score"
+                :previous-score="previousScore"
                 @createScore="onCreateScore"
                 @editScore="onEditScore"
+                @loadPreviousScore="onLoadPreviousScore"
               />
             </v-stepper-content>
             <v-stepper-content step="2">
@@ -77,6 +79,7 @@ export default Vue.extend({
     "stage",
     "platform",
     "step",
+    "previousScore",
   ],
   methods: {
     onCreateScore(score) {
@@ -93,6 +96,9 @@ export default Vue.extend({
     },
     goToGameEdit() {
       this.$emit(`goToGameEdit`);
+    },
+    onLoadPreviousScore() {
+      this.$emit("loadPreviousScore");
     },
   },
 });
