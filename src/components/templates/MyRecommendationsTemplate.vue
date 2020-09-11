@@ -60,37 +60,51 @@ export default Vue.extend({
         {
           title: "Try a new mode",
           target: this.myRecommendations.unplayedMode,
-          content: `Play <b>${this.myRecommendations.unplayedMode.mode.name}</b> mode of <b>${this.myRecommendations.unplayedMode.game.title}</b>.`,
+          content: this.myRecommendations.unplayedMode
+            ? `Play <b>${this.myRecommendations.unplayedMode.mode.name}</b> mode of <b>${this.myRecommendations.unplayedMode.game.title}</b>.`
+            : "",
         },
         {
           title: "Try a new difficulty",
           target: this.myRecommendations.unplayedDifficulty,
-          content: `Play <b>${this.myRecommendations.unplayedDifficulty.difficulty.name}</b> difficulty of <b>${this.myRecommendations.unplayedDifficulty.game.title}</b>.`,
+          content: this.myRecommendations.unplayedDifficulty
+            ? `Play <b>${this.myRecommendations.unplayedDifficulty.difficulty.name}</b> difficulty of <b>${this.myRecommendations.unplayedDifficulty.game.title}</b>.`
+            : "",
         },
         {
           title: "Discover a new game",
           target: this.myRecommendations.unplayedGame,
-          content: `Add your first score on <b>${this.myRecommendations.unplayedGame.game.title}</b>.`,
+          content: this.myRecommendations.unplayedGame
+            ? `Add your first score on <b>${this.myRecommendations.unplayedGame.game.title}</b>.`
+            : "",
         },
         {
           title: "Long time no see",
           target: this.myRecommendations.oldestScoredGame,
-          content: `Remember, you've scored it, long time ago ... <b>${this.myRecommendations.oldestScoredGame.game.title}</b>.`,
+          content: this.myRecommendations.oldestScoredGame
+            ? `Remember, you've scored it, long time ago ... <b>${this.myRecommendations.oldestScoredGame.game.title}</b>.`
+            : "",
         },
         {
           title: "Try again, do your best",
           target: this.myRecommendations.latestScoredGame,
-          content: `Keep going on <b>${this.myRecommendations.latestScoredGame.game.title}</b>.`,
+          content: this.myRecommendations.latestScoredGame
+            ? `Keep going on <b>${this.myRecommendations.latestScoredGame.game.title}</b>.`
+            : "",
         },
         {
           title: "Just a couple more shots",
           target: this.myRecommendations.nearestScoredGame,
-          content: `The next place is at hand, play <b>${this.myRecommendations.nearestScoredGame.game.title}</b>.`,
+          content: this.myRecommendations.nearestScoredGame
+            ? `The next place is at hand, play <b>${this.myRecommendations.nearestScoredGame.game.title}</b>.`
+            : "",
         },
         {
           title: "Learning curve is high",
           target: this.myRecommendations.farestScoredGame,
-          content: `You're far far from the next place, play <b>${this.myRecommendations.farestScoredGame.game.title}</b>.`,
+          content: this.myRecommendations.farestScoredGame
+            ? `You're far far from the next place, play <b>${this.myRecommendations.farestScoredGame.game.title}</b>.`
+            : "",
         },
       ];
     },

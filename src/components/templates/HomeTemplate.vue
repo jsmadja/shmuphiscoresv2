@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row v-if="user.authenticated">
+    <v-row v-if="user.authenticated && myLastScores.length > 0">
       <v-col>
         <h1>My last scores</h1>
       </v-col>

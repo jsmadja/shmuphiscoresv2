@@ -12,7 +12,7 @@
           :items="games"
           :disable-mobile-breakpoint="true"
           @click:row="(row) => $emit('selectGame', row)"
-          :loading="games.length === 0"
+          :loading="loading"
         >
           <template v-slot:item.cover="{ item }">
             <Cover
@@ -36,7 +36,7 @@ import ShmupTable from "@/components/molecules/ShmupTable.vue";
 
 export default Vue.extend({
   name: "GamesTemplate",
-  props: ["title", "games"],
+  props: ["title", "games", "loading"],
   components: { Cover, ShmupTable },
   data() {
     return {

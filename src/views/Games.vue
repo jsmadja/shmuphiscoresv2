@@ -1,5 +1,10 @@
 <template>
-  <games-template title="Games" :games="games" @selectGame="onSelectGame" />
+  <games-template
+    title="Games"
+    :games="games"
+    :loading="loading"
+    @selectGame="onSelectGame"
+  />
 </template>
 
 <script>
@@ -10,8 +15,10 @@ import GamesTemplate from "@/components/templates/GamesTemplate";
 export default Vue.extend({
   title: "Games",
   components: { GamesTemplate },
+  data: () => ({ loading: false }),
   created() {
-    this.$store.dispatch("fetchGames");
+    this.loading = false;
+    this.$store.dispatch("fetchGames").then(() => (this.loading = true));
   },
   computed: {
     ...mapGetters(["games"]),

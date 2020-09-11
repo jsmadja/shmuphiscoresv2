@@ -4,46 +4,54 @@
       <v-col cols="12">
         <v-card tile>
           <v-card-title>
-            <h3 v-if="ranking">
-              <span v-if="ranking && ranking.mode">{{
-                ranking.mode.name
-              }}</span>
-              <span
-                v-if="
-                  ranking &&
-                  ranking.mode &&
-                  ranking.difficulty &&
-                  ranking.mode.name &&
-                  ranking.difficulty.name
-                "
-              >
-                -
-              </span>
-              <span v-if="ranking && ranking.difficulty">{{
-                ranking.difficulty.name
-              }}</span>
-            </h3>
-            <v-spacer></v-spacer>
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Search"
-              single-line
-              hide-details
-              class="search-input pr-3"
-            ></v-text-field>
-            <v-btn
-              color="primary"
-              dark
-              small
-              outlined
-              v-if="!hideAddScoreButton"
-              :block="$vuetify.breakpoint.smAndDown"
-              @click="$emit('addScore', ranking)"
-            >
-              <v-icon left>mdi-plus</v-icon>
-              Add Score
-            </v-btn>
+            <v-row>
+              <v-col cols="12" lg="5">
+                <h3 v-if="ranking">
+                  <span v-if="ranking && ranking.mode">{{
+                    ranking.mode.name
+                  }}</span>
+                  <span
+                    v-if="
+                      ranking &&
+                      ranking.mode &&
+                      ranking.difficulty &&
+                      ranking.mode.name &&
+                      ranking.difficulty.name
+                    "
+                  >
+                    -
+                  </span>
+                  <span v-if="ranking && ranking.difficulty">{{
+                    ranking.difficulty.name
+                  }}</span>
+                </h3>
+              </v-col>
+              <v-col cols="12" lg="5">
+                <v-text-field
+                  v-model="search"
+                  append-icon="mdi-magnify"
+                  label="Search"
+                  single-line
+                  hide-details
+                  class="search-input ma-0"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" lg="2">
+                <v-btn
+                  color="primary"
+                  dark
+                  small
+                  outlined
+                  class="add-score-button"
+                  v-if="!hideAddScoreButton"
+                  :block="$vuetify.breakpoint.smAndDown"
+                  @click="$emit('addScore', ranking)"
+                >
+                  <v-icon left>mdi-plus</v-icon>
+                  Add Score
+                </v-btn>
+              </v-col>
+            </v-row>
           </v-card-title>
           <v-card-text v-if="ranking.scores.length > 0">
             <v-data-table
@@ -200,17 +208,19 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .search-input {
-  line-height: 1rem;
   padding-top: 0;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
 }
 
 .photo-tooltip-class {
   background: none;
 }
 
+.add-score-button {
+  display: inline-flex;
+}
+
 h3 {
   font-weight: bold;
+  display: inline-flex;
 }
 </style>
