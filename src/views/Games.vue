@@ -17,8 +17,8 @@ export default Vue.extend({
   components: { GamesTemplate },
   data: () => ({ loading: false }),
   created() {
-    this.loading = false;
-    this.$store.dispatch("fetchGames").then(() => (this.loading = true));
+    this.loading = true;
+    this.$store.dispatch("fetchGames").then(() => (this.loading = false));
   },
   computed: {
     ...mapGetters(["games"]),
