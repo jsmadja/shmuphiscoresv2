@@ -6,7 +6,7 @@ import { Game } from "@/models/game";
 export interface Score {
   createdAt?: string;
   player: Player;
-  id: number;
+  id?: number;
   photo?: string | null;
   value: number;
   inp?: string | null;

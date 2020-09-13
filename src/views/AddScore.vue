@@ -21,7 +21,7 @@
 import { mapGetters } from "vuex";
 import Vue from "vue";
 import AddScoreTemplate from "@/components/templates/AddScoreTemplate.vue";
-import { fetchPreviousUserScoreOfGame } from "@/repository";
+import { fetchPreviousUserScoreOfGames } from "@/repository";
 import { Score } from "@/models/score";
 
 export default Vue.extend({
@@ -50,9 +50,18 @@ export default Vue.extend({
     };
   },
   created() {
-    fetchPreviousUserScoreOfGame(this.$route.params.id).then(
-      (scores) => (this.previousScore = scores.length > 0 ? scores[0] : null)
-    );
+    fetchPreviousUserScoreOfGames(this.$route.params.id).then((scores) => {
+      if (scores.length > 0) {
+        const previousScore = scores[0];
+        delete previousScore.id;
+        delete previousScore.inp;
+        delete previousScore.photo;
+        delete previousScore.replay;
+        this.previousScore = previousScore;
+      } else {
+        this.previousScore = null;
+      }
+    });
 
     this.$store.dispatch("fetchGame", this.$route.params.id);
     const { mode, difficulty, platform, ship, stage } = this.$route.query;

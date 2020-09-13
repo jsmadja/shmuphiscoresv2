@@ -206,7 +206,7 @@
       @click="validate"
       color="primary"
       class="mt-5"
-      >{{ score ? "Update" : "Submit" }} Score</v-btn
+      >{{ score && score.id ? "Update" : "Submit" }} Score</v-btn
     >
   </div>
 </template>

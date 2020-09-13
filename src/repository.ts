@@ -113,7 +113,7 @@ export async function createShip({ game, ship }): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/ships`, ship);
 }
 
-export async function fetchPreviousUserScoreOfGame(gameId): Promise<Score[]> {
+export async function fetchPreviousUserScoreOfGames(gameId): Promise<Score[]> {
   return fetch(`${api}/me/games/${gameId}/scores`).then((response) =>
     response.json()
   );
