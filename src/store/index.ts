@@ -85,7 +85,7 @@ export const actions = {
     });
   },
   async createScore(context, score) {
-    createScore(score)
+    return createScore(score)
       .then((response) => {
         context.dispatch("showSuccessToast", `Score has been submitted`);
         return response.data;
@@ -96,7 +96,7 @@ export const actions = {
       });
   },
   async editScore(context, score) {
-    editScore(score)
+    return editScore(score)
       .then((response) => {
         context.dispatch("showSuccessToast", `Score has been updated`);
         return response.data;

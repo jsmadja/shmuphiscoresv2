@@ -76,11 +76,9 @@ export default Vue.extend({
     onGoToGameEdit() {
       this.$router.push(`/games/${this.game.id}/edit`);
     },
-    onCreateScore(score) {
-      this.$store
-        .dispatch("createScore", score)
-        .then((score) => (this.score = score))
-        .then(() => (this.step = 2));
+    async onCreateScore(score) {
+      this.score = await this.$store.dispatch("createScore", score);
+      this.step = 2;
     },
     onLoadPreviousScore() {
       this.score = this.previousScore;

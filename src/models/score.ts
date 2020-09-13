@@ -58,11 +58,13 @@ export function toForumCode(score: Score): string {
   if (score.platform) {
     message += `Support : [b]${score.platform.name}[/b]\n`;
   }
-  message += `Position : [b]${score.rank}${
-    score.progression != null && score.progression > 0
-      ? ` (+${score.progression})`
-      : ""
-  }[/b]\n`;
+  if (score.rank) {
+    message += `Position : [b]${score.rank}${
+      score.progression != null && score.progression > 0
+        ? ` (+${score.progression})`
+        : ""
+    }[/b]\n`;
+  }
 
   if (score.comment) {
     message += `\nCommentaire : [b]${score.comment}[/b]\n`;
