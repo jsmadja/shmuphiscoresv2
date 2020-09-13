@@ -7,23 +7,7 @@
             <v-row>
               <v-col cols="12" lg="5">
                 <h3 v-if="ranking">
-                  <span v-if="ranking && ranking.mode">{{
-                    ranking.mode.name
-                  }}</span>
-                  <span
-                    v-if="
-                      ranking &&
-                      ranking.mode &&
-                      ranking.difficulty &&
-                      ranking.mode.name &&
-                      ranking.difficulty.name
-                    "
-                  >
-                    -
-                  </span>
-                  <span v-if="ranking && ranking.difficulty">{{
-                    ranking.difficulty.name
-                  }}</span>
+                  {{ rankingName }}
                 </h3>
               </v-col>
               <v-col cols="12" lg="5">
@@ -194,6 +178,24 @@ export default Vue.extend({
       return this.headers.filter(
         (h) => !h.hide || !this.$vuetify.breakpoint[h.hide]
       );
+    },
+    rankingName(): string {
+      let rankingName = "";
+      rankingName +=
+        this.ranking && this.ranking.mode ? this.ranking.mode.name : "";
+      rankingName +=
+        this.ranking &&
+        this.ranking.mode &&
+        this.ranking.difficulty &&
+        this.ranking.mode.name &&
+        this.ranking.difficulty.name
+          ? " - "
+          : "";
+      rankingName +=
+        this.ranking && this.ranking.difficulty
+          ? this.ranking.difficulty.name
+          : "";
+      return rankingName;
     },
   },
   methods: {
