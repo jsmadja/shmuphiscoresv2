@@ -125,11 +125,15 @@
                 <span
                   v-if="ranking.mode && ranking.mode.scoreType === 'timer'"
                   class="float-right"
+                  @click.self="() => goToScore(item)"
                   >{{ item.value | formatTime }}</span
                 >
-                <span v-else class="float-right">{{
-                  item.value | formatNumber
-                }}</span>
+                <span
+                  v-else
+                  class="float-right"
+                  @click.self="() => goToScore(item)"
+                  >{{ item.value | formatNumber }}</span
+                >
               </template>
             </v-data-table>
           </v-card-text>
@@ -203,6 +207,9 @@ export default Vue.extend({
       if (item.player.id == this.currentPlayerId) {
         return "orange lighten-5";
       }
+    },
+    goToScore(score: Score) {
+      this.$emit("goToScore", score);
     },
   },
 });

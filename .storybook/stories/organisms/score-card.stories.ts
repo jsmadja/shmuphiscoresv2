@@ -10,18 +10,19 @@ export default {
 const methods = {
     onAddScore: action('onAddScore'),
     onEditScore: action('onEditScore'),
+    onGoToScore: action('onGoToScore'),
 };
 
 export const timeScore = () => ({
     components: {ScoreCard},
-    template: `<v-col cols="6"><score-card :score="score" @addScore="onAddScore" @editScore="onEditScore" /></v-col>`,
+    template: `<v-col cols="6"><score-card :score="score" @addScore="onAddScore" @editScore="onEditScore" @goToScore="onGoToScore" /></v-col>`,
     data: () => ({ score: timerScore}),
     methods,
 });
 
 export const numericScore = () => ({
     components: {ScoreCard},
-    template: `<v-col cols="6"><score-card :score="score" @addScore="onAddScore" @editScore="onEditScore" /></v-col>`,
+    template: `<v-col cols="6"><score-card :score="score" @addScore="onAddScore" @editScore="onEditScore" @goToScore="onGoToScore" /></v-col>`,
     data: () => ({ score: lastScores[0]}),
     methods,
 });

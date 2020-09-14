@@ -5,6 +5,7 @@ import scores from "../data/my-last-scores";
 const methods = {
   goToGame: action('goToGame'),
   goToPlatform: action('goToPlatform'),
+  goToScore: action('goToScore'),
 };
 
 export default {
@@ -25,7 +26,11 @@ export const withPlayerLoading = () => ({
 
 export const withPlayer = () => ({
     components: {PlayerTemplate},
-    template: `<player-template :scores="scores" :loading="false" @goToGame="goToGame" @goToPlatform="goToPlatform" />`,
+    template: `<player-template :scores="scores"
+                                :loading="false"
+                                @goToGame="goToGame"
+                                @goToPlatform="goToPlatform"
+                                @goToScore="goToScore" />`,
     methods,
     data: () => ({ scores })
 });

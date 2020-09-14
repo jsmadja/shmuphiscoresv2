@@ -21,10 +21,11 @@
             <v-col cols="12" lg="12">
               <span
                 class="score"
+                @click="$emit('goToScore', score)"
                 v-if="score.mode && score.mode.scoreType === 'timer'"
                 >{{ score.value | formatTime }}</span
               >
-              <span class="score" v-else
+              <span class="score" @click="$emit('goToScore', score)" v-else
                 >{{ score.value | formatNumber }} pts</span
               >
             </v-col>
@@ -202,6 +203,7 @@ export default Vue.extend({
   font-size: 1.3rem;
   font-weight: bold;
   color: orange;
+  cursor: pointer;
 }
 
 .category {

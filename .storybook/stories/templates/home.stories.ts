@@ -13,6 +13,7 @@ const methods = {
     goToPlayer: action('goToPlayer'),
     addScore: action('addScore'),
     editScore: action('editScore'),
+    goToScore: action('goToScore'),
 };
 
 export const defaultAnonymousLoadingTemplate = () => ({
@@ -27,6 +28,7 @@ export const defaultAnonymousLoadingTemplate = () => ({
                       @goToPlayer="goToPlayer"
                       @addScore="addScore"
                       @editScore="editScore"
+                      @goToScore="goToScore"
     />`,
     data: () => ({
         user: {},
@@ -50,6 +52,7 @@ export const defaultAuthenticatedLoadingTemplate = () => ({
                       @goToPlayer="goToPlayer"
                       @addScore="addScore"
                       @editScore="editScore"
+                      @goToScore="goToScore"
     />`,
     data: () => ({
         user: superadmin,
@@ -73,6 +76,7 @@ export const defaultAuthenticatedTemplate = () => ({
                       @goToPlayer="goToPlayer"
                       @addScore="addScore"
                       @editScore="editScore"
+                      @goToScore="goToScore"
     />`,
     data: () => ({
         user: superadmin,

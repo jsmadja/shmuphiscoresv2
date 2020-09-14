@@ -1,8 +1,10 @@
 <template>
   <v-container>
-    <v-row>
+    <v-row v-if="history.length > 0">
       <v-col>
-        <h1 v-if="history.length > 0">{{ history[0].gameTitle }}</h1>
+        <h1>{{ history[0].gameTitle }}</h1>
+        <h2>by {{ history[0].player.name }}</h2>
+        <h3>on ranking {{ rankingName }}</h3>
       </v-col>
     </v-row>
     <v-row>
@@ -10,6 +12,14 @@
         <shmup-table :headers="headers" :items="history">
           <template v-slot:item.createdAt="{ item }">
             {{ formatDate(item.createdAt) }}
+          </template>
+          <template v-slot:item.value="{ item }">
+            <span v-if="item.mode && item.mode.scoreType === 'timer'">
+              {{ item.value | formatTime }}
+            </span>
+            <span v-else>
+              {{ item.value | formatNumber }}
+            </span>
           </template>
           <template v-slot:item.gapWithPreviousScore="{ item }">
             <span v-if="item.gapWithPreviousScore > 0"
@@ -41,10 +51,15 @@ import moment from "moment";
 import Vue from "vue";
 import { Score } from "@/models/score";
 import ShmupTable from "@/components/molecules/ShmupTable.vue";
+import { PropValidator } from "vue/types/options";
 
 export default Vue.extend({
   components: { ShmupTable },
-  props: ["history"],
+  props: {
+    history: {
+      type: Array,
+    } as PropValidator<Score[]>,
+  },
   data: () => ({
     headers: [
       { text: "Date", value: "createdAt" },
@@ -62,6 +77,21 @@ export default Vue.extend({
     },
     value: function () {
       return this.history.map((score: Score) => score.value);
+    },
+    rankingName: function () {
+      const score = this.history.length > 0 ? this.history[0] : ({} as Score);
+      let rankingName = "";
+      rankingName += score && score.mode ? score.mode.name : "";
+      rankingName +=
+        score &&
+        score.mode &&
+        score.difficulty &&
+        score.mode.name &&
+        score.difficulty.name
+          ? " - "
+          : "";
+      rankingName += score && score.difficulty ? score.difficulty.name : "";
+      return rankingName;
     },
   },
   methods: {

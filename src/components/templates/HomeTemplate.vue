@@ -24,6 +24,7 @@
           @addScore="addScore"
           @editScore="editScore"
           @goToPlatform="goToPlatform"
+          @goToScore="goToScore"
         />
       </v-col>
     </v-row>
@@ -47,6 +48,7 @@
           @editScore="editScore"
           @goToPlayer="goToPlayer"
           @goToPlatform="goToPlatform"
+          @goToScore="goToScore"
         />
       </v-col>
     </v-row>
@@ -82,6 +84,9 @@ export default Vue.extend({
     },
     editScore(score) {
       this.$emit("editScore", score);
+    },
+    goToScore(score) {
+      this.$emit("goToScore", score);
     },
   },
 });

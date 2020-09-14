@@ -4,6 +4,7 @@
     :scores="scores"
     @goToGame="goToGame"
     @goToPlatform="goToPlatform"
+    @goToScore="goToScore"
   />
 </template>
 
@@ -12,6 +13,7 @@ import { getScoresByPlayer } from "@/repository";
 import Vue from "vue";
 import PlayerTemplate from "@/components/templates/PlayerTemplate.vue";
 import { Score } from "@/models/score";
+import { goToScore } from "@/router/routes";
 
 export default Vue.extend({
   name: "Player",
@@ -33,6 +35,9 @@ export default Vue.extend({
     },
     goToPlatform(platform) {
       this.$router.push(`/platform/${platform.name}`);
+    },
+    goToScore(score) {
+      goToScore(score);
     },
   },
 });

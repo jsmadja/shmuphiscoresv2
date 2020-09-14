@@ -39,10 +39,14 @@
             {{ item.createdAt | formatDateFromNow }}
           </template>
           <template v-slot:item.value="{ item }">
-            <span v-if="item.mode && item.mode.scoreType === 'timer'">{{
-              item.value | formatTime
+            <span
+              @click.self="() => goToScore(item)"
+              v-if="item.mode && item.mode.scoreType === 'timer'"
+              >{{ item.value | formatTime }}</span
+            >
+            <span @click.self="() => goToScore(item)" v-else>{{
+              item.value | formatNumber
             }}</span>
-            <span v-else>{{ item.value | formatNumber }}</span>
           </template>
           <template v-slot:item.onecc="{ item }">
             <one-c-c-chip v-if="item.onecc" />
@@ -91,6 +95,9 @@ export default Vue.extend({
     },
     goToPlatform(row) {
       this.$emit("goToPlatform", row.platform);
+    },
+    goToScore(row) {
+      this.$emit("goToScore", row);
     },
   },
 });

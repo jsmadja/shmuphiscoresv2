@@ -10,6 +10,7 @@
     @goToPlayer="goToPlayer"
     @addScore="addScore"
     @editScore="editScore"
+    @goToScore="goToScore"
   />
 </template>
 
@@ -17,6 +18,7 @@
 import HomeTemplate from "@/components/templates/HomeTemplate.vue";
 import { mapGetters } from "vuex";
 import Vue from "vue";
+import { goToScore } from "@/router/routes";
 
 function defaultSetting(setting) {
   if (setting && setting.id) {
@@ -69,6 +71,9 @@ export default Vue.extend({
     },
     editScore(score) {
       this.$router.push(`/games/${score.game.id}/scores/${score.id}/edit`);
+    },
+    goToScore(score) {
+      goToScore(score);
     },
   },
 });

@@ -16,6 +16,7 @@ export const defaultGame = () => ({
                        @configureGame="onConfigureGame"
                        @selectPlatform="onSelectPlatform"
                        @addScore="onAddScore" 
+                       @goToScore="onGoToScore"
         />`,
     data: () => ({
         game,
@@ -29,6 +30,7 @@ export const defaultGame = () => ({
         onAddScore: action('onAddScore'),
         onSelectPlatform: action('onSelectPlatform'),
         onConfigureGame: action('onConfigureGame'),
+        onGoToScore: action('goToScore'),
     },
 });
 
