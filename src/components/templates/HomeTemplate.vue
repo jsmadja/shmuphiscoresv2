@@ -1,11 +1,11 @@
 <template>
   <v-container>
-    <v-row v-if="user.authenticated && myLastScores.length > 0">
+    <v-row v-if="user && user.authenticated && myLastScores.length > 0">
       <v-col>
         <h1>My last scores</h1>
       </v-col>
     </v-row>
-    <v-row v-if="user.authenticated">
+    <v-row v-if="user && user.authenticated">
       <v-col v-if="myLastScoresLoading" cols="12" sm="6" lg="6">
         <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
       </v-col>

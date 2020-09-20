@@ -88,7 +88,7 @@
             </v-list-item-content>
           </v-list-item>
           <v-divider></v-divider>
-          <v-list-item link to="/add-game" v-if="user.administrator">
+          <v-list-item link to="/add-game" v-if="user && user.administrator">
             <v-list-item-action>
               <v-icon>mdi-view-grid-plus</v-icon>
             </v-list-item-action>
@@ -181,7 +181,9 @@ export default Vue.extend({
 
   mounted() {
     const $crisp = (window as any).$crisp;
-    $crisp.push(["set", "user:nickname", [this.user.name]]);
+    if (this.user) {
+      $crisp.push(["set", "user:nickname", [this.user.name]]);
+    }
   },
 
   methods: {
