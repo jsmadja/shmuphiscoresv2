@@ -179,13 +179,6 @@ export default Vue.extend({
     this.$store.dispatch("fetchMyLastScores");
   },
 
-  mounted() {
-    const $crisp = (window as any).$crisp;
-    if (this.user) {
-      $crisp.push(["set", "user:nickname", [this.user.name]]);
-    }
-  },
-
   methods: {
     goToGame(game) {
       this.$router.push(`/games/${game.id}`);
