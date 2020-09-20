@@ -168,10 +168,10 @@ export default class AddGame extends Vue {
   validate(): void {
     this.formElement.validate();
     const game = JSON.parse(JSON.stringify(this.formModel));
-    game.difficulties = game.difficulties.split("\n");
-    game.ships = game.ships.split("\n");
-    game.modes = game.modes.split("\n");
-    game.stages = game.stages.split("\n");
+    game.difficulties = game.difficulties.split("\n").filter((s) => !!s);
+    game.ships = game.ships.split("\n").filter((s) => !!s);
+    game.modes = game.modes.split("\n").filter((s) => !!s);
+    game.stages = game.stages.split("\n").filter((s) => !!s);
     this.$emit("createGame", game);
   }
   reset(): void {
