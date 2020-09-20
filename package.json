@@ -15,8 +15,6 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.10.4",
-    "@sentry/browser": "^5.22.3",
-    "@sentry/integrations": "^5.22.3",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "fork-ts-checker-webpack-plugin": "^5.1.0",
