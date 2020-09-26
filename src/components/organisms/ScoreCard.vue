@@ -14,9 +14,9 @@
         <v-col cols="12" lg="9" class="pl-2">
           <v-row dense>
             <v-col cols="12"
-              ><span class="title" @click="$emit('goToGame', score.game)">{{
+              ><router-link :to="`/game/${score.game.id}`" class="title">{{
                 score.game.title
-              }}</span></v-col
+              }}</router-link></v-col
             >
             <v-col cols="12" lg="12">
               <span
@@ -197,6 +197,7 @@ export default Vue.extend({
   max-width: 100%;
   display: block;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .score {
