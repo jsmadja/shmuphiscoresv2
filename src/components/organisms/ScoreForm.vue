@@ -112,11 +112,10 @@
             label="Score"
             v-model="form.value"
             outlined
-            :rules="notBlank"
+            :rules="isNumeric"
             placeholder="123456"
             :hide-details="hideDetails"
             suffix="pts"
-            type="number"
           />
         </v-col>
 
@@ -126,36 +125,33 @@
               <v-text-field
                 label="Minutes"
                 v-model="form.minutes"
-                :rules="notBlank"
+                :rules="isNumeric"
                 outlined
                 placeholder="12"
                 :hide-details="hideDetails"
                 suffix="mn"
-                type="number"
               />
             </v-col>
             <v-col cols="12" lg="4">
               <v-text-field
                 label="Seconds"
                 v-model="form.seconds"
-                :rules="notBlank"
+                :rules="isNumeric"
                 outlined
                 placeholder="34"
                 :hide-details="hideDetails"
                 suffix="s"
-                type="number"
               />
             </v-col>
             <v-col cols="12" lg="4">
               <v-text-field
                 label="Milliseconds"
                 v-model="form.milliseconds"
-                :rules="notBlank"
+                :rules="isNumeric"
                 outlined
                 placeholder="56"
                 :hide-details="hideDetails"
                 suffix="ms"
-                type="number"
               />
             </v-col>
           </v-row>
@@ -252,7 +248,7 @@ export default Vue.extend({
     valid: boolean;
     hideDetails: boolean;
     form: ScoreForm;
-    notBlank: InputValidationRules;
+    isNumeric: InputValidationRules;
     notEmpty: InputValidationRules;
     replayRules: InputValidationRules;
     settingRules: (string) => InputValidationRules;
@@ -263,9 +259,9 @@ export default Vue.extend({
       loading: false,
       valid: false,
       hideDetails: false,
-      notBlank: [
+      isNumeric: [
         (v: string) => {
-          return (v && v.toString().trim().length > 0) || "Required";
+          return Number.isInteger(parseInt(v)) || "Required";
         },
       ],
       notEmpty: [
