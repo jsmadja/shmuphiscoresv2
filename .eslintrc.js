@@ -17,6 +17,13 @@ module.exports = {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     "max-len": [1, { code: 140 }],
+    "vue/valid-v-slot": [
+      "error",
+      {
+        allowModifiers: true,
+      },
+    ],
+    "vue/no-mutating-props": "off",
   },
   overrides: [
     {
