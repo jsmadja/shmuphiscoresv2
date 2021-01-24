@@ -23,8 +23,8 @@
           @selectPlatform="(platform) => $emit('selectPlatform', platform)"
           @addScore="onAddScore"
           :hide-go-to-game-button="true"
-          :hide-add-score-button="!user.authenticated"
-          :hide-configure-button="!user.administrator"
+          :hide-add-score-button="!user || !user.authenticated"
+          :hide-configure-button="!user || !user.administrator"
         />
       </v-col>
       <!-- Rankings -->
@@ -36,9 +36,9 @@
         ></v-progress-linear>
         <Ranking
           :ranking="ranking"
-          :current-player-id="user.id"
+          :current-player-id="user ? user.id : 0"
           v-for="(ranking, i) in rankings"
-          :hide-add-score-button="!user.authenticated"
+          :hide-add-score-button="!user || !user.authenticated"
           :key="`ranking-${i}`"
           :id="`ranking-${i}`"
           @addScore="onAddScore"

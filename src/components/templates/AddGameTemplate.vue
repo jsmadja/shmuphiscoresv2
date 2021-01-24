@@ -101,9 +101,9 @@
       <v-col cols="12" md="6" lg="7">
         <v-card tile>
           <GameTemplate
-            :game="previewedGame"
+            :game="getPreviewedGame"
             :hideRankingMenu="true"
-            :rankings="previewedRankings"
+            :rankings="getPreviewedRankings"
             :user="user"
           />
         </v-card>
@@ -115,104 +115,116 @@
 <script lang="ts">
 import Vue from "vue";
 import GameTemplate from "./GameTemplate.vue";
-import Component from "vue-class-component";
-import { generateRankings, Platform, Ranking } from "@/models/ranking";
-import { Prop, Provide, Ref } from "vue-property-decorator";
-import { Player } from "@/models/player";
-import { Game } from "@/models/game";
+import { generateRankings } from "@/models/ranking";
 
-@Component({
-  components: { GameTemplate },
-})
-export default class AddGame extends Vue {
-  @Prop() platforms!: Platform[];
-  @Prop() user!: Player;
+export default Vue.extend({
+  components: {
+    GameTemplate,
+  },
+  props: [
+    "platforms", //:Platform[];
+    "user", //Player;
+  ],
 
-  @Provide() valid = false;
-  @Provide() difficultyLevelsPlaceholder = `Easy\nNormal\nHard`;
-  @Provide() modesPlaceholder = `Arcade\nOriginal\nCaravan`;
-  @Provide() stagesPlaceholder = `1\n2\n3\n4\n5\nALL`;
-  @Provide() shipsPlaceholder = `Type A\nType B\nType C`;
-  @Provide() formModel = {
-    title: "",
-    cover: "",
-    ships: "",
-    stages: "",
-    modes: "",
-    difficulties: "",
-    thread: "http://forum.shmup.com/viewtopic.php?t=",
-    platforms: [],
-  };
-  @Provide() titleRules = [
-    (v: string): string | boolean => {
-      return (v && v.trim().length > 0) || "Title is required";
-    },
-  ];
-  @Provide() platformsRules = [
-    (v: string[]): string | boolean =>
-      (v && v.length > 0) || "At least one platform is required",
-  ];
-  @Provide() coverRules = [
-    (v: string): string | boolean =>
-      (v && v.startsWith("http")) ||
-      "Absolute image link should start with http",
-  ];
-  @Provide() threadRules = [
-    (v: string): string | boolean =>
-      (v && v.startsWith("http://forum.shmup.com/viewtopic.php?t=")) ||
-      "Shmup Forum Thread link should start with http://forum.shmup.com/viewtopic.php?t=",
-  ];
-
-  @Ref("formRef") readonly formElement;
-
-  validate(): void {
-    this.formElement.validate();
-    const game = JSON.parse(JSON.stringify(this.formModel));
-    game.difficulties = game.difficulties.split("\n").filter((s) => !!s);
-    game.ships = game.ships.split("\n").filter((s) => !!s);
-    game.modes = game.modes.split("\n").filter((s) => !!s);
-    game.stages = game.stages.split("\n").filter((s) => !!s);
-    this.$emit("createGame", game);
-  }
-  reset(): void {
-    this.formElement.reset();
-  }
-  get previewedGame(): Game {
+  data() {
     return {
-      id: 0,
-      ships: [],
-      stages: [],
-      thread: "",
-      title: this.formModel.title || "Game Name",
-      cover:
-        this.formModel.cover ||
-        "https://firstfreerockford.org/wp-content/uploads/2018/08/placeholder-book-cover-default.png",
-      platforms: this.formModel.platforms
-        .flat()
-        .map((platformName) => ({ id: Math.random(), name: platformName })),
-      difficulties:
-        this.formModel.difficulties.length === 0
-          ? []
-          : this.formModel.difficulties
-              .trim()
-              .split("\n")
-              .map((name) => ({ id: 0, name })),
-      modes:
-        this.formModel.modes.length === 0
-          ? []
-          : this.formModel.modes
-              .trim()
-              .split("\n")
-              .map((name) => ({ id: 0, name })),
+      valid: false,
+      difficultyLevelsPlaceholder: `Easy\nNormal\nHard`,
+      modesPlaceholder: `Arcade\nOriginal\nCaravan`,
+      stagesPlaceholder: `1\n2\n3\n4\n5\nALL`,
+      shipsPlaceholder: `Type A\nType B\nType C`,
+      formModel: {
+        title: "",
+        cover: "",
+        ships: "",
+        stages: "",
+        modes: "",
+        difficulties: "",
+        thread: "http://forum.shmup.com/viewtopic.php?t=",
+        platforms: [],
+      },
+      titleRules: [
+        (v: string): string | boolean => {
+          return (v && v.trim().length > 0) || "Title is required";
+        },
+      ],
+      platformsRules: [
+        (v: string[]): string | boolean =>
+          (v && v.length > 0) || "At least one platform is required",
+      ],
+      coverRules: [
+        (v: string): string | boolean =>
+          (v && v.startsWith("http")) ||
+          "Absolute image link should start with http",
+      ],
+      threadRules: [
+        (v: string): string | boolean =>
+          (v && v.startsWith("http://forum.shmup.com/viewtopic.php?t=")) ||
+          "Shmup Forum Thread link should start with http://forum.shmup.com/viewtopic.php?t=",
+      ],
     };
-  }
+  },
 
-  get previewedRankings(): Ranking[] {
-    const difficulties = this.formModel.difficulties.split("\n") || [];
-    const modes = this.formModel.modes.split("\n") || [];
-    const stages = this.formModel.stages.split("\n") || [];
-    const ships = this.formModel.ships.split("\n") || [];
-    return generateRankings(difficulties, modes, stages, ships);
-  }
-}
+  computed: {
+    getPreviewedGame: function () {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const formModel = (this as any).formModel;
+      return {
+        id: 0,
+        ships: [],
+        stages: [],
+        thread: "",
+        title: formModel.title || "Game Name",
+        cover:
+          formModel.cover ||
+          "https://firstfreerockford.org/wp-content/uploads/2018/08/placeholder-book-cover-default.png",
+        platforms: formModel.platforms
+          .flat()
+          .map((platformName) => ({ id: Math.random(), name: platformName })),
+        difficulties:
+          formModel.difficulties.length === 0
+            ? []
+            : formModel.difficulties
+                .trim()
+                .split("\n")
+                .map((name) => ({ id: 0, name })),
+        modes:
+          formModel.modes.length === 0
+            ? []
+            : formModel.modes
+                .trim()
+                .split("\n")
+                .map((name) => ({ id: 0, name })),
+      };
+    },
+
+    getPreviewedRankings: function () {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const formModel = (this as any).formModel;
+      const difficulties = formModel.difficulties.split("\n") || [];
+      const modes = formModel.modes.split("\n") || [];
+      const stages = formModel.stages.split("\n") || [];
+      const ships = formModel.ships.split("\n") || [];
+      return generateRankings(difficulties, modes, stages, ships);
+    },
+  },
+
+  methods: {
+    validate: function () {
+      const formRef = this.$refs.formRef as HTMLFormElement;
+      formRef.validate();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const game = JSON.parse(JSON.stringify((this as any).formModel));
+      game.difficulties = game.difficulties.split("\n").filter((s) => !!s);
+      game.ships = game.ships.split("\n").filter((s) => !!s);
+      game.modes = game.modes.split("\n").filter((s) => !!s);
+      game.stages = game.stages.split("\n").filter((s) => !!s);
+      this.$emit("createGame", game);
+    },
+    reset: function () {
+      const formRef = this.$refs.formRef as HTMLFormElement;
+      formRef.reset();
+    },
+  },
+});
 </script>
