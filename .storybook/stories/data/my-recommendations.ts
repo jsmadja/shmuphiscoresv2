@@ -147,7 +147,7 @@ export default {
             sortOrder: 17,
             scoreType: ""
         }
-    }, unplayedDifficulty: {
+    } , unplayedDifficulty: {
         game: {
             id: 12,
             createdAt: "2013-12-01T00:45:32.000+00:00",

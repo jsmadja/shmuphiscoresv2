@@ -12,9 +12,10 @@
 </template>
 
 <script lang="ts">
-import { mapGetters } from "vuex";
+import Vuex, { mapGetters, Store } from "vuex";
 import Vue from "vue";
 import AddScoreTemplate from "@/components/templates/AddScoreTemplate.vue";
+import store from "@/store";
 
 export default Vue.extend({
   components: {
@@ -26,7 +27,8 @@ export default Vue.extend({
     };
   },
   beforeRouteEnter(to, from, next) {
-    const $store = (window as any).Store;
+    const _window: typeof window & { Store?: typeof store } = window;
+    const $store = _window.Store!;
     Promise.all([
       $store.dispatch("fetchScore", to.params.scoreId),
       $store.dispatch("fetchGame", to.params.gameId),

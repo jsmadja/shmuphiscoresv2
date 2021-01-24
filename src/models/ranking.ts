@@ -20,6 +20,8 @@ export interface Difficulty {
 export interface Ship {
   id: number;
   name: string;
+  createdAt?: string;
+  sortOrder?: number;
 }
 
 export interface Platform {

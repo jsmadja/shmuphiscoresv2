@@ -15,6 +15,7 @@ import Vue from "vue";
 import { mapGetters } from "vuex";
 import CompareScoresTemplate from "@/components/templates/CompareScoresTemplate.vue";
 import { api } from "@/api";
+import store from "@/store";
 
 export default Vue.extend({
   name: "CompareScores.vue",
@@ -35,7 +36,8 @@ export default Vue.extend({
     };
   },
   beforeRouteEnter(from, to, next) {
-    (window as any).Store.dispatch("fetchUser").then(() => next());
+    const _window: typeof window & { Store?: typeof store } = window;
+    _window.Store!.dispatch("fetchUser").then(() => next());
   },
   computed: {
     ...mapGetters(["players", "user"]),

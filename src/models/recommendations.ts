@@ -3,8 +3,8 @@ import { Game } from "@/models/game";
 
 interface Recommendation {
   game: Game;
-  mode: Mode | undefined;
-  difficulty: Difficulty | undefined;
+  mode?: Mode;
+  difficulty?: Difficulty;
 }
 
 export interface Recommendations {
