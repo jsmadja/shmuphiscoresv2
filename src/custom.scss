@@ -18,8 +18,18 @@ body,
   font-family: "Raleway", sans;
   font-weight: 400;
 }
+
+.v-application .title {
+  color: white;
+  font-size: 2em !important;
+}
+
 .v-main {
-  background: #f7f7f7;
+  background: linear-gradient(to right, #e4e6e8, #d4d6db);
+}
+
+.v-navigation-drawer__content {
+  background: linear-gradient(to right, #849296, #232c44);
 }
 
 .v-data-table

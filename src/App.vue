@@ -2,7 +2,7 @@
   <v-app id="inspire">
     <v-app id="inspire">
       <v-navigation-drawer v-model="drawer" app clipped>
-        <v-list dense>
+        <v-list dense dark>
           <v-list-item link to="/">
             <v-list-item-action>
               <v-icon>mdi-home</v-icon>
@@ -113,6 +113,8 @@
         clipped-left
         class="v-chip--clickable"
         @click="$router.push('/')"
+        src="/img/header.png"
+        dark
       >
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title
@@ -121,7 +123,7 @@
             src="https://shmup.com/wp-content/themes/shmup/images/shmup.png"
           />
         </v-toolbar-title>
-        <h1>.HISCORES</h1>
+        <h1 class="title">.HISCORES</h1>
       </v-app-bar>
 
       <v-main>
