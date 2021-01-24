@@ -21,7 +21,7 @@ Vue.filter("formatRank", formatRank);
 Vue.filter("formatTime", formatTime);
 Vue.filter("formatDateFromNow", formatDateFromNow);
 
-(window as any).Store = store;
+(window as typeof window & { Store: typeof store }).Store = store;
 
 new Vue({
   router,

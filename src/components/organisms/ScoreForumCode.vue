@@ -27,6 +27,7 @@ export default Vue.extend({
   },
   methods: {
     onCopy: function () {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       this.$copyText(toForumCode((this as any).score));
       this.$emit("copy");
     },

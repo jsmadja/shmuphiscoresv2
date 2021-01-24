@@ -37,11 +37,11 @@ export async function fetchMyGames(): Promise<Game[]> {
   return fetch(`${api}/me/games`).then((response) => response.json());
 }
 
-export async function fetchGame(id): Promise<Game> {
+export async function fetchGame(id: number): Promise<Game> {
   return fetch(`${api}/games/${id}`).then((response) => response.json());
 }
 
-export async function fetchRankings(id): Promise<Ranking[]> {
+export async function fetchRankings(id: number): Promise<Ranking[]> {
   return fetch(`${api}/games/${id}/rankings`).then((response) =>
     response.json()
   );
@@ -51,7 +51,7 @@ export async function fetchLastScores(): Promise<Score[]> {
   return fetch(`${api}/scores`).then((response) => response.json());
 }
 
-export async function fetchScore(id): Promise<Score> {
+export async function fetchScore(id: number): Promise<Score> {
   return fetch(`${api}/scores/${id}`).then((response) => response.json());
 }
 
@@ -59,7 +59,7 @@ export async function fetchMyLastScores(): Promise<Score[]> {
   return fetch(`${api}/me/scores`).then((response) => response.json());
 }
 
-export async function createGame(game): Promise<Response> {
+export async function createGame(game: Game): Promise<Response> {
   return fetch(`${api}/games`, {
     method: "POST",
     headers: {
@@ -70,50 +70,73 @@ export async function createGame(game): Promise<Response> {
   });
 }
 
-export async function createScore(score): Promise<AxiosResponse> {
+function createScoreFormData(score: Score) {
   const form = new FormData();
   Object.entries(score)
     .filter((e) => !!e[1])
-    .forEach((e) => form.append(e[0], e[1] as any));
+    .forEach((e) => form.append(e[0], e[1]));
   if (score.photo) form.append("photo", score.photo);
   if (score.inp) form.append("inp", score.inp);
+  return form;
+}
+
+export async function createScore(score: Score): Promise<AxiosResponse> {
+  const form = createScoreFormData(score);
   return axios.post(`${api}/me/scores`, form, {
     headers: { "content-type": "multipart/form-data" },
   });
 }
 
-export async function editScore(score): Promise<AxiosResponse> {
-  const form = new FormData();
-  Object.entries(score)
-    .filter((e) => !!e[1])
-    .forEach((e) => form.append(e[0], e[1] as any));
-  if (score.photo) form.append("photo", score.photo);
-  if (score.inp) form.append("inp", score.inp);
+export async function editScore(score: Score): Promise<AxiosResponse> {
+  const form = createScoreFormData(score);
   return axios.post(`${api}/me/scores/${score.id}`, form, {
     headers: { "content-type": "multipart/form-data" },
   });
 }
 
-export async function createMode({ game, mode }): Promise<AxiosResponse> {
+export async function createMode({
+  game,
+  mode,
+}: {
+  game: Game;
+  mode: { value: string };
+}): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/modes`, mode);
 }
 
 export async function createDifficulty({
   game,
   difficulty,
+}: {
+  game: Game;
+  difficulty: { value: string };
 }): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/difficulties`, difficulty);
 }
 
-export async function createStage({ game, stage }): Promise<AxiosResponse> {
+export async function createStage({
+  game,
+  stage,
+}: {
+  game: Game;
+  stage: { value: string };
+}): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/stages`, stage);
 }
 
-export async function createShip({ game, ship }): Promise<AxiosResponse> {
+export async function createShip({
+  game,
+  ship,
+}: {
+  game: Game;
+  ship: { value: string };
+}): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/ships`, ship);
 }
 
-export async function fetchPreviousUserScoreOfGames(gameId): Promise<Score[]> {
+export async function fetchPreviousUserScoreOfGames(
+  gameId: string
+): Promise<Score[]> {
   return fetch(`${api}/me/games/${gameId}/scores`).then((response) =>
     response.json()
   );
@@ -122,6 +145,9 @@ export async function fetchPreviousUserScoreOfGames(gameId): Promise<Score[]> {
 export async function createPlatforms({
   game,
   platforms,
+}: {
+  game: Game;
+  platforms: string[];
 }): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/platforms`, platforms);
 }

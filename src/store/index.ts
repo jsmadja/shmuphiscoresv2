@@ -25,66 +25,66 @@ import {
   fetchScore,
   fetchUser,
 } from "@/repository";
+import { Score } from "@/models/score";
 
 Vue.use(Vuex);
 
 export const actions = {
-  fetchUser(context) {
+  fetchUser(context: typeof store): unknown {
     return fetchUser().then((user) => context.commit("setUser", user));
   },
-  fetchPlatforms(context) {
+  fetchPlatforms(context: typeof store): unknown {
     return fetchPlatforms().then((platforms) =>
       context.commit("setPlatforms", platforms)
     );
   },
-  fetchPlayers(context) {
+  fetchPlayers(context: typeof store): unknown {
     return fetchPlayers().then((players) =>
       context.commit("setPlayers", players)
     );
   },
-  fetchGames(context) {
+  fetchGames(context: typeof store): unknown {
     return fetchGames().then((games) => context.commit("setGames", games));
   },
-  fetchMyGames(context) {
+  fetchMyGames(context: typeof store): unknown {
     return fetchMyGames().then((games) => context.commit("setMyGames", games));
   },
-  fetchGame(context, id) {
+  fetchGame(context: typeof store, id: number): unknown {
     return fetchGame(id).then((game) => context.commit("setGame", game));
   },
-  fetchRankings(context, id) {
+  fetchRankings(context: typeof store, id: number): unknown {
     return fetchRankings(id).then((game) =>
       context.commit("setRankings", game)
     );
   },
-  fetchLastScores(context) {
+  fetchLastScores(context: typeof store): unknown {
     return fetchLastScores().then((scores) =>
       context.commit("setLastScores", scores)
     );
   },
-  fetchScore(context, id) {
+  fetchScore(context: typeof store, id: number): unknown {
     return fetchScore(id).then((score) => context.commit("setScore", score));
   },
-  fetchMyLastScores(context) {
+  fetchMyLastScores(context: typeof store): unknown {
     return fetchMyLastScores().then((scores) => {
       context.commit("setMyLastScoresLoading", false);
       context.commit("setMyLastScores", scores);
     });
   },
-  async createGame(context, game) {
-    return createGame(game).then((response) => {
-      if (response.ok) {
-        context.dispatch(
-          "showSuccessToast",
-          `${game.title} has been submitted`
-        );
-        return response.json();
-      } else {
-        context.dispatch("showErrorToast", response.status);
-        throw new Error("Error: " + response.status);
-      }
-    });
+  async createGame(context: typeof store, game: Game): Promise<Game> {
+    const response = await createGame(game);
+    if (response.ok) {
+      await context.dispatch(
+        "showSuccessToast",
+        `${game.title} has been submitted`
+      );
+      return response.json();
+    } else {
+      await context.dispatch("showErrorToast", response.status);
+      throw new Error("Error: " + response.status);
+    }
   },
-  async createScore(context, score) {
+  createScore(context: typeof store, score: Score): Promise<Score> {
     return createScore(score)
       .then((response) => {
         context.dispatch("showSuccessToast", `Score has been submitted`);
@@ -95,7 +95,7 @@ export const actions = {
         throw new Error(error);
       });
   },
-  async editScore(context, score) {
+  editScore(context: typeof store, score: Score): Promise<Score> {
     return editScore(score)
       .then((response) => {
         context.dispatch("showSuccessToast", `Score has been updated`);
@@ -106,7 +106,10 @@ export const actions = {
         throw new Error(error);
       });
   },
-  async createMode(context, { game, mode }) {
+  createMode(
+    context: typeof store,
+    { game, mode }: { game: Game; mode: { value: string } }
+  ): Promise<Game> {
     return createMode({ game, mode })
       .then((response) => {
         context.dispatch(
@@ -114,14 +117,17 @@ export const actions = {
           `Mode ${mode.value} has been submitted`
         );
         context.commit("setGame", response.data);
-        return response;
+        return response.data;
       })
       .catch((error) => {
         context.dispatch("showErrorToast", error);
         throw new Error(error);
       });
   },
-  async createDifficulty(context, { game, difficulty }) {
+  createDifficulty(
+    context: typeof store,
+    { game, difficulty }: { game: Game; difficulty: { value: string } }
+  ): Promise<Game> {
     return createDifficulty({ game, difficulty })
       .then((response) => {
         context.dispatch(
@@ -129,14 +135,17 @@ export const actions = {
           `Difficulty ${difficulty.value} has been submitted`
         );
         context.commit("setGame", response.data);
-        return response;
+        return response.data;
       })
       .catch((error) => {
         context.dispatch("showErrorToast", error);
         throw new Error(error);
       });
   },
-  createStage(context, { game, stage }) {
+  createStage(
+    context: typeof store,
+    { game, stage }: { game: Game; stage: { value: string } }
+  ): Promise<Game> {
     return createStage({ game, stage })
       .then((response) => {
         context.dispatch(
@@ -144,14 +153,17 @@ export const actions = {
           `Stage ${stage.value} has been submitted`
         );
         context.commit("setGame", response.data);
-        return response;
+        return response.data;
       })
       .catch((error) => {
         context.dispatch("showErrorToast", error);
         throw new Error(error);
       });
   },
-  createShip(context, { game, ship }) {
+  createShip(
+    context: typeof store,
+    { game, ship }: { game: Game; ship: { value: string } }
+  ): Promise<Game> {
     return createShip({ game, ship })
       .then((response) => {
         context.dispatch(
@@ -159,14 +171,17 @@ export const actions = {
           `Ship ${ship.value} has been submitted`
         );
         context.commit("setGame", response.data);
-        return response;
+        return response.data;
       })
       .catch((error) => {
         context.dispatch("showErrorToast", error);
         throw new Error(error);
       });
   },
-  createPlatforms(context, { game, platforms }) {
+  createPlatforms(
+    context: typeof store,
+    { game, platforms }: { game: Game; platforms: string[] }
+  ): Promise<Game> {
     return createPlatforms({ game, platforms })
       .then((response) => {
         context.dispatch(
@@ -174,20 +189,20 @@ export const actions = {
           `Platforms ${platforms} has been submitted`
         );
         context.commit("setGame", response.data);
-        return response;
+        return response.data;
       })
       .catch((error) => {
         context.dispatch("showErrorToast", error);
         throw new Error(error);
       });
   },
-  showSuccessToast(context, message) {
+  showSuccessToast(context: typeof store, message: string): void {
     context.commit("setToastMessage", { message, color: "success" });
   },
-  showErrorToast(context, message) {
+  showErrorToast(context: typeof store, message: string): void {
     context.commit("setToastMessage", { message, color: "red" });
   },
-  addViewedGame(context, game) {
+  addViewedGame(context: typeof store, game: Game): void {
     context.state.recentlyViewedGames.push(game);
     context.commit(
       "setRecentlyViewedGames",
@@ -196,7 +211,7 @@ export const actions = {
   },
 };
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     user: null,
     platforms: [] as PlatformWithGameCount[],
@@ -277,3 +292,4 @@ export default new Vuex.Store({
     score: (state) => state.score,
   },
 });
+export default store;

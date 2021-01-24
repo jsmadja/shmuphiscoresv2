@@ -350,6 +350,7 @@ export default Vue.extend({
       return this.game[setting].length === 1 ? this.game[setting][0].id : null;
     },
     validate() {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const form = this.$refs.formRef as any;
       form.validate();
       if (this.isTimerMode()) {

@@ -37,7 +37,10 @@ export default Vue.extend({
   },
   beforeRouteEnter(from, to, next) {
     const _window: typeof window & { Store?: typeof store } = window;
-    _window.Store!.dispatch("fetchUser").then(() => next());
+    if (_window.Store) {
+      return _window.Store.dispatch("fetchUser").then(() => next());
+    }
+    next();
   },
   computed: {
     ...mapGetters(["players", "user"]),

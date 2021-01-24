@@ -72,15 +72,15 @@ export default Vue.extend({
   components: { Ranking, GameInformations, RankingMenu },
   data() {
     return {
-      isIntersecting: {},
+      isIntersecting: {} as unknown,
     };
   },
   computed: {
     intersection: {
-      get: function (): any {
+      get: function (): unknown {
         return this.isIntersecting;
       },
-      set: function (isIntersecting: any) {
+      set: function (isIntersecting: unknown) {
         this.isIntersecting = isIntersecting;
       },
     },

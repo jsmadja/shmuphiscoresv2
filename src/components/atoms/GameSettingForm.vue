@@ -57,6 +57,7 @@ export default Vue.extend({
   },
   methods: {
     validate() {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (this.$refs.form as any).validate();
       this.$emit("create", {
         value: this.value,
