@@ -79,7 +79,8 @@ export default Vue.extend({
       return this.history.map((score: Score) => score.value);
     },
     rankingName: function () {
-      const score = this.history.length > 0 ? this.history[0] : ({} as Score);
+      const historyArray = this.history as Score[];
+      const score = historyArray.length > 0 ? historyArray[0] : ({} as Score);
       let rankingName = "";
       rankingName += score && score.mode ? score.mode.name : "";
       rankingName +=
