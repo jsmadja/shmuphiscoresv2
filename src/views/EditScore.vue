@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import Vuex, { mapGetters, Store } from "vuex";
+import { mapGetters } from "vuex";
 import Vue from "vue";
 import AddScoreTemplate from "@/components/templates/AddScoreTemplate.vue";
 import store from "@/store";

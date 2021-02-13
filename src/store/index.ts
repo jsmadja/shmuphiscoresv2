@@ -29,42 +29,42 @@ import {
 Vue.use(Vuex);
 
 export const actions = {
-  fetchUser(context) {
+  fetchUser(context): Promise<void> {
     return fetchUser().then((user) => context.commit("setUser", user));
   },
-  fetchPlatforms(context) {
+  fetchPlatforms(context): Promise<void> {
     return fetchPlatforms().then((platforms) =>
       context.commit("setPlatforms", platforms)
     );
   },
-  fetchPlayers(context) {
+  fetchPlayers(context): Promise<void> {
     return fetchPlayers().then((players) =>
       context.commit("setPlayers", players)
     );
   },
-  fetchGames(context) {
+  fetchGames(context): Promise<void> {
     return fetchGames().then((games) => context.commit("setGames", games));
   },
-  fetchMyGames(context) {
+  fetchMyGames(context): Promise<void> {
     return fetchMyGames().then((games) => context.commit("setMyGames", games));
   },
-  fetchGame(context, id) {
+  fetchGame(context, id): Promise<void> {
     return fetchGame(id).then((game) => context.commit("setGame", game));
   },
-  fetchRankings(context, id) {
+  fetchRankings(context, id): Promise<void> {
     return fetchRankings(id).then((game) =>
       context.commit("setRankings", game)
     );
   },
-  fetchLastScores(context) {
+  fetchLastScores(context): Promise<void> {
     return fetchLastScores().then((scores) =>
       context.commit("setLastScores", scores)
     );
   },
-  fetchScore(context, id) {
+  fetchScore(context, id): Promise<void> {
     return fetchScore(id).then((score) => context.commit("setScore", score));
   },
-  fetchMyLastScores(context) {
+  fetchMyLastScores(context): Promise<void> {
     return fetchMyLastScores().then((scores) => {
       context.commit("setMyLastScoresLoading", false);
       context.commit("setMyLastScores", scores);
@@ -234,7 +234,10 @@ export default new Vuex.Store({
       state.myGames = games;
     },
     setRankings(state, rankings: Ranking[]) {
-      state.rankings = _.orderBy(rankings, (ranking) => -ranking.scores.length);
+      state.rankings = _(rankings)
+        .filter((ranking) => ranking.scores.length > 0)
+        .orderBy((ranking) => -ranking.scores.length)
+        .value();
     },
     setGame(state, game) {
       state.game = game;
