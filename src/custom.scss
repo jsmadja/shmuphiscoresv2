@@ -13,22 +13,11 @@ body,
   font-family: "Raleway", sans;
   font-weight: 400;
 }
-.v-application .headline {
-  color: #ff781b;
-  font-family: "Raleway", sans;
-  font-weight: 400;
-}
-
-.v-app-bar .title {
-  color: white;
-  font-size: 2em !important;
-}
-
 .v-main {
   background: linear-gradient(to right, #e4e6e8, #d4d6db);
 }
 
-.v-navigation-drawer__content {
+#menu-left .v-navigation-drawer__content {
   background: linear-gradient(to right, #849296, #232c44);
 }
 

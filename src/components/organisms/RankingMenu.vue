@@ -3,7 +3,7 @@
     clipped
     fixed
     right
-    class="mt-14"
+    class="mt-16"
     permanent
     expand-on-hover
   >
