@@ -34,7 +34,11 @@
         </v-list>
       </v-menu>
 
-      <v-menu offset-x nudge-right="5">
+      <v-menu
+        :disabled="!game.difficulties || game.difficulties.length === 0"
+        offset-x
+        nudge-right="5"
+      >
         <template v-slot:activator="{ on, attrs }">
           <v-chip
             class="ma-2"
@@ -61,7 +65,11 @@
         </v-list>
       </v-menu>
 
-      <v-menu disabled="!game.modes" offset-x nudge-right="5">
+      <v-menu
+        :disabled="!game.modes || game.modes.length === 0"
+        offset-x
+        nudge-right="5"
+      >
         <template v-slot:activator="{ on, attrs }">
           <v-chip
             class="ma-2"
