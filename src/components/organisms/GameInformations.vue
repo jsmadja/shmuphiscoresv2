@@ -34,7 +34,7 @@
         </v-list>
       </v-menu>
 
-      <v-menu offset-x open-on-hover nudge-right="5">
+      <v-menu offset-x nudge-right="5">
         <template v-slot:activator="{ on, attrs }">
           <v-chip
             class="ma-2"
@@ -61,7 +61,7 @@
         </v-list>
       </v-menu>
 
-      <v-menu offset-x open-on-hover nudge-right="5">
+      <v-menu disabled="!game.modes" offset-x nudge-right="5">
         <template v-slot:activator="{ on, attrs }">
           <v-chip
             class="ma-2"
