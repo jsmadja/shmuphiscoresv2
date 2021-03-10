@@ -10,6 +10,7 @@ import {
   createGame,
   createMode,
   createPlatforms,
+  createPlayer,
   createScore,
   createShip,
   createStage,
@@ -83,6 +84,18 @@ export const actions = {
         throw new Error("Error: " + response.status);
       }
     });
+  },
+  async createPlayer(context, player): Promise<Player> {
+    const response = await createPlayer(player);
+    if (response.ok) {
+      await context.dispatch(
+        "showSuccessToast",
+        `${player.name} has been submitted`
+      );
+      return response.json();
+    }
+    await context.dispatch("showErrorToast", response.status);
+    throw new Error("Error: " + response.status);
   },
   async createScore(context, score) {
     return createScore(score)

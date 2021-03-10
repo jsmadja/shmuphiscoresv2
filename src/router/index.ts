@@ -17,6 +17,7 @@ import Platform from "../views/Platform.vue";
 import Player from "../views/Player.vue";
 import AddScore from "../views/AddScore.vue";
 import EditScore from "../views/EditScore.vue";
+import AddPlayer from "@/views/AddPlayer.vue";
 
 Vue.use(VueRouter);
 
@@ -56,6 +57,11 @@ const routes: Array<RouteConfig> = [
     path: "/games/:id/score",
     name: "AddScore",
     component: AddScore,
+  },
+  {
+    path: "/add-player",
+    name: "AddPlayer",
+    component: AddPlayer,
   },
   {
     path: "/games/:gameId/scores/:scoreId/edit",

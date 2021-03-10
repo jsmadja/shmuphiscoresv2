@@ -70,6 +70,17 @@ export async function createGame(game): Promise<Response> {
   });
 }
 
+export async function createPlayer(player): Promise<Response> {
+  return fetch(`${api}/players`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(player),
+  });
+}
+
 export async function createScore(score): Promise<AxiosResponse> {
   const form = new FormData();
   Object.entries(score)

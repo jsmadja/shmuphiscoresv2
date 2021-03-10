@@ -95,6 +95,14 @@
             <v-list-item-title>Add Game</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item link to="/add-player" v-if="user && user.administrator">
+          <v-list-item-action>
+            <v-icon>mdi-account-plus</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Add Player</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
         <v-divider></v-divider>
         <v-list-item link to="/statistics">
           <v-list-item-action>

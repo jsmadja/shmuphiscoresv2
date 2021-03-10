@@ -3,7 +3,7 @@
     <v-row>
       <v-col>
         <h1 v-if="scores.length > 0">{{ scores[0].player.name }}'s Scores</h1>
-        <h1 v-else>No scores</h1>
+        <h1 v-else>This player has no scores</h1>
       </v-col>
     </v-row>
     <v-row>
