@@ -35,6 +35,18 @@
         </v-list-item>
         <v-list-item
           link
+          :to="`/players/${user ? user.id : ''}`"
+          v-if="user && user.authenticated"
+        >
+          <v-list-item-action>
+            <v-icon>mdi-format-list-numbered</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>My Scores</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item
+          link
           to="/my-recommendations"
           v-if="user && user.authenticated"
         >
