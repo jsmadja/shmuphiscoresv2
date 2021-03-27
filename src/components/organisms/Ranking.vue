@@ -87,6 +87,7 @@
                     v-if="item.photo"
                     top
                     content-class="photo-tooltip-class"
+                    nudge-right="50"
                   >
                     <template v-slot:activator="{ on, attrs }">
                       <v-chip
@@ -95,6 +96,8 @@
                         class="mr-1 pl-1 pr-1"
                         v-bind="attrs"
                         v-on="on"
+                        :href="item.photo"
+                        target="_blank"
                         ><v-icon small>mdi-camera</v-icon></v-chip
                       >
                     </template>

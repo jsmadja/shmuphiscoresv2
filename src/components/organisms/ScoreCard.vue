@@ -70,6 +70,7 @@
                 v-if="score.photo"
                 top
                 content-class="photo-tooltip-class"
+                nudge-right="150"
               >
                 <template v-slot:activator="{ on, attrs }">
                   <v-chip
@@ -79,10 +80,12 @@
                     v-if="score.photo"
                     v-bind="attrs"
                     v-on="on"
+                    :href="score.photo"
+                    target="_blank"
                     ><v-icon small>mdi-camera</v-icon></v-chip
                   >
                 </template>
-                <v-img :src="score.photo" max-width="250" />
+                <v-img :src="score.photo" min-width="250" max-width="250" />
               </v-tooltip>
 
               <v-chip
@@ -175,6 +178,10 @@ export default Vue.extend({
   methods: {
     since(date) {
       return moment(date).fromNow();
+    },
+    open(photoUrl) {
+      console.log("pouet");
+      window.location.href = photoUrl;
     },
   },
 });
