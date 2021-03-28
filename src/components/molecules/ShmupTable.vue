@@ -2,18 +2,20 @@
   <v-card tile>
     <v-card-title>
       <v-text-field
-        v-model="search"
+        v-model="filter"
         append-icon="mdi-magnify"
         label="Search"
         single-line
         hide-details
+        @keyup="onSearch"
+        clearable
       ></v-text-field>
     </v-card-title>
     <v-card-text>
       <v-data-table
         :headers="computedHeaders"
         :items="items"
-        :search="search"
+        :search="filter"
         :item-class="itemClass"
         :mobile-breakpoint="disableMobileBreakpoint ? 0 : undefined"
         :dense="$vuetify.breakpoint.smAndDown"
@@ -50,10 +52,11 @@ export default Vue.extend({
     "sortDesc",
     "hide-default-footer",
     "footer-props",
+    "search",
   ],
   data() {
     return {
-      search: "",
+      filter: this.search || "",
     };
   },
   computed: {
@@ -68,6 +71,9 @@ export default Vue.extend({
       return this.itemClassPredicate && this.itemClassPredicate(item)
         ? "orange lighten-5"
         : "";
+    },
+    onSearch() {
+      this.$emit("search", this.filter);
     },
   },
 });

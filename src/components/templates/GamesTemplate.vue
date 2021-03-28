@@ -12,7 +12,9 @@
           :items="games"
           :disable-mobile-breakpoint="true"
           @click:row="(row) => $emit('selectGame', row)"
+          @search="onSearch"
           :loading="loading"
+          :search="search"
         >
           <template v-slot:item.cover="{ item }">
             <Cover
@@ -34,12 +36,15 @@ import Vue from "vue";
 import Cover from "../atoms/Cover.vue";
 import ShmupTable from "@/components/molecules/ShmupTable.vue";
 
+const SESSION_STORAGE_GAME_SEARCH = "game-search";
+
 export default Vue.extend({
   name: "GamesTemplate",
   props: ["title", "games", "loading"],
   components: { Cover, ShmupTable },
   data() {
     return {
+      search: sessionStorage.getItem(SESSION_STORAGE_GAME_SEARCH) || "",
       headers: [
         {
           text: "",
@@ -53,6 +58,11 @@ export default Vue.extend({
         },
       ],
     };
+  },
+  methods: {
+    onSearch(search: string) {
+      sessionStorage.setItem(SESSION_STORAGE_GAME_SEARCH, search);
+    },
   },
 });
 </script>
