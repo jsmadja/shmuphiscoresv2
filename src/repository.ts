@@ -7,8 +7,16 @@ import { Score } from "@/models/score";
 import { Player } from "@/models/player";
 import { Recommendations } from "@/models/recommendations";
 
-export async function getScoresByPlayer(playerId: string): Promise<Score[]> {
+export async function getScoresByPlayer(playerId: number): Promise<Score[]> {
   return fetch(`${api}/players/${playerId}/scores`).then((response) =>
+    response.json()
+  );
+}
+
+export async function getScoresByShmupPlayer(
+  playerId: number
+): Promise<Score[]> {
+  return fetch(`${api}/shmup-players/${playerId}/scores`).then((response) =>
     response.json()
   );
 }
@@ -37,11 +45,11 @@ export async function fetchMyGames(): Promise<Game[]> {
   return fetch(`${api}/me/games`).then((response) => response.json());
 }
 
-export async function fetchGame(id): Promise<Game> {
+export async function fetchGame(id: number): Promise<Game> {
   return fetch(`${api}/games/${id}`).then((response) => response.json());
 }
 
-export async function fetchRankings(id): Promise<Ranking[]> {
+export async function fetchRankings(id: number): Promise<Ranking[]> {
   return fetch(`${api}/games/${id}/rankings`).then((response) =>
     response.json()
   );
@@ -51,7 +59,7 @@ export async function fetchLastScores(): Promise<Score[]> {
   return fetch(`${api}/scores`).then((response) => response.json());
 }
 
-export async function fetchScore(id): Promise<Score> {
+export async function fetchScore(id: number): Promise<Score> {
   return fetch(`${api}/scores/${id}`).then((response) => response.json());
 }
 
@@ -124,7 +132,9 @@ export async function createShip({ game, ship }): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/ships`, ship);
 }
 
-export async function fetchPreviousUserScoreOfGames(gameId): Promise<Score[]> {
+export async function fetchPreviousUserScoreOfGames(
+  gameId: number
+): Promise<Score[]> {
   return fetch(`${api}/me/games/${gameId}/scores`).then((response) =>
     response.json()
   );

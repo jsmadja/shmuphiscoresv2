@@ -18,6 +18,7 @@ import Player from "../views/Player.vue";
 import AddScore from "../views/AddScore.vue";
 import EditScore from "../views/EditScore.vue";
 import AddPlayer from "@/views/AddPlayer.vue";
+import ShmupPlayer from "@/views/ShmupPlayer.vue";
 
 Vue.use(VueRouter);
 
@@ -106,7 +107,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/compare-scores",
-    name: "CompareScores",
+    name: "Compare Scores",
     component: CompareScores,
   },
   {
@@ -123,6 +124,11 @@ const routes: Array<RouteConfig> = [
     path: "/players/:id",
     name: "Player",
     component: Player,
+  },
+  {
+    path: "/shmup_players/:id",
+    name: "Player",
+    component: ShmupPlayer,
   },
   // for backward compatibility with shmup.com
   {

@@ -50,7 +50,7 @@ export default Vue.extend({
     };
   },
   created() {
-    fetchPreviousUserScoreOfGames(this.$route.params.id).then((scores) => {
+    fetchPreviousUserScoreOfGames(+this.$route.params.id).then((scores) => {
       if (scores.length > 0) {
         const previousScore = scores[0];
         delete previousScore.id;

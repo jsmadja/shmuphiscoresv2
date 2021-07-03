@@ -9,18 +9,18 @@
 </template>
 
 <script lang="ts">
-import { getScoresByPlayer } from "@/repository";
+import { getScoresByShmupPlayer } from "@/repository";
 import Vue from "vue";
 import PlayerTemplate from "@/components/templates/PlayerTemplate.vue";
 import { Score } from "@/models/score";
 import { goToScore } from "@/router/routes";
 
 export default Vue.extend({
-  name: "Player",
+  name: "ShmupPlayer",
   components: { PlayerTemplate },
   async created() {
     this.loading = true;
-    this.scores = await getScoresByPlayer(+this.$route.params.id);
+    this.scores = await getScoresByShmupPlayer(+this.$route.params.id);
     this.loading = false;
   },
   data() {
