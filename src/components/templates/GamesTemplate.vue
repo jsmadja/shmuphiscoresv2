@@ -11,7 +11,6 @@
           :headers="headers"
           :items="games"
           :disable-mobile-breakpoint="true"
-          @click:row="(row) => $emit('selectGame', row)"
           @search="onSearch"
           :loading="loading"
           :search="search"
@@ -23,7 +22,23 @@
               width="50"
               :contain="true"
               class="ma-1"
+              @click="$emit('selectGame', item)"
             />
+          </template>
+          <template v-slot:item.title="{ item }">
+            <span @click="$emit('selectGame', item)">
+              {{ item.title }}
+            </span>
+          </template>
+          <template v-slot:item.external="{ item }">
+            <router-link
+              :to="`/games/${item.id}`"
+              style="text-decoration: none; cursor: pointer"
+              :hidden="$vuetify.breakpoint.smAndDown"
+              target="_blank"
+            >
+              <v-icon small>mdi-arrow-top-right-bold-box-outline</v-icon>
+            </router-link>
           </template>
         </shmup-table>
       </v-col>
@@ -55,6 +70,10 @@ export default Vue.extend({
         {
           text: "Title",
           value: "title",
+        },
+        {
+          text: "",
+          value: "external",
         },
       ],
     };
