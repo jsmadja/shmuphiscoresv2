@@ -16,8 +16,8 @@ jobs:
           node-version: '15.x'
       - name: Install
         run: npm ci
-      - name: Build Storybook
-        run: build-storybook
+#      - name: Build Storybook
+#        run: build-storybook
       - name: GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2.2.0
         with:
