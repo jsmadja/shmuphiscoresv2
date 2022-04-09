@@ -22,9 +22,15 @@
             </span>
           </template>
           <template v-slot:item.gapWithPreviousScore="{ item }">
-            <span v-if="item.gapWithPreviousScore > 0"
-              >+{{ item.gapWithPreviousScore }}%</span
+            <span
+              v-if="
+                item.gapWithPreviousScore && item.gapWithPreviousScore !== 0
+              "
+              >{{ item.gapWithPreviousScore }}%</span
             >
+          </template>
+          <template v-slot:item.1CC="{ item }">
+            <OneCCChip v-if="item['1CC']" />
           </template>
         </shmup-table>
         <v-card tile>
@@ -52,9 +58,10 @@ import Vue from "vue";
 import { Score } from "@/models/score";
 import ShmupTable from "@/components/molecules/ShmupTable.vue";
 import { PropValidator } from "vue/types/options";
+import OneCCChip from "@/components/atoms/OneCCChip.vue";
 
 export default Vue.extend({
-  components: { ShmupTable },
+  components: { OneCCChip, ShmupTable },
   props: {
     history: {
       type: Array,
@@ -67,6 +74,7 @@ export default Vue.extend({
       { text: "Score", value: "value", align: "end" },
       { text: "Score Gap", value: "gapWithPreviousScore", align: "end" },
       { text: "Comment", value: "comment" },
+      { text: "", value: "1CC" },
     ],
   }),
   computed: {
