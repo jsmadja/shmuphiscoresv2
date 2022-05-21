@@ -11,12 +11,12 @@
         <shmup-table
           :items="scores"
           :headers="headers"
-          @click:row="goToGame"
           :sort-by="['rank']"
           :sort-desc="[false]"
         >
           <template v-slot:item.game.cover="{ item }">
             <cover
+              @click="goToGame(item)"
               :url="item.game.cover"
               :alt="item.game.title"
               width="50"
@@ -25,7 +25,9 @@
             />
           </template>
           <template v-slot:item.game.title="{ item }">
-            <span class="game-title">{{ item.game.title }}</span>
+            <span class="game-title" @click="goToGame(item)">{{
+              item.game.title
+            }}</span>
           </template>
           <template v-slot:item.platform.name="{ item }">
             <platform-button
@@ -52,6 +54,11 @@
           <template v-slot:item.onecc="{ item }">
             <one-c-c-chip v-if="item.onecc" />
           </template>
+          <template v-slot:item.actions="{ item }">
+            <v-icon v-if="canEdit" small class="mr-2" @click="editScore(item)">
+              mdi-pencil
+            </v-icon>
+          </template>
         </shmup-table>
       </v-col>
     </v-row>
@@ -68,7 +75,7 @@ import PlatformButton from "@/components/atoms/PlatformButton.vue";
 export default Vue.extend({
   name: "PlayerTemplate",
   components: { Cover, ShmupTable, OneCCChip, PlatformButton },
-  props: ["loading", "scores"],
+  props: ["loading", "scores", "canEdit"],
   data() {
     return {
       headers: [
@@ -87,7 +94,8 @@ export default Vue.extend({
         { text: "1CC", value: "onecc", hide: "smAndDown" },
         { text: "Platform", value: "platform.name", hide: "smAndDown" },
         { text: "Date", value: "createdAt", hide: "smAndDown" },
-      ],
+        this.canEdit ? { text: "Actions", value: "actions" } : undefined,
+      ].filter(Boolean),
     };
   },
   methods: {
@@ -99,6 +107,9 @@ export default Vue.extend({
     },
     goToScore(row) {
       this.$emit("goToScore", row);
+    },
+    editScore(row) {
+      this.$emit("goToEditScore", row);
     },
   },
 });

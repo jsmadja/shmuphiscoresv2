@@ -32,6 +32,11 @@
           <template v-slot:item.1CC="{ item }">
             <OneCCChip v-if="item['1CC']" />
           </template>
+          <template v-slot:item.actions="{ item }">
+            <v-icon v-if="canEdit" small class="mr-2" @click="editScore(item)">
+              mdi-pencil
+            </v-icon>
+          </template>
         </shmup-table>
         <v-card tile>
           <v-card-title>Graphical Evolution</v-card-title>
@@ -57,27 +62,23 @@ import moment from "moment";
 import Vue from "vue";
 import { Score } from "@/models/score";
 import ShmupTable from "@/components/molecules/ShmupTable.vue";
-import { PropValidator } from "vue/types/options";
 import OneCCChip from "@/components/atoms/OneCCChip.vue";
 
 export default Vue.extend({
   components: { OneCCChip, ShmupTable },
-  props: {
-    history: {
-      type: Array,
-    } as PropValidator<Score[]>,
-  },
-  data: () => ({
-    headers: [
-      { text: "Date", value: "createdAt" },
-      { text: "Stage", value: "stage.name", align: "end" },
-      { text: "Score", value: "value", align: "end" },
-      { text: "Score Gap", value: "gapWithPreviousScore", align: "end" },
-      { text: "Comment", value: "comment" },
-      { text: "", value: "1CC" },
-    ],
-  }),
+  props: ["canEdit", "history"],
   computed: {
+    headers: function () {
+      return [
+        { text: "Date", value: "createdAt" },
+        { text: "Stage", value: "stage.name", align: "end" },
+        { text: "Score", value: "value", align: "end" },
+        { text: "Score Gap", value: "gapWithPreviousScore", align: "end" },
+        { text: "Comment", value: "comment" },
+        { text: "", value: "1CC" },
+        this.canEdit ? { text: "Actions", value: "actions" } : undefined,
+      ].filter(Boolean);
+    },
     labels: function () {
       return this.history.map((score: Score) =>
         moment(score.createdAt).format("L")
@@ -106,6 +107,9 @@ export default Vue.extend({
   methods: {
     formatDate: function (date) {
       return moment(date).format("L");
+    },
+    editScore(row) {
+      this.$emit("goToEditScore", row);
     },
   },
 });
