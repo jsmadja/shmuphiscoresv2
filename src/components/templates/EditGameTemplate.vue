@@ -96,8 +96,9 @@ export default Vue.extend({
     forumCode: function () {
       const game = this.game as Game;
       return `[url=http://hiscores.shmup.com/game/${game.id}/new_score]
-      [b][color=#0080FF][size=150]POSTER AUTOMATIQUEMENT VOTRE SCORE[/size][/color][/b]
-      [/url][img]http://hiscores.shmup.com/game/${game.id}/ranking.png[/img]`;
+[b][color=#0080FF][size=150]POSTER AUTOMATIQUEMENT VOTRE SCORE[/size][/color][/b]
+[/url]
+[img]http://hiscores.shmup.com/game/${game.id}/ranking.png[/img]`;
     },
   },
   methods: {
