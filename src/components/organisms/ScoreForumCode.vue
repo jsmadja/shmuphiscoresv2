@@ -21,13 +21,13 @@ export default Vue.extend({
     score: { type: Object } as PropValidator<Score>,
   },
   computed: {
-    code: function () {
+    code(): string {
       return this.score ? toForumCode(this.score) : "";
     },
   },
   methods: {
-    onCopy: function () {
-      this.$copyText(toForumCode((this as any).score));
+    onCopy() {
+      this.$copyText(this.code);
       this.$emit("copy");
     },
   },

@@ -30,7 +30,10 @@ export default Vue.extend({
   },
   methods: {
     canEdit() {
-      return this.user?.id === this.history?.[0]?.player?.id;
+      if (!this.user && this.history && this.history[0].player) {
+        return false;
+      }
+      return this.user.id === this.history[0].player.id;
     },
     goToEditScore(score) {
       this.$router.push(`/games/${score.game.id}/scores/${score.id}/edit`);

@@ -9,6 +9,8 @@ module.exports = {
     "@vue/typescript/recommended",
     "@vue/prettier",
     "@vue/prettier/@typescript-eslint",
+    "plugin:storybook/recommended",
+    "plugin:storybook/recommended",
   ],
   parserOptions: {
     ecmaVersion: 2020,
@@ -16,9 +18,23 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "max-len": [1, { code: 140 }],
+    "max-len": [
+      1,
+      {
+        code: 140,
+      },
+    ],
   },
   overrides: [
+    {
+      files: [
+        "**/__tests__/*.{j,t}s?(x)",
+        "**/tests/unit/**/*.spec.{j,t}s?(x)",
+      ],
+      env: {
+        jest: true,
+      },
+    },
     {
       files: [
         "**/__tests__/*.{j,t}s?(x)",

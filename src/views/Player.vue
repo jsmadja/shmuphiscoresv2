@@ -39,7 +39,10 @@ export default Vue.extend({
   },
   methods: {
     canEdit() {
-      return this.user?.id === +this.$route.params.id;
+      if (!this.user) {
+        return false;
+      }
+      return this.user.id === +this.$route.params.id;
     },
     goToGame(game) {
       this.$router.push(`/games/${game.id}`);

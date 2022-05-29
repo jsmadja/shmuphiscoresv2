@@ -56,54 +56,58 @@ export default Vue.extend({
   },
   computed: {
     recommendations: function () {
+      const recommendations = this.myRecommendations;
+      const unplayedDifficulty = recommendations.unplayedDifficulty;
+      const unplayedMode = recommendations.unplayedMode;
+      const unplayedGame = recommendations.unplayedGame;
       return [
         {
           title: "Try a new mode",
-          target: this.myRecommendations.unplayedMode,
-          content: this.myRecommendations.unplayedMode
-            ? `Play <b>${this.myRecommendations.unplayedMode.mode.name}</b> mode of <b>${this.myRecommendations.unplayedMode.game.title}</b>.`
+          target: unplayedMode,
+          content: unplayedMode
+            ? `Play <b>${unplayedMode.mode.name}</b> mode of <b>${unplayedMode.game.title}</b>.`
             : "",
         },
         {
           title: "Try a new difficulty",
-          target: this.myRecommendations.unplayedDifficulty,
-          content: this.myRecommendations.unplayedDifficulty
-            ? `Play <b>${this.myRecommendations.unplayedDifficulty.difficulty.name}</b> difficulty of <b>${this.myRecommendations.unplayedDifficulty.game.title}</b>.`
+          target: unplayedDifficulty,
+          content: unplayedDifficulty
+            ? `Play <b>${unplayedDifficulty.difficulty.name}</b> difficulty of <b>${unplayedDifficulty.game.title}</b>.`
             : "",
         },
         {
           title: "Discover a new game",
-          target: this.myRecommendations.unplayedGame,
-          content: this.myRecommendations.unplayedGame
-            ? `Add your first score on <b>${this.myRecommendations.unplayedGame.game.title}</b>.`
+          target: unplayedGame,
+          content: unplayedGame
+            ? `Add your first score on <b>${unplayedGame.game.title}</b>.`
             : "",
         },
         {
           title: "Long time no see",
-          target: this.myRecommendations.oldestScoredGame,
-          content: this.myRecommendations.oldestScoredGame
-            ? `Remember, you've scored it, long time ago ... <b>${this.myRecommendations.oldestScoredGame.game.title}</b>.`
+          target: recommendations.oldestScoredGame,
+          content: recommendations.oldestScoredGame
+            ? `Remember, you've scored it, long time ago ... <b>${recommendations.oldestScoredGame.game.title}</b>.`
             : "",
         },
         {
           title: "Try again, do your best",
-          target: this.myRecommendations.latestScoredGame,
-          content: this.myRecommendations.latestScoredGame
-            ? `Keep going on <b>${this.myRecommendations.latestScoredGame.game.title}</b>.`
+          target: recommendations.latestScoredGame,
+          content: recommendations.latestScoredGame
+            ? `Keep going on <b>${recommendations.latestScoredGame.game.title}</b>.`
             : "",
         },
         {
           title: "Just a couple more shots",
-          target: this.myRecommendations.nearestScoredGame,
-          content: this.myRecommendations.nearestScoredGame
-            ? `The next place is at hand, play <b>${this.myRecommendations.nearestScoredGame.game.title}</b>.`
+          target: recommendations.nearestScoredGame,
+          content: recommendations.nearestScoredGame
+            ? `The next place is at hand, play <b>${recommendations.nearestScoredGame.game.title}</b>.`
             : "",
         },
         {
           title: "Learning curve is high",
-          target: this.myRecommendations.farestScoredGame,
-          content: this.myRecommendations.farestScoredGame
-            ? `You're far far from the next place, play <b>${this.myRecommendations.farestScoredGame.game.title}</b>.`
+          target: recommendations.farestScoredGame,
+          content: recommendations.farestScoredGame
+            ? `You're far far from the next place, play <b>${recommendations.farestScoredGame.game.title}</b>.`
             : "",
         },
       ];

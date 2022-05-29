@@ -2,10 +2,11 @@ import { api } from "@/api";
 import axios, { AxiosResponse } from "axios";
 import { PlatformWithGameCount } from "@/models/platforms";
 import { Game } from "./models/game";
-import { Ranking } from "@/models/ranking";
+import { Platform, Ranking } from "@/models/ranking";
 import { Score } from "@/models/score";
 import { Player } from "@/models/player";
 import { Recommendations } from "@/models/recommendations";
+import { GameConfigurationOption } from "@/store";
 
 export async function getScoresByPlayer(playerId: number): Promise<Score[]> {
   return fetch(`${api}/players/${playerId}/scores`).then((response) =>
@@ -59,7 +60,7 @@ export async function fetchLastScores(): Promise<Score[]> {
   return fetch(`${api}/scores`).then((response) => response.json());
 }
 
-export async function fetchScore(id: number): Promise<Score> {
+export async function fetchScore(id: Score["id"]): Promise<Score> {
   return fetch(`${api}/scores/${id}`).then((response) => response.json());
 }
 
@@ -67,7 +68,7 @@ export async function fetchMyLastScores(): Promise<Score[]> {
   return fetch(`${api}/me/scores`).then((response) => response.json());
 }
 
-export async function createGame(game): Promise<Response> {
+export async function createGame(game: Partial<Game>): Promise<Response> {
   return fetch(`${api}/games`, {
     method: "POST",
     headers: {
@@ -78,7 +79,7 @@ export async function createGame(game): Promise<Response> {
   });
 }
 
-export async function createPlayer(player): Promise<Response> {
+export async function createPlayer(player: Partial<Player>): Promise<Response> {
   return fetch(`${api}/players`, {
     method: "POST",
     headers: {
@@ -89,46 +90,67 @@ export async function createPlayer(player): Promise<Response> {
   });
 }
 
-export async function createScore(score): Promise<AxiosResponse> {
+function toForm(score: Partial<Score>) {
   const form = new FormData();
   Object.entries(score)
     .filter((e) => !!e[1])
-    .forEach((e) => form.append(e[0], e[1] as any));
+    .forEach((e) => form.append(e[0], <string>e[1]));
   if (score.photo) form.append("photo", score.photo);
   if (score.inp) form.append("inp", score.inp);
-  return axios.post(`${api}/me/scores`, form, {
+  return form;
+}
+
+export async function createScore(
+  score: Partial<Score>
+): Promise<AxiosResponse> {
+  return axios.post(`${api}/me/scores`, toForm(score), {
     headers: { "content-type": "multipart/form-data" },
   });
 }
 
-export async function editScore(score): Promise<AxiosResponse> {
-  const form = new FormData();
-  Object.entries(score)
-    .filter((e) => !!e[1])
-    .forEach((e) => form.append(e[0], e[1] as any));
-  if (score.photo) form.append("photo", score.photo);
-  if (score.inp) form.append("inp", score.inp);
-  return axios.post(`${api}/me/scores/${score.id}`, form, {
+export async function editScore(score: Score): Promise<AxiosResponse> {
+  return axios.post(`${api}/me/scores/${score.id}`, toForm(score), {
     headers: { "content-type": "multipart/form-data" },
   });
 }
 
-export async function createMode({ game, mode }): Promise<AxiosResponse> {
+export async function createMode({
+  game,
+  mode,
+}: {
+  game: Game;
+  mode: GameConfigurationOption;
+}): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/modes`, mode);
 }
 
 export async function createDifficulty({
   game,
   difficulty,
+}: {
+  game: Game;
+  difficulty: GameConfigurationOption;
 }): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/difficulties`, difficulty);
 }
 
-export async function createStage({ game, stage }): Promise<AxiosResponse> {
+export async function createStage({
+  game,
+  stage,
+}: {
+  game: Game;
+  stage: GameConfigurationOption;
+}): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/stages`, stage);
 }
 
-export async function createShip({ game, ship }): Promise<AxiosResponse> {
+export async function createShip({
+  game,
+  ship,
+}: {
+  game: Game;
+  ship: GameConfigurationOption;
+}): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/ships`, ship);
 }
 
@@ -143,6 +165,9 @@ export async function fetchPreviousUserScoreOfGames(
 export async function createPlatforms({
   game,
   platforms,
+}: {
+  game: Game;
+  platforms: Partial<Platform>[];
 }): Promise<AxiosResponse> {
   return axios.post(`${api}/games/${game.id}/platforms`, platforms);
 }

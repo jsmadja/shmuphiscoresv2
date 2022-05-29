@@ -1,5 +1,6 @@
 <template>
   <add-score-template
+    v-if="score && game"
     :game="game"
     :step="step"
     :score="score"
@@ -15,7 +16,6 @@
 import { mapGetters } from "vuex";
 import Vue from "vue";
 import AddScoreTemplate from "@/components/templates/AddScoreTemplate.vue";
-import store from "@/store";
 
 export default Vue.extend({
   components: {
@@ -26,13 +26,11 @@ export default Vue.extend({
       step: 1,
     };
   },
-  beforeRouteEnter(to, from, next) {
-    const _window: typeof window & { Store?: typeof store } = window;
-    const $store = _window.Store!;
-    Promise.all([
-      $store.dispatch("fetchScore", to.params.scoreId),
-      $store.dispatch("fetchGame", to.params.gameId),
-    ]).then(() => next());
+  async created() {
+    await Promise.all([
+      this.$store.dispatch("fetchScore", this.$route.params.scoreId),
+      this.$store.dispatch("fetchGame", this.$route.params.gameId),
+    ]);
   },
   computed: {
     ...mapGetters(["game", "score"]),
@@ -54,11 +52,9 @@ export default Vue.extend({
         .then((score) => (this.score = score))
         .then(() => (this.step = 2));
     },
-    onEditScore(score) {
-      this.$store
-        .dispatch("editScore", score)
-        .then((score) => (this.score = score))
-        .then(() => (this.step = 2));
+    async onEditScore(score) {
+      await this.$store.dispatch("editScore", score);
+      this.step = 2;
     },
   },
 });

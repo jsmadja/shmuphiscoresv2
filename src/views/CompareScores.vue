@@ -1,5 +1,6 @@
 <template>
   <compare-scores-template
+    v-if="user"
     :players="players"
     :versus="versus"
     :currentUserId="user.id"
@@ -15,17 +16,18 @@ import Vue from "vue";
 import { mapGetters } from "vuex";
 import CompareScoresTemplate from "@/components/templates/CompareScoresTemplate.vue";
 import { api } from "@/api";
-import store from "@/store";
 
 export default Vue.extend({
   name: "CompareScores.vue",
   components: { CompareScoresTemplate },
   created() {
-    this.loading = true;
-    this.$store.dispatch("fetchPlayers").then(() => (this.loading = false));
-  },
-  mounted() {
-    this.player1 = this.user.id;
+    Promise.all([
+      this.$store.dispatch("fetchUser"),
+      this.$store.dispatch("fetchPlayers"),
+    ]).then(() => {
+      this.player1 = this.user.id;
+      this.loading = false;
+    });
   },
   data() {
     return {
@@ -34,10 +36,6 @@ export default Vue.extend({
       versus: [],
       loading: true,
     };
-  },
-  beforeRouteEnter(from, to, next) {
-    const _window: typeof window & { Store?: typeof store } = window;
-    _window.Store!.dispatch("fetchUser").then(() => next());
   },
   computed: {
     ...mapGetters(["players", "user"]),
@@ -54,13 +52,15 @@ export default Vue.extend({
       this.player2 = player;
       this.fetchVersus();
     },
-    fetchVersus() {
+    async fetchVersus() {
       if (this.player1 && this.player2) {
         this.loading = true;
-        fetch(`${api}/players/${this.player1}/versus/${this.player2}`)
-          .then((response) => response.json())
-          .then((versus) => (this.versus = versus.comparisons))
-          .then(() => (this.loading = false));
+        const response = await fetch(
+          `${api}/players/${this.player1}/versus/${this.player2}`
+        );
+        const versus = await response.json();
+        this.versus = versus.comparisons;
+        this.loading = false;
       }
     },
   },

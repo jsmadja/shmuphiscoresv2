@@ -77,10 +77,10 @@ export default Vue.extend({
   },
   computed: {
     intersection: {
-      get: function (): any {
+      get: function (): Record<string, boolean> {
         return this.isIntersecting;
       },
-      set: function (isIntersecting: any) {
+      set: function (isIntersecting: Record<string, boolean>) {
         this.isIntersecting = isIntersecting;
       },
     },

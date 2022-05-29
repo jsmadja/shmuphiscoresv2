@@ -13,7 +13,6 @@ import { getScoresByShmupPlayer } from "@/repository";
 import Vue from "vue";
 import PlayerTemplate from "@/components/templates/PlayerTemplate.vue";
 import { Score } from "@/models/score";
-import { goToScore } from "@/router/routes";
 
 export default Vue.extend({
   name: "ShmupPlayer",
@@ -37,7 +36,7 @@ export default Vue.extend({
       this.$router.push(`/platform/${platform.name}`);
     },
     goToScore(score) {
-      goToScore(score);
+      this.$router.push(`/score/${score.id}`);
     },
   },
 });

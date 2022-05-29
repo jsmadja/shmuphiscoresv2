@@ -180,7 +180,6 @@ export default Vue.extend({
       return moment(date).fromNow();
     },
     open(photoUrl) {
-      console.log("pouet");
       window.location.href = photoUrl;
     },
   },

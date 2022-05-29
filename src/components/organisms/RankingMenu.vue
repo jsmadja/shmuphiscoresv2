@@ -45,8 +45,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Ranking from "@/components/organisms/Ranking.vue";
-import GameInformations from "@/components/organisms/GameInformations.vue";
 
 export default Vue.extend({
   name: "Game",

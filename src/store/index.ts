@@ -1,9 +1,9 @@
 import Vue from "vue";
-import Vuex from "vuex";
+import Vuex, { ActionContext } from "vuex";
 import { PlatformWithGameCount } from "@/models/platforms";
 import { Player } from "@/models/player";
 import { Game } from "@/models/game";
-import { Ranking } from "@/models/ranking";
+import { Ranking, Platform } from "@/models/ranking";
 import _ from "lodash";
 import {
   createDifficulty,
@@ -26,52 +26,82 @@ import {
   fetchScore,
   fetchUser,
 } from "@/repository";
+import { Score } from "@/models/score";
+import { AxiosError } from "axios";
 
 Vue.use(Vuex);
 
+interface S {
+  user: null;
+  platforms: PlatformWithGameCount[];
+  players: Player[];
+  myGames: Game[];
+  games: Game[];
+  game: null;
+  score: null;
+  rankings: Ranking[];
+  recentlyViewedGames: Game[];
+  showToast: boolean;
+  toastMessage: string;
+  toastColor: "success";
+  lastScores: Score[];
+  myLastScores: Score[];
+  myLastScoresLoading: boolean;
+}
+type R = S;
+
+export type GameConfigurationOption = {
+  value: string;
+  afterValue: number | undefined;
+};
 export const actions = {
-  fetchUser(context): Promise<void> {
-    return fetchUser().then((user) => context.commit("setUser", user));
+  async fetchUser(context: ActionContext<S, R>): Promise<Player> {
+    const user = await fetchUser();
+    context.commit("setUser", user);
+    return user;
   },
-  fetchPlatforms(context): Promise<void> {
+  fetchPlatforms(context: ActionContext<S, R>): Promise<void> {
     return fetchPlatforms().then((platforms) =>
       context.commit("setPlatforms", platforms)
     );
   },
-  fetchPlayers(context): Promise<void> {
+  fetchPlayers(context: ActionContext<S, R>): Promise<void> {
     return fetchPlayers().then((players) =>
       context.commit("setPlayers", players)
     );
   },
-  fetchGames(context): Promise<void> {
+  fetchGames(context: ActionContext<S, R>): Promise<void> {
     return fetchGames().then((games) => context.commit("setGames", games));
   },
-  fetchMyGames(context): Promise<void> {
+  fetchMyGames(context: ActionContext<S, R>): Promise<void> {
     return fetchMyGames().then((games) => context.commit("setMyGames", games));
   },
-  fetchGame(context, id): Promise<void> {
+  fetchGame(context: ActionContext<S, R>, id: Game["id"]): Promise<void> {
     return fetchGame(id).then((game) => context.commit("setGame", game));
   },
-  fetchRankings(context, id): Promise<void> {
+  fetchRankings(context: ActionContext<S, R>, id: Game["id"]): Promise<void> {
     return fetchRankings(id).then((game) =>
       context.commit("setRankings", game)
     );
   },
-  fetchLastScores(context): Promise<void> {
+  fetchLastScores(context: ActionContext<S, R>): Promise<void> {
     return fetchLastScores().then((scores) =>
       context.commit("setLastScores", scores)
     );
   },
-  fetchScore(context, id): Promise<void> {
+  fetchScore(context: ActionContext<S, R>, id: Score["id"]): Promise<void> {
     return fetchScore(id).then((score) => context.commit("setScore", score));
   },
-  fetchMyLastScores(context): Promise<void> {
+  fetchMyLastScores(context: ActionContext<S, R>): Promise<void> {
     return fetchMyLastScores().then((scores) => {
       context.commit("setMyLastScoresLoading", false);
       context.commit("setMyLastScores", scores);
     });
   },
-  async createGame(context, game) {
+  async createGame(
+    context: ActionContext<S, R>,
+    game: Partial<Game>
+  ): Promise<Game> {
     return createGame(game).then((response) => {
       if (response.ok) {
         context.dispatch(
@@ -85,7 +115,10 @@ export const actions = {
       }
     });
   },
-  async createPlayer(context, player): Promise<Player> {
+  async createPlayer(
+    context: ActionContext<S, R>,
+    player: Partial<Player>
+  ): Promise<Player> {
     const response = await createPlayer(player);
     if (response.ok) {
       await context.dispatch(
@@ -97,7 +130,10 @@ export const actions = {
     await context.dispatch("showErrorToast", response.status);
     throw new Error("Error: " + response.status);
   },
-  async createScore(context, score) {
+  async createScore(
+    context: ActionContext<S, R>,
+    score: Partial<Score>
+  ): Promise<Score> {
     return createScore(score)
       .then((response) => {
         context.dispatch("showSuccessToast", `Score has been submitted`);
@@ -108,18 +144,22 @@ export const actions = {
         throw new Error(error);
       });
   },
-  async editScore(context, score) {
-    return editScore(score)
-      .then((response) => {
-        context.dispatch("showSuccessToast", `Score has been updated`);
-        return response.data;
-      })
-      .catch((error) => {
-        context.dispatch("showErrorToast", error);
-        throw new Error(error);
-      });
+  async editScore(context: ActionContext<S, R>, score: Score): Promise<Score> {
+    try {
+      const response = await editScore(score);
+      await context.dispatch("showSuccessToast", `Score has been updated`);
+      const updatedScore = response.data;
+      context.commit("setScore", updatedScore);
+      return updatedScore;
+    } catch (error) {
+      context.dispatch("showErrorToast", error);
+      throw new Error((error as AxiosError).message);
+    }
   },
-  async createMode(context, { game, mode }) {
+  async createMode(
+    context: ActionContext<S, R>,
+    { game, mode }: { game: Game; mode: GameConfigurationOption }
+  ): Promise<Game> {
     return createMode({ game, mode })
       .then((response) => {
         context.dispatch(
@@ -127,14 +167,17 @@ export const actions = {
           `Mode ${mode.value} has been submitted`
         );
         context.commit("setGame", response.data);
-        return response;
+        return response.data;
       })
       .catch((error) => {
         context.dispatch("showErrorToast", error);
         throw new Error(error);
       });
   },
-  async createDifficulty(context, { game, difficulty }) {
+  async createDifficulty(
+    context: ActionContext<S, R>,
+    { game, difficulty }: { game: Game; difficulty: GameConfigurationOption }
+  ): Promise<Game> {
     return createDifficulty({ game, difficulty })
       .then((response) => {
         context.dispatch(
@@ -142,14 +185,17 @@ export const actions = {
           `Difficulty ${difficulty.value} has been submitted`
         );
         context.commit("setGame", response.data);
-        return response;
+        return response.data;
       })
       .catch((error) => {
         context.dispatch("showErrorToast", error);
         throw new Error(error);
       });
   },
-  createStage(context, { game, stage }) {
+  createStage(
+    context: ActionContext<S, R>,
+    { game, stage }: { game: Game; stage: GameConfigurationOption }
+  ): Promise<Game> {
     return createStage({ game, stage })
       .then((response) => {
         context.dispatch(
@@ -157,14 +203,17 @@ export const actions = {
           `Stage ${stage.value} has been submitted`
         );
         context.commit("setGame", response.data);
-        return response;
+        return response.data;
       })
       .catch((error) => {
         context.dispatch("showErrorToast", error);
         throw new Error(error);
       });
   },
-  createShip(context, { game, ship }) {
+  createShip(
+    context: ActionContext<S, R>,
+    { game, ship }: { game: Game; ship: GameConfigurationOption }
+  ): Promise<Game> {
     return createShip({ game, ship })
       .then((response) => {
         context.dispatch(
@@ -172,14 +221,17 @@ export const actions = {
           `Ship ${ship.value} has been submitted`
         );
         context.commit("setGame", response.data);
-        return response;
+        return response.data;
       })
       .catch((error) => {
         context.dispatch("showErrorToast", error);
         throw new Error(error);
       });
   },
-  createPlatforms(context, { game, platforms }) {
+  createPlatforms(
+    context: ActionContext<S, R>,
+    { game, platforms }: { game: Game; platforms: Partial<Platform>[] }
+  ): Promise<Game> {
     return createPlatforms({ game, platforms })
       .then((response) => {
         context.dispatch(
@@ -187,20 +239,20 @@ export const actions = {
           `Platforms ${platforms} has been submitted`
         );
         context.commit("setGame", response.data);
-        return response;
+        return response.data;
       })
       .catch((error) => {
         context.dispatch("showErrorToast", error);
         throw new Error(error);
       });
   },
-  showSuccessToast(context, message) {
+  showSuccessToast(context: ActionContext<S, R>, message: string): void {
     context.commit("setToastMessage", { message, color: "success" });
   },
-  showErrorToast(context, message) {
+  showErrorToast(context: ActionContext<S, R>, message: string): void {
     context.commit("setToastMessage", { message, color: "red" });
   },
-  addViewedGame(context, game) {
+  addViewedGame(context: ActionContext<S, R>, game: Game): void {
     context.state.recentlyViewedGames.push(game);
     context.commit(
       "setRecentlyViewedGames",
@@ -209,24 +261,25 @@ export const actions = {
   },
 };
 
+const initialState: S = {
+  user: null,
+  platforms: [],
+  players: [],
+  myGames: [],
+  games: [],
+  game: null,
+  score: null,
+  rankings: [],
+  showToast: false,
+  toastMessage: "",
+  toastColor: "success",
+  lastScores: [],
+  myLastScores: [],
+  myLastScoresLoading: true,
+  recentlyViewedGames: [],
+};
 export default new Vuex.Store({
-  state: {
-    user: null,
-    platforms: [] as PlatformWithGameCount[],
-    players: [] as Player[],
-    myGames: [] as Game[],
-    games: [] as Game[],
-    game: null,
-    score: null,
-    rankings: [] as Ranking[],
-    showToast: false,
-    toastMessage: "",
-    toastColor: "success",
-    lastScores: [],
-    myLastScores: [],
-    myLastScoresLoading: true,
-    recentlyViewedGames: [] as Game[],
-  },
+  state: initialState,
   mutations: {
     setUser(state, user) {
       state.user = user;
@@ -274,7 +327,7 @@ export default new Vuex.Store({
       state.recentlyViewedGames = games;
     },
   },
-  actions,
+  actions: actions,
   getters: {
     user: (state) => state.user,
     platforms: (state) => state.platforms,

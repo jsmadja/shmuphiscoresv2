@@ -1,6 +1,6 @@
 import { Player } from "./player";
 import { Mode, Stage, Difficulty, Ship, Platform } from "@/models/ranking";
-import { formatTime, formatNumber } from "../formaters";
+import { formatTime, formatNumber } from "@/formaters";
 import { Game } from "@/models/game";
 
 export interface Score {
@@ -10,10 +10,10 @@ export interface Score {
   photo?: string | null;
   value: number;
   inp?: string | null;
-  mode?: Mode;
+  mode?: Mode | null;
   difficulty?: Difficulty;
   isTimeScore?: boolean;
-  stage?: Stage | null | undefined;
+  stage?: Stage | string | null | undefined;
   rank: number;
   progression?: number | null;
   comment?: string;
@@ -45,7 +45,7 @@ export function toForumCode(score: Score): string {
   } ${score.isTimeScore ? "" : "points"}[/color][/b]\n`;
 
   if (score.stage != null) {
-    message += `Stage : [b][color=#BF4000]${score.stage.name}[/color][/b]\n`;
+    message += `Stage : [b][color=#BF4000]${score.stage["name"]}[/color][/b]\n`;
   }
 
   if (score.difficulty != null) {

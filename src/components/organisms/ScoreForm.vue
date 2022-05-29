@@ -350,7 +350,7 @@ export default Vue.extend({
       return this.game[setting].length === 1 ? this.game[setting][0].id : null;
     },
     validate() {
-      const form = this.$refs.formRef as any;
+      const form = this.$refs.formRef as HTMLFormElement;
       form.validate();
       if (this.isTimerMode()) {
         this.form.value = null;

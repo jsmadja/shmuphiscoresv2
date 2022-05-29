@@ -57,7 +57,8 @@ export default Vue.extend({
   },
   methods: {
     validate() {
-      (this.$refs.form as any).validate();
+      const form = this.$refs.form as HTMLFormElement;
+      form.validate();
       this.$emit("create", {
         value: this.value,
         afterValue: this.afterValue,
