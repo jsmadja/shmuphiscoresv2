@@ -21,16 +21,27 @@ http {
   access_log <%= ENV['NGINX_ACCESS_LOG_PATH'] || 'logs/nginx/access.log' %> l2met;
   error_log <%= ENV['NGINX_ERROR_LOG_PATH'] || 'logs/nginx/error.log' %>;
 
+upstream app_server {
+  server unix:/tmp/nginx.socket fail_timeout=0;
+ }
+
   server {
     listen <%= ENV["PORT"] %>;
     server_name _;
 
     root /app/dist;       # <-- ton dossier Vue build
-    index index.html;
+    #index index.html;
+
+ location = /index.html {
+   add_header Cache-Control "no-store, no-cache";
+   add_header Strict-Transport-Security "max-age=31536002;";
+
+   try_files $uri $uri/ =404;
+  }
 
     location / {
       # SPA fallback : toutes les routes reviennent à index.html
-      try_files $uri /index.html;
+      try_files $uri $uri/ /index.html;
     }
   }
 }
