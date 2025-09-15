@@ -94,7 +94,7 @@
     "webpack": "^5.101.3"
   },
   "engines": {
-    "node": "14.x"
+    "node": "18.x"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
