@@ -25,10 +25,11 @@ http {
     listen <%= ENV["PORT"] %>;
     server_name _;
 
-    root /app/dist;         # <-- ton index.html est ici
+    root /app/dist;       # <-- ton dossier Vue build
     index index.html;
 
     location / {
+      # SPA fallback : toutes les routes reviennent à index.html
       try_files $uri /index.html;
     }
   }
