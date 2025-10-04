@@ -8,11 +8,11 @@
 
 <script>
 import AddGameTemplate from "@/components/templates/AddGameTemplate";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { mapGetters } from "vuex";
 import _ from "lodash";
 
-export default Vue.extend({
+export default defineComponent({
   name: "AddGame",
   components: { AddGameTemplate },
   data() {

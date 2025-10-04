@@ -56,10 +56,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import ScoreCard from "../organisms/ScoreCard.vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "HomeTemplate",
   components: { ScoreCard },
   props: [

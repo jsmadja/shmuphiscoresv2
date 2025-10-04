@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { mapGetters } from "vuex";
 import PlayersTemplate from "../components/templates/PlayersTemplate";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Players",
   components: { PlayersTemplate },
   computed: {

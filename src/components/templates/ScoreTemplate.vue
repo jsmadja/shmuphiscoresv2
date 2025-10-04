@@ -15,10 +15,10 @@
           </template>
           <template v-slot:item.value="{ item }">
             <span v-if="item.mode && item.mode.scoreType === 'timer'">
-              {{ item.value | formatTime }}
+              {{ $filters.formatTime(item.value) }}
             </span>
             <span v-else>
-              {{ item.value | formatNumber }}
+              {{ $filters.formatNumber(item.value) }}
             </span>
           </template>
           <template v-slot:item.gapWithPreviousScore="{ item }">
@@ -59,12 +59,12 @@
 
 <script lang="ts">
 import moment from "moment";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { Score } from "@/models/score";
 import ShmupTable from "@/components/molecules/ShmupTable.vue";
 import OneCCChip from "@/components/atoms/OneCCChip.vue";
 
-export default Vue.extend({
+export default defineComponent({
   components: { OneCCChip, ShmupTable },
   props: ["canEdit", "history"],
   computed: {

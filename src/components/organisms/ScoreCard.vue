@@ -23,10 +23,10 @@
                 class="score"
                 @click="$emit('goToScore', score)"
                 v-if="score.mode && score.mode.scoreType === 'timer'"
-                >{{ score.value | formatTime }}</span
+                >{{ $filters.formatTime(score.value) }}</span
               >
               <span class="score" @click="$emit('goToScore', score)" v-else
-                >{{ score.value | formatNumber }} pts</span
+                >{{ $filters.formatNumber(score.value) }} pts</span
               >
             </v-col>
             <v-col v-if="showPlayer">
@@ -39,7 +39,7 @@
             </v-col>
             <v-col>
               <span class="category">RANK</span>
-              <span class="category-value">{{ score.rank | formatRank }}</span>
+              <span class="category-value">{{ $filters.formatRank(score.rank) }}</span>
             </v-col>
             <v-col>
               <span class="category">PLATFORM</span>
@@ -153,11 +153,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import Cover from "../atoms/Cover.vue";
 import moment from "moment";
 
-export default Vue.extend({
+export default defineComponent({
   name: "ScoreCard",
   components: { Cover },
   props: {

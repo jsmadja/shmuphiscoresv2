@@ -25,11 +25,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import _ from "lodash";
 import { Platform } from "@/models/ranking";
 
-export default Vue.extend({
+export default defineComponent({
   name: "AddPlatforms",
   props: ["usedPlatforms", "platforms"],
   data: function () {

@@ -168,11 +168,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { mapGetters } from "vuex";
 import FloatingMenu from "@/components/organisms/FloatingMenu.vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "App",
 
   components: {

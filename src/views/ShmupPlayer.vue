@@ -10,11 +10,11 @@
 
 <script lang="ts">
 import { getScoresByShmupPlayer } from "@/repository";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import PlayerTemplate from "@/components/templates/PlayerTemplate.vue";
 import { Score } from "@/models/score";
 
-export default Vue.extend({
+export default defineComponent({
   name: "ShmupPlayer",
   components: { PlayerTemplate },
   async created() {

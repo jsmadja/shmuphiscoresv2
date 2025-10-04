@@ -42,13 +42,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import Cover from "../atoms/Cover.vue";
 import { platformNames } from "@/models/platforms";
 import PlatformButton from "@/components/atoms/PlatformButton.vue";
 import ShmupTable from "@/components/molecules/ShmupTable.vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "PlatformTemplate",
   props: ["platformTitle", "games"],
   components: { Cover, PlatformButton, ShmupTable },

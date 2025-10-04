@@ -49,8 +49,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { InputValidationRules } from "vuetify";
+import { defineComponent } from "vue";
 
 interface PlayerFormType {
   name: string;
@@ -59,12 +58,12 @@ interface PlayerFormType {
 
 type Rule = (v: string) => string | boolean;
 
-export default Vue.extend({
+export default defineComponent({
   data(): {
     valid: boolean;
     formModel: PlayerFormType;
     nameRules: Array<Rule>;
-    isNumeric: InputValidationRules;
+    isNumeric: any;
   } {
     return {
       valid: false,

@@ -14,11 +14,11 @@
 
 <script>
 import EditGameTemplate from "@/components/templates/EditGameTemplate";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { mapGetters } from "vuex";
 import _ from "lodash";
 
-export default Vue.extend({
+export default defineComponent({
   name: "EditGame",
   components: { EditGameTemplate },
   data() {

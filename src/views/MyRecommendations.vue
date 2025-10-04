@@ -7,12 +7,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { Game } from "@/models/game";
 import MyRecommendationsTemplate from "@/components/templates/MyRecommendationsTemplate.vue";
 import { getMyRecommendations } from "@/repository";
 
-export default Vue.extend({
+export default defineComponent({
   name: "MyRecommendations",
   components: { MyRecommendationsTemplate },
   async mounted() {

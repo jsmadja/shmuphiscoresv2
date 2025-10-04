@@ -6,11 +6,11 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from "vue";
 import { mapGetters } from "vuex";
 import PlatformsTemplate from "@/components/templates/PlatformsTemplate.vue";
-import Vue from "vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Platforms",
   components: {
     PlatformsTemplate,

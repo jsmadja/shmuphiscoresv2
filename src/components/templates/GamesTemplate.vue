@@ -47,13 +47,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import Cover from "../atoms/Cover.vue";
 import ShmupTable from "@/components/molecules/ShmupTable.vue";
 
 const SESSION_STORAGE_GAME_SEARCH = "game-search";
 
-export default Vue.extend({
+export default defineComponent({
   name: "GamesTemplate",
   props: ["title", "games", "loading"],
   components: { Cover, ShmupTable },

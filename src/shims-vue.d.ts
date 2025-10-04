@@ -1,13 +1,13 @@
-import { Component } from "vue";
+import { DefineComponent } from "vue";
 
 declare module "*.vue" {
-  import Vue from "vue";
-  export default Vue;
+  const component: DefineComponent<{}, {}, any>;
+  export default component;
 }
 
 export type VueStory = {
   template: string;
-  components: Record<string, Component>;
+  components: Record<string, DefineComponent>;
   methods?: Record<string, unknown>;
   data?: () => unknown;
   props?: Record<string, unknown>;
