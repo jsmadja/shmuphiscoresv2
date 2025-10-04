@@ -15,10 +15,10 @@
           </template>
           <template v-slot:item.value="{ item }">
             <span v-if="item.mode && item.mode.scoreType === 'timer'">
-              {{ item.value | formatTime }}
+              {{ $filters.formatTime(item.value) }}
             </span>
             <span v-else>
-              {{ item.value | formatNumber }}
+              {{ $filters.formatNumber(item.value) }}
             </span>
           </template>
           <template v-slot:item.gapWithPreviousScore="{ item }">

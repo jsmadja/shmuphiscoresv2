@@ -28,7 +28,7 @@ export default defineComponent({
   props: ["players", "currentPlayerId"],
   data() {
     return {
-      headers: [{ text: "Player", value: "name" }],
+      headers: [{ title: "Player", value: "name" }],
     };
   },
   methods: {

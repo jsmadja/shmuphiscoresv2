@@ -76,7 +76,7 @@
                 }}</span>
               </template>
               <template v-slot:item.rank="{ item }">
-                {{ item.rank | formatRank }}
+                {{ $filters.formatRank(item.rank) }}
               </template>
               <template v-slot:expanded-item="{ headers, item }">
                 <td :colspan="headers.length">{{ item.comment }}</td>
@@ -129,13 +129,13 @@
                   v-if="ranking.mode && ranking.mode.scoreType === 'timer'"
                   class="float-right"
                   @click.self="() => goToScore(item)"
-                  >{{ item.value | formatTime }}</span
+                  >{{ $filters.formatTime(item.value) }}</span
                 >
                 <span
                   v-else
                   class="float-right"
                   @click.self="() => goToScore(item)"
-                  >{{ item.value | formatNumber }}</span
+                  >{{ $filters.formatNumber(item.value) }}</span
                 >
               </template>
             </v-data-table>
@@ -166,17 +166,15 @@ export default defineComponent({
     return {
       search: "",
       headers: [
-        { text: "Rank", value: "rank", align: "end" },
-        { text: "Player", value: "player.name" },
-        { text: "Score", value: "value", align: "end" },
-        { text: "Stage", value: "stage", align: "end", hide: "smAndDown" },
+        { title: "Rank", value: "rank", align: "end" },
+        { title: "Player", value: "player.name" },
+        { title: "Score", value: "value", align: "end" },
+        { title: "Stage", value: "stage", align: "end" },
         {
-          text: "Comment",
+          title: "Comment",
           value: "comment",
-          hide: "smAndDown",
-          class: "comment-header",
         },
-        { text: "", value: "data-table-expand", hide: "smAndDown" },
+        { title: "", value: "data-table-expand" },
       ],
     };
   },

@@ -208,11 +208,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import _ from "lodash";
 import { Game } from "@/models/game";
-import { PropValidator } from "vue/types/options";
-import { InputValidationRules } from "vuetify";
 import { Score } from "@/models/score";
 
 interface ScoreForm {
@@ -234,24 +232,24 @@ interface ScoreForm {
 
 export default defineComponent({
   props: {
-    game: { type: Object } as PropValidator<Game>,
-    score: { type: Object } as PropValidator<Score>,
-    previousScore: { type: Object } as PropValidator<Score>,
-    mode: { type: Number } as PropValidator<number>,
-    difficulty: { type: Number } as PropValidator<number>,
-    ship: { type: Number } as PropValidator<number>,
-    stage: { type: Number } as PropValidator<number>,
-    platform: { type: Number } as PropValidator<number>,
+    game: { type: Object as PropType<Game> },
+    score: { type: Object as PropType<Score> },
+    previousScore: { type: Object as PropType<Score> },
+    mode: { type: Number as PropType<number> },
+    difficulty: { type: Number as PropType<number> },
+    ship: { type: Number as PropType<number> },
+    stage: { type: Number as PropType<number> },
+    platform: { type: Number as PropType<number> },
   },
   data(): {
     loading: boolean;
     valid: boolean;
     hideDetails: boolean;
     form: ScoreForm;
-    isNumeric: InputValidationRules;
-    notEmpty: InputValidationRules;
-    replayRules: InputValidationRules;
-    settingRules: (string) => InputValidationRules;
+    isNumeric: any;
+    notEmpty: any;
+    replayRules: any;
+    settingRules: (string) => any;
     previousScoreLoaded: boolean;
   } {
     return {
@@ -323,7 +321,7 @@ export default defineComponent({
     this.form.seconds = _.get(this, "score.seconds");
     this.form.milliseconds = _.get(this, "score.milliseconds");
     this.form.comment = _.get(this, "score.comment");
-    this.form.replay = _.get(this, "score.replay");
+    this.form.replay = _.get(this, "score.replay") || null;
     this.form.mode =
       this.mode ||
       _.get(this, "score.mode.id") ||
@@ -347,6 +345,7 @@ export default defineComponent({
   },
   methods: {
     defaultSettingValue(setting): number | null {
+      if (!this.game) return null;
       return this.game[setting].length === 1 ? this.game[setting][0].id : null;
     },
     validate() {
@@ -358,7 +357,7 @@ export default defineComponent({
       const score = JSON.parse(JSON.stringify(this.form));
       score.photo = this.form.photo;
       score.inp = this.form.inp;
-      score.game = this.game.id;
+      score.game = this.game?.id;
       if (score.id) {
         this.$emit("editScore", score);
       } else {
@@ -367,10 +366,10 @@ export default defineComponent({
       this.loading = true;
     },
     isTimerMode() {
-      if (this.form.mode) {
+      if (this.form.mode && this.game) {
         return (
           this.game.modes.filter((m) => m.id === this.form.mode)[0]
-            .scoreType === "timer"
+            ?.scoreType === "timer"
         );
       }
       return false;

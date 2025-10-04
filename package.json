@@ -88,10 +88,9 @@
     "ts-jest": "^29.1.1",
     "typescript": "^4.9.5",
     "vue-cli-plugin-test": "~1.0.2",
-    "vue-cli-plugin-vuetify": "^2.5.8",
     "vue-loader": "^17.3.0",
-    "vuetify-loader": "^2.0.3",
-    "webpack": "^5.101.3"
+    "webpack": "^5.101.3",
+    "webpack-plugin-vuetify": "^2.0.1"
   },
   "engines": {
     "node": "18.x"

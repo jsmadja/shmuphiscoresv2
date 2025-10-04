@@ -11,14 +11,14 @@
 import CopyableCode from "../atoms/CopyableCode.vue";
 import { defineComponent } from "vue";
 import { Score, toForumCode } from "@/models/score";
-import { PropValidator } from "vue/types/options";
+import { PropType } from "vue";
 
 export default defineComponent({
   components: {
     CopyableCode,
   },
   props: {
-    score: { type: Object } as PropValidator<Score>,
+    score: { type: Object as PropType<Score> },
   },
   computed: {
     code(): string {

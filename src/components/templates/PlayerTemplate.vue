@@ -36,19 +36,19 @@
             />
           </template>
           <template v-slot:item.rank="{ item }">
-            {{ item.rank | formatRank }}
+            {{ $filters.formatRank(item.rank) }}
           </template>
           <template v-slot:item.createdAt="{ item }">
-            {{ item.createdAt | formatDateFromNow }}
+            {{ $filters.formatDateFromNow(item.createdAt) }}
           </template>
           <template v-slot:item.value="{ item }">
             <span
               @click.self="() => goToScore(item)"
               v-if="item.mode && item.mode.scoreType === 'timer'"
-              >{{ item.value | formatTime }}</span
+              >{{ $filters.formatTime(item.value) }}</span
             >
             <span @click.self="() => goToScore(item)" v-else>{{
-              item.value | formatNumber
+              $filters.formatNumber(item.value)
             }}</span>
           </template>
           <template v-slot:item.onecc="{ item }">

@@ -50,7 +50,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { InputValidationRules } from "vuetify";
 
 interface PlayerFormType {
   name: string;
@@ -64,7 +63,7 @@ export default defineComponent({
     valid: boolean;
     formModel: PlayerFormType;
     nameRules: Array<Rule>;
-    isNumeric: InputValidationRules;
+    isNumeric: any;
   } {
     return {
       valid: false,
