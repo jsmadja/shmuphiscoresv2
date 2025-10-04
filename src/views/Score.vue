@@ -7,13 +7,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { api } from "@/api";
 import ScoreTemplate from "@/components/templates/ScoreTemplate.vue";
 import { mapGetters } from "vuex";
 import { Score } from "@/models/score";
 
-export default Vue.extend({
+export default defineComponent({
   components: { ScoreTemplate },
   data: (): { history: Score[] } => {
     return {

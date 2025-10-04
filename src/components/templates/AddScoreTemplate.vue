@@ -58,12 +58,12 @@
 
 <script lang="ts">
 import GameInformations from "../organisms/GameInformations.vue";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import ScoreForm from "../organisms/ScoreForm.vue";
 import ScoreForumCode from "../organisms/ScoreForumCode.vue";
 import PostScoreToForum from "../molecules/PostScoreToForum.vue";
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     ScoreForumCode,
     GameInformations,

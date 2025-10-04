@@ -3,10 +3,11 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from "vue";
 import MyProfileTemplate from "../components/templates/MyProfileTemplate.vue";
 import { mapGetters } from "vuex";
-import Vue from "vue";
-export default Vue.extend({
+
+export default defineComponent({
   name: "MyProfile",
   components: { MyProfileTemplate },
   computed: {

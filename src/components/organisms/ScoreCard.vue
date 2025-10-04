@@ -153,11 +153,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import Cover from "../atoms/Cover.vue";
 import moment from "moment";
 
-export default Vue.extend({
+export default defineComponent({
   name: "ScoreCard",
   components: { Cover },
   props: {

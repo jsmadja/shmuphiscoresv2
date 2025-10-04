@@ -208,7 +208,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import _ from "lodash";
 import { Game } from "@/models/game";
 import { PropValidator } from "vue/types/options";
@@ -232,7 +232,7 @@ interface ScoreForm {
   inp: File | null;
 }
 
-export default Vue.extend({
+export default defineComponent({
   props: {
     game: { type: Object } as PropValidator<Game>,
     score: { type: Object } as PropValidator<Score>,

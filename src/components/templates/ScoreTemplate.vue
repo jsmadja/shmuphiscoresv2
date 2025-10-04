@@ -59,12 +59,12 @@
 
 <script lang="ts">
 import moment from "moment";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { Score } from "@/models/score";
 import ShmupTable from "@/components/molecules/ShmupTable.vue";
 import OneCCChip from "@/components/atoms/OneCCChip.vue";
 
-export default Vue.extend({
+export default defineComponent({
   components: { OneCCChip, ShmupTable },
   props: ["canEdit", "history"],
   computed: {

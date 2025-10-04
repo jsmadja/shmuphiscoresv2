@@ -49,7 +49,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { InputValidationRules } from "vuetify";
 
 interface PlayerFormType {
@@ -59,7 +59,7 @@ interface PlayerFormType {
 
 type Rule = (v: string) => string | boolean;
 
-export default Vue.extend({
+export default defineComponent({
   data(): {
     valid: boolean;
     formModel: PlayerFormType;

@@ -16,10 +16,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { getPostThreadUrl } from "@/models/game";
 
-export default Vue.extend({
+export default defineComponent({
   props: ["game"],
   data: () => ({
     loading: false,

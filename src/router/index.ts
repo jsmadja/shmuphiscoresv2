@@ -1,5 +1,4 @@
-import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import Games from "../views/Games.vue";
 import Score from "../views/Score.vue";
@@ -20,9 +19,7 @@ import EditScore from "../views/EditScore.vue";
 import AddPlayer from "@/views/AddPlayer.vue";
 import ShmupPlayer from "@/views/ShmupPlayer.vue";
 
-Vue.use(VueRouter);
-
-const routes: Array<RouteConfig> = [
+const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Home",
@@ -138,9 +135,8 @@ const routes: Array<RouteConfig> = [
   },
 ];
 
-const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
   routes,
 });
 

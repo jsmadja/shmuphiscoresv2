@@ -89,10 +89,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import ShmupTable from "@/components/molecules/ShmupTable.vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "CompareScoresTemplate",
   props: ["players", "versus", "currentUserId", "loading"],
   components: { ShmupTable },

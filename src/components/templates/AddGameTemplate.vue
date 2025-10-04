@@ -113,7 +113,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import GameTemplate from "./GameTemplate.vue";
 import { generateRankings } from "@/models/ranking";
 
@@ -131,7 +131,7 @@ interface GameFormType {
 type ArrayRule = (v: string[]) => string | boolean;
 type Rule = (v: string) => string | boolean;
 
-export default Vue.extend({
+export default defineComponent({
   components: { GameTemplate },
   props: ["platforms", "user"],
   data(): {

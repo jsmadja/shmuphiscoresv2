@@ -83,9 +83,9 @@
 
 <script>
 import CopyableCode from "../atoms/CopyableCode";
-import Vue from "vue";
+import { defineComponent } from "vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "MyProfileTemplate",
   components: {
     CopyableCode,

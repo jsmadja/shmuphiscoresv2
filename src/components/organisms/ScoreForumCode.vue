@@ -9,11 +9,11 @@
 
 <script lang="ts">
 import CopyableCode from "../atoms/CopyableCode.vue";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { Score, toForumCode } from "@/models/score";
 import { PropValidator } from "vue/types/options";
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     CopyableCode,
   },

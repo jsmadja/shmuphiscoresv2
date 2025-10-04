@@ -148,7 +148,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { Score } from "@/models/score";
 import { DataTableHeader } from "vuetify";
 
@@ -156,7 +156,7 @@ interface DataTableHeader2 extends DataTableHeader {
   hide?: string;
 }
 
-export default Vue.extend({
+export default defineComponent({
   name: "Ranking",
   props: ["ranking", "currentPlayerId", "hideAddScoreButton"],
   data(): {

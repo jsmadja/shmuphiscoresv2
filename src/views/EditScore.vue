@@ -14,10 +14,10 @@
 
 <script lang="ts">
 import { mapGetters } from "vuex";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import AddScoreTemplate from "@/components/templates/AddScoreTemplate.vue";
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     AddScoreTemplate,
   },

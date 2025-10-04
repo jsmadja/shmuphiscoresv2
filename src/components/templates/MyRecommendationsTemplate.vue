@@ -41,11 +41,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import RecommendationCard from "../molecules/RecommendationCard.vue";
 import { Game } from "@/models/game";
 
-export default Vue.extend({
+export default defineComponent({
   name: "MyRecommendationsTemplate",
   components: { RecommendationCard },
   props: ["myRecommendations", "myRecommendationsLoading"],

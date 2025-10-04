@@ -10,11 +10,11 @@
 <script lang="ts">
 import PlatformTemplate from "@/components/templates/PlatformTemplate.vue";
 import { Game } from "@/models/game";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { mapGetters } from "vuex";
 import { api } from "@/api";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Platform",
   data: () => ({
     games: [] as Game[],

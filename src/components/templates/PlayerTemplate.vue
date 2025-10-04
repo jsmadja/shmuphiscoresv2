@@ -66,13 +66,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import Cover from "../atoms/Cover.vue";
 import ShmupTable from "@/components/molecules/ShmupTable.vue";
 import OneCCChip from "@/components/atoms/OneCCChip.vue";
 import PlatformButton from "@/components/atoms/PlatformButton.vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "PlayerTemplate",
   components: { Cover, ShmupTable, OneCCChip, PlatformButton },
   props: ["loading", "scores", "canEdit"],

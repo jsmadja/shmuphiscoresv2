@@ -15,7 +15,7 @@
 <script lang="ts">
 import GameTemplate from "@/components/templates/GameTemplate.vue";
 import { Ranking } from "@/models/ranking";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { mapGetters } from "vuex";
 import { goToScore } from "@/router/routes";
 import { Score } from "@/models/score";
@@ -23,7 +23,7 @@ import { Score } from "@/models/score";
 const defaultSetting = (setting: Ranking, value) =>
   setting[value] ? setting[value].id || "" : "";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Game",
   components: { GameTemplate },
   computed: {
