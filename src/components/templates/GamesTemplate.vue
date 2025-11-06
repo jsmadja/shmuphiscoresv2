@@ -14,6 +14,10 @@
           @search="onSearch"
           :loading="loading"
           :search="search"
+          :footer-props="{
+            disableItemsPerPage: true,
+            itemsPerPageOptions: [-1],
+          }"
         >
           <template v-slot:item.cover="{ item }">
             <Cover
