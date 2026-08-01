@@ -7,6 +7,7 @@
     @copy="onCopy"
     @createScore="onCreateScore"
     @editScore="onEditScore"
+    @deleteScore="onDeleteScore"
     @goToGamePage="onGoToGamePage"
     @goToGameEdit="onGoToGameEdit"
   />
@@ -55,6 +56,10 @@ export default Vue.extend({
     async onEditScore(score) {
       await this.$store.dispatch("editScore", score);
       this.step = 2;
+    },
+    async onDeleteScore(score) {
+      await this.$store.dispatch("deleteScore", score.id);
+      this.$router.push(`/games/${this.game.id}`);
     },
   },
 });

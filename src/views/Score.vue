@@ -3,6 +3,7 @@
     :history="history"
     :can-edit="canEdit()"
     @goToEditScore="goToEditScore"
+    @deleteScore="deleteScore"
   />
 </template>
 
@@ -37,6 +38,10 @@ export default Vue.extend({
     },
     goToEditScore(score) {
       this.$router.push(`/games/${score.game.id}/scores/${score.id}/edit`);
+    },
+    async deleteScore(score: Score) {
+      await this.$store.dispatch("deleteScore", score.id);
+      this.$router.push("/");
     },
   },
 });

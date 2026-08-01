@@ -40,6 +40,7 @@
                 :previous-score="previousScore"
                 @createScore="onCreateScore"
                 @editScore="onEditScore"
+                @deleteScore="onDeleteScore"
                 @loadPreviousScore="onLoadPreviousScore"
               />
             </v-stepper-content>
@@ -87,6 +88,9 @@ export default Vue.extend({
     },
     onEditScore(score) {
       this.$emit("editScore", score);
+    },
+    onDeleteScore(score) {
+      this.$emit("deleteScore", score);
     },
     onCopy() {
       this.$emit("copy");

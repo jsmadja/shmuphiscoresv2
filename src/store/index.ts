@@ -14,6 +14,7 @@ import {
   createScore,
   createShip,
   createStage,
+  deleteScore,
   editScore,
   fetchGame,
   fetchGames,
@@ -156,6 +157,19 @@ export const actions = {
       throw new Error((error as AxiosError).message);
     }
   },
+  async deleteScore(
+    context: ActionContext<S, R>,
+    scoreId: Score["id"]
+  ): Promise<void> {
+    try {
+      await deleteScore(scoreId);
+      await context.dispatch("showSuccessToast", `Score has been deleted`);
+      context.commit("removeScore", scoreId);
+    } catch (error) {
+      context.dispatch("showErrorToast", error);
+      throw new Error((error as AxiosError).message);
+    }
+  },
   async createMode(
     context: ActionContext<S, R>,
     { game, mode }: { game: Game; mode: GameConfigurationOption }
@@ -286,6 +300,17 @@ export default new Vuex.Store({
     },
     setScore(state, score) {
       state.score = score;
+    },
+    removeScore(state, scoreId: Score["id"]) {
+      state.lastScores = state.lastScores.filter(
+        (score) => score.id !== scoreId
+      );
+      state.myLastScores = state.myLastScores.filter(
+        (score) => score.id !== scoreId
+      );
+      if (state.score && (state.score as Score).id === scoreId) {
+        state.score = null;
+      }
     },
     setPlatforms(state, platforms: PlatformWithGameCount[]) {
       state.platforms = platforms;

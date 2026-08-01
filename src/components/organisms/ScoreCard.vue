@@ -143,12 +143,43 @@
                 <v-icon left small class="ml-0 mr-0">mdi-pencil</v-icon>
                 EDIT
               </v-btn>
+              <v-btn
+                v-if="showDeleteButton"
+                x-small
+                tile
+                dark
+                color="red"
+                class="pl-0 mr-1"
+                @click="confirmDelete = true"
+              >
+                <v-icon left small class="ml-0 mr-0">mdi-delete</v-icon>
+                DELETE
+              </v-btn>
               <span class="float-right">{{ since(score.createdAt) }}</span>
             </v-col>
           </v-row>
         </v-col>
       </v-row>
     </v-card-text>
+    <v-dialog v-model="confirmDelete" max-width="400">
+      <v-card>
+        <v-card-title>Delete this score?</v-card-title>
+        <v-card-text>This action cannot be undone.</v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn text @click="confirmDelete = false">Cancel</v-btn>
+          <v-btn
+            color="red"
+            dark
+            @click="
+              confirmDelete = false;
+              $emit('deleteScore', score);
+            "
+            >Delete</v-btn
+          >
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-card>
 </template>
 
@@ -170,10 +201,19 @@ export default Vue.extend({
       type: Boolean,
       default: true,
     },
+    showDeleteButton: {
+      type: Boolean,
+      default: false,
+    },
     showPlayer: {
       type: Boolean,
       default: true,
     },
+  },
+  data() {
+    return {
+      confirmDelete: false,
+    };
   },
   methods: {
     since(date) {

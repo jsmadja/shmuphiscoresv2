@@ -204,6 +204,35 @@
       class="mt-5"
       >{{ score && score.id ? "Update" : "Submit" }} Score</v-btn
     >
+    <v-btn
+      v-if="score && score.id"
+      color="red"
+      dark
+      class="mt-5 ml-2"
+      @click="confirmDelete = true"
+    >
+      <v-icon left small>mdi-delete</v-icon>
+      Delete Score
+    </v-btn>
+    <v-dialog v-model="confirmDelete" max-width="400">
+      <v-card>
+        <v-card-title>Delete this score?</v-card-title>
+        <v-card-text>This action cannot be undone.</v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn text @click="confirmDelete = false">Cancel</v-btn>
+          <v-btn
+            color="red"
+            dark
+            @click="
+              confirmDelete = false;
+              $emit('deleteScore', score);
+            "
+            >Delete</v-btn
+          >
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -247,6 +276,7 @@ export default Vue.extend({
     loading: boolean;
     valid: boolean;
     hideDetails: boolean;
+    confirmDelete: boolean;
     form: ScoreForm;
     isNumeric: InputValidationRules;
     notEmpty: InputValidationRules;
@@ -259,6 +289,7 @@ export default Vue.extend({
       loading: false,
       valid: false,
       hideDetails: false,
+      confirmDelete: false,
       isNumeric: [
         (v: string) => {
           return Number.isInteger(parseInt(v)) || "Required";

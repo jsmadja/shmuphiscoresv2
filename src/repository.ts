@@ -114,6 +114,10 @@ export async function editScore(score: Score): Promise<AxiosResponse> {
   });
 }
 
+export async function deleteScore(id: Score["id"]): Promise<AxiosResponse> {
+  return axios.delete(`${api}/me/scores/${id}`);
+}
+
 export async function createMode({
   game,
   mode,

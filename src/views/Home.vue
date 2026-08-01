@@ -10,6 +10,7 @@
     @goToPlayer="goToPlayer"
     @addScore="addScore"
     @editScore="editScore"
+    @deleteScore="deleteScore"
     @goToScore="goToScore"
   />
 </template>
@@ -71,6 +72,9 @@ export default Vue.extend({
     },
     editScore(score) {
       this.$router.push(`/games/${score.game.id}/scores/${score.id}/edit`);
+    },
+    deleteScore(score) {
+      this.$store.dispatch("deleteScore", score.id);
     },
     goToScore(score) {
       goToScore(score);

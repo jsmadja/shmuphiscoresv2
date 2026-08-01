@@ -20,9 +20,11 @@
           :score="score"
           :show-player="false"
           :show-edit-button="true"
+          :show-delete-button="true"
           @goToGame="goToGame"
           @addScore="addScore"
           @editScore="editScore"
+          @deleteScore="deleteScore"
           @goToPlatform="goToPlatform"
           @goToScore="goToScore"
         />
@@ -43,9 +45,11 @@
           :score="score"
           :show-edit-button="score.player.id === user.id"
           :show-add-button="score.player.id === user.id"
+          :show-delete-button="score.player.id === user.id"
           @goToGame="goToGame"
           @addScore="addScore"
           @editScore="editScore"
+          @deleteScore="deleteScore"
           @goToPlayer="goToPlayer"
           @goToPlatform="goToPlatform"
           @goToScore="goToScore"
@@ -84,6 +88,9 @@ export default Vue.extend({
     },
     editScore(score) {
       this.$emit("editScore", score);
+    },
+    deleteScore(score) {
+      this.$emit("deleteScore", score);
     },
     goToScore(score) {
       this.$emit("goToScore", score);
