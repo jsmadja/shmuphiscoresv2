@@ -124,6 +124,10 @@
             <v-list-item-title>Statistics</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-divider></v-divider>
+        <v-list-item>
+          <div id="kofi-widget-container" class="mt-2 mb-2"></div>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
@@ -197,6 +201,17 @@ export default Vue.extend({
   created() {
     this.$store.dispatch("fetchUser");
     this.$store.dispatch("fetchMyLastScores");
+  },
+
+  mounted() {
+    const kofiwidget2 = (window as { kofiwidget2?: any }).kofiwidget2;
+    if (kofiwidget2) {
+      kofiwidget2.init("Support me on Ko-fi", "#72a4f2", "Z8U6243MY5");
+      const container = document.getElementById("kofi-widget-container");
+      if (container) {
+        container.innerHTML = kofiwidget2.getHTML();
+      }
+    }
   },
 
   methods: {
