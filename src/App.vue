@@ -206,7 +206,7 @@ export default Vue.extend({
   mounted() {
     const kofiwidget2 = (window as { kofiwidget2?: any }).kofiwidget2;
     if (kofiwidget2) {
-      kofiwidget2.init("Support me on Ko-fi", "#72a4f2", "Z8U6243MY5");
+      kofiwidget2.init("Press Start to Support", "#72a4f2", "Z8U6243MY5");
       const container = document.getElementById("kofi-widget-container");
       if (container) {
         container.innerHTML = kofiwidget2.getHTML();
