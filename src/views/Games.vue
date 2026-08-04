@@ -9,10 +9,10 @@
 
 <script>
 import { mapGetters } from "vuex";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import GamesTemplate from "@/components/templates/GamesTemplate";
 
-export default Vue.extend({
+export default defineComponent({
   title: "Games",
   components: { GamesTemplate },
   data: () => ({ loading: false }),

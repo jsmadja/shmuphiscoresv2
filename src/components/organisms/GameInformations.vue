@@ -147,10 +147,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import Cover from "../atoms/Cover.vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "GameInformations",
   props: [
     "game",

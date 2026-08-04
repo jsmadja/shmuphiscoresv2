@@ -57,7 +57,7 @@
                         win: item.wonByPlayer1,
                         lose: !item.wonByPlayer1,
                       }"
-                      >{{ item.score1.rank | formatRank }}</span
+                      >{{ $filters.formatRank(item.score1.rank) }}</span
                     >
                   </template>
                   <template v-slot:item.score2.rank="{ item }">
@@ -66,7 +66,7 @@
                         win: !item.wonByPlayer1,
                         lose: item.wonByPlayer1,
                       }"
-                      >{{ item.score2.rank | formatRank }}</span
+                      >{{ $filters.formatRank(item.score2.rank) }}</span
                     >
                   </template>
                   <template v-slot:item.scoreGap="{ item }">
@@ -89,10 +89,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import ShmupTable from "@/components/molecules/ShmupTable.vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "CompareScoresTemplate",
   props: ["players", "versus", "currentUserId", "loading"],
   components: { ShmupTable },

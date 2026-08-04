@@ -1,4 +1,4 @@
-import Vue from "vue";
+import { createApp } from "vue";
 import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
@@ -10,25 +10,24 @@ import {
   formatTime,
   formatDateFromNow,
 } from "./filters/index";
-import VueClipboard from "vue-clipboard2";
+import useClipboard from "vue-clipboard3";
 
-Vue.config.productionTip = false;
+const app = createApp(App);
 
-Vue.use(VueClipboard);
+app.use(router);
+app.use(store);
+app.use(vuetify);
 
-Vue.filter("formatNumber", formatNumber);
-Vue.filter("formatRank", formatRank);
-Vue.filter("formatTime", formatTime);
-Vue.filter("formatDateFromNow", formatDateFromNow);
+// Make clipboard available globally
+const { toClipboard } = useClipboard();
+app.config.globalProperties.$copyText = toClipboard;
 
-new Vue({
-  router,
-  store,
-  vuetify,
-  filters: {
-    formatNumber,
-    formatRank,
-    formatTime,
-  },
-  render: (h) => h(App),
-}).$mount("#app");
+// Vue 3 doesn't have global filters, so we'll provide them via globalProperties
+app.config.globalProperties.$filters = {
+  formatNumber,
+  formatRank,
+  formatTime,
+  formatDateFromNow,
+};
+
+app.mount("#app");

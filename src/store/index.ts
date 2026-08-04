@@ -1,5 +1,4 @@
-import Vue from "vue";
-import Vuex, { ActionContext } from "vuex";
+import { createStore, ActionContext } from "vuex";
 import { PlatformWithGameCount } from "@/models/platforms";
 import { Player } from "@/models/player";
 import { Game } from "@/models/game";
@@ -29,8 +28,6 @@ import {
 } from "@/repository";
 import { Score } from "@/models/score";
 import { AxiosError } from "axios";
-
-Vue.use(Vuex);
 
 interface S {
   user: null;
@@ -292,7 +289,7 @@ const initialState: S = {
   myLastScoresLoading: true,
   recentlyViewedGames: [],
 };
-export default new Vuex.Store({
+export default createStore({
   state: initialState,
   mutations: {
     setUser(state, user) {

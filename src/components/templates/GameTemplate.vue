@@ -61,12 +61,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import Ranking from "@/components/organisms/Ranking.vue";
 import GameInformations from "@/components/organisms/GameInformations.vue";
 import RankingMenu from "@/components/organisms/RankingMenu.vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Game",
   props: ["game", "rankings", "hideRankingMenu", "user"],
   components: { Ranking, GameInformations, RankingMenu },

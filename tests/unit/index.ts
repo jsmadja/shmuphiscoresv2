@@ -1,4 +1,2 @@
-import Vue from "vue";
-import Vuetify from "vuetify";
-Vue.config.productionTip = false;
-Vue.use(Vuetify);
+// This file is loaded before running tests
+// No setup needed for Vue 3 + Vuetify 3

@@ -8,10 +8,10 @@
 
 <script>
 import { mapGetters } from "vuex";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import GamesTemplate from "@/components/templates/GamesTemplate";
 
-export default Vue.extend({
+export default defineComponent({
   title: "MyGames",
   components: { GamesTemplate },
   created() {

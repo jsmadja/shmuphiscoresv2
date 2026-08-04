@@ -18,7 +18,7 @@
 <script lang="ts">
 import HomeTemplate from "@/components/templates/HomeTemplate.vue";
 import { mapGetters } from "vuex";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { goToScore } from "@/router/routes";
 
 function defaultSetting(setting) {
@@ -28,7 +28,7 @@ function defaultSetting(setting) {
   return "";
 }
 
-export default Vue.extend({
+export default defineComponent({
   name: "Home",
   components: {
     HomeTemplate,

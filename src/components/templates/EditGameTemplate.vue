@@ -69,14 +69,14 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import GameSettingForm from "../atoms/GameSettingForm.vue";
 import AddPlatforms from "../atoms/AddPlatforms.vue";
 import CopyableCode from "../atoms/CopyableCode.vue";
 import GameInformations from "../organisms/GameInformations.vue";
 import { Game } from "@/models/game";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Game",
   props: {
     game: {

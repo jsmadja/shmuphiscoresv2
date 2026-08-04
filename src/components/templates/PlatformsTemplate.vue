@@ -30,11 +30,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { platformNames } from "@/models/platforms";
 import ShmupTable from "@/components/molecules/ShmupTable.vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "PlatformsTemplate",
   props: ["platforms"],
   components: { ShmupTable },

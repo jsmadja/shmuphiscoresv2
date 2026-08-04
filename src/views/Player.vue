@@ -12,13 +12,13 @@
 
 <script lang="ts">
 import { getScoresByPlayer } from "@/repository";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import PlayerTemplate from "@/components/templates/PlayerTemplate.vue";
 import { Score } from "@/models/score";
 import { goToScore } from "@/router/routes";
 import { mapGetters } from "vuex";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Player",
   components: { PlayerTemplate },
   async created() {

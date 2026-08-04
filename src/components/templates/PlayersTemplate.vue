@@ -19,16 +19,16 @@
 </template>
 
 <script>
-import Vue from "vue";
+import { defineComponent } from "vue";
 import ShmupTable from "@/components/molecules/ShmupTable";
 
-export default Vue.extend({
+export default defineComponent({
   name: "PlayersTemplate",
   components: { ShmupTable },
   props: ["players", "currentPlayerId"],
   data() {
     return {
-      headers: [{ text: "Player", value: "name" }],
+      headers: [{ title: "Player", value: "name" }],
     };
   },
   methods: {

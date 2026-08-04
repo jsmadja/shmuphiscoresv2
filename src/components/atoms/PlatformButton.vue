@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
-export default Vue.extend({ name: "PlatformButton", props: ["name"] });
+export default defineComponent({ name: "PlatformButton", props: ["name"] });
 </script>
