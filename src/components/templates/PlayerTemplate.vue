@@ -43,13 +43,17 @@
           </template>
           <template v-slot:item.value="{ item }">
             <span
+              class="k-score k-score--cell"
               @click.self="() => goToScore(item)"
               v-if="item.mode && item.mode.scoreType === 'timer'"
               >{{ item.value | formatTime }}</span
             >
-            <span @click.self="() => goToScore(item)" v-else>{{
-              item.value | formatNumber
-            }}</span>
+            <span
+              class="k-score k-score--cell"
+              @click.self="() => goToScore(item)"
+              v-else
+              >{{ item.value | formatNumber }}</span
+            >
           </template>
           <template v-slot:item.onecc="{ item }">
             <one-c-c-chip v-if="item.onecc" />

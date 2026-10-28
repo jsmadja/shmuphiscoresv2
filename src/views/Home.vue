@@ -5,6 +5,7 @@
     :lastScoresLoading="lastScoresLoading"
     :myLastScoresLoading="myLastScoresLoading"
     :user="user"
+    :platforms="platforms"
     @goToGame="goToGame"
     @goToPlatform="goToPlatform"
     @goToPlayer="goToPlayer"
@@ -40,6 +41,7 @@ export default Vue.extend({
     this.$store
       .dispatch("fetchLastScores")
       .then(() => (this.lastScoresLoading = false));
+    this.$store.dispatch("fetchPlatforms");
   },
   computed: {
     ...mapGetters([
@@ -47,6 +49,7 @@ export default Vue.extend({
       "lastScores",
       "myLastScores",
       "myLastScoresLoading",
+      "platforms",
     ]),
   },
   methods: {

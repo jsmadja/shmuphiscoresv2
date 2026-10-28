@@ -1,0 +1,325 @@
+// "Borne" design: arcade cabinet, single orange accent, light and dark themes.
+@import "custom.scss";
+
+.v-application.theme--dark {
+  --k-bg: #121110;
+  --k-header: #0c0b0a;
+  --k-surface: #1b1917;
+  --k-inset: #0a0908;
+  --k-border: #2e2a26;
+  --k-border2: #3a352f;
+  --k-track: #262320;
+  --k-text: #ece6da;
+  --k-text2: #cfc7ba;
+  --k-muted: #a79f92;
+  --k-accent: #ff8a33;
+  --k-first: #ffc08a;
+  --k-link: #ffa25c;
+  --k-link-hover: #ffc08a;
+  --k-glow: 0 0 10px rgba(255, 120, 27, 0.45);
+  --k-danger: #ff8f7a;
+  --k-danger-border: #5c2a22;
+  --k-inset-shadow: inset 0 0 80px rgba(0, 0, 0, 0.6);
+}
+
+.v-application.theme--light {
+  --k-bg: #f6f1e7;
+  --k-header: #fffdf8;
+  --k-surface: #ffffff;
+  --k-inset: #efe8dc;
+  --k-border: #e2d9ca;
+  --k-border2: #cfc4b2;
+  --k-track: #eae2d4;
+  --k-text: #1a1714;
+  --k-text2: #3d3730;
+  --k-muted: #6b6258;
+  --k-accent: #a84600;
+  --k-first: #8f3500;
+  --k-link: #b34700;
+  --k-link-hover: #7a2f00;
+  --k-glow: none;
+  --k-danger: #b42318;
+  --k-danger-border: #e8b4ae;
+  --k-inset-shadow: none;
+}
+
+// Shared fixed colors
+:root {
+  --k-cta: #ff781b;
+  --k-on-cta: #1a0d02;
+  --k-kofi: #d92b26;
+}
+
+.v-application {
+  font-family: $font-body !important;
+  background: var(--k-bg) !important;
+  color: var(--k-text) !important;
+
+  a {
+    color: var(--k-link);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--k-link-hover);
+    text-decoration: underline;
+  }
+
+  h1,
+  h2,
+  h3,
+  .text-h1,
+  .text-h2,
+  .text-h3,
+  .text-h4,
+  .text-h5,
+  .text-h6,
+  .v-card__title {
+    font-family: $font-display !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 1;
+  }
+
+  h1 {
+    font-size: 56px;
+    margin: 8px 0 4px;
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 40px;
+    }
+  }
+
+  .v-main {
+    background: var(--k-bg);
+  }
+}
+
+// ---------- building blocks ----------
+
+.k-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.k-score {
+  font-family: $font-score;
+  color: var(--k-accent);
+  text-shadow: var(--k-glow);
+  line-height: 1;
+}
+
+.k-score--cell {
+  font-size: 24px;
+  white-space: nowrap;
+}
+
+.k-kicker {
+  font-family: $font-score;
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  color: var(--k-accent);
+  text-shadow: var(--k-glow);
+  margin: 0;
+}
+
+.k-scan {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.28) 0 1px,
+    transparent 1px 3px
+  );
+}
+
+.theme--light .k-scan {
+  background-image: none;
+}
+
+.k-panel {
+  background: var(--k-surface);
+  border: 1px solid var(--k-border);
+  border-radius: 12px;
+}
+
+.k-section-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+
+  h2 {
+    font-size: 36px;
+    margin: 0;
+  }
+}
+
+.k-btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none !important;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &--cta {
+    background: var(--k-cta);
+    color: var(--k-on-cta) !important;
+  }
+  &--kofi {
+    background: var(--k-kofi);
+    color: #ffffff !important;
+  }
+  &--ghost {
+    background: transparent;
+    border-color: var(--k-border2);
+    color: var(--k-text) !important;
+  }
+  &--icon {
+    width: 44px;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+.k-tag {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--k-border2);
+  color: var(--k-muted);
+  font-family: $font-score;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+
+  &--1cc {
+    border-color: var(--k-accent);
+    color: var(--k-accent);
+  }
+}
+
+.k-rank {
+  font-family: $font-score;
+  color: var(--k-text2);
+
+  &--first {
+    color: var(--k-first);
+    text-shadow: var(--k-glow);
+  }
+}
+
+// ---------- Vuetify components in Borne style ----------
+
+.v-application {
+  .v-card {
+    background: var(--k-surface) !important;
+    border: 1px solid var(--k-border);
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    color: var(--k-text);
+  }
+
+  .v-data-table {
+    background: var(--k-surface) !important;
+    color: var(--k-text) !important;
+
+    th {
+      font-family: $font-display;
+      font-weight: 700;
+      font-size: 14px !important;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--k-muted) !important;
+    }
+
+    td {
+      border-bottom-color: var(--k-track) !important;
+    }
+
+    > .v-data-table__wrapper
+      > table
+      > tbody
+      > tr:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper) {
+      background: var(--k-track) !important;
+      cursor: pointer;
+    }
+  }
+
+  .v-text-field input,
+  .v-select__selection,
+  .v-label,
+  .v-textarea textarea {
+    color: var(--k-text) !important;
+  }
+
+  .v-btn {
+    font-family: $font-display;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+
+  .v-btn.orange:not(.v-btn--outlined):not(.v-btn--text),
+  .v-btn.primary:not(.v-btn--outlined):not(.v-btn--text) {
+    background-color: var(--k-cta) !important;
+    color: var(--k-on-cta) !important;
+    box-shadow: none !important;
+
+    .v-icon {
+      color: inherit !important;
+    }
+  }
+
+  .v-btn--outlined.primary--text {
+    color: var(--k-accent) !important;
+  }
+
+  .v-chip.green,
+  .v-chip.amber,
+  .v-chip.grey {
+    background: var(--k-surface) !important;
+    border: 1px solid var(--k-border2) !important;
+    color: var(--k-text) !important;
+    font-family: $font-display;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    .v-avatar {
+      background: var(--k-cta) !important;
+      color: var(--k-on-cta) !important;
+    }
+  }
+
+  .v-list.green,
+  .v-list.amber,
+  .v-list.grey {
+    background: var(--k-surface) !important;
+
+    .v-list-item__title {
+      color: var(--k-text);
+    }
+  }
+
+  .v-chip.orange {
+    background: transparent !important;
+    border: 1px solid var(--k-accent) !important;
+    color: var(--k-accent) !important;
+    font-family: $font-score;
+    font-size: 15px;
+  }
+
+  .v-skeleton-loader__bone {
+    background: var(--k-track) !important;
+  }
+}

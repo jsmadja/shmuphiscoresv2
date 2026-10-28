@@ -1,166 +1,117 @@
 <template>
-  <v-card tile>
-    <v-card-text>
-      <v-row dense>
-        <v-col cols="12" lg="3">
-          <Cover
-            @click="$emit('goToGame', score.game)"
-            :url="score.game.cover"
-            height="177"
-            :contain="false"
-            class="elevation-5 clickable"
-          />
-        </v-col>
-        <v-col cols="12" lg="9" class="pl-2">
-          <v-row dense>
-            <v-col cols="12"
-              ><router-link :to="`/game/${score.game.id}`" class="title">{{
-                score.game.title
-              }}</router-link></v-col
-            >
-            <v-col cols="12" lg="12">
-              <span
-                class="score"
-                @click="$emit('goToScore', score)"
-                v-if="score.mode && score.mode.scoreType === 'timer'"
-                >{{ score.value | formatTime }}</span
-              >
-              <span class="score" @click="$emit('goToScore', score)" v-else
-                >{{ score.value | formatNumber }} pts</span
-              >
-            </v-col>
-            <v-col v-if="showPlayer">
-              <span class="category">PLAYER</span>
-              <span
-                class="category-value clickable"
-                @click="$emit('goToPlayer', score.player)"
-                >{{ score.player.name }}</span
-              >
-            </v-col>
-            <v-col>
-              <span class="category">RANK</span>
-              <span class="category-value">{{ score.rank | formatRank }}</span>
-            </v-col>
-            <v-col>
-              <span class="category">PLATFORM</span>
-              <span
-                class="category-value clickable"
-                @click="$emit('goToPlatform', score.platform.name)"
-                >{{ score.platform.name }}</span
-              >
-            </v-col>
-            <v-col v-if="score.difficulty">
-              <span class="category">DIFFICULTY</span>
-              <span class="category-value">{{ score.difficulty.name }}</span>
-            </v-col>
-            <v-col v-if="score.mode">
-              <span class="category">MODE</span>
-              <span class="category-value">{{ score.mode.name }}</span>
-            </v-col>
-            <v-col v-if="score.ship">
-              <span class="category">SHIP</span>
-              <span class="category-value">{{ score.ship.name }}</span>
-            </v-col>
-            <v-col v-if="score.stage">
-              <span class="category">STAGE</span>
-              <span class="category-value">{{ score.stage.name }}</span>
-            </v-col>
-            <v-col cols="12">
-              <v-tooltip
-                v-if="score.photo"
-                top
-                content-class="photo-tooltip-class"
-                nudge-right="150"
-              >
-                <template v-slot:activator="{ on, attrs }">
-                  <v-chip
-                    x-small
-                    outlined
-                    class="mr-1 pl-1 pr-1"
-                    v-if="score.photo"
-                    v-bind="attrs"
-                    v-on="on"
-                    :href="score.photo"
-                    target="_blank"
-                    ><v-icon small>mdi-camera</v-icon></v-chip
-                  >
-                </template>
-                <v-img :src="score.photo" min-width="250" max-width="250" />
-              </v-tooltip>
+  <article class="score-row">
+    <span
+      class="score-row__rank k-rank"
+      :class="{ 'k-rank--first': score.rank === 1 }"
+      >{{ score.rank | formatRank }}</span
+    >
 
-              <v-chip
-                x-small
-                class="pl-1 pr-1"
-                dark
-                tile
-                target="_blank"
-                color="red"
-                v-if="score.replay"
-                :href="score.replay"
-              >
-                <v-icon x-small>mdi-play</v-icon>
-              </v-chip>
-              <v-chip
-                class="ml-1 pl-2 pr-2"
-                x-small
-                :href="score.inp"
-                target="_blank"
-                v-if="score.inp"
-              >
-                INP
-              </v-chip>
-              <v-chip
-                class="ml-1 pl-2 pr-2"
-                v-if="score.onecc"
-                dark
-                x-small
-                tile
-                depressed
-                color="orange"
-                >1CC</v-chip
-              >
-            </v-col>
-            <v-col cols="12">
-              <v-btn
-                v-if="showAddButton"
-                x-small
-                tile
-                dark
-                color="orange"
-                class="pl-0 mr-1"
-                @click="$emit('addScore', score)"
-              >
-                <v-icon left small class="ml-0 mr-0">mdi-plus</v-icon>
-                SCORE
-              </v-btn>
-              <v-btn
-                v-if="showEditButton"
-                x-small
-                tile
-                class="pl-0 mr-1"
-                @click="$emit('editScore', score)"
-              >
-                <v-icon left small class="ml-0 mr-0">mdi-pencil</v-icon>
-                EDIT
-              </v-btn>
-              <v-btn
-                v-if="showDeleteButton"
-                x-small
-                tile
-                dark
-                color="red"
-                class="pl-0 mr-1"
-                @click="confirmDelete = true"
-              >
-                <v-icon left small class="ml-0 mr-0">mdi-delete</v-icon>
-                DELETE
-              </v-btn>
-              <span class="float-right">{{ since(score.createdAt) }}</span>
-            </v-col>
-          </v-row>
-        </v-col>
-      </v-row>
-    </v-card-text>
+    <router-link
+      :to="`/game/${score.game.id}`"
+      class="score-row__cover"
+      :aria-label="score.game.title"
+    >
+      <img :src="coverUrl(score.game.cover)" alt="" loading="lazy" />
+    </router-link>
+
+    <div class="score-row__main">
+      <router-link :to="`/game/${score.game.id}`" class="score-row__game">{{
+        score.game.title
+      }}</router-link>
+      <span class="score-row__meta">
+        <a
+          href="#"
+          class="score-row__platform"
+          @click.prevent="$emit('goToPlatform', score.platform.name)"
+          >{{ score.platform.name }}</a
+        ><template v-for="detail in details"> · {{ detail }}</template>
+      </span>
+    </div>
+
+    <div v-if="showPlayer" class="score-row__player">
+      <a href="#" @click.prevent="$emit('goToPlayer', score.player)">{{
+        score.player.name
+      }}</a>
+      <span class="score-row__when">{{ since(score.createdAt) }}</span>
+    </div>
+    <span v-else class="score-row__when score-row__when--alone">{{
+      since(score.createdAt)
+    }}</span>
+
+    <div class="score-row__tags">
+      <span v-if="score.onecc" class="k-tag k-tag--1cc">1CC</span>
+      <a
+        v-if="score.photo"
+        :href="score.photo"
+        target="_blank"
+        rel="noopener"
+        class="k-tag"
+        >PHOTO</a
+      >
+      <a
+        v-if="score.replay"
+        :href="score.replay"
+        target="_blank"
+        rel="noopener"
+        class="k-tag"
+        >REPLAY</a
+      >
+      <a
+        v-if="score.inp"
+        :href="score.inp"
+        target="_blank"
+        rel="noopener"
+        class="k-tag"
+        >INP</a
+      >
+    </div>
+
+    <a
+      href="#"
+      class="score-row__value k-score"
+      @click.prevent="$emit('goToScore', score)"
+      ><template v-if="score.mode && score.mode.scoreType === 'timer'">{{
+        score.value | formatTime
+      }}</template
+      ><template v-else>{{ score.value | formatNumber }}</template></a
+    >
+
+    <div
+      v-if="showAddButton || showEditButton || showDeleteButton"
+      class="score-row__actions"
+    >
+      <button
+        v-if="showAddButton"
+        type="button"
+        class="k-icon-btn"
+        :aria-label="`Post a new score on ${score.game.title}`"
+        :title="`Post a new score on ${score.game.title}`"
+        @click="$emit('addScore', score)"
+      >
+        <v-icon small>mdi-plus</v-icon>
+      </button>
+      <button
+        v-if="showEditButton"
+        type="button"
+        class="k-icon-btn"
+        aria-label="Edit this score"
+        title="Edit this score"
+        @click="$emit('editScore', score)"
+      >
+        <v-icon small>mdi-pencil</v-icon>
+      </button>
+      <button
+        v-if="showDeleteButton"
+        type="button"
+        class="k-icon-btn k-icon-btn--danger"
+        aria-label="Delete this score"
+        title="Delete this score"
+        @click="confirmDelete = true"
+      >
+        <v-icon small>mdi-delete</v-icon>
+      </button>
+    </div>
+
     <v-dialog v-model="confirmDelete" max-width="400">
       <v-card>
         <v-card-title>Delete this score?</v-card-title>
@@ -169,7 +120,7 @@
           <v-spacer></v-spacer>
           <v-btn text @click="confirmDelete = false">Cancel</v-btn>
           <v-btn
-            color="red"
+            color="error"
             dark
             @click="
               confirmDelete = false;
@@ -180,17 +131,15 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </v-card>
+  </article>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Cover from "../atoms/Cover.vue";
 import moment from "moment";
 
 export default Vue.extend({
   name: "ScoreCard",
-  components: { Cover },
   props: {
     score: Object,
     showAddButton: {
@@ -215,60 +164,167 @@ export default Vue.extend({
       confirmDelete: false,
     };
   },
+  computed: {
+    details(): string[] {
+      const { difficulty, mode, ship, stage } = this.score;
+      return [
+        difficulty && difficulty.name,
+        mode && mode.name,
+        ship && ship.name,
+        stage && `Stage ${stage.name}`,
+      ].filter(Boolean);
+    },
+  },
   methods: {
     since(date) {
       return moment(date).fromNow();
     },
-    open(photoUrl) {
-      window.location.href = photoUrl;
+    coverUrl(url) {
+      if (url && url.indexOf("/") === 0) {
+        return "https://hiscores.shmup.com" + url;
+      }
+      return url;
     },
   },
 });
 </script>
+
 <style lang="scss" scoped>
 @import "../../custom.scss";
-.clickable {
-  cursor: pointer;
-  &:hover {
-    color: $primary;
+
+.score-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--k-border);
+
+  &__rank {
+    flex: none;
+    width: 52px;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  &__cover {
+    flex: none;
+    img {
+      width: 96px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+      background: var(--k-track);
+    }
+  }
+
+  &__main {
+    flex: 1 1 240px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  &__game {
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 21px;
+    color: var(--k-text) !important;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__meta {
+    color: var(--k-muted);
+    font-size: 13px;
+  }
+
+  &__platform {
+    color: var(--k-muted) !important;
+  }
+
+  &__player {
+    flex: 0 1 170px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-weight: 600;
+  }
+
+  &__when {
+    color: var(--k-muted);
+    font-size: 12px;
+    font-weight: 400;
+
+    &--alone {
+      flex: 0 0 auto;
+    }
+  }
+
+  &__tags {
+    flex: 0 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  &__value {
+    flex: 0 0 auto;
+    min-width: 180px;
+    text-align: right;
+    font-size: 38px;
+    text-decoration: none;
+  }
+
+  &__actions {
+    flex: none;
+    display: flex;
+    gap: 4px;
   }
 }
 
-.title {
-  font-size: 1.8rem !important;
-  line-height: 2rem;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  max-width: 100%;
-  display: block;
-  cursor: pointer;
-  text-decoration: none;
+.k-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid var(--k-border2);
+  background: transparent;
+  color: var(--k-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  .v-icon {
+    color: inherit !important;
+  }
+
+  &--danger {
+    border-color: var(--k-danger-border);
+    color: var(--k-danger);
+  }
 }
 
-.score {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: orange;
-  cursor: pointer;
+@media (min-width: 960px) {
+  .score-row {
+    display: grid;
+    grid-template-columns: 52px 96px minmax(0, 1fr) 160px 170px 190px auto;
+  }
+
+  .score-row__player,
+  .score-row__when--alone {
+    flex: none;
+  }
 }
 
-.category {
-  font-size: 0.7rem;
-  line-height: 0.7rem;
-  font-weight: normal;
-  display: block;
-  padding-bottom: 0.2rem;
-}
-
-.category-value {
-  font-weight: bold;
-  white-space: nowrap;
-  font-size: 0.9rem;
-  line-height: 0.9rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  display: block;
+@media (max-width: 700px) {
+  .score-row__value {
+    min-width: 0;
+    text-align: left;
+    font-size: 32px;
+  }
 }
 </style>

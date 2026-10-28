@@ -1,14 +1,7 @@
 <template>
-  <v-btn
-    x-small
-    dark
-    depressed
-    color="green"
-    tile
-    class="pl-1 pr-1"
-    @click="() => $emit('click')"
-    >{{ name }}
-  </v-btn>
+  <button type="button" class="k-tag" @click="() => $emit('click')">
+    {{ name }}
+  </button>
 </template>
 
 <script lang="ts">

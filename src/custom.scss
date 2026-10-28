@@ -1,32 +1,5 @@
-$primary: #ff9800;
-
-h1,
-h2,
-h3 {
-  font-family: "Raleway", sans;
-  line-height: 1em;
-  font-weight: 400;
-}
-
-body,
-.v-card__title {
-  font-family: "Raleway", sans;
-  font-weight: 400;
-}
-.v-main {
-  background: linear-gradient(to right, #e4e6e8, #d4d6db);
-}
-
-#menu-left .v-navigation-drawer__content {
-  background: linear-gradient(to right, #849296, #232c44);
-}
-
-.v-data-table
-  > .v-data-table__wrapper
-  > table
-  > tbody
-  > tr:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper) {
-  background: $primary !important;
-  color: white;
-  cursor: pointer;
-}
+// Shared SCSS variables, safe to @import from scoped component styles.
+$primary: #ff781b;
+$font-display: "Rajdhani", sans-serif;
+$font-body: "Inter", system-ui, sans-serif;
+$font-score: "VT323", monospace;

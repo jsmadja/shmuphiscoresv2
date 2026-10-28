@@ -2,12 +2,14 @@
   <div>
     <v-row>
       <v-col cols="12">
-        <v-card tile>
+        <v-card tile class="k-ranking">
           <v-card-title>
             <v-row>
               <v-col cols="12" lg="5">
-                <h3 v-if="ranking">
-                  {{ rankingName }}
+                <h3 v-if="ranking" class="k-ranking__title">
+                  BEST PLAYERS<template v-if="rankingName">
+                    · {{ rankingName }}</template
+                  >
                 </h3>
               </v-col>
               <v-col cols="12" lg="5">
@@ -207,9 +209,14 @@ export default Vue.extend({
   },
   methods: {
     rowClasses(item: Score) {
-      if (item.player.id == this.currentPlayerId) {
-        return "orange lighten-5";
+      const classes: string[] = [];
+      if (item.rank === 1) {
+        classes.push("k-row--first");
       }
+      if (item.player.id == this.currentPlayerId) {
+        classes.push("k-row--me");
+      }
+      return classes.join(" ");
     },
     goToScore(score: Score) {
       this.$emit("goToScore", score);
@@ -219,6 +226,45 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import "../../custom.scss";
+
+.k-ranking {
+  background: var(--k-inset) !important;
+  box-shadow: var(--k-inset-shadow) !important;
+
+  &__title {
+    font-family: $font-score !important;
+    font-weight: 400 !important;
+    font-size: 30px;
+    letter-spacing: 0.12em;
+    color: var(--k-accent);
+    text-shadow: var(--k-glow);
+  }
+
+  ::v-deep .v-data-table {
+    background: transparent !important;
+  }
+
+  ::v-deep tbody td {
+    font-family: $font-score;
+    font-size: 24px !important;
+    color: var(--k-text2);
+  }
+
+  ::v-deep tbody td:nth-child(3) {
+    color: var(--k-accent);
+  }
+
+  ::v-deep .k-row--first td {
+    color: var(--k-first) !important;
+    text-shadow: var(--k-glow);
+  }
+
+  ::v-deep .k-row--me td {
+    background: var(--k-track);
+  }
+}
+
 .search-input {
   padding-top: 0;
 }
