@@ -11,7 +11,8 @@ import VueRouter from "vue-router";
 // Vuetify
 import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.min.css'
-import '../../src/custom.scss';
+import '../../src/theme.scss';
+import { vuetifyTheme } from '@/plugins/vuetifyTheme';
 
 Vue.use(VueClipboard);
 Vue.use(Vuetify);
@@ -27,19 +28,11 @@ export default makeDecorator({
   name: 'withVuetify',
   parameterName: 'vuetify',
   wrapper: (storyFn, context, { parameters = {} }) => {
-    // Reduce to one new URL?
-    const searchParams = new URL(window.location).searchParams
-    const dark = searchParams.get('eyes-variation') === 'dark'
-    const rtl = searchParams.get('eyes-variation') === 'rtl'
+    const dark = context.globals.theme !== 'light'
     const vuetify = new Vuetify(deepmerge({
-      rtl,
       theme: {
+        ...vuetifyTheme,
         dark,
-        themes: {
-          light: {
-            primary: "#ff9800",
-          },
-        }
       },
     }, parameters))
 

@@ -12,3 +12,15 @@ export const parameters = {
     },
   },
 }
+
+export const globalTypes = {
+  theme: {
+    name: "Theme",
+    description: "Site theme",
+    defaultValue: "dark",
+    toolbar: {
+      icon: "mirror",
+      items: ["dark", "light"],
+    },
+  },
+}
