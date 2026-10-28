@@ -1,11 +1,57 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col>
-        <h1 v-if="scores.length > 0">{{ scores[0].player.name }}'s Scores</h1>
-        <h1 v-else>This player has no scores</h1>
-      </v-col>
-    </v-row>
+  <div class="k-container k-page">
+    <section class="player-head">
+      <div class="player-head__avatar k-score" aria-hidden="true">
+        {{ playerName ? playerName.charAt(0).toUpperCase() : "?" }}
+      </div>
+      <div class="player-head__text">
+        <p class="k-kicker">&gt; PLAYER</p>
+        <h1 v-if="playerName" class="player-head__name">{{ playerName }}</h1>
+        <h1 v-else-if="!loading">This player has no scores</h1>
+      </div>
+      <router-link
+        v-if="playerName"
+        to="/compare-scores"
+        class="k-btn k-btn--ghost"
+        >Compare</router-link
+      >
+    </section>
+
+    <section
+      v-if="scores.length > 0"
+      aria-label="Statistics"
+      class="player-stats"
+    >
+      <div
+        v-for="stat in stats"
+        :key="stat.label"
+        class="k-panel player-stats__item"
+      >
+        <span
+          class="k-score player-stats__value"
+          :class="{ 'player-stats__value--plain': !stat.highlight }"
+          >{{ stat.value }}</span
+        >
+        <span class="player-stats__label">{{ stat.label }}</span>
+      </div>
+    </section>
+
+    <section v-if="platformStats.length > 0" class="k-panel player-platforms">
+      <h2 class="player-platforms__title">By platform</h2>
+      <div
+        v-for="p in platformStats"
+        :key="p.name"
+        class="player-platforms__row"
+      >
+        <span class="player-platforms__name">{{ p.name }}</span>
+        <span class="player-platforms__track"
+          ><span class="player-platforms__bar" :style="{ width: p.pct }"></span
+        ></span>
+        <span class="k-score player-platforms__count">{{ p.count }}</span>
+      </div>
+    </section>
+
+    <h2 v-if="scores.length > 0" class="k-page__group">All scores</h2>
     <v-row>
       <v-col cols="12">
         <shmup-table
@@ -66,7 +112,7 @@
         </shmup-table>
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script lang="ts">
@@ -102,6 +148,50 @@ export default Vue.extend({
       ].filter(Boolean),
     };
   },
+  computed: {
+    playerName(): string {
+      return this.scores && this.scores.length > 0
+        ? this.scores[0].player.name
+        : "";
+    },
+    stats(): Array<{ value: number; label: string; highlight: boolean }> {
+      const scores = this.scores || [];
+      const games = new Set(scores.map((s) => s.game && s.game.id));
+      return [
+        { value: scores.length, label: "SCORES", highlight: false },
+        { value: games.size, label: "GAMES", highlight: false },
+        {
+          value: scores.filter((s) => s.rank === 1).length,
+          label: "FIRST PLACES",
+          highlight: true,
+        },
+        {
+          value: scores.filter((s) => s.onecc).length,
+          label: "1CC RUNS",
+          highlight: false,
+        },
+      ];
+    },
+    platformStats(): Array<{ name: string; count: number; pct: string }> {
+      const counts: Record<string, number> = {};
+      (this.scores || []).forEach((s) => {
+        const name = s.platform ? s.platform.name : "?";
+        counts[name] = (counts[name] || 0) + 1;
+      });
+      const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+      const top = sorted.slice(0, 5);
+      const other = sorted.slice(5).reduce((sum, [, c]) => sum + c, 0);
+      if (other > 0) {
+        top.push(["Other", other]);
+      }
+      const max = Math.max(1, ...top.map(([, c]) => c));
+      return top.map(([name, count]) => ({
+        name,
+        count,
+        pct: `${Math.round((count / max) * 100)}%`,
+      }));
+    },
+  },
   methods: {
     goToGame(row) {
       this.$emit("goToGame", row.game);
@@ -120,6 +210,108 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import "../../custom.scss";
+
+.player-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  align-items: center;
+
+  &__avatar {
+    width: 112px;
+    height: 112px;
+    border-radius: 16px;
+    background: var(--k-inset);
+    border: 1px solid var(--k-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 84px;
+  }
+
+  &__text {
+    flex: 1 1 320px;
+  }
+
+  &__name {
+    font-size: 84px;
+    line-height: 0.9;
+  }
+}
+
+.player-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+
+  &__item {
+    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__value {
+    font-size: 60px;
+
+    &--plain {
+      color: var(--k-text);
+      text-shadow: none;
+    }
+  }
+
+  &__label {
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    color: var(--k-muted);
+  }
+}
+
+.player-platforms {
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__title {
+    font-size: 24px;
+    margin: 0 0 4px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr) 60px;
+    gap: 12px;
+    align-items: center;
+  }
+
+  &__name {
+    font-family: $font-display;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__track {
+    height: 8px;
+    border-radius: 2px;
+    background: var(--k-track);
+  }
+
+  &__bar {
+    display: block;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--k-cta);
+  }
+
+  &__count {
+    font-size: 24px;
+    text-align: right;
+  }
+}
+
 .game-title:hover {
   cursor: pointer;
 }

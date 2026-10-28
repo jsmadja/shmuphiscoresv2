@@ -1,101 +1,164 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col>
-        <h1>My Profile</h1>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-card>
-          <v-card-text>
-            <v-row>
-              <v-col cols="12" v-if="false">
-                <v-switch
-                  v-model="user.hideMedals"
-                  input-value="hideMedals"
-                  false-value="true"
-                  label="Show medals on shmup.com"
-                ></v-switch>
-              </v-col>
-              <v-col cols="12">
-                <h3>Share my medals on forums</h3>
-              </v-col>
-              <v-col cols="6" xs="6" sm="4" md="3" lg="3">
-                <v-card light tile>
-                  <v-img
-                    :src="`https://hiscores.shmup.com/player/${user.shmupUserId}/medals.png`"
-                  />
-                </v-card>
-              </v-col>
-              <v-col cols="12" xs="12" sm="8" md="9" lg="9">
-                <v-card flat outlined>
-                  <copyable-code
-                    title="Code"
-                    :code="`[IMG]https://hiscores.shmup.com/player/${user.shmupUserId}/medals.png[/IMG]`"
-                    @copy="$emit('copy')"
-                  />
-                </v-card>
-              </v-col>
-              <v-col cols="12"><h3>Share my last score on forums</h3></v-col>
-              <v-col>
-                <v-card light tile>
-                  <v-img
-                    position="top left"
-                    :src="`https://hiscores.shmup.com/player/${user.id}/signature.png`"
-                  />
-                </v-card>
-              </v-col>
-              <v-col>
-                <v-card flat outlined>
-                  <copyable-code
-                    title="Code"
-                    :code="`[IMG]https://hiscores.shmup.com/player/${user.id}/signature.png[/IMG]`"
-                    @copy="$emit('copy')"
-                  />
-                </v-card>
-              </v-col>
-              <v-col cols="12"><h3>Share my arch enemy</h3></v-col>
-              <v-col>
-                <v-card light tile>
-                  <v-img
-                    position="top left"
-                    :src="`http://hiscores.shmup.com/player/${user.id}/versus.png`"
-                  />
-                </v-card>
-              </v-col>
-              <v-col>
-                <v-card flat outlined>
-                  <copyable-code
-                    title="Code"
-                    :code="`[IMG]https://hiscores.shmup.com/player/${user.id}/versus.png[/IMG]`"
-                    @copy="$emit('copy')"
-                  />
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div class="k-container k-page">
+    <div>
+      <h1>Share on forums</h1>
+      <p class="k-page__lead">
+        Images that update themselves. Paste the code in your forum.shmup.com
+        signature or posts.
+      </p>
+    </div>
+
+    <template v-if="user && user.id">
+      <section v-for="share in shares" :key="share.id" class="k-panel share">
+        <div class="share__intro">
+          <span class="share__label">{{ share.label }}</span>
+          <h2 class="share__title">{{ share.title }}</h2>
+        </div>
+        <div class="share__body">
+          <div class="share__preview">
+            <img :src="share.image" :alt="share.title" />
+          </div>
+          <div class="share__code">
+            <label :for="share.id" class="k-sr-only"
+              >{{ share.title }} forum code</label
+            >
+            <input
+              :id="share.id"
+              readonly
+              :value="share.code"
+              class="share__input"
+              @focus="$event.target.select()"
+            />
+            <button
+              type="button"
+              class="k-btn k-btn--cta"
+              @click="copy(share.code)"
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+      </section>
+    </template>
+    <v-skeleton-loader v-else type="card"></v-skeleton-loader>
+  </div>
 </template>
 
-<script>
-import CopyableCode from "../atoms/CopyableCode";
+<script lang="ts">
 import Vue from "vue";
+
+const BASE = "https://hiscores.shmup.com/player";
 
 export default Vue.extend({
   name: "MyProfileTemplate",
-  components: {
-    CopyableCode,
-  },
   props: ["user"],
+  computed: {
+    shares(): Array<{
+      id: string;
+      label: string;
+      title: string;
+      image: string;
+      code: string;
+    }> {
+      const medals = `${BASE}/${this.user.shmupUserId}/medals.png`;
+      const signature = `${BASE}/${this.user.id}/signature.png`;
+      const versus = `${BASE}/${this.user.id}/versus.png`;
+      return [
+        {
+          id: "code-medals",
+          label: "IMG 01",
+          title: "My medals",
+          image: medals,
+          code: `[IMG]${medals}[/IMG]`,
+        },
+        {
+          id: "code-last",
+          label: "IMG 02",
+          title: "My last score",
+          image: signature,
+          code: `[IMG]${signature}[/IMG]`,
+        },
+        {
+          id: "code-versus",
+          label: "IMG 03",
+          title: "My arch enemy",
+          image: versus,
+          code: `[IMG]${versus}[/IMG]`,
+        },
+      ];
+    },
+  },
+  methods: {
+    copy(code: string) {
+      this.$copyText(code);
+      this.$emit("copy");
+    },
+  },
 });
 </script>
 
 <style lang="scss" scoped>
-h3 {
-  font-weight: bold;
+@import "../../custom.scss";
+
+.share {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 22px 24px;
+
+  &__intro {
+    flex: 1 1 220px;
+  }
+
+  &__label {
+    font-family: $font-score;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: var(--k-accent);
+  }
+
+  &__title {
+    font-size: 26px;
+    margin: 4px 0 0;
+  }
+
+  &__body {
+    flex: 3 1 520px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__preview {
+    padding: 16px;
+    border-radius: 8px;
+    background: #f2f2f2;
+    min-height: 48px;
+    overflow-x: auto;
+
+    img {
+      display: block;
+      max-width: none;
+    }
+  }
+
+  &__code {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__input {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 44px;
+    padding: 0 12px;
+    border-radius: 6px;
+    border: 1px solid var(--k-border2);
+    background: var(--k-inset);
+    color: var(--k-accent);
+    font-family: $font-score;
+    font-size: 20px;
+  }
 }
 </style>

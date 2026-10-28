@@ -1,10 +1,9 @@
 <template>
-  <v-container fluid>
-    <v-row>
-      <v-col>
-        <h1>Add Game</h1>
-      </v-col>
-    </v-row>
+  <v-container fluid class="k-container k-page">
+    <div>
+      <p class="k-kicker">&gt; ADMIN · NEW CARTRIDGE</p>
+      <h1>Add a game</h1>
+    </div>
     <v-row dense>
       <v-col cols="12" md="6" lg="5">
         <v-card class="pa-5" tile>

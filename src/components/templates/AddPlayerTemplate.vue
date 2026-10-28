@@ -1,10 +1,12 @@
 <template>
-  <v-container fluid>
-    <v-row>
-      <v-col>
-        <h1>Add Player</h1>
-      </v-col>
-    </v-row>
+  <v-container fluid class="k-container k-page">
+    <div>
+      <p class="k-kicker">&gt; ADMIN · ENTER YOUR NAME</p>
+      <h1>Add a player</h1>
+      <p class="k-page__lead">
+        Link a hiscores name to a forum.shmup.com account.
+      </p>
+    </div>
     <v-row dense>
       <v-col>
         <v-card class="pa-5" tile>

@@ -2,9 +2,11 @@
   <v-container>
     <v-row v-if="history.length > 0">
       <v-col>
+        <p class="k-kicker">&gt; SCORE HISTORY</p>
         <h1>{{ history[0].gameTitle }}</h1>
-        <h2>by {{ history[0].player.name }}</h2>
-        <h3>on ranking {{ rankingName }}</h3>
+        <p class="k-page__lead">
+          by {{ history[0].player.name }} · {{ rankingName }}
+        </p>
       </v-col>
     </v-row>
     <v-row>

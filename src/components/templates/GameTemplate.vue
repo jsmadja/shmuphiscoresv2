@@ -1,15 +1,5 @@
 <template>
   <v-container>
-    <v-row
-      v-if="!hideRankingMenu && rankings.length > 1"
-      class="d-none d-sm-flex"
-    >
-      <ranking-menu
-        :rankings="rankings"
-        :intersected-ranking="isIntersecting"
-        @goTo="(target) => $vuetify.goTo(target)"
-      />
-    </v-row>
     <v-row>
       <v-col>
         <h1>{{ game.title }}</h1>
@@ -28,7 +18,7 @@
         />
       </v-col>
       <!-- Rankings -->
-      <v-col cols="12" sm="11" md="8" lg="10">
+      <v-col cols="12" md="8" :lg="hasRankingMenu ? 8 : 10">
         <v-progress-linear
           v-if="rankings.length <= 0"
           indeterminate
@@ -56,6 +46,13 @@
           />
         </Ranking>
       </v-col>
+      <v-col v-if="hasRankingMenu" lg="2" class="d-none d-lg-block">
+        <ranking-menu
+          :rankings="rankings"
+          :intersected-ranking="isIntersecting"
+          @goTo="(target) => $vuetify.goTo(target)"
+        />
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -76,6 +73,9 @@ export default Vue.extend({
     };
   },
   computed: {
+    hasRankingMenu(): boolean {
+      return !this.hideRankingMenu && this.rankings.length > 1;
+    },
     intersection: {
       get: function (): Record<string, boolean> {
         return this.isIntersecting;

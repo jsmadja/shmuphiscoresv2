@@ -47,30 +47,15 @@
               :search="search"
               :dense="$vuetify.breakpoint.smAndDown"
               mobile-breakpoint="0"
+              :items-per-page="-1"
+              hide-default-footer
               :show-expand="!$vuetify.breakpoint.smAndDown"
             >
               <template v-slot:item.comment="{ item }">
-                <v-chip
-                  class="float-left mr-3 pr-1 pl-1"
-                  v-if="item.oneCC"
-                  dark
-                  x-small
-                  tile
-                  depressed
-                  color="orange"
-                  >1CC</v-chip
-                >
-                <v-spacer></v-spacer>
-                <span
-                  style="
-                    max-width: 100px;
-                    display: block;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                  "
-                  >{{ item.comment }}</span
-                >
+                <div class="k-cell">
+                  <span v-if="item.oneCC" class="k-tag k-tag--1cc">1CC</span>
+                  <span class="k-cell__comment">{{ item.comment }}</span>
+                </div>
               </template>
               <template v-slot:item.player.name="{ item }">
                 <span @click="() => $emit('goToPlayer', item.player)">{{
@@ -84,61 +69,55 @@
                 <td :colspan="headers.length">{{ item.comment }}</td>
               </template>
               <template v-slot:item.value="{ item }">
-                <div class="float-left d-none d-sm-flex">
-                  <v-tooltip
-                    v-if="item.photo"
-                    top
-                    content-class="photo-tooltip-class"
-                    nudge-right="50"
+                <div class="k-cell k-cell--end">
+                  <span class="k-cell__proofs d-none d-sm-flex">
+                    <v-tooltip
+                      v-if="item.photo"
+                      top
+                      content-class="photo-tooltip-class"
+                      nudge-right="50"
+                    >
+                      <template v-slot:activator="{ on, attrs }">
+                        <a
+                          v-bind="attrs"
+                          v-on="on"
+                          :href="item.photo"
+                          target="_blank"
+                          rel="noopener"
+                          class="k-tag k-tag--icon"
+                          aria-label="Photo proof"
+                          ><v-icon small>mdi-camera</v-icon></a
+                        >
+                      </template>
+                      <v-img :src="item.photo" max-width="250" />
+                    </v-tooltip>
+                    <a
+                      v-if="item.replay"
+                      :href="item.replay"
+                      target="_blank"
+                      rel="noopener"
+                      class="k-tag k-tag--icon"
+                      aria-label="Replay"
+                      ><v-icon small>mdi-play</v-icon></a
+                    >
+                    <a
+                      v-if="item.inp"
+                      :href="item.inp"
+                      target="_blank"
+                      rel="noopener"
+                      class="k-tag"
+                      >INP</a
+                    >
+                  </span>
+                  <span
+                    v-if="ranking.mode && ranking.mode.scoreType === 'timer'"
+                    @click.self="() => goToScore(item)"
+                    >{{ item.value | formatTime }}</span
                   >
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-chip
-                        x-small
-                        outlined
-                        class="mr-1 pl-1 pr-1"
-                        v-bind="attrs"
-                        v-on="on"
-                        :href="item.photo"
-                        target="_blank"
-                        ><v-icon small>mdi-camera</v-icon></v-chip
-                      >
-                    </template>
-                    <v-img :src="item.photo" max-width="250" />
-                  </v-tooltip>
-                  <v-chip
-                    x-small
-                    class="pl-1 pr-1"
-                    dark
-                    tile
-                    v-if="item.replay"
-                    :href="item.replay"
-                    target="_blank"
-                    color="red"
-                  >
-                    <v-icon x-small>mdi-play</v-icon>
-                  </v-chip>
-                  <v-chip
-                    class="ml-1 pl-2 pr-2"
-                    x-small
-                    v-if="item.inp"
-                    :href="item.inp"
-                    target="_blank"
-                  >
-                    INP
-                  </v-chip>
+                  <span v-else @click.self="() => goToScore(item)">{{
+                    item.value | formatNumber
+                  }}</span>
                 </div>
-                <span
-                  v-if="ranking.mode && ranking.mode.scoreType === 'timer'"
-                  class="float-right"
-                  @click.self="() => goToScore(item)"
-                  >{{ item.value | formatTime }}</span
-                >
-                <span
-                  v-else
-                  class="float-right"
-                  @click.self="() => goToScore(item)"
-                  >{{ item.value | formatNumber }}</span
-                >
               </template>
             </v-data-table>
           </v-card-text>
@@ -237,6 +216,8 @@ export default Vue.extend({
     font-weight: 400 !important;
     font-size: 30px;
     letter-spacing: 0.12em;
+    word-break: normal;
+    overflow-wrap: break-word;
     color: var(--k-accent);
     text-shadow: var(--k-glow);
   }

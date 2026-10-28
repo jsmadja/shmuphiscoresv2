@@ -137,6 +137,7 @@
 <script lang="ts">
 import Vue from "vue";
 import moment from "moment";
+import { coverUrl } from "@/coverUrl";
 
 export default Vue.extend({
   name: "ScoreCard",
@@ -179,12 +180,7 @@ export default Vue.extend({
     since(date) {
       return moment(date).fromNow();
     },
-    coverUrl(url) {
-      if (url && url.indexOf("/") === 0) {
-        return "https://hiscores.shmup.com" + url;
-      }
-      return url;
-    },
+    coverUrl,
   },
 });
 </script>
@@ -268,6 +264,7 @@ export default Vue.extend({
   &__tags {
     flex: 0 1 auto;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     gap: 6px;
   }

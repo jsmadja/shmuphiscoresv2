@@ -2,6 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
+        <p class="k-kicker">&gt; SCORE ENTRY</p>
         <h1>{{ game.title }}</h1>
       </v-col>
     </v-row>

@@ -2,8 +2,8 @@
   <platform-template
     :platform-title="platformTitle"
     :games="games"
+    :loading="loading"
     @selectGame="goToGamePage"
-    @selectPlatform="onSelectPlatform"
   />
 </template>
 
@@ -18,6 +18,7 @@ export default Vue.extend({
   name: "Platform",
   data: () => ({
     games: [] as Game[],
+    loading: true,
   }),
   components: { PlatformTemplate },
   computed: {
@@ -29,7 +30,10 @@ export default Vue.extend({
   created() {
     fetch(`${api}/platforms/${this.platformTitle}/games`)
       .then((response) => response.json())
-      .then((games: Game[]) => (this.games = games));
+      .then((games: Game[]) => {
+        this.games = games;
+        this.loading = false;
+      });
   },
   methods: {
     goToGamePage(game: Game) {

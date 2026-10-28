@@ -22,8 +22,8 @@
         :loading="loading"
         :sort-by="sortBy"
         :sort-desc="sortDesc"
-        :hide-default-footer="hideDefaultFooter"
-        :footer-props="footerProps"
+        :items-per-page="-1"
+        hide-default-footer
         @click:row.self="(item) => $emit('click:row', item)"
       >
         <template
@@ -50,8 +50,6 @@ export default Vue.extend({
     "disableMobileBreakpoint",
     "sortBy",
     "sortDesc",
-    "hide-default-footer",
-    "footer-props",
     "search",
   ],
   data() {
@@ -69,7 +67,7 @@ export default Vue.extend({
   methods: {
     itemClass(item) {
       return this.itemClassPredicate && this.itemClassPredicate(item)
-        ? "orange lighten-5"
+        ? "k-row--me"
         : "";
     },
     onSearch() {
