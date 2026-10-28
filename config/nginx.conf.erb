@@ -1,48 +1,57 @@
 daemon off;
+# stay attached to the dyno process, run in Procfile / web
+
+pid /app/nginx.pid;
+# /app is $HOME & working directory of Heroku dyno
+
+error_log stderr info;
+
 worker_processes <%= ENV['NGINX_WORKERS'] || 4 %>;
 
 events {
+  use epoll;
+  accept_mutex on;
   worker_connections <%= ENV['NGINX_WORKER_CONNECTIONS'] || 1024 %>;
 }
 
 http {
-  include mime.types;
-  default_type application/octet-stream;
-  sendfile on;
-
   gzip on;
   gzip_comp_level 2;
   gzip_min_length 512;
-  gzip_proxied any;
+  gzip_proxied any; # Heroku router sends Via header
 
   server_tokens off;
 
   log_format l2met 'measure#nginx.service=$request_time request_id=$http_x_request_id';
-  access_log <%= ENV['NGINX_ACCESS_LOG_PATH'] || 'logs/nginx/access.log' %> l2met;
-  error_log <%= ENV['NGINX_ERROR_LOG_PATH'] || 'logs/nginx/error.log' %>;
+  access_log /dev/stdout l2met;
 
-upstream app_server {
-  server unix:/tmp/nginx.socket fail_timeout=0;
- }
+  include mime.types;
+  default_type application/octet-stream;
+  sendfile on;
+
+  client_body_timeout <%= ENV['NGINX_CLIENT_BODY_TIMEOUT'] || 5 %>;
 
   server {
     listen <%= ENV["PORT"] %>;
     server_name _;
+    keepalive_timeout 5;
+    client_max_body_size <%= ENV['NGINX_CLIENT_MAX_BODY_SIZE'] || 1 %>M;
 
-    root /app/dist;       # <-- ton dossier Vue build
-    #index index.html;
+    # No "HTTPS only" redirect here: hiscores.shmup.com is served through
+    # a reverse proxy that already redirects http to https.
 
- location = /index.html {
-   add_header Cache-Control "no-store, no-cache";
-   add_header Strict-Transport-Security "max-age=31536002;";
+    root /app/dist;
 
-   try_files $uri $uri/ =404;
-  }
+    location = /index.html {
+      add_header Cache-Control "no-store, no-cache";
+      add_header Strict-Transport-Security "max-age=31536002;";
+
+      try_files $uri $uri/ =404;
+    }
 
     location / {
-      # SPA fallback : toutes les routes reviennent à index.html
+      # SPA fallback: unknown routes are handled by the Vue router
       try_files $uri $uri/ /index.html;
     }
   }
 }
-
