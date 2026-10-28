@@ -3,6 +3,15 @@
 import { register } from "register-service-worker";
 
 if (process.env.NODE_ENV === "production") {
+  // Reload once when a new deployment takes control, so visitors see it without closing their tabs.
+  if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+    let reloading = false;
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (reloading) return;
+      reloading = true;
+      window.location.reload();
+    });
+  }
   register(`${process.env.BASE_URL}service-worker.js`, {
     ready() {
       console.log(
