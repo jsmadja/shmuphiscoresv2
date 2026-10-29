@@ -4,11 +4,13 @@
     :game="game"
     :rankings="rankings"
     :user="user"
+    :is-favorite="isFavoriteGame(game.id)"
     @selectPlatform="onSelectPlatform"
     @goToPlayer="goToPlayer"
     @configureGame="onConfigureGame"
     @addScore="onAddScore"
     @goToScore="onGoToScore"
+    @toggleFavorite="onToggleFavorite"
   />
 </template>
 
@@ -27,7 +29,7 @@ export default Vue.extend({
   name: "Game",
   components: { GameTemplate },
   computed: {
-    ...mapGetters(["user", "game", "rankings"]),
+    ...mapGetters(["user", "game", "rankings", "isFavoriteGame"]),
   },
   created() {
     this.$store
@@ -55,6 +57,9 @@ export default Vue.extend({
     },
     onGoToScore(score: Score) {
       goToScore(score);
+    },
+    onToggleFavorite(game) {
+      this.$store.dispatch("toggleFavoriteGame", game);
     },
   },
 });

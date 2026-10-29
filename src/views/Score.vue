@@ -1,6 +1,7 @@
 <template>
   <score-template
     :history="history"
+    :score-id="$route.params.id"
     :can-edit="canEdit()"
     @goToEditScore="goToEditScore"
     @deleteScore="deleteScore"
@@ -31,10 +32,13 @@ export default Vue.extend({
   },
   methods: {
     canEdit() {
-      if (!this.user && this.history && this.history[0].player) {
-        return false;
-      }
-      return this.user.id === this.history[0].player.id;
+      const first = this.history[0];
+      return !!(
+        this.user &&
+        first &&
+        first.player &&
+        this.user.id === first.player.id
+      );
     },
     goToEditScore(score) {
       this.$router.push(`/games/${score.game.id}/scores/${score.id}/edit`);

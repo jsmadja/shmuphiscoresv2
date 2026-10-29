@@ -27,6 +27,8 @@
         </div>
 
         <div class="k-drawer__body">
+          <global-search />
+
           <router-link
             v-if="isAuthenticated"
             to="/games"
@@ -61,6 +63,25 @@
               active-class="k-menu__link--active"
               ><v-icon>{{ item.icon }}</v-icon
               >{{ item.label }}</router-link
+            >
+          </nav>
+
+          <nav
+            v-if="favoriteGames.length > 0"
+            aria-label="Favourites"
+            class="k-menu"
+          >
+            <h2 class="k-menu__title">FAVOURITES</h2>
+            <router-link
+              v-for="game in favoriteGames"
+              :key="`favorite-${game.id}`"
+              :to="`/games/${game.id}`"
+              class="k-menu__link k-menu__link--game"
+              active-class="k-menu__link--active"
+              ><v-icon>mdi-star</v-icon
+              ><span class="k-menu__link-label">{{
+                game.title
+              }}</span></router-link
             >
           </nav>
 
@@ -172,6 +193,7 @@
 import Vue from "vue";
 import { mapGetters } from "vuex";
 import FloatingMenu from "@/components/organisms/FloatingMenu.vue";
+import GlobalSearch from "@/components/organisms/GlobalSearch.vue";
 import { THEME_STORAGE_KEY } from "@/plugins/vuetify";
 
 export default Vue.extend({
@@ -179,6 +201,7 @@ export default Vue.extend({
 
   components: {
     FloatingMenu,
+    GlobalSearch,
   },
 
   data: () => ({
@@ -228,6 +251,7 @@ export default Vue.extend({
       "toastColor",
       "myLastScores",
       "recentlyViewedGames",
+      "favoriteGames",
     ]),
     isAuthenticated(): boolean {
       return !!(this.user && this.user.authenticated);
@@ -447,6 +471,27 @@ export default Vue.extend({
     &:hover {
       background: var(--k-surface);
       color: var(--k-text) !important;
+    }
+
+    &--game {
+      min-height: 38px;
+      font-family: $font-body;
+      font-weight: 500;
+      font-size: 14px;
+      text-transform: none;
+      letter-spacing: 0;
+
+      .v-icon {
+        font-size: 16px;
+        color: var(--k-accent) !important;
+      }
+    }
+
+    &-label {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     &--active,

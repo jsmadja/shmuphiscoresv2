@@ -1,8 +1,18 @@
 <template>
   <v-container>
     <v-row>
-      <v-col>
+      <v-col class="game-head">
         <h1>{{ game.title }}</h1>
+        <button
+          type="button"
+          class="k-btn k-btn--ghost game-head__favorite"
+          :class="{ 'game-head__favorite--on': isFavorite }"
+          :aria-pressed="isFavorite ? 'true' : 'false'"
+          @click="$emit('toggleFavorite', game)"
+        >
+          <v-icon>{{ isFavorite ? "mdi-star" : "mdi-star-outline" }}</v-icon>
+          {{ isFavorite ? "Favourite" : "Add to favourites" }}
+        </button>
       </v-col>
     </v-row>
     <v-row>
@@ -65,7 +75,7 @@ import RankingMenu from "@/components/organisms/RankingMenu.vue";
 
 export default Vue.extend({
   name: "Game",
-  props: ["game", "rankings", "hideRankingMenu", "user"],
+  props: ["game", "rankings", "hideRankingMenu", "user", "isFavorite"],
   components: { Ranking, GameInformations, RankingMenu },
   data() {
     return {
@@ -110,5 +120,27 @@ export default Vue.extend({
 <style lang="scss" scoped>
 h3 {
   font-weight: bold;
+}
+
+.game-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+
+  &__favorite {
+    .v-icon {
+      color: inherit !important;
+    }
+
+    &--on {
+      border-color: var(--k-accent);
+      color: var(--k-first) !important;
+
+      .v-icon {
+        color: var(--k-accent) !important;
+      }
+    }
+  }
 }
 </style>

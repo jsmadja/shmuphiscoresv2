@@ -32,6 +32,31 @@ import { AxiosError } from "axios";
 
 Vue.use(Vuex);
 
+const FAVORITE_GAMES_STORAGE_KEY = "hiscores-favorite-games";
+
+export type FavoriteGame = Pick<Game, "id" | "title" | "cover" | "platforms">;
+
+function loadFavoriteGames(): FavoriteGame[] {
+  try {
+    return JSON.parse(
+      window.localStorage.getItem(FAVORITE_GAMES_STORAGE_KEY) || "[]"
+    );
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveFavoriteGames(games: FavoriteGame[]): void {
+  try {
+    window.localStorage.setItem(
+      FAVORITE_GAMES_STORAGE_KEY,
+      JSON.stringify(games)
+    );
+  } catch (e) {
+    // storage unavailable: favourites only last for this visit
+  }
+}
+
 interface S {
   user: null;
   platforms: PlatformWithGameCount[];
@@ -42,6 +67,7 @@ interface S {
   score: null;
   rankings: Ranking[];
   recentlyViewedGames: Game[];
+  favoriteGames: FavoriteGame[];
   showToast: boolean;
   toastMessage: string;
   toastColor: "success";
@@ -273,6 +299,26 @@ export const actions = {
       _(context.state.recentlyViewedGames).uniqBy("id").take(6).value()
     );
   },
+  toggleFavoriteGame(context: ActionContext<S, R>, game: Game): void {
+    const isFavorite = context.state.favoriteGames.some(
+      (favorite) => favorite.id === game.id
+    );
+    const favoriteGames = isFavorite
+      ? context.state.favoriteGames.filter(
+          (favorite) => favorite.id !== game.id
+        )
+      : [
+          ...context.state.favoriteGames,
+          _.pick(game, ["id", "title", "cover", "platforms"]),
+        ];
+    context.commit("setFavoriteGames", favoriteGames);
+    context.dispatch(
+      "showSuccessToast",
+      isFavorite
+        ? `${game.title} removed from favourites`
+        : `${game.title} added to favourites`
+    );
+  },
 };
 
 const initialState: S = {
@@ -291,6 +337,7 @@ const initialState: S = {
   myLastScores: [],
   myLastScoresLoading: true,
   recentlyViewedGames: [],
+  favoriteGames: loadFavoriteGames(),
 };
 export default new Vuex.Store({
   state: initialState,
@@ -351,6 +398,10 @@ export default new Vuex.Store({
     setRecentlyViewedGames(state, games) {
       state.recentlyViewedGames = games;
     },
+    setFavoriteGames(state, games: FavoriteGame[]) {
+      state.favoriteGames = games;
+      saveFavoriteGames(games);
+    },
   },
   actions: actions,
   getters: {
@@ -367,6 +418,9 @@ export default new Vuex.Store({
     lastScores: (state) => state.lastScores,
     myLastScores: (state) => state.myLastScores,
     recentlyViewedGames: (state) => state.recentlyViewedGames,
+    favoriteGames: (state) => state.favoriteGames,
+    isFavoriteGame: (state) => (id: Game["id"]) =>
+      state.favoriteGames.some((favorite) => favorite.id === id),
     myLastScoresLoading: (state) => state.myLastScoresLoading,
     score: (state) => state.score,
   },

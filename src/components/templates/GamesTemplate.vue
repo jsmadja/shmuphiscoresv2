@@ -115,6 +115,7 @@ export default Vue.extend({
   data() {
     return {
       search:
+        (this.$route && (this.$route.query.search as string)) ||
         (this.rememberSearch &&
           sessionStorage.getItem(SESSION_STORAGE_GAME_SEARCH)) ||
         "",

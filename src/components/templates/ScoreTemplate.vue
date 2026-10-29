@@ -11,6 +11,7 @@
     </v-row>
     <v-row>
       <v-col>
+        <score-proofs v-if="currentScore" :score="currentScore" />
         <shmup-table :headers="headers" :items="history">
           <template v-slot:item.createdAt="{ item }">
             {{ formatDate(item.createdAt) }}
@@ -79,10 +80,11 @@ import Vue from "vue";
 import { Score } from "@/models/score";
 import ShmupTable from "@/components/molecules/ShmupTable.vue";
 import OneCCChip from "@/components/atoms/OneCCChip.vue";
+import ScoreProofs from "@/components/molecules/ScoreProofs.vue";
 
 export default Vue.extend({
-  components: { OneCCChip, ShmupTable },
-  props: ["canEdit", "history"],
+  components: { OneCCChip, ScoreProofs, ShmupTable },
+  props: ["canEdit", "history", "scoreId"],
   data() {
     return {
       confirmDelete: false,
@@ -90,6 +92,14 @@ export default Vue.extend({
     };
   },
   computed: {
+    currentScore: function (): Score | undefined {
+      const historyArray = this.history as Score[];
+      return (
+        historyArray.find(
+          (score) => String(score.id) === String(this.scoreId)
+        ) || historyArray[historyArray.length - 1]
+      );
+    },
     headers: function () {
       return [
         { text: "Date", value: "createdAt" },

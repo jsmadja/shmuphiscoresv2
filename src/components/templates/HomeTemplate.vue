@@ -66,6 +66,88 @@
     </section>
 
     <div class="k-container home-body">
+      <section aria-labelledby="home-favorites-title">
+        <div class="k-section-title">
+          <h2 id="home-favorites-title">
+            My favourites
+            <span v-if="favoriteGames.length > 0" class="k-page__group-count"
+              >· {{ favoriteGames.length }}
+              {{ favoriteGames.length > 1 ? "games" : "game" }}</span
+            >
+          </h2>
+          <router-link to="/games">Browse games →</router-link>
+        </div>
+        <ul v-if="favoriteGames.length > 0" class="home-favorites">
+          <li
+            v-for="game in favoriteGames"
+            :key="`favorite-${game.id}`"
+            class="k-panel home-favorites__card"
+          >
+            <router-link :to="`/games/${game.id}`" class="home-favorites__link">
+              <span class="k-scan home-favorites__cover">
+                <img
+                  v-if="game.cover"
+                  :src="coverUrl(game.cover)"
+                  alt=""
+                  loading="lazy"
+                />
+              </span>
+              <span class="home-favorites__body">
+                <span class="home-favorites__title">{{ game.title }}</span>
+                <span class="home-favorites__platforms">{{
+                  (game.platforms || []).map((p) => p.name).join(" · ")
+                }}</span>
+                <span
+                  v-if="favoriteBests[game.id]"
+                  class="home-favorites__best"
+                >
+                  <span
+                    v-if="
+                      favoriteBests[game.id].mode &&
+                      favoriteBests[game.id].mode.scoreType === 'timer'
+                    "
+                    class="k-score"
+                    >{{ favoriteBests[game.id].value | formatTime }}</span
+                  >
+                  <span v-else class="k-score">{{
+                    favoriteBests[game.id].value | formatNumber
+                  }}</span>
+                  <span
+                    v-if="favoriteBests[game.id].rank"
+                    class="k-rank"
+                    :class="{
+                      'k-rank--first': favoriteBests[game.id].rank === 1,
+                    }"
+                    >{{ favoriteBests[game.id].rank | formatRank }}</span
+                  >
+                </span>
+                <span v-else class="home-favorites__platforms"
+                  >No score yet</span
+                >
+              </span>
+            </router-link>
+            <button
+              type="button"
+              class="k-btn k-btn--ghost k-btn--icon home-favorites__star"
+              aria-pressed="true"
+              :aria-label="`Remove ${game.title} from favourites`"
+              @click="$emit('toggleFavorite', game)"
+            >
+              <v-icon>mdi-star</v-icon>
+            </button>
+          </li>
+        </ul>
+        <div v-else class="home-favorites__empty">
+          <p>
+            Star the games you are grinding from their page: they show up here
+            and in the menu.
+          </p>
+          <router-link to="/games" class="k-btn k-btn--cta"
+            >Browse games</router-link
+          >
+        </div>
+      </section>
+
       <section v-if="isAuthenticated && myLastScores.length > 0">
         <div class="k-section-title">
           <h2>My last scores</h2>
@@ -168,6 +250,7 @@
 import Vue from "vue";
 import moment from "moment";
 import ScoreCard from "../organisms/ScoreCard.vue";
+import { coverUrl } from "@/coverUrl";
 
 export default Vue.extend({
   name: "HomeTemplate",
@@ -179,6 +262,8 @@ export default Vue.extend({
     myLastScoresLoading: Boolean,
     user: { type: Object, default: () => ({}) },
     platforms: { type: Array, default: () => [] },
+    favoriteGames: { type: Array, default: () => [] },
+    favoriteBests: { type: Object, default: () => ({}) },
   },
   computed: {
     screenStyle(): Record<string, string> {
@@ -197,6 +282,7 @@ export default Vue.extend({
     },
   },
   methods: {
+    coverUrl,
     isOwn(score): boolean {
       return !!(this.user && score.player.id === this.user.id);
     },
@@ -332,6 +418,99 @@ export default Vue.extend({
   gap: 52px;
   padding-top: 44px;
   padding-bottom: 64px;
+}
+
+.home-favorites {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+
+  &__card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    color: var(--k-text) !important;
+    text-decoration: none !important;
+  }
+
+  &__cover {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--k-inset);
+    border-bottom: 1px solid var(--k-border);
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__body {
+    padding: 14px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  &__platforms {
+    font-size: 13px;
+    color: var(--k-muted);
+  }
+
+  &__best {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 24px;
+  }
+
+  &__star {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--k-header);
+    color: var(--k-accent) !important;
+
+    .v-icon {
+      color: inherit !important;
+    }
+  }
+
+  &__empty {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border: 1px dashed var(--k-border2);
+    border-radius: 12px;
+
+    p {
+      margin: 0;
+      color: var(--k-text2);
+    }
+  }
 }
 
 .home-list {
