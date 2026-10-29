@@ -267,12 +267,6 @@ export default Vue.extend({
     }> {
       return [
         {
-          to: "/",
-          label: "Dashboard",
-          icon: "mdi-view-dashboard-outline",
-          exact: true,
-        },
-        {
           to: `/players/${this.user.id}`,
           label: "My scores",
           icon: "mdi-trophy-outline",
