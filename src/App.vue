@@ -1,134 +1,170 @@
 <template>
   <v-app id="inspire">
-    <header class="k-header">
-      <div class="k-container k-header__main">
-        <router-link to="/" class="k-brand">
-          <img
-            src="https://shmup.com/wp-content/themes/shmup/images/shmup.png"
-            alt="shmup"
-            class="k-brand__logo"
-          />
-          <span class="k-brand__name">HISCORES</span>
-        </router-link>
-
-        <nav aria-label="Main" class="k-nav">
-          <router-link
-            v-for="item in mainNav"
-            :key="item.to"
-            :to="item.to"
-            :exact="item.exact"
-            class="k-nav__link"
-            active-class="k-nav__link--active"
-            >{{ item.label }}</router-link
-          >
-        </nav>
-
-        <div class="k-header__actions">
+    <div class="k-shell">
+      <aside
+        class="k-drawer"
+        :class="{ 'k-drawer--open': menuOpen }"
+        aria-label="Site menu"
+      >
+        <div class="k-drawer__top">
+          <router-link to="/" class="k-brand">
+            <img
+              src="https://shmup.com/wp-content/themes/shmup/images/shmup.png"
+              alt="shmup"
+              class="k-brand__logo"
+            />
+            <span class="k-brand__name">HISCORES</span>
+          </router-link>
           <button
             type="button"
-            class="k-btn k-btn--ghost k-btn--icon"
-            :aria-label="
-              isDark ? 'Switch to light theme' : 'Switch to dark theme'
-            "
-            :title="isDark ? 'Switch to light theme' : 'Switch to dark theme'"
-            @click="toggleTheme"
+            class="k-btn k-btn--ghost k-btn--icon k-drawer__toggle"
+            aria-label="Menu"
+            :aria-expanded="menuOpen ? 'true' : 'false'"
+            @click="menuOpen = !menuOpen"
           >
-            <v-icon>{{
-              isDark ? "mdi-white-balance-sunny" : "mdi-weather-night"
-            }}</v-icon>
+            <v-icon>{{ menuOpen ? "mdi-close" : "mdi-menu" }}</v-icon>
           </button>
-          <a
-            :href="kofiUrl"
-            target="_blank"
-            rel="noopener"
-            class="k-btn k-btn--kofi"
-          >
-            <v-icon small color="white">mdi-coffee</v-icon>Support
-          </a>
-          <router-link to="/games" class="k-btn k-btn--cta"
-            >Post a score</router-link
-          >
+        </div>
+
+        <div class="k-drawer__body">
           <router-link
             v-if="isAuthenticated"
-            to="/my-profile"
-            class="k-btn k-btn--ghost k-account"
-            :aria-label="`My account: ${user.name}`"
+            to="/games"
+            class="k-btn k-btn--cta k-drawer__cta"
+            >Post a score</router-link
           >
-            <span class="k-account__avatar" aria-hidden="true">{{
-              initial(user.name)
-            }}</span>
-            {{ user.name }}
-          </router-link>
-          <a v-else :href="signInUrl" class="k-btn k-btn--ghost">Sign in</a>
-        </div>
-      </div>
+          <a v-else :href="signInUrl" class="k-btn k-btn--cta k-drawer__cta"
+            >Sign in</a
+          >
 
-      <div v-if="isAuthenticated" class="k-subbar">
-        <div class="k-container k-subbar__inner">
-          <nav aria-label="My space" class="k-nav k-nav--sub">
+          <nav aria-label="Main" class="k-menu">
+            <router-link
+              v-for="item in mainNav"
+              :key="item.to"
+              :to="item.to"
+              :exact="item.exact"
+              class="k-menu__link"
+              active-class="k-menu__link--active"
+              ><v-icon>{{ item.icon }}</v-icon
+              >{{ item.label }}</router-link
+            >
+          </nav>
+
+          <nav v-if="isAuthenticated" aria-label="My space" class="k-menu">
+            <h2 class="k-menu__title">MY SPACE</h2>
             <router-link
               v-for="item in memberNav"
               :key="item.to"
               :to="item.to"
               :exact="item.exact"
-              class="k-nav__link"
-              active-class="k-nav__link--active"
+              class="k-menu__link"
+              active-class="k-menu__link--active"
+              ><v-icon>{{ item.icon }}</v-icon
               >{{ item.label }}</router-link
             >
           </nav>
-          <div v-if="user.administrator" class="k-nav k-nav--sub">
-            <span class="k-admin-tag">ADMIN</span>
+
+          <nav
+            v-if="isAuthenticated && user.administrator"
+            aria-label="Admin"
+            class="k-menu"
+          >
+            <h2 class="k-menu__title">ADMIN</h2>
             <router-link
               to="/add-game"
-              class="k-nav__link"
-              active-class="k-nav__link--active"
-              >+ Add game</router-link
+              class="k-menu__link"
+              active-class="k-menu__link--active"
+              ><v-icon>mdi-plus</v-icon>Add game</router-link
             >
             <router-link
               to="/add-player"
-              class="k-nav__link"
-              active-class="k-nav__link--active"
-              >+ Add player</router-link
+              class="k-menu__link"
+              active-class="k-menu__link--active"
+              ><v-icon>mdi-plus</v-icon>Add player</router-link
             >
+          </nav>
+
+          <div class="k-drawer__footer">
+            <router-link
+              v-if="isAuthenticated"
+              to="/my-profile"
+              class="k-account"
+              :aria-label="`My account: ${user.name}`"
+            >
+              <span class="k-account__avatar" aria-hidden="true">{{
+                initial(user.name)
+              }}</span>
+              <span class="k-account__text">
+                <span class="k-account__name">{{ user.name }}</span>
+                <span class="k-account__hint">My profile</span>
+              </span>
+            </router-link>
+            <div class="k-drawer__actions">
+              <button
+                type="button"
+                class="k-btn k-btn--ghost k-btn--icon"
+                :aria-label="
+                  isDark ? 'Switch to light theme' : 'Switch to dark theme'
+                "
+                :title="
+                  isDark ? 'Switch to light theme' : 'Switch to dark theme'
+                "
+                @click="toggleTheme"
+              >
+                <v-icon>{{
+                  isDark ? "mdi-white-balance-sunny" : "mdi-weather-night"
+                }}</v-icon>
+              </button>
+              <a
+                :href="kofiUrl"
+                target="_blank"
+                rel="noopener"
+                class="k-btn k-btn--kofi k-drawer__kofi"
+              >
+                <v-icon small color="white">mdi-coffee</v-icon>Support
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </aside>
 
-    <v-main>
-      <v-container fluid class="pb-8">
-        <v-snackbar
-          timeout="2000"
-          top
-          right
-          :color="toastColor"
-          :value="showToast"
-        >
-          {{ toastMessage }}
-        </v-snackbar>
-        <router-view :key="$route.fullPath"></router-view>
-        <floating-menu
-          :my-last-scores="myLastScores"
-          :recently-viewed-games="recentlyViewedGames"
-          @goToGame="goToGame"
-        />
-      </v-container>
-    </v-main>
+      <div class="k-content">
+        <v-main>
+          <v-container fluid class="pb-8">
+            <v-snackbar
+              timeout="2000"
+              top
+              right
+              :color="toastColor"
+              :value="showToast"
+            >
+              {{ toastMessage }}
+            </v-snackbar>
+            <router-view :key="$route.fullPath"></router-view>
+            <floating-menu
+              :my-last-scores="myLastScores"
+              :recently-viewed-games="recentlyViewedGames"
+              @goToGame="goToGame"
+            />
+          </v-container>
+        </v-main>
 
-    <footer class="k-footer">
-      <div class="k-container k-footer__inner">
-        <span class="k-footer__brand">GAME OVER? CONTINUE ▸ 9</span>
-        <nav aria-label="Footer" class="k-footer__links">
-          <a href="https://forum.shmup.com/" target="_blank" rel="noopener"
-            >Forum</a
-          >
-          <router-link to="/statistics">Statistics</router-link>
-          <a :href="kofiUrl" target="_blank" rel="noopener"
-            >Support us on Ko-fi</a
-          >
-        </nav>
+        <footer class="k-footer">
+          <div class="k-container k-footer__inner">
+            <span class="k-footer__brand">GAME OVER? CONTINUE ▸ 9</span>
+            <nav aria-label="Footer" class="k-footer__links">
+              <a href="https://forum.shmup.com/" target="_blank" rel="noopener"
+                >Forum</a
+              >
+              <router-link to="/statistics">Statistics</router-link>
+              <a :href="kofiUrl" target="_blank" rel="noopener"
+                >Support us on Ko-fi</a
+              >
+            </nav>
+          </div>
+        </footer>
       </div>
-    </footer>
+    </div>
   </v-app>
 </template>
 
@@ -148,13 +184,39 @@ export default Vue.extend({
   data: () => ({
     kofiUrl: "https://ko-fi.com/Z8U6243MY5",
     signInUrl: "https://forum.shmup.com/ucp.php?mode=login",
+    menuOpen: false,
     mainNav: [
-      { to: "/", label: "Home", exact: true },
-      { to: "/games", label: "Games", exact: false },
-      { to: "/platforms", label: "Platforms", exact: false },
-      { to: "/players", label: "Players", exact: true },
-      { to: "/compare-scores", label: "Compare", exact: false },
-      { to: "/statistics", label: "Stats", exact: false },
+      { to: "/", label: "Home", icon: "mdi-home-outline", exact: true },
+      {
+        to: "/games",
+        label: "Games",
+        icon: "mdi-gamepad-variant-outline",
+        exact: false,
+      },
+      {
+        to: "/platforms",
+        label: "Platforms",
+        icon: "mdi-monitor",
+        exact: false,
+      },
+      {
+        to: "/players",
+        label: "Players",
+        icon: "mdi-account-group-outline",
+        exact: true,
+      },
+      {
+        to: "/compare-scores",
+        label: "Compare",
+        icon: "mdi-compare-horizontal",
+        exact: false,
+      },
+      {
+        to: "/statistics",
+        label: "Stats",
+        icon: "mdi-chart-bar",
+        exact: false,
+      },
     ],
   }),
 
@@ -173,18 +235,50 @@ export default Vue.extend({
     isDark(): boolean {
       return this.$vuetify.theme.dark;
     },
-    memberNav(): Array<{ to: string; label: string; exact: boolean }> {
+    memberNav(): Array<{
+      to: string;
+      label: string;
+      icon: string;
+      exact: boolean;
+    }> {
       return [
-        { to: "/", label: "Dashboard", exact: true },
-        { to: `/players/${this.user.id}`, label: "My scores", exact: true },
-        { to: "/my-games", label: "My games", exact: false },
+        {
+          to: "/",
+          label: "Dashboard",
+          icon: "mdi-view-dashboard-outline",
+          exact: true,
+        },
+        {
+          to: `/players/${this.user.id}`,
+          label: "My scores",
+          icon: "mdi-trophy-outline",
+          exact: true,
+        },
+        {
+          to: "/my-games",
+          label: "My games",
+          icon: "mdi-controller-classic-outline",
+          exact: false,
+        },
         {
           to: "/my-recommendations",
           label: "Recommendations",
+          icon: "mdi-star-outline",
           exact: false,
         },
-        { to: "/my-profile", label: "Share on forums", exact: false },
+        {
+          to: "/my-profile",
+          label: "Share on forums",
+          icon: "mdi-forum-outline",
+          exact: false,
+        },
       ];
+    },
+  },
+
+  watch: {
+    $route() {
+      this.menuOpen = false;
     },
   },
 
@@ -218,20 +312,83 @@ export default Vue.extend({
 <style lang="scss">
 @import "theme.scss";
 
-.k-header {
-  background: var(--k-header);
-  border-bottom: 1px solid var(--k-border);
-  position: relative;
-  z-index: 5;
+.k-shell {
+  display: flex;
+  align-items: stretch;
+  min-height: 100vh;
 }
 
-.k-header__main {
+.k-drawer {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  flex: none;
+  width: 248px;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 22px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  flex-direction: column;
+  background: var(--k-header);
+  border-right: 1px solid var(--k-border);
+
+  .v-icon {
+    color: inherit !important;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 16px 16px 12px;
+  }
+  &__toggle {
+    display: none !important;
+  }
+  &__body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 6px 12px 18px;
+  }
+  &__cta {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+    font-family: $font-display;
+    font-size: 17px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  &__footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid var(--k-border);
+  }
+  &__actions {
+    display: flex;
+    gap: 8px;
+  }
+  &__kofi {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+.k-content {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+
+  .v-main {
+    flex: 1 0 auto;
+  }
 }
 
 .k-brand {
@@ -253,54 +410,69 @@ export default Vue.extend({
   }
 }
 
-.k-nav {
+.k-menu {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px;
-  flex: 1 1 auto;
-  font-family: $font-display;
-  font-weight: 700;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  flex-direction: column;
+  gap: 2px;
+
+  &__title {
+    margin: 0 0 6px;
+    padding: 0 12px;
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: var(--k-muted);
+  }
 
   &__link {
-    padding: 9px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    padding: 0 12px;
+    border-radius: 6px;
     color: var(--k-text2) !important;
     text-decoration: none !important;
-    border-bottom: 2px solid transparent;
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 
-    &--active {
-      color: var(--k-accent) !important;
-      border-bottom-color: var(--k-accent);
+    .v-icon {
+      font-size: 20px;
     }
-  }
 
-  &--sub {
-    flex: 0 1 auto;
-    font-size: 15px;
-    letter-spacing: 0.06em;
-  }
-}
+    &:hover {
+      background: var(--k-surface);
+      color: var(--k-text) !important;
+    }
 
-.k-header__actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-
-  .v-icon {
-    color: inherit !important;
+    &--active,
+    &--active:hover {
+      background: var(--k-surface);
+      color: var(--k-accent) !important;
+      box-shadow: inset 3px 0 0 var(--k-accent);
+    }
   }
 }
 
 .k-account {
-  padding-left: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 4px 10px 4px 4px;
+  border-radius: 6px;
+  border: 1px solid var(--k-border2);
+  color: var(--k-text) !important;
+  text-decoration: none !important;
 
   &__avatar {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
+    flex: none;
     border-radius: 4px;
     background: var(--k-cta);
     color: var(--k-on-cta);
@@ -308,33 +480,48 @@ export default Vue.extend({
     align-items: center;
     justify-content: center;
     font-family: $font-score;
-    font-size: 24px;
+    font-size: 26px;
   }
-}
-
-.k-subbar {
-  background: var(--k-surface);
-  border-top: 1px solid var(--k-border);
-
-  &__inner {
+  &__text {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4px 16px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    flex-direction: column;
+    min-width: 0;
+    line-height: 1.2;
+  }
+  &__name {
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &__hint {
+    font-size: 12px;
+    color: var(--k-muted);
   }
 }
 
-.k-admin-tag {
-  padding: 1px 8px;
-  border: 1px solid var(--k-accent);
-  border-radius: 4px;
-  color: var(--k-accent);
-  font-family: $font-score;
-  font-size: 17px;
-  letter-spacing: 0.08em;
+@media (max-width: 860px) {
+  .k-shell {
+    flex-direction: column;
+  }
+  .k-drawer {
+    width: auto;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--k-border);
+
+    &__toggle {
+      display: inline-flex !important;
+    }
+    &__body {
+      display: none;
+    }
+    &--open &__body {
+      display: flex;
+      max-height: calc(100vh - 72px);
+      overflow-y: auto;
+    }
+  }
 }
 
 .k-footer {
