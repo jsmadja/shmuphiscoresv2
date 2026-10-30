@@ -38,7 +38,12 @@
             item-value="id"
             item-text="name"
             outlined
-            :disabled="game.modes.length === 0"
+            :disabled="isNotApplicable('modes')"
+            :class="{ 'not-applicable': isNotApplicable('modes') }"
+            :placeholder="
+              isNotApplicable('modes') ? 'Not applicable' : undefined
+            "
+            :persistent-placeholder="isNotApplicable('modes')"
             :hide-details="hideDetails"
           />
         </v-col>
@@ -51,7 +56,12 @@
             item-value="id"
             item-text="name"
             outlined
-            :disabled="game.difficulties.length === 0"
+            :disabled="isNotApplicable('difficulties')"
+            :class="{ 'not-applicable': isNotApplicable('difficulties') }"
+            :placeholder="
+              isNotApplicable('difficulties') ? 'Not applicable' : undefined
+            "
+            :persistent-placeholder="isNotApplicable('difficulties')"
             :hide-details="hideDetails"
           />
         </v-col>
@@ -65,7 +75,12 @@
             item-text="name"
             outlined
             :hide-details="hideDetails"
-            :disabled="game.ships.length === 0"
+            :disabled="isNotApplicable('ships')"
+            :class="{ 'not-applicable': isNotApplicable('ships') }"
+            :placeholder="
+              isNotApplicable('ships') ? 'Not applicable' : undefined
+            "
+            :persistent-placeholder="isNotApplicable('ships')"
           />
         </v-col>
         <v-col cols="12" lg="4">
@@ -78,7 +93,12 @@
             :rules="settingRules('stages')"
             outlined
             :hide-details="hideDetails"
-            :disabled="game.stages.length === 0"
+            :disabled="isNotApplicable('stages')"
+            :class="{ 'not-applicable': isNotApplicable('stages') }"
+            :placeholder="
+              isNotApplicable('stages') ? 'Not applicable' : undefined
+            "
+            :persistent-placeholder="isNotApplicable('stages')"
           />
         </v-col>
 
@@ -377,6 +397,9 @@ export default Vue.extend({
       this.defaultSettingValue("stages");
   },
   methods: {
+    isNotApplicable(setting: string): boolean {
+      return this.game[setting].length === 0;
+    },
     defaultSettingValue(setting): number | null {
       return this.game[setting].length === 1 ? this.game[setting][0].id : null;
     },
@@ -417,3 +440,22 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.not-applicable {
+  opacity: 0.4;
+
+  ::v-deep fieldset {
+    border-style: dashed;
+    border-color: currentColor !important;
+  }
+
+  ::v-deep .v-input__append-inner {
+    display: none;
+  }
+
+  ::v-deep input::placeholder {
+    font-style: italic;
+  }
+}
+</style>
