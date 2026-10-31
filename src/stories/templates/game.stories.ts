@@ -34,3 +34,34 @@ export const DefaultGame = (): VueStory => ({
     onGoToScore: action("goToScore"),
   },
 });
+
+// The player (id 12) has a score in the first ranking only
+const rankingsWithMyScores = [
+  rankings[0],
+  {
+    ...rankings[0],
+    mode: { id: 2, name: "Arrange" },
+    scores: rankings[0].scores.filter((score) => score.player.id !== 12),
+  },
+];
+
+export const WithMyScores = (): VueStory => ({
+  components: { GameTemplate },
+  template: `
+        <game-template :game="game"
+                       :user="user"
+                       :rankings="rankings"
+                       @goToScore="onGoToScore"
+        />`,
+  data: () => ({
+    game,
+    rankings: rankingsWithMyScores,
+    user: {
+      id: 12,
+      authenticated: true,
+    },
+  }),
+  methods: {
+    onGoToScore: action("goToScore"),
+  },
+});

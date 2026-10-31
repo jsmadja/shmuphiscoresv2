@@ -13,6 +13,17 @@
           <v-icon>{{ isFavorite ? "mdi-star" : "mdi-star-outline" }}</v-icon>
           {{ isFavorite ? "Favourite" : "Add to favourites" }}
         </button>
+        <button
+          v-if="myRankings.length > 0"
+          type="button"
+          class="k-btn k-btn--ghost game-head__mine"
+          :class="{ 'game-head__mine--on': onlyMyScores }"
+          :aria-pressed="onlyMyScores ? 'true' : 'false'"
+          @click="onlyMyScores = !onlyMyScores"
+        >
+          <v-icon>mdi-filter-variant</v-icon>
+          My scores
+        </button>
       </v-col>
     </v-row>
     <v-row>
@@ -37,7 +48,7 @@
         <Ranking
           :ranking="ranking"
           :current-player-id="user.id"
-          v-for="(ranking, i) in rankings"
+          v-for="(ranking, i) in displayedRankings"
           :hide-add-score-button="!user.authenticated"
           :key="`ranking-${i}`"
           :id="`ranking-${i}`"
@@ -58,7 +69,7 @@
       </v-col>
       <v-col v-if="hasRankingMenu" lg="2" class="d-none d-lg-block">
         <ranking-menu
-          :rankings="rankings"
+          :rankings="displayedRankings"
           :intersected-ranking="isIntersecting"
           @goTo="(target) => $vuetify.goTo(target)"
         />
@@ -72,6 +83,7 @@ import Vue from "vue";
 import Ranking from "@/components/organisms/Ranking.vue";
 import GameInformations from "@/components/organisms/GameInformations.vue";
 import RankingMenu from "@/components/organisms/RankingMenu.vue";
+import { Ranking as RankingModel } from "@/models/ranking";
 
 export default Vue.extend({
   name: "Game",
@@ -80,11 +92,29 @@ export default Vue.extend({
   data() {
     return {
       isIntersecting: {},
+      onlyMyScores: false,
     };
   },
   computed: {
     hasRankingMenu(): boolean {
-      return !this.hideRankingMenu && this.rankings.length > 1;
+      return !this.hideRankingMenu && this.displayedRankings.length > 1;
+    },
+    // Rankings the current player is in, keeping only their scores
+    myRankings(): RankingModel[] {
+      if (!this.user || !this.user.authenticated) {
+        return [];
+      }
+      return (this.rankings as RankingModel[])
+        .map((ranking) => ({
+          ...ranking,
+          scores: ranking.scores.filter(
+            (score) => score.player.id === this.user.id
+          ),
+        }))
+        .filter((ranking) => ranking.scores.length > 0);
+    },
+    displayedRankings(): RankingModel[] {
+      return this.onlyMyScores ? this.myRankings : this.rankings;
     },
     intersection: {
       get: function (): Record<string, boolean> {
@@ -127,6 +157,18 @@ h3 {
   flex-wrap: wrap;
   align-items: center;
   gap: 12px 20px;
+
+  &__mine {
+    .v-icon {
+      color: inherit !important;
+    }
+
+    &--on {
+      border-color: var(--k-cta);
+      background: var(--k-cta);
+      color: var(--k-on-cta) !important;
+    }
+  }
 
   &__favorite {
     .v-icon {
