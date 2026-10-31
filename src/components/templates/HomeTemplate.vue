@@ -148,6 +148,24 @@
         </div>
       </section>
 
+      <section
+        v-if="isAuthenticated && hasRecommendations"
+        aria-labelledby="home-recommendations-title"
+      >
+        <div class="k-section-title">
+          <h2 id="home-recommendations-title">Your next runs</h2>
+          <router-link to="/my-recommendations"
+            >All recommendations →</router-link
+          >
+        </div>
+        <recommendation-grid
+          :types="recommendationTypes"
+          :recommendations="myRecommendations"
+          :pending="pendingRecommendations"
+          @goToGame="goToGame"
+        />
+      </section>
+
       <section v-if="isAuthenticated && myLastScores.length > 0">
         <div class="k-section-title">
           <h2>My last scores</h2>
@@ -250,11 +268,13 @@
 import Vue from "vue";
 import moment from "moment";
 import ScoreCard from "../organisms/ScoreCard.vue";
+import RecommendationGrid from "../organisms/RecommendationGrid.vue";
 import { coverUrl } from "@/coverUrl";
+import { recommendationTypes } from "@/models/recommendations";
 
 export default Vue.extend({
   name: "HomeTemplate",
-  components: { ScoreCard },
+  components: { ScoreCard, RecommendationGrid },
   props: {
     myLastScores: { type: Array, default: () => [] },
     lastScores: { type: Array, default: () => [] },
@@ -264,7 +284,10 @@ export default Vue.extend({
     platforms: { type: Array, default: () => [] },
     favoriteGames: { type: Array, default: () => [] },
     favoriteBests: { type: Object, default: () => ({}) },
+    myRecommendations: { type: Object, default: () => ({}) },
+    pendingRecommendations: { type: Array, default: () => [] },
   },
+  data: () => ({ recommendationTypes }),
   computed: {
     screenStyle(): Record<string, string> {
       return {
@@ -274,6 +297,12 @@ export default Vue.extend({
     },
     isAuthenticated(): boolean {
       return !!(this.user && this.user.authenticated);
+    },
+    hasRecommendations(): boolean {
+      return (
+        this.pendingRecommendations.length > 0 ||
+        Object.values(this.myRecommendations).some(Boolean)
+      );
     },
     topPlatforms(): Array<{ title: string; games: number }> {
       return [...(this.platforms as Array<{ title: string; games: number }>)]

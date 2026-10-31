@@ -1,7 +1,7 @@
 <template>
   <my-recommendations-template
     :my-recommendations="myRecommendations"
-    :myRecommendationsLoading="myRecommendationsLoading"
+    :pending-recommendations="pendingRecommendations"
     @goToGame="goToGame"
   />
 </template>
@@ -10,19 +10,30 @@
 import Vue from "vue";
 import { Game } from "@/models/game";
 import MyRecommendationsTemplate from "@/components/templates/MyRecommendationsTemplate.vue";
-import { getMyRecommendations } from "@/repository";
+import { fetchMyRecommendations } from "@/repository";
+import {
+  recommendationTypes,
+  RecommendationType,
+  Recommendations,
+} from "@/models/recommendations";
 
 export default Vue.extend({
   name: "MyRecommendations",
   components: { MyRecommendationsTemplate },
-  async mounted() {
-    this.myRecommendationsLoading = true;
-    this.myRecommendations = await getMyRecommendations();
-    this.myRecommendationsLoading = false;
+  mounted() {
+    fetchMyRecommendations((recommendations, types) => {
+      this.myRecommendations = {
+        ...this.myRecommendations,
+        ...recommendations,
+      };
+      this.pendingRecommendations = this.pendingRecommendations.filter(
+        (type) => !types.includes(type)
+      );
+    });
   },
   data: () => ({
-    myRecommendationsLoading: true,
-    myRecommendations: {},
+    pendingRecommendations: [...recommendationTypes] as RecommendationType[],
+    myRecommendations: {} as Partial<Recommendations>,
   }),
   methods: {
     goToGame(game: Game) {

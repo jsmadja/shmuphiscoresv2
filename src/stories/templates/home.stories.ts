@@ -4,6 +4,7 @@ import HomeTemplate from "../../../src/components/templates/HomeTemplate.vue";
 import superadmin from "../data/user.superadmin";
 import lastScores from "../data/last-scores";
 import myLastScores from "../data/my-last-scores";
+import myRecommendations from "../data/my-recommendations";
 
 export default {
   title: "Template/Home",
@@ -88,3 +89,36 @@ export const DefaultAuthenticatedTemplate = (): VueStory => ({
   }),
   methods,
 });
+
+export const AuthenticatedWithRecommendationsLoadingTemplate =
+  (): VueStory => ({
+    components: { HomeTemplate },
+    template: `<home-template :my-last-scores="myLastScores"
+                     :user="user"
+                     :last-scores="lastScores"
+                     :last-scores-loading="lastScoresLoading"
+                     :my-last-scores-loading="myLastScoresLoading"
+                     :my-recommendations="myRecommendations"
+                     :pending-recommendations="pendingRecommendations"
+                      @goToGame="goToGame"
+                      @goToPlatform="goToPlatform"
+                      @goToPlayer="goToPlayer"
+                      @addScore="addScore"
+                      @editScore="editScore"
+                      @goToScore="goToScore"
+    />`,
+    data: () => ({
+      user: superadmin,
+      myLastScores,
+      lastScores,
+      lastScoresLoading: false,
+      myLastScoresLoading: false,
+      myRecommendations: {
+        ...myRecommendations,
+        nearestScoredGame: undefined,
+        farestScoredGame: undefined,
+      },
+      pendingRecommendations: ["nearestScoredGame", "farestScoredGame"],
+    }),
+    methods,
+  });

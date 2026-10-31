@@ -5,7 +5,7 @@ import { Game } from "./models/game";
 import { Platform, Ranking } from "@/models/ranking";
 import { Score } from "@/models/score";
 import { Player } from "@/models/player";
-import { Recommendations } from "@/models/recommendations";
+import { RecommendationType, Recommendations } from "@/models/recommendations";
 import { GameConfigurationOption } from "@/store";
 
 export async function getScoresByPlayer(playerId: number): Promise<Score[]> {
@@ -22,8 +22,50 @@ export async function getScoresByShmupPlayer(
   );
 }
 
-export async function getMyRecommendations(): Promise<Recommendations> {
-  return fetch(`${api}/me/recommendations`).then((response) => response.json());
+// Each recommendation type has its own endpoint, so that the fast ones are not
+// held back by the slow ones. Nearest and farest scored games share theirs as
+// they are computed together.
+const recommendationEndpoints: Array<{
+  path: string;
+  types: RecommendationType[];
+}> = [
+  { path: "unplayed-mode", types: ["unplayedMode"] },
+  { path: "unplayed-difficulty", types: ["unplayedDifficulty"] },
+  { path: "unplayed-game", types: ["unplayedGame"] },
+  { path: "oldest-scored-game", types: ["oldestScoredGame"] },
+  { path: "latest-scored-game", types: ["latestScoredGame"] },
+  { path: "score-gaps", types: ["nearestScoredGame", "farestScoredGame"] },
+];
+
+async function getMyRecommendationsFrom(endpoint: {
+  path: string;
+  types: RecommendationType[];
+}): Promise<Partial<Recommendations>> {
+  const response = await fetch(`${api}/me/recommendations/${endpoint.path}`);
+  // A missing recommendation comes back as an empty body
+  const text = response.ok ? await response.text() : "";
+  const body = text ? JSON.parse(text) : null;
+  if (endpoint.types.length === 1) {
+    return body ? { [endpoint.types[0]]: body } : {};
+  }
+  return body || {};
+}
+
+/**
+ * Fetches every recommendation type in parallel, calling onLoaded as soon as
+ * each one answers, with the types it settled (found or not).
+ */
+export function fetchMyRecommendations(
+  onLoaded: (
+    recommendations: Partial<Recommendations>,
+    types: RecommendationType[]
+  ) => void
+): void {
+  recommendationEndpoints.forEach((endpoint) =>
+    getMyRecommendationsFrom(endpoint)
+      .catch(() => ({}))
+      .then((recommendations) => onLoaded(recommendations, endpoint.types))
+  );
 }
 
 export async function fetchUser(): Promise<Player> {

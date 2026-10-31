@@ -8,6 +8,8 @@
     :platforms="platforms"
     :favoriteGames="favoriteGames"
     :favoriteBests="favoriteBests"
+    :myRecommendations="myRecommendations"
+    :pendingRecommendations="pendingRecommendations"
     @goToGame="goToGame"
     @goToPlatform="goToPlatform"
     @goToPlayer="goToPlayer"
@@ -24,8 +26,13 @@ import HomeTemplate from "@/components/templates/HomeTemplate.vue";
 import { mapGetters } from "vuex";
 import Vue from "vue";
 import { goToScore } from "@/router/routes";
-import { getScoresByPlayer } from "@/repository";
+import { fetchMyRecommendations, getScoresByPlayer } from "@/repository";
 import { Score } from "@/models/score";
+import {
+  recommendationTypes,
+  RecommendationType,
+  Recommendations,
+} from "@/models/recommendations";
 
 function defaultSetting(setting) {
   if (setting && setting.id) {
@@ -42,6 +49,9 @@ export default Vue.extend({
   data: () => ({
     lastScoresLoading: true,
     myScores: [] as Score[],
+    recommendationsRequested: false,
+    myRecommendations: {} as Partial<Recommendations>,
+    pendingRecommendations: [] as RecommendationType[],
   }),
   created() {
     this.$store
@@ -78,6 +88,9 @@ export default Vue.extend({
     user: {
       immediate: true,
       async handler(user) {
+        if (user && user.authenticated) {
+          this.loadRecommendations();
+        }
         if (user && user.authenticated && this.favoriteGames.length > 0) {
           this.myScores = await getScoresByPlayer(user.id);
         }
@@ -85,6 +98,22 @@ export default Vue.extend({
     },
   },
   methods: {
+    loadRecommendations() {
+      if (this.recommendationsRequested) {
+        return;
+      }
+      this.recommendationsRequested = true;
+      this.pendingRecommendations = [...recommendationTypes];
+      fetchMyRecommendations((recommendations, types) => {
+        this.myRecommendations = {
+          ...this.myRecommendations,
+          ...recommendations,
+        };
+        this.pendingRecommendations = this.pendingRecommendations.filter(
+          (type) => !types.includes(type)
+        );
+      });
+    },
     goToGame(game) {
       this.$router.push(`/games/${game.id}`);
     },
