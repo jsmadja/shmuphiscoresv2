@@ -24,6 +24,16 @@
 
     <nav v-if="!search" aria-label="Jump to letter" class="k-letters">
       <button
+        v-if="showAll"
+        type="button"
+        class="k-letters__item k-letters__item--all"
+        :class="{ 'k-letters__item--current': currentLetter === ALL }"
+        :aria-pressed="currentLetter === ALL ? 'true' : 'false'"
+        @click="selectLetter(ALL)"
+      >
+        All
+      </button>
+      <button
         v-for="l in letters"
         :key="l.label"
         type="button"
@@ -38,7 +48,9 @@
     </nav>
 
     <h2 class="k-page__group">
-      {{ search ? `“${search}”` : currentLetter }}
+      {{
+        search ? `“${search}”` : currentLetter === ALL ? "All" : currentLetter
+      }}
       <span class="k-page__group-count">· {{ filtered.length }} games</span>
     </h2>
 
@@ -89,6 +101,7 @@ import { coverUrl } from "@/coverUrl";
 
 const SESSION_STORAGE_GAME_SEARCH = "game-search";
 const LETTERS = "#ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+const ALL = "ALL";
 
 interface GameItem {
   id: number;
@@ -111,6 +124,8 @@ export default Vue.extend({
     games: { type: Array, default: () => [] },
     loading: Boolean,
     rememberSearch: { type: Boolean, default: true },
+    // Adds an "All" entry to the letters, selected by default
+    showAll: Boolean,
   },
   data() {
     return {
@@ -121,6 +136,7 @@ export default Vue.extend({
         "",
       letter: "",
       limit: 48,
+      ALL,
     };
   },
   computed: {
@@ -144,6 +160,9 @@ export default Vue.extend({
       if (this.letter) {
         return this.letter;
       }
+      if (this.showAll) {
+        return ALL;
+      }
       const first = this.letters.find((l) => l.count > 0 && l.label !== "#");
       return first ? first.label : "A";
     },
@@ -153,9 +172,15 @@ export default Vue.extend({
         const q = this.search.toLowerCase();
         return games.filter((g) => g.title.toLowerCase().includes(q));
       }
+      if (this.currentLetter === ALL) {
+        return games;
+      }
       return games.filter((g) => letterOf(g.title) === this.currentLetter);
     },
     visible(): GameItem[] {
+      if (!this.search && this.currentLetter === ALL) {
+        return this.filtered;
+      }
       return this.filtered.slice(0, this.limit);
     },
   },

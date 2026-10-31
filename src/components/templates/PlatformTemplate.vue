@@ -6,6 +6,7 @@
     :games="games"
     :loading="loading"
     :remember-search="false"
+    show-all
     @selectGame="(game) => $emit('selectGame', game)"
   />
 </template>

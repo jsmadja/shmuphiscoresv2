@@ -398,6 +398,10 @@
       border-color: var(--k-cta);
       color: var(--k-on-cta);
     }
+
+    &--all {
+      padding: 0 12px;
+    }
   }
 
   &__count {
