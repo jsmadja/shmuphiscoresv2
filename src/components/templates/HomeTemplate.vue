@@ -162,7 +162,9 @@
           :types="recommendationTypes"
           :recommendations="myRecommendations"
           :pending="pendingRecommendations"
+          :favorite-game-ids="favoriteGames.map((game) => game.id)"
           @goToGame="goToGame"
+          @toggleFavorite="$emit('toggleFavorite', $event)"
         />
       </section>
 

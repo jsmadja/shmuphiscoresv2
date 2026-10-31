@@ -1,5 +1,19 @@
 <template>
   <article class="reco-card k-panel">
+    <button
+      v-if="favorite !== null"
+      type="button"
+      class="k-btn k-btn--ghost k-btn--icon reco-card__star"
+      :aria-pressed="favorite ? 'true' : 'false'"
+      :aria-label="
+        favorite
+          ? `Remove ${game.title} from favourites`
+          : `Add ${game.title} to favourites`
+      "
+      @click="$emit('toggleFavorite', game)"
+    >
+      <v-icon>{{ favorite ? "mdi-star" : "mdi-star-outline" }}</v-icon>
+    </button>
     <img
       v-if="game.cover"
       :src="coverUrl(game.cover)"
@@ -37,7 +51,13 @@ import { coverUrl } from "@/coverUrl";
 
 export default Vue.extend({
   name: "RecommendationCard",
-  props: ["title", "content", "game"],
+  props: {
+    title: String,
+    content: String,
+    game: { type: Object, required: true },
+    // Whether the game is a favourite; null hides the favourite button
+    favorite: { type: Boolean, default: null },
+  },
   computed: {
     initials(): string {
       return (this.game.title || "")
@@ -59,6 +79,7 @@ export default Vue.extend({
 @import "../../custom.scss";
 
 .reco-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -77,6 +98,18 @@ export default Vue.extend({
       font-family: $font-score;
       font-size: 64px;
       color: var(--k-accent);
+    }
+  }
+
+  &__star {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--k-header);
+    color: var(--k-accent) !important;
+
+    .v-icon {
+      color: inherit !important;
     }
   }
 

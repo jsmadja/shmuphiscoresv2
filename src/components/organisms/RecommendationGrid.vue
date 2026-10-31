@@ -12,7 +12,13 @@
         :title="cards[type].title"
         :content="cards[type].content(recommendations[type])"
         :game="recommendations[type].game"
+        :favorite="
+          favoriteGameIds
+            ? favoriteGameIds.includes(recommendations[type].game.id)
+            : null
+        "
         @goToGame="$emit('goToGame', $event)"
+        @toggleFavorite="$emit('toggleFavorite', $event)"
       />
     </template>
   </div>
@@ -43,11 +49,6 @@ const cards: Record<
     title: "Discover a new game",
     content: (r) => `Add your first score on ${r.game.title}.`,
   },
-  oldestScoredGame: {
-    title: "Long time no see",
-    content: (r) =>
-      `Remember, you've scored it, long time ago ... ${r.game.title}.`,
-  },
   latestScoredGame: {
     title: "Try again, do your best",
     content: (r) => `Keep going on ${r.game.title}.`,
@@ -71,6 +72,11 @@ export default Vue.extend({
     recommendations: {
       type: Object as PropType<Partial<Recommendations>>,
       default: () => ({}),
+    },
+    // Ids of the favourite games; null hides the favourite buttons
+    favoriteGameIds: {
+      type: Array as PropType<number[]>,
+      default: null,
     },
     // Types still loading, shown as skeletons
     pending: {

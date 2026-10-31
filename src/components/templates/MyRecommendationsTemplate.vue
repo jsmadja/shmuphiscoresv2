@@ -37,12 +37,7 @@ const allGroups: Array<{ title: string; types: RecommendationType[] }> = [
   },
   {
     title: "Climb the leaderboards",
-    types: [
-      "oldestScoredGame",
-      "latestScoredGame",
-      "nearestScoredGame",
-      "farestScoredGame",
-    ],
+    types: ["latestScoredGame", "nearestScoredGame", "farestScoredGame"],
   },
 ];
 

@@ -32,7 +32,6 @@ const recommendationEndpoints: Array<{
   { path: "unplayed-mode", types: ["unplayedMode"] },
   { path: "unplayed-difficulty", types: ["unplayedDifficulty"] },
   { path: "unplayed-game", types: ["unplayedGame"] },
-  { path: "oldest-scored-game", types: ["oldestScoredGame"] },
   { path: "latest-scored-game", types: ["latestScoredGame"] },
   { path: "score-gaps", types: ["nearestScoredGame", "farestScoredGame"] },
 ];

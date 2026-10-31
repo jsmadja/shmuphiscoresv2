@@ -100,12 +100,14 @@ export const AuthenticatedWithRecommendationsLoadingTemplate =
                      :my-last-scores-loading="myLastScoresLoading"
                      :my-recommendations="myRecommendations"
                      :pending-recommendations="pendingRecommendations"
+                     :favorite-games="favoriteGames"
                       @goToGame="goToGame"
                       @goToPlatform="goToPlatform"
                       @goToPlayer="goToPlayer"
                       @addScore="addScore"
                       @editScore="editScore"
                       @goToScore="goToScore"
+                      @toggleFavorite="toggleFavorite"
     />`,
     data: () => ({
       user: superadmin,
@@ -119,6 +121,7 @@ export const AuthenticatedWithRecommendationsLoadingTemplate =
         farestScoredGame: undefined,
       },
       pendingRecommendations: ["nearestScoredGame", "farestScoredGame"],
+      favoriteGames: [myRecommendations.unplayedMode.game],
     }),
     methods,
   });
