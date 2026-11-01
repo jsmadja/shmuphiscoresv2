@@ -20,11 +20,11 @@ export interface Recommendations {
 export type RecommendationType = keyof Recommendations;
 
 export const recommendationTypes: RecommendationType[] = [
+  "predictedGame",
+  "unplayedGame",
+  "latestScoredGame",
   "unplayedMode",
   "unplayedDifficulty",
-  "unplayedGame",
-  "predictedGame",
-  "latestScoredGame",
   "nearestScoredGame",
   "farestScoredGame",
 ];

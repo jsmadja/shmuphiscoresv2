@@ -35,9 +35,9 @@ const allGroups: Array<{ title: string; types: RecommendationType[] }> = [
     title: "Expand your collection",
     types: [
       "predictedGame",
+      "unplayedGame",
       "unplayedMode",
       "unplayedDifficulty",
-      "unplayedGame",
     ],
   },
   {
