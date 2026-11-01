@@ -33,6 +33,14 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## Deployment
+The site is hosted on Heroku (app `shmuphiscoresv2`): every push on `master` is deployed automatically.
+Deploy the backend first when the front relies on a new API endpoint.
+
+```
+git push origin master
+```
+
 ## Heroku configuration
 ```
 heroku login
