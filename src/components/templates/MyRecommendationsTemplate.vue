@@ -33,7 +33,12 @@ import { RecommendationType, Recommendations } from "@/models/recommendations";
 const allGroups: Array<{ title: string; types: RecommendationType[] }> = [
   {
     title: "Expand your collection",
-    types: ["unplayedMode", "unplayedDifficulty", "unplayedGame"],
+    types: [
+      "predictedGame",
+      "unplayedMode",
+      "unplayedDifficulty",
+      "unplayedGame",
+    ],
   },
   {
     title: "Climb the leaderboards",

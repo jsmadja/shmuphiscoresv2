@@ -11,6 +11,7 @@ export interface Recommendations {
   unplayedMode: Recommendation;
   unplayedDifficulty: Recommendation;
   unplayedGame: Recommendation;
+  predictedGame: Recommendation;
   latestScoredGame: Recommendation;
   nearestScoredGame: Recommendation;
   farestScoredGame: Recommendation;
@@ -22,6 +23,7 @@ export const recommendationTypes: RecommendationType[] = [
   "unplayedMode",
   "unplayedDifficulty",
   "unplayedGame",
+  "predictedGame",
   "latestScoredGame",
   "nearestScoredGame",
   "farestScoredGame",

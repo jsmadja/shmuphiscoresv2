@@ -509,6 +509,23 @@ export default {
       ],
     },
   },
+  predictedGame: {
+    game: {
+      id: 281,
+      createdAt: "2014-12-04T17:21:45.000+00:00",
+      thread: "http://forum.shmup.com/viewtopic.php?t=8223...",
+      cover: "/covers/281.jpg",
+      title: "Raiden",
+      platforms: [
+        { id: 673, createdAt: "2014-12-04T17:21:45.000+00:00", name: "PCB" },
+        { id: 674, createdAt: "2014-12-04T17:21:45.000+00:00", name: "MAME" },
+      ],
+      difficulties: [],
+      modes: [],
+      ships: [],
+      stages: [],
+    },
+  },
   latestScoredGame: {
     game: {
       id: 365,

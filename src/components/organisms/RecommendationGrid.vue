@@ -49,6 +49,11 @@ const cards: Record<
     title: "Discover a new game",
     content: (r) => `Add your first score on ${r.game.title}.`,
   },
+  predictedGame: {
+    title: "Players like you love it",
+    content: (r) =>
+      `Players sharing your games also play ${r.game.title}, give it a try.`,
+  },
   latestScoredGame: {
     title: "Try again, do your best",
     content: (r) => `Keep going on ${r.game.title}.`,
